@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fagan Property Services – Homepage Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#EE925A;
+    --orange-dark:#D6773D;
+    --slate:#5F6E72;
+    --ink:#2B3436;
+    --muted:#6B7578;
+    --paper:#FFFFFF;
+    --stone:#F5F2EE;
+    --line:#E4DFD8;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Inter', system-ui, -apple-system, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* concept banner */
+  .concept{background:var(--ink);color:#fff;font-size:13px;text-align:center;padding:8px 16px;letter-spacing:.02em}
+  .concept strong{color:var(--orange)}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .mark{display:grid;grid-template-columns:repeat(3,16px);grid-template-rows:repeat(3,16px);gap:2px}
+  .mark span{background:var(--orange);color:#fff;font-family:var(--serif);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;line-height:1}
+  .mark .f{grid-column:1;grid-row:1}.mark .p{grid-column:2;grid-row:2}.mark .s{grid-column:3;grid-row:3}
+  .brand-text{font-family:var(--serif);line-height:1}
+  .brand-text b{display:block;font-size:28px;color:var(--slate);font-weight:600}
+  .brand-text small{display:block;font-size:14px;color:var(--slate);font-weight:600;letter-spacing:.02em}
+  .links{display:flex;gap:28px;font-size:15px;font-weight:500}
+  .links a{text-decoration:none;color:var(--muted)}
+  .links a:hover{color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border:0;border-radius:4px;cursor:pointer;font-family:var(--sans)}
+  .btn:hover{background:var(--orange-dark)}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:#fff}
+
+  /* hero */
+  .hero{background:var(--stone);padding:88px 0 96px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-60px;top:40px;width:340px;height:340px;
+    background:
+      linear-gradient(var(--orange),var(--orange)) 0 0/100px 100px no-repeat,
+      linear-gradient(var(--orange),var(--orange)) 120px 120px/100px 100px no-repeat,
+      linear-gradient(var(--orange),var(--orange)) 240px 240px/100px 100px no-repeat;
+    opacity:.14}
+  .eyebrow{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-dark)}
+  .hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(40px,6vw,68px);line-height:1.05;margin:16px 0 20px;max-width:680px;color:var(--ink)}
+  .hero p{font-size:18px;color:var(--muted);max-width:560px;margin-bottom:32px}
+  .hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .trust{display:flex;gap:28px;flex-wrap:wrap;margin-top:44px;font-size:14px;color:var(--muted)}
+  .trust div{display:flex;align-items:center;gap:8px}
+  .trust b{color:var(--ink)}
+  .dot{width:8px;height:8px;background:var(--orange);display:inline-block}
+
+  section{padding:88px 0}
+  .head{max-width:620px;margin-bottom:48px}
+  .head h2{font-family:var(--serif);font-weight:600;font-size:clamp(32px,4vw,44px);line-height:1.1;margin:10px 0 12px}
+  .head p{color:var(--muted)}
+
+  /* services */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .svc{background:#fff;padding:32px 28px}
+  .svc .n{font-family:var(--serif);font-size:15px;color:var(--orange-dark);font-weight:700}
+  .svc h3{font-family:var(--serif);font-size:26px;font-weight:600;margin:6px 0 8px}
+  .svc p{color:var(--muted);font-size:15px}
+
+  /* process */
+  .process{background:var(--ink);color:#fff}
+  .process .head p{color:#B9C2C4}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .step{border-top:3px solid var(--orange);padding-top:18px}
+  .step b{font-family:var(--serif);font-size:24px;font-weight:600;display:block;margin-bottom:6px}
+  .step p{color:#B9C2C4;font-size:15px}
+
+  /* work */
+  .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:12px}
+  .ph{background:repeating-linear-gradient(135deg,#EFEAE3 0 14px,#F6F2EC 14px 28px);border:1px dashed #CFC6BA;display:flex;align-items:flex-end;padding:14px;font-size:13px;color:var(--muted);position:relative}
+  .ph b{color:var(--ink);display:block;font-size:15px}
+  .ph.big{grid-row:span 2}
+  .note{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
+
+  /* reviews */
+  .reviews{background:var(--stone)}
+  .rev-wrap{display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:start}
+  .score{background:#fff;border:1px solid var(--line);padding:32px;text-align:center}
+  .score .big{font-family:var(--serif);font-size:72px;font-weight:700;color:var(--orange-dark);line-height:1}
+  .score p{color:var(--muted);font-size:15px;margin-top:8px}
+  .quotes{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .quote{background:#fff;border:1px dashed #CFC6BA;padding:24px;color:var(--muted);font-size:15px}
+  .quote .q{font-family:var(--serif);font-size:40px;color:var(--orange);line-height:.6;display:block;margin-bottom:8px}
+
+  /* areas */
+  .areas{display:flex;flex-wrap:wrap;gap:10px}
+  .area{border:1.5px solid var(--slate);padding:10px 18px;font-weight:500;color:var(--slate)}
+  .area.home{background:var(--slate);color:#fff}
+
+  /* quote form */
+  .contact{background:var(--stone)}
+  .contact-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
+  .details div{margin-bottom:22px}
+  .details small{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .details a,.details span{font-size:19px;font-weight:500;text-decoration:none;color:var(--ink);word-break:break-word}
+  form{background:#fff;border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  form .full{grid-column:1/-1}
+  label{font-size:13px;font-weight:600;display:block;margin-bottom:6px}
+  input,select,textarea{width:100%;font:inherit;font-size:15px;padding:12px;border:1px solid #D4CDC3;border-radius:3px;background:#fff;color:var(--ink)}
+  textarea{min-height:110px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--orange);border-color:var(--orange)}
+  .sent{grid-column:1/-1;background:#FDF1E9;border-left:3px solid var(--orange);padding:12px 14px;font-size:14px;display:none}
+
+  footer{background:var(--ink);color:#B9C2C4;padding:36px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  .callbar{display:none}
+
+  @media (max-width:860px){
+    .links{display:none}
+    .grid{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .rev-wrap,.contact-wrap{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px 180px}
+    .ph.big{grid-column:span 2;grid-row:auto}
+  }
+  @media (max-width:560px){
+    section{padding:64px 0}
+    .hero{padding:56px 0 64px}
+    .hero::after{display:none}
+    .grid,.steps,.quotes{grid-template-columns:1fr}
+    form{grid-template-columns:1fr;padding:22px}
+    .nav .btn{display:none}
+    .brand-text b{font-size:24px}
+    .callbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:20;gap:1px;background:var(--line)}
+    .callbar a{flex:1;text-align:center;padding:15px;font-weight:600;text-decoration:none;background:var(--orange);color:#fff}
+    .callbar a.alt{background:var(--ink)}
+    body{padding-bottom:54px}
+  }
+</style>
+</head>
+<body>
+
+<div class="concept"><strong>Concept preview</strong> · A proposed homepage for Fagan Property Services · Not a live website</div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand" aria-label="Fagan Property Services">
+      <div class="mark" aria-hidden="true"><span class="f">F</span><span class="p">P</span><span class="s">S</span></div>
+      <div class="brand-text"><b>Fagan</b><small>Property Services</small></div>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Our work</a>
+      <a href="#areas">Areas</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="tel:07834665968" class="btn">Call 07834 665968</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Builders · Bicester, Oxfordshire</div>
+    <h1>General building, from design to completion.</h1>
+    <p>Renovations, extensions, kitchens, bathrooms and shop fitting, plus ongoing property maintenance. One team that sees your project through from the first drawing to the final finish.</p>
+    <div class="ctas">
+      <a href="#contact" class="btn">Request a quote</a>
+      <a href="#work" class="btn ghost">See our work</a>
+    </div>
+    <div class="trust">
+      <div><span class="dot"></span><b>90%</b>&nbsp;recommend us on Facebook</div>
+      <div><span class="dot"></span>Covering <b>&nbsp;Oxon, Berks, Bucks &amp; Northants</b></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">What we do</div>
+      <h2>Building work for homes and businesses</h2>
+      <p>Whether it's one room or a whole property, we handle the work end to end.</p>
+    </div>
+    <div class="grid">
+      <div class="svc"><div class="n">01</div><h3>Renovations</h3><p>Bringing tired properties back to life, from refreshes to full refurbishments.</p></div>
+      <div class="svc"><div class="n">02</div><h3>Extensions</h3><p>More space without moving, planned and built around how you live.</p></div>
+      <div class="svc"><div class="n">03</div><h3>Kitchens</h3><p>Complete kitchen installations, from strip-out to the finishing touches.</p></div>
+      <div class="svc"><div class="n">04</div><h3>Bathrooms</h3><p>New bathrooms and en-suites, fitted, tiled and finished.</p></div>
+      <div class="svc"><div class="n">05</div><h3>Shop fitting</h3><p>Commercial fit-outs that get your premises open and looking right.</p></div>
+      <div class="svc"><div class="n">06</div><h3>Property maintenance</h3><p>Reliable upkeep and repairs for landlords, managers and homeowners.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow" style="color:var(--orange)">How it works</div>
+      <h2>Design to completion, in four steps</h2>
+      <p>One point of contact the whole way through.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>1. Talk it through</b><p>Call or send the form and tell us what you have in mind.</p></div>
+      <div class="step"><b>2. Visit &amp; quote</b><p>We look at the space and give you a clear, written quote.</p></div>
+      <div class="step"><b>3. Build</b><p>Our team carries out the work and keeps you updated.</p></div>
+      <div class="step"><b>4. Finish</b><p>We complete, tidy up and make sure you're happy.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Recent work</div>
+      <h2>Projects across the region</h2>
+      <p>Before-and-after photos are what win the next job.</p>
+    </div>
+    <div class="gallery">
+      <div class="ph big"><div><b>Bathroom refit</b>Your Facebook project photos go here</div></div>
+      <div class="ph"><div><b>Kitchen</b>Photo</div></div>
+      <div class="ph"><div><b>Extension</b>Photo</div></div>
+      <div class="ph"><div><b>Renovation</b>Photo</div></div>
+      <div class="ph"><div><b>Shop fit-out</b>Photo</div></div>
+    </div>
+    <p class="note">Placeholders: the live site would use your existing project photos from Facebook.</p>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="wrap rev-wrap">
+    <div class="score">
+      <div class="big">90%</div>
+      <p>of reviewers recommend Fagan Property Services on Facebook</p>
+    </div>
+    <div class="quotes">
+      <div class="quote"><span class="q">“</span>Your real customer reviews appear here, pulled from Facebook and Google.</div>
+      <div class="quote"><span class="q">“</span>A second review, with the customer's first name and town.</div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Where we work</div>
+      <h2>Based in Bicester, working across four counties</h2>
+    </div>
+    <div class="areas">
+      <div class="area home">Bicester</div>
+      <div class="area">Oxfordshire</div>
+      <div class="area">Berkshire</div>
+      <div class="area">Buckinghamshire</div>
+      <div class="area">Northamptonshire</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap contact-wrap">
+    <div>
+      <div class="head" style="margin-bottom:32px">
+        <div class="eyebrow">Get in touch</div>
+        <h2>Request a quote</h2>
+        <p>Tell us about your project and we'll get back to you.</p>
+      </div>
+      <div class="details">
+        <div><small>Mobile</small><a href="tel:07834665968">07834 665968</a></div>
+        <div><small>Office</small><a href="tel:01869323426">01869 323426</a></div>
+        <div><small>Email</small><a href="mailto:faganpropertyservices@outlook.com">faganpropertyservices@outlook.com</a></div>
+        <div><small>Based in</small><span>Bicester, Oxfordshire</span></div>
+      </div>
+    </div>
+    <form id="qf">
+      <div><label for="n">Name</label><input id="n" type="text"></div>
+      <div><label for="p">Phone</label><input id="p" type="tel"></div>
+      <div class="full"><label for="t">Type of work</label>
+        <select id="t"><option>Renovation</option><option>Extension</option><option>Kitchen</option><option>Bathroom</option><option>Shop fitting</option><option>Property maintenance</option><option>Something else</option></select>
+      </div>
+      <div class="full"><label for="pc">Postcode</label><input id="pc" type="text"></div>
+      <div class="full"><label for="m">About your project</label><textarea id="m"></textarea></div>
+      <div class="full"><button class="btn" type="submit">Send enquiry</button></div>
+      <div class="sent" id="sent">Concept preview: on the live site, this enquiry would arrive straight in your inbox.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Fagan Property Services · Bicester, Oxfordshire</span>
+    <span>Concept homepage, prepared for discussion</span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a href="tel:07834665968">Call now</a>
+  <a href="#contact" class="alt">Get a quote</a>
+</div>
+
+<script>
+  document.getElementById('qf').addEventListener('submit',function(e){
+    e.preventDefault();
+    document.getElementById('sent').style.display='block';
+  });
+</script>
+</body>
+</html>
