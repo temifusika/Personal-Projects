@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nails Birmingham Fort Shopping Park – Website Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: name-led hero with booking card beside it, services price list, reviews, hours + visit. Theme switches barber vs salon. */
+:root{
+  --bg:#EEF0EF;--surface:#FFFFFF;--ink:#13262E;--muted:#55646A;--line:#D3D9D8;--accent:#B5823A;--accent-ink:#13262E;
+  --stripe-a:#A8322D;--stripe-b:#FFFFFF;--stripe-c:#1F3F7A;
+  --display:'Big Shoulders Display',Impact,sans-serif;--display-case:uppercase;--display-weight:800;--display-track:.01em;
+  --body:'Work Sans',system-ui,sans-serif;
+}
+body.salon{
+  --bg:#F5F0F1;--ink:#2E1F2A;--muted:#6B5A64;--line:#E2D6DA;--accent:#B4637A;--accent-ink:#FFFFFF;
+  --stripe-a:#B4637A;--stripe-b:#F5F0F1;--stripe-c:#B4637A;
+  --display:'Bodoni Moda',Didot,Georgia,serif;--display-case:none;--display-weight:500;--display-track:-.01em;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+.concept{background:var(--ink);color:#EDEFEF;font-size:13.5px;text-align:center;padding:9px 16px}
+.concept b{color:var(--accent);font-weight:600}
+body.salon .concept b{color:#F0B9C6}
+.pole{height:8px;background:repeating-linear-gradient(-45deg,var(--stripe-a) 0 12px,var(--stripe-b) 12px 24px,var(--stripe-c) 24px 36px,var(--stripe-b) 36px 48px)}
+body.salon .pole{height:3px;background:var(--accent)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{font-family:var(--display);text-transform:var(--display-case);font-weight:var(--display-weight);font-size:26px;letter-spacing:var(--display-track);text-decoration:none;line-height:1}
+nav{display:flex;gap:26px;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 15.5px/1 var(--body);padding:15px 22px;border-radius:3px;border:0;cursor:pointer;text-decoration:none}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+
+.hero{padding:clamp(40px,7vw,84px) 0 clamp(48px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.kicker{font-weight:600;color:var(--muted);font-size:15px}
+.hero h1{font-family:var(--display);text-transform:var(--display-case);font-weight:var(--display-weight);letter-spacing:var(--display-track);font-size:clamp(52px,9vw,112px);line-height:.92;margin:14px 0 22px;text-wrap:balance}
+body.salon .hero h1{line-height:1;font-size:clamp(46px,7.5vw,92px)}
+.stars{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.stars .score{font-family:var(--display);font-weight:var(--display-weight);font-size:44px;line-height:1}
+.stars .row{color:var(--accent);font-size:20px;letter-spacing:2px}
+.stars small{display:block;color:var(--muted);font-size:14px}
+.hero p.lede{font-size:18px;color:var(--muted);max-width:44ch;margin-bottom:28px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+.book{background:var(--surface);border:1px solid var(--line);padding:24px;border-top:5px solid var(--accent)}
+.book h2{font-family:var(--display);text-transform:var(--display-case);font-weight:var(--display-weight);font-size:30px;line-height:1;margin-bottom:16px}
+.book label{display:block;font-size:13.5px;font-weight:600;margin:14px 0 7px}
+.book select,.book input{width:100%;font:inherit;font-size:16px;padding:11px 12px;border:1.5px solid var(--line);border-radius:3px;background:var(--bg);color:var(--ink)}
+.days,.times{display:flex;gap:6px;flex-wrap:wrap}
+.days button,.times button{font:inherit;font-size:14px;padding:9px 11px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);border-radius:3px;cursor:pointer;min-width:52px;line-height:1.2}
+.days button small{display:block;font-size:11.5px;color:var(--muted)}
+.days button[aria-pressed="true"],.times button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.days button[aria-pressed="true"] small{color:inherit}
+.times button:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.book .btn{width:100%;margin-top:18px}
+.note{display:none;margin-top:14px;font-size:14px;background:var(--bg);border-left:4px solid var(--accent);padding:12px 14px}
+.note.show{display:block}
+
+section{padding:clamp(56px,8vw,96px) 0}
+.alt{background:var(--surface)}
+h2.sec{font-family:var(--display);text-transform:var(--display-case);font-weight:var(--display-weight);letter-spacing:var(--display-track);font-size:clamp(38px,5vw,60px);line-height:1;margin-bottom:10px}
+.secsub{color:var(--muted);margin-bottom:34px;max-width:56ch}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:0 56px}
+.item{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+.item b{font-weight:600;font-size:17.5px}
+.item span{flex:1;border-bottom:2px dotted var(--line);transform:translateY(-5px)}
+.item em{font-style:normal;font-family:var(--display);font-weight:var(--display-weight);font-size:24px;font-variant-numeric:tabular-nums}
+.item small{display:block;color:var(--muted);font-size:13.5px;font-weight:400}
+.sample{margin-top:16px;font-size:13.5px;color:var(--muted)}
+
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.reviews figure{border-top:3px solid var(--accent);padding-top:18px}
+.reviews blockquote{font-size:17px;line-height:1.55}
+body.salon .reviews blockquote{font-family:var(--display);font-style:italic;font-size:20px;line-height:1.4}
+.reviews figcaption{margin-top:12px;font-size:13.5px;color:var(--muted)}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:10px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{font-weight:700}
+.hours tr.today td:first-child::after{content:" · today";font-weight:500;color:var(--accent)}
+.info div{margin-bottom:20px}
+.info small{display:block;font-size:13.5px;color:var(--muted)}
+.info a,.info span{font-size:20px;font-weight:500;text-decoration:none}
+
+footer{background:var(--ink);color:#C9D0D2;padding:30px 0;font-size:14px}
+body.salon footer{color:#E6D9DF}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bar{display:none}
+@media (max-width:900px){
+  nav{display:none}
+  .hero .wrap,.visit{grid-template-columns:1fr}
+  .menu{grid-template-columns:1fr}
+  .reviews{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  header .btn{display:none}
+  body{padding-bottom:58px}
+  .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:20}
+  .bar a{padding:17px;text-align:center;font-weight:600;text-decoration:none;background:var(--accent);color:var(--accent-ink)}
+  .bar a+a{background:var(--ink);color:var(--bg)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="concept"><b>Concept preview.</b> A proposed website for Nails Birmingham Fort Shopping Park, made by Temi Fusika. Not their live site.</div>
+<div class="pole" aria-hidden="true"></div>
+<header><div class="wrap">
+  <a class="logo" href="#top" id="logo"></a>
+  <nav aria-label="Main"><a href="#services">Prices</a><a href="#reviews">Reviews</a><a href="#visit">Find us</a></nav>
+  <a class="btn btn-accent" href="#book">Book now</a>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="kicker" id="kicker"></p>
+    <h1 id="name"></h1>
+    <div class="stars"><span class="score" id="score"></span><div><span class="row" aria-hidden="true">★★★★★</span><small id="count"></small></div></div>
+    <p class="lede" id="lede"></p>
+    <div class="ctas"><a class="btn btn-accent" href="#book">Book online</a><a class="btn btn-line" id="callBtn" href="#">Call us</a></div>
+  </div>
+  <form class="book" id="book" novalidate>
+    <h2>Book a slot</h2>
+    <label for="svc">Service</label>
+    <select id="svc"></select>
+    <label>Day</label>
+    <div class="days" id="days" role="group" aria-label="Day"></div>
+    <label>Time</label>
+    <div class="times" id="times" role="group" aria-label="Time"></div>
+    <label for="bname">Your name</label>
+    <input id="bname" type="text" autocomplete="name">
+    <label for="bphone">Mobile</label>
+    <input id="bphone" type="tel" autocomplete="tel">
+    <button class="btn btn-accent" type="submit">Request booking</button>
+    <p class="note" id="note" role="status">This is a concept preview. On the live site, bookings would arrive straight to you by text or email.</p>
+  </form>
+</div></section>
+
+<section class="alt" id="services"><div class="wrap">
+  <h2 class="sec">Prices</h2>
+  <p class="secsub" id="svcsub"></p>
+  <div class="menu" id="menu"></div>
+  <p class="sample">Example prices. The live site would show your real price list.</p>
+</div></section>
+
+<section id="reviews"><div class="wrap">
+  <h2 class="sec" id="revtitle"></h2>
+  <p class="secsub">From customer reviews on Google.</p>
+  <div class="reviews" id="revs"></div>
+</div></section>
+
+<section class="alt" id="visit"><div class="wrap visit">
+  <div>
+    <h2 class="sec">Opening hours</h2>
+    <table class="hours" id="hours"><tbody></tbody></table>
+  </div>
+  <div class="info">
+    <h2 class="sec">Find us</h2>
+    <div><small>Address</small><span id="addr"></span></div>
+    <div><small>Phone</small><a id="phone" href="#"></a></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span id="foot"></span><span>Concept website prepared by Temi Fusika · temifusika.com</span></div></footer>
+<div class="bar"><a href="#book">Book now</a><a id="barCall" href="#">Call</a></div>
+
+<script id="data" type="application/json">{"name": "Nails Birmingham Fort Shopping Park", "city": "Birmingham", "address": "Nails, 15B, The Fort Shopping Park, 20 Fort Pkwy, Birmingham B24 9FP", "rating": 4.7, "reviews": 151, "phone": "0121 714 1235", "hours": [["Monday", "9:30 AM – 7:00 PM"], ["Tuesday", "9:30 AM – 7:00 PM"], ["Wednesday", "9:30 AM – 7:00 PM"], ["Thursday", "9:30 AM – 7:00 PM"], ["Friday", "9:30 AM – 7:00 PM"], ["Saturday", "9:30 AM – 7:00 PM"], ["Sunday", "11:00 AM – 5:00 PM"]], "quotes": ["Me and my mom have been coming here for the past few months every 3 weeks for biab nails and gel toes. And they are great, and would highly recommend.", "roy has given me excellent service! I love my nails, they’ve turned out amazing and i’m obsessed!! Will definitely recommend", "I had my nails done today. They look perfect, the customer service was great, and I love them. I will definitely come back again! Linh I give her 5 stars"], "theme": "salon", "label": "Nail salon", "services": [["Gel manicure", 25, "Shape, cuticle care and gel colour"], ["BIAB overlay", 35, "Builder gel on natural nails"], ["Acrylic full set", 35, "Any length and shape"], ["Infills", 25, "Within 3 weeks"], ["Gel pedicure", 30, "Soak, scrub and gel colour"], ["Nail art", 5, "Per nail, from"]], "lede": "Gel, BIAB, acrylics and nail art in Birmingham. Check prices and book your appointment online.", "svcsub": "Clear prices for every treatment."}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent);
+  var $=function(id){return document.getElementById(id)};
+  if(D.theme==='salon')document.body.classList.add('salon');
+  $('logo').textContent=D.name; $('name').textContent=D.name;
+  $('kicker').textContent=D.label+' in '+D.city;
+  $('score').textContent=D.rating.toFixed(1);
+  $('count').textContent=D.reviews+' Google reviews';
+  $('lede').textContent=D.lede;
+  $('svcsub').textContent=D.svcsub;
+  $('revtitle').textContent=D.reviews+' reviews, '+D.rating.toFixed(1)+' stars';
+  $('addr').textContent=D.address; $('foot').textContent=D.name+', '+D.city;
+  var tel='tel:'+D.phone.replace(/\s/g,'');
+  ['callBtn','phone','barCall'].forEach(function(i){$(i).href=tel}); $('phone').textContent=D.phone;
+  $('svc').innerHTML=D.services.map(function(s,i){return '<option value="'+i+'">'+s[0]+' · £'+s[1]+'</option>'}).join('');
+  $('menu').innerHTML=D.services.map(function(s){return '<div class="item"><b>'+s[0]+(s[2]?'<small>'+s[2]+'</small>':'')+'</b><span></span><em>£'+s[1]+'</em></div>'}).join('');
+  var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
+  $('revs').innerHTML=D.quotes.map(function(q){return '<figure><blockquote>“'+esc(q)+'”</blockquote><figcaption>Google review</figcaption></figure>'}).join('');
+  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], today=days[new Date().getDay()];
+  $('hours').tBodies[0].innerHTML=D.hours.map(function(h){return '<tr'+(h[0]===today?' class="today"':'')+'><td>'+h[0]+'</td><td>'+h[1]+'</td></tr>'}).join('');
+  var hmap={};D.hours.forEach(function(h){hmap[h[0]]=h[1]});
+  var dd=$('days'),tt=$('times'),sel={d:0,t:null};
+  var start=new Date();
+  function drawDays(){var html='';for(var i=0;i<7;i++){var d=new Date(start);d.setDate(d.getDate()+i);var n=days[d.getDay()];var closed=/closed/i.test(hmap[n]||'');
+    html+='<button type="button" data-d="'+i+'" aria-pressed="'+(i===sel.d)+'"'+(closed?' disabled title="Closed"':'')+'>'+(i===0?'Today':n.slice(0,3))+'<small>'+d.getDate()+'</small></button>'}dd.innerHTML=html}
+  function drawTimes(){var slots=['10:00','11:00','12:30','14:00','15:30','17:00'];var seed=(sel.d*7+3)%5;
+    tt.innerHTML=slots.map(function(s,i){var taken=(i+seed)%4===0;return '<button type="button" data-t="'+s+'" aria-pressed="'+(sel.t===s)+'"'+(taken?' disabled title="Taken"':'')+'>'+s+'</button>'}).join('')}
+  dd.addEventListener('click',function(e){var b=e.target.closest('[data-d]');if(!b||b.disabled)return;sel.d=+b.dataset.d;sel.t=null;drawDays();drawTimes()});
+  tt.addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(!b||b.disabled)return;sel.t=b.dataset.t;drawTimes()});
+  drawDays();drawTimes();
+  $('book').addEventListener('submit',function(e){e.preventDefault();$('note').classList.add('show')});
+})();
+</script>
+</body>
+</html>

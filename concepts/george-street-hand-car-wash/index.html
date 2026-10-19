@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>George Street hand car wash – Website Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: wet-blue hero with forecourt price board, vehicle-size toggle, booking strip, reviews, hours + location. */
+:root{
+  --sky:#0B5FB0;--deep:#0A2740;--ink:#0D2238;--muted:#4F6377;--bg:#F1F5F9;--surface:#FFFFFF;--line:#D3DEE8;
+  --sign:#FFC21A;--sign-ink:#0A2740;
+  --display:'Barlow Condensed',Impact,sans-serif;--body:'Barlow',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sign);outline-offset:3px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+.concept{background:var(--deep);color:#DCE6EF;font-size:13.5px;text-align:center;padding:9px 16px}
+.concept b{color:var(--sign);font-weight:600}
+h1,h2,h3,.disp{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:600 16px/1 var(--body);padding:15px 22px;border-radius:4px;border:0;cursor:pointer;text-decoration:none}
+.btn-sign{background:var(--sign);color:var(--sign-ink)}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.7)}
+
+.hero{background:var(--sky);color:#fff;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;
+  background:
+   radial-gradient(circle at 12% 30%,#fff 0 18px,transparent 19px),radial-gradient(circle at 18% 62%,#fff 0 9px,transparent 10px),
+   radial-gradient(circle at 30% 18%,#fff 0 6px,transparent 7px),radial-gradient(circle at 44% 80%,#fff 0 14px,transparent 15px),
+   radial-gradient(circle at 8% 88%,#fff 0 11px,transparent 12px),radial-gradient(circle at 36% 46%,#fff 0 4px,transparent 5px),
+   radial-gradient(circle at 52% 12%,#fff 0 9px,transparent 10px)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,5vw,60px);padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(44px,6vw,80px);align-items:center}
+.hero .wrap.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;padding-bottom:0;position:relative}
+.top .logo{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:26px;text-decoration:none;color:#fff}
+.top nav{display:flex;gap:24px;font-weight:500}
+.top nav a{text-decoration:none;color:rgba(255,255,255,.85)}
+.kick{font-weight:600;color:rgba(255,255,255,.85)}
+.hero h1{font-size:clamp(54px,9vw,116px);margin:10px 0 18px;text-wrap:balance}
+.rate{display:flex;align-items:center;gap:14px;margin-bottom:22px;flex-wrap:wrap}
+.rate b{font-family:var(--display);font-size:46px;line-height:1}
+.rate span{color:var(--sign);font-size:20px;letter-spacing:2px}
+.rate small{display:block;color:rgba(255,255,255,.85);font-size:14.5px}
+.hero p{font-size:19px;max-width:42ch;color:rgba(255,255,255,.92);margin-bottom:26px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* forecourt price board */
+.board{background:var(--deep);color:#fff;border:6px solid var(--sign);padding:20px 22px 18px;box-shadow:0 18px 40px rgba(5,25,45,.35)}
+.board h2{color:var(--sign);font-size:34px;margin-bottom:12px}
+.sizes{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+.sizes button{font:600 14px/1 var(--body);padding:9px 12px;border-radius:3px;border:1.5px solid rgba(255,255,255,.35);background:transparent;color:#fff;cursor:pointer}
+.sizes button[aria-pressed="true"]{background:var(--sign);border-color:var(--sign);color:var(--sign-ink)}
+.row{display:flex;align-items:baseline;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.25)}
+.row b{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:23px;letter-spacing:.02em}
+.row small{display:block;font-family:var(--body);text-transform:none;font-size:13px;color:rgba(255,255,255,.7);letter-spacing:0;font-weight:400}
+.row span{flex:1}
+.row em{font-style:normal;font-family:var(--display);font-weight:800;font-size:32px;color:var(--sign);font-variant-numeric:tabular-nums}
+.board .ex{font-size:12.5px;color:rgba(255,255,255,.65);margin-top:10px}
+
+section{padding:clamp(54px,8vw,92px) 0}
+.sec{font-size:clamp(40px,5.5vw,64px);margin-bottom:10px}
+.sub{color:var(--muted);max-width:56ch;margin-bottom:32px}
+
+.bookstrip{background:var(--surface);border:1px solid var(--line);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:repeat(4,1fr) auto;gap:14px;align-items:end}
+.bookstrip label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600}
+.bookstrip select,.bookstrip input{font:inherit;font-size:16px;padding:12px;border:1.5px solid var(--line);border-radius:4px;background:var(--bg);color:var(--ink);width:100%}
+.bookstrip .btn{height:48px}
+.note{display:none;grid-column:1/-1;font-size:14.5px;background:var(--bg);border-left:4px solid var(--sky);padding:12px 14px}
+.note.show{display:block}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.why div{border-top:4px solid var(--sky);padding-top:14px}
+.why h3{font-size:26px;margin-bottom:6px}
+.why p{color:var(--muted);font-size:16px}
+
+.alt{background:var(--surface)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.revs figure{background:var(--bg);padding:22px;border-radius:4px}
+.revs .st{color:#E0A500;letter-spacing:2px}
+.revs blockquote{margin-top:8px;font-size:16.5px}
+.revs figcaption{margin-top:10px;font-size:13.5px;color:var(--muted)}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px)}
+.hours{width:100%;border-collapse:collapse}
+.hours td{padding:10px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.hours tr.today td{font-weight:700}
+.hours tr.today td:first-child::after{content:" · today";color:var(--sky);font-weight:600}
+.info div{margin-bottom:20px}
+.info small{display:block;color:var(--muted);font-size:13.5px}
+.info a,.info span{font-size:21px;font-weight:600;text-decoration:none}
+footer{background:var(--deep);color:#BFD0DF;padding:28px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.bar{display:none}
+@media (max-width:920px){
+  .hero .wrap,.visit{grid-template-columns:1fr}
+  .top nav{display:none}
+  .bookstrip{grid-template-columns:1fr 1fr}
+  .bookstrip .btn{grid-column:1/-1}
+  .why,.revs{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .bookstrip{grid-template-columns:1fr}
+  body{padding-bottom:58px}
+  .top .btn{display:none}
+  .bar{display:grid;grid-template-columns:1fr 1fr;position:fixed;left:0;right:0;bottom:0;z-index:20}
+  .bar a{padding:17px;text-align:center;font-weight:600;text-decoration:none;background:var(--sign);color:var(--sign-ink)}
+  .bar a+a{background:var(--deep);color:#fff}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="concept"><b>Concept preview.</b> A proposed website for George Street hand car wash, made by Temi Fusika. Not their live site.</div>
+<div class="hero" id="top">
+  <div class="wrap top"><a class="logo" href="#top" id="logo"></a><nav aria-label="Main"><a href="#prices">Prices</a><a href="#book">Book a valet</a><a href="#visit">Find us</a></nav><a class="btn btn-sign" id="topCall" href="#">Call</a></div>
+  <div class="wrap">
+    <div>
+      <p class="kick" id="kick"></p>
+      <h1 id="name"></h1>
+      <div class="rate"><b id="score"></b><div><span aria-hidden="true">★★★★★</span><small id="count"></small></div></div>
+      <p id="lede"></p>
+      <div class="ctas"><a class="btn btn-sign" href="#book">Book a valet</a><a class="btn btn-ghost" href="#visit">Opening hours</a></div>
+    </div>
+    <div class="board" id="prices">
+      <h2>Price board</h2>
+      <div class="sizes" role="group" aria-label="Vehicle size" id="sizes"></div>
+      <div id="rows"></div>
+      <p class="ex">Example prices. The live site would show your real prices.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+<section id="book"><div class="wrap">
+  <h2 class="sec disp">Book a valet</h2>
+  <p class="sub">Washes are drive-in, no booking needed. Valets and deep cleans can be booked ahead so there's no wait.</p>
+  <form class="bookstrip" id="bookform" novalidate>
+    <label for="bs">Service<select id="bs"></select></label>
+    <label for="bd">Day<select id="bd"></select></label>
+    <label for="bt">Time<select id="bt"><option>9:00</option><option>10:30</option><option>12:00</option><option>13:30</option><option>15:00</option></select></label>
+    <label for="bp">Mobile<input id="bp" type="tel" autocomplete="tel" placeholder="07…"></label>
+    <button class="btn btn-sign" type="submit">Request booking</button>
+    <p class="note" id="note" role="status">This is a concept preview. On the live site, bookings would arrive straight to you by text.</p>
+  </form>
+  <div class="why">
+    <div><h3>Washes to full valets</h3><p>From a quick wash to a full valet, inside and out. Prices up front for every size of car.</p></div>
+    <div><h3>No appointment</h3><p>Drive in for a wash. Book ahead for valets so your car is ready when you are.</p></div>
+    <div id="whyRate"><h3></h3><p></p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2 class="sec disp" id="revtitle"></h2>
+  <p class="sub">From customer reviews on Google.</p>
+  <div class="revs" id="revs"></div>
+</div></section>
+
+<section id="visit"><div class="wrap visit">
+  <div><h2 class="sec disp">Opening hours</h2><table class="hours" id="hours"><tbody></tbody></table></div>
+  <div class="info"><h2 class="sec disp">Find us</h2>
+    <div><small>Address</small><span id="addr"></span></div>
+    <div><small>Phone</small><a id="phone" href="#"></a></div>
+      </div>
+</div></section>
+</main>
+<footer><div class="wrap"><span id="foot"></span><span>Concept website prepared by Temi Fusika · temifusika.com</span></div></footer>
+<div class="bar"><a href="#book">Book a valet</a><a id="barCall" href="#">Call</a></div>
+
+<script id="data" type="application/json">{"name": "George Street hand car wash", "city": "London", "address": "George St, London W1H 5DN", "rating": 4.6, "reviews": 215, "phone": "", "hours": [["Monday", "8:00 AM – 7:00 PM"], ["Tuesday", "8:00 AM – 7:00 PM"], ["Wednesday", "8:00 AM – 7:00 PM"], ["Thursday", "8:00 AM – 7:00 PM"], ["Friday", "8:00 AM – 7:00 PM"], ["Saturday", "8:00 AM – 7:00 PM"], ["Sunday", "8:00 AM – 7:00 PM"]], "quotes": ["Fantastic hand car wash, very attentive and thorough and nice guys.", "This is a family-run business with a genuinely personal touch.", "This place is genuinely the best car wash in London. Prices are reasonable and the service is amazing - incredible attention to detail, quality products and the car…"], "services": [["Wash & vac", 12, "Exterior hand wash and interior vacuum", 1, false], ["Snow foam wash", 10, "Exterior only, hand dried", 1, false], ["Mini valet", 25, "Wash, vac, dash and windows", 2, true], ["Full valet", 70, "Inside and out, seats shampooed", 5, true], ["Interior deep clean", 50, "Seats, carpets and mats", 4, true], ["Engine bay clean", 15, "Degrease and dress", 0, true]], "lede": "Hand car wash and valeting in London. See prices for your car, then drive in or book a valet online."}</script>
+<script>
+(function(){
+  var D=JSON.parse(document.getElementById('data').textContent),$=function(i){return document.getElementById(i)};
+  var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
+  $('logo').textContent=D.name;$('name').textContent=D.name;$('kick').textContent='Hand car wash & valeting in '+D.city;
+  $('score').textContent=D.rating.toFixed(1);$('count').textContent=D.reviews+' Google reviews';$('lede').textContent=D.lede;
+  var tel='tel:'+D.phone.replace(/\s/g,'');['topCall','phone','barCall'].forEach(function(i){$(i).href=tel});
+  $('phone').textContent=D.phone||'Call in person';$('addr').textContent=D.address;$('foot').textContent=D.name+', '+D.city;
+  $('revtitle').textContent=D.reviews+' reviews, '+D.rating.toFixed(1)+' stars';
+  $('whyRate').querySelector('h3').textContent=D.rating.toFixed(1)+' stars on Google';
+  $('whyRate').querySelector('p').textContent='Rated by '+D.reviews+' customers in '+D.city+'.';
+  var sizes=[['Small car',0],['Saloon / estate',2],['4x4 / van',5]],size=1;
+  function draw(){
+    $('sizes').innerHTML=sizes.map(function(s,i){return '<button type="button" data-s="'+i+'" aria-pressed="'+(i===size)+'">'+s[0]+'</button>'}).join('');
+    $('rows').innerHTML=D.services.map(function(s){var p=s[1]+(s[3]?sizes[size][1]*s[3]:0);return '<div class="row"><b>'+s[0]+'<small>'+s[2]+'</small></b><span></span><em>£'+p+'</em></div>'}).join('');
+    $('bs').innerHTML=D.services.filter(function(s){return s[4]}).map(function(s){var p=s[1]+(s[3]?sizes[size][1]*s[3]:0);return '<option>'+s[0]+' · £'+p+'</option>'}).join('');
+  }
+  $('sizes').addEventListener('click',function(e){var b=e.target.closest('[data-s]');if(b){size=+b.dataset.s;draw()}});
+  draw();
+  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],today=days[new Date().getDay()],opts='';
+  for(var i=0;i<7;i++){var d=new Date();d.setDate(d.getDate()+i);opts+='<option>'+(i===0?'Today':days[d.getDay()]+' '+d.getDate())+'</option>'}
+  $('bd').innerHTML=opts;
+  $('revs').innerHTML=D.quotes.map(function(q){return '<figure><blockquote>“'+esc(q)+'”</blockquote><figcaption>Google review</figcaption></figure>'}).join('');
+  $('hours').tBodies[0].innerHTML=D.hours.map(function(h){return '<tr'+(h[0]===today?' class="today"':'')+'><td>'+h[0]+'</td><td>'+h[1]+'</td></tr>'}).join('');
+  $('bookform').addEventListener('submit',function(e){e.preventDefault();$('note').classList.add('show')});
+})();
+</script>
+</body>
+</html>
