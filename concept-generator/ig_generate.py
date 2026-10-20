@@ -212,7 +212,7 @@ SITES['luxxe-cakes'] = dict(
   hero=dict(eyebrow='London · Eggless & egg', title='Cakes they\'ll talk about after the *last* dance.', lede='Statement wedding and celebration cakes designed around your day, made eggless or with egg.',
             cta=['Design your cake','design'], cta2=['See the gallery','gallery'], badges=['<b>6.4K</b> on Instagram','Eggless or with egg','London-wide delivery & set-up'], pics=[0,2,4,5], stamp=['Eggless','or with egg, always luxe']),
   ticker=['Wedding cakes','Engagements','Birthdays','Eggless & egg','Delivery and set-up across London'],
-  cakeTitle='Build it, see it, love it', occasions=[['Wedding','💍'],['Engagement','💐'],['Birthday','🎂'],['Celebration','🥂']], flavours=CAKE_FLAV_LUX, maxTiers=6, minDays=21,
+  cakeTitle='Build it, *love* it', occasions=[['Wedding','💍'],['Engagement','💐'],['Birthday','🎂'],['Celebration','🥂']], flavours=CAKE_FLAV_LUX, maxTiers=6, minDays=21,
   cakeNote='Final price depends on design, sugar flowers and delivery. We\'ll confirm within 24 hours.', cakeDone='We\'ll send a personalised quote and design sketch within 24 hours.',
   serves_js='t=>[0,20,50,90,140,200,270][t]', price_js='(t,o)=>[0,180,340,520,720,940,1180][t]+(o===0?120:0)',
   gallery=['Recent work','Made for the big day', [[0,'Cascading florals'],[1,'Six-tier white'],[2,'Under the lights'],[3,'Roses & gold'],[5,'Ballroom moment'],[4,'Just married']]],
