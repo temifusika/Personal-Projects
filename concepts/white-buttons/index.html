@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>White Buttons | Modest, elegant women's ready-to-wear, sizes 6–24</title>
+<meta name="description" content="Modest, elegant, effortlessly put together. Women's ready-to-wear made in Nigeria in sizes 6 to 24, shipped worldwide.">
+<meta property="og:title" content="White Buttons | Modest, elegant women's ready-to-wear, sizes 6–24">
+<meta property="og:description" content="Modest, elegant, effortlessly put together. Women's ready-to-wear made in Nigeria in sizes 6 to 24, shipped worldwide.">
+<meta property="og:image" content="img/1.jpg">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FBF6EF;--ink:#2A1F1A;--muted:#7A6A5E;--line:#EADFD2;--soft:#F3E8DB;--card:#FFFCF8;--accent:#C0532F;--accent2:#E6A93A;--on-accent:#fff;--display:'Fraunces',Georgia,serif;--body:'DM Sans',system-ui,sans-serif;--ir:22px;--dw:400}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.disp{font-family:var(--display);font-weight:var(--dw,500);letter-spacing:var(--dls,-.01em);line-height:1.02}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:var(--r,999px);font-weight:600;font-size:15px;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s}
+.btn.pri{background:var(--accent);color:var(--on-accent)}
+.btn.pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px -10px var(--accent)}
+.btn.sec{border:1.5px solid currentColor}
+.btn.sec:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* concept strip */
+.cstrip{background:var(--ink);color:var(--bg);font-size:12.5px;text-align:center;padding:8px 16px;letter-spacing:.02em}
+.cstrip b{color:var(--accent2)}
+/* header */
+header.top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-family:var(--display);font-size:26px;font-weight:var(--lw,600);letter-spacing:var(--lls,.04em);text-decoration:none;white-space:nowrap}
+.logo small{font-family:var(--body);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-left:8px;color:var(--muted)}
+nav.links{display:flex;gap:28px;font-size:14.5px;font-weight:500}
+nav.links a{text-decoration:none;opacity:.8}nav.links a:hover{opacity:1}
+.bagbtn{position:relative;display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:14px}
+.bagbtn .n{background:var(--accent);color:var(--on-accent);min-width:22px;height:22px;border-radius:11px;display:grid;place-items:center;font-size:12px;padding:0 6px;transition:transform .3s}
+.bagbtn .n.pop{transform:scale(1.4)}
+@media(max-width:820px){nav.links{display:none}.logo small{display:none}}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 72px;background:var(--hero-bg,var(--bg));color:var(--hero-ink,var(--ink))}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(46px,7.4vw,104px);margin:18px 0 22px}
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(40px) rotate(2deg);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 em{font-style:italic;color:var(--accent)}
+@keyframes rise{to{opacity:1;transform:none}}
+.hero p.lede{font-size:clamp(17px,1.6vw,20px);max-width:44ch;opacity:.85}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.hero .ctas .sec{color:var(--hero-ink,var(--ink))}
+.badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.badges span{font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:color-mix(in srgb,var(--hero-ink,var(--ink)) 8%,transparent);border:1px solid color-mix(in srgb,var(--hero-ink,var(--ink)) 14%,transparent)}
+.badges span b{color:var(--accent)}
+.collage{position:relative;height:min(640px,72vw)}
+.collage figure{position:absolute;overflow:hidden;border-radius:var(--ir,18px);box-shadow:0 30px 60px -24px rgba(0,0,0,.45);animation:float 7s ease-in-out infinite}
+.collage figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.collage figure:hover img{transform:scale(1.06)}
+.collage .c1{left:8%;top:0;width:54%;height:78%;z-index:2}
+.collage .c2{right:0;top:12%;width:40%;height:52%;animation-delay:-2s}
+.collage .c3{left:-2%;bottom:0;width:36%;height:40%;z-index:3;animation-delay:-4s}
+.collage .c4{right:6%;bottom:2%;width:36%;height:38%;z-index:3;animation-delay:-5s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.stamp{position:absolute;z-index:5;right:2%;top:-2%;width:132px;height:132px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:15px;line-height:1.1;padding:16px;animation:spin 18s linear infinite;box-shadow:0 18px 40px -16px var(--accent)}
+.stamp b{display:block;font-size:30px}
+@media(max-width:600px){.stamp{width:96px;height:96px;font-size:11px;padding:10px;right:0;top:-6%}.stamp b{font-size:20px}}
+@keyframes spin{from{transform:rotate(-8deg)}50%{transform:rotate(8deg)}to{transform:rotate(-8deg)}}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+@media(max-width:900px){.hero .wrap{grid-template-columns:1fr}.collage{height:118vw;max-height:620px}.hero{padding-top:34px}}
+/* ticker */
+.ticker{background:var(--accent);color:var(--on-accent);overflow:hidden;white-space:nowrap;padding:14px 0;font-weight:600;font-size:15px;letter-spacing:.04em}
+.ticker .t{display:inline-flex;animation:tick 32s linear infinite}
+.ticker .t span{padding:0 28px}
+.ticker .t span::after{content:"✦";margin-left:56px;opacity:.6}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* sections */
+section.s{padding:96px 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
+.sh h2{font-size:clamp(36px,5vw,64px);margin-top:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);font-size:14px;font-weight:600;transition:.2s}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* products */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:26px 22px}
+.card{position:relative;cursor:pointer;opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.card.in{opacity:1;transform:none}
+.card .ph{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--ir,18px);background:var(--soft)}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph img{transform:scale(1.07)}
+.card .tag{position:absolute;left:12px;top:12px;background:var(--bg);color:var(--ink);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.card .tag.hot{background:var(--accent);color:var(--on-accent)}
+.card .heart{position:absolute;right:12px;top:12px;width:40px;height:40px;border-radius:50%;background:var(--bg);display:grid;place-items:center;font-size:18px;transition:transform .2s}
+.card .heart:active{transform:scale(1.3)}
+.card .heart.on{color:#E0245E}
+.card .quick{position:absolute;left:12px;right:12px;bottom:12px;background:var(--ink);color:var(--bg);border-radius:999px;padding:13px;font-weight:600;font-size:14px;transform:translateY(130%);transition:transform .35s}
+.card:hover .quick,.card:focus-within .quick{transform:none}
+@media(hover:none){.card .quick{transform:none;opacity:.94}}
+.card h3{font-size:17px;font-weight:600;margin:14px 0 2px;font-family:var(--body)}
+.card .meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:14.5px}
+.card .meta b{color:var(--ink);font-weight:700}
+.card .was{text-decoration:line-through;margin-left:6px;font-weight:500;color:var(--muted)}
+/* story */
+.story{background:var(--soft)}
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story .pics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.story .pics img{border-radius:var(--ir,18px);width:100%;aspect-ratio:3/4;object-fit:cover}
+.story .pics img:nth-child(2){margin-top:48px}
+.story h2{font-size:clamp(34px,4.4vw,56px);margin:12px 0 20px}
+.story p{font-size:17.5px;opacity:.86;margin-bottom:14px;max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.facts div{border-top:2px solid var(--accent);padding-top:12px}
+.facts b{display:block;font-family:var(--display);font-size:30px;line-height:1.1}
+.facts span{font-size:13.5px;opacity:.75}
+@media(max-width:900px){.story .wrap{grid-template-columns:1fr}.facts{grid-template-columns:1fr 1fr 1fr}}
+/* info cards */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.info>div{padding:26px;border-radius:var(--ir,18px);border:1px solid var(--line);background:var(--card)}
+.info .ic{font-size:26px;margin-bottom:10px}
+.info h3{font-size:18px;margin-bottom:6px}
+.info p{font-size:15px;color:var(--muted)}
+/* insta */
+.insta{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.insta a{position:relative;aspect-ratio:1;overflow:hidden;border-radius:10px}
+.insta img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .6s}
+.insta a:hover img{transform:scale(1.1);filter:brightness(.7)}
+@media(max-width:700px){.insta{grid-template-columns:repeat(3,1fr)}}
+.big-cta{text-align:center;padding:110px 0;background:var(--hero-bg,var(--ink));color:var(--hero-ink,var(--bg));position:relative;overflow:hidden}
+.big-cta h2{font-size:clamp(40px,7vw,96px);max-width:14ch;margin:14px auto 26px}
+footer{padding:46px 0 60px;font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer .fine{font-size:12.5px;margin-top:8px}
+/* drawer + modal */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:60;opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--bg);color:var(--ink);z-index:70;transform:translateX(105%);transition:transform .45s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dh h3{font-family:var(--display);font-size:26px;font-weight:500}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);font-size:18px}
+.db{flex:1;overflow:auto;padding:18px 22px}
+.df{padding:18px 22px;border-top:1px solid var(--line)}
+.li{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.li img{width:76px;height:96px;object-fit:cover;border-radius:10px}
+.li h4{font-size:15px}
+.li small{color:var(--muted);display:block}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;margin-top:6px}
+.qty button{width:30px;height:30px}
+.row{display:flex;justify-content:space-between;margin:6px 0;font-size:15px}
+.row.tot{font-weight:700;font-size:18px;margin-top:10px}
+.empty{text-align:center;padding:60px 10px;color:var(--muted)}
+.empty div{font-size:48px;margin-bottom:10px}
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;pointer-events:none}
+.modal .box{pointer-events:auto;background:var(--bg);color:var(--ink);border-radius:22px;width:min(920px,100%);max-height:92vh;overflow:auto;display:grid;grid-template-columns:1fr 1fr;transform:scale(.94) translateY(20px);opacity:0;transition:.35s cubic-bezier(.2,.8,.2,1)}
+.modal.on .box{transform:none;opacity:1}
+.modal:not(.on){visibility:hidden}
+.modal .mi{background:var(--soft)}
+.modal .mi img{width:100%;height:100%;object-fit:cover;max-height:92vh}
+.modal .mc{padding:30px;position:relative}
+.modal .mc .x{position:absolute;right:18px;top:18px}
+.modal h3{font-family:var(--display);font-size:36px;font-weight:500;line-height:1.05;margin:10px 40px 8px 0}
+.modal .price{font-size:22px;font-weight:700;margin-bottom:14px}
+.modal .desc{color:var(--muted);margin-bottom:18px}
+.opt{margin-bottom:16px}
+.opt label{display:block;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.opt .chips button{padding:9px 14px;font-size:13.5px}
+.modal .note{font-size:13px;color:var(--muted);margin-top:12px}
+@media(max-width:760px){.modal .box{grid-template-columns:1fr}.modal .mi img{max-height:46vh}}
+.field{display:block;margin-bottom:12px}
+.field span{display:block;font-size:13px;font-weight:600;margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:15px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent)}
+.pick{display:grid;gap:8px;margin-bottom:14px}
+.pick label{display:flex;gap:12px;align-items:center;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;font-size:14.5px}
+.pick label:has(input:checked){border-color:var(--accent);background:color-mix(in srgb,var(--accent) 9%,transparent)}
+.pick label b{margin-left:auto}
+.pick input{accent-color:var(--accent)}
+.steps{display:flex;gap:6px;margin-bottom:16px}
+.steps i{flex:1;height:4px;border-radius:2px;background:var(--line)}
+.steps i.on{background:var(--accent)}
+.done{text-align:center;padding:30px 6px}
+.done .tick{width:84px;height:84px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;font-size:40px;margin:0 auto 16px;animation:pop .6s cubic-bezier(.2,1.6,.4,1)}
+@keyframes pop{from{transform:scale(0)}}
+.done h4{font-family:var(--display);font-size:30px;font-weight:500;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:24px;z-index:90;transform:translate(-50%,140%);background:var(--ink);color:var(--bg);padding:14px 20px;border-radius:999px;font-weight:600;font-size:14.5px;transition:transform .4s cubic-bezier(.2,1.4,.4,1);display:flex;gap:10px;align-items:center;max-width:92vw}
+.toast.on{transform:translate(-50%,0)}
+.toast:empty{display:none}
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:95}
+.wa{position:fixed;right:18px;bottom:18px;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 12px 28px -8px rgba(37,211,102,.7);text-decoration:none;font-size:28px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px)}}
+/* booking */
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.svc button{text-align:left;padding:22px;border-radius:var(--ir,18px);border:1.5px solid var(--line);background:var(--card);transition:.25s;display:flex;flex-direction:column;gap:6px}
+.svc button:hover{transform:translateY(-3px);border-color:var(--accent)}
+.svc button[aria-pressed=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--card));box-shadow:0 14px 30px -18px var(--accent)}
+.svc h3{font-size:19px}
+.svc .p{display:flex;justify-content:space-between;color:var(--muted);font-size:14.5px;margin-top:auto}
+.svc .p b{color:var(--ink);font-size:17px}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none}
+.days button{flex:0 0 74px;padding:12px 6px;border-radius:14px;border:1.5px solid var(--line);text-align:center;background:var(--card)}
+.days button b{display:block;font-size:22px;font-family:var(--display)}
+.days button small{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.days button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.days button[aria-pressed=true] small{color:inherit}
+.days button:disabled{opacity:.35;cursor:not-allowed}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px;margin-top:14px}
+.times button{padding:11px;border-radius:12px;border:1.5px solid var(--line);font-weight:600;font-size:14px;background:var(--card)}
+.times button[aria-pressed=true]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.times button:disabled{text-decoration:line-through;opacity:.4}
+.bookpanel{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:start}.bookpanel>div{min-width:0}
+.summary{position:sticky;top:90px;padding:26px;border-radius:var(--ir,18px);background:var(--ink);color:var(--bg)}
+.summary h3{font-family:var(--display);font-size:28px;font-weight:500;margin-bottom:14px}
+.summary .row{opacity:.9}
+.summary .btn{width:100%;margin-top:18px}
+@media(max-width:900px){.bookpanel{grid-template-columns:1fr}.summary{position:static}}
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.awards img{border-radius:var(--ir,18px);aspect-ratio:1;object-fit:cover;width:100%}
+/* cake builder */
+.builder{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.stage{position:relative;height:520px;border-radius:28px;background:radial-gradient(circle at 50% 30%,var(--card),var(--soft));display:flex;align-items:flex-end;justify-content:center;padding-bottom:60px;overflow:hidden}
+.stage .plate{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);width:76%;height:22px;border-radius:50%;background:color-mix(in srgb,var(--ink) 14%,transparent)}
+.cake{position:relative;display:flex;flex-direction:column-reverse;align-items:center;z-index:2}
+.tier{height:62px;border-radius:12px 12px 6px 6px;background:var(--frost);position:relative;transition:width .5s cubic-bezier(.2,1.4,.4,1),background .4s;animation:drop .6s cubic-bezier(.2,1.4,.4,1);box-shadow:inset 0 -10px 0 rgba(0,0,0,.06)}
+.tier::before{content:"";position:absolute;left:0;right:0;top:0;height:16px;border-radius:12px 12px 0 0;background:radial-gradient(circle at 10px 0,var(--drip) 9px,transparent 10px) 0 0/20px 18px repeat-x}
+.tier::after{content:"";position:absolute;left:8%;right:8%;bottom:12px;height:6px;border-radius:3px;background:repeating-linear-gradient(90deg,var(--accent) 0 8px,transparent 8px 16px);opacity:.55}
+@keyframes drop{from{transform:translateY(-140px);opacity:0}}
+.topper{font-size:46px;margin-bottom:-6px;animation:drop .7s cubic-bezier(.2,1.4,.4,1)}
+.stage .lbl{position:absolute;top:22px;left:24px;right:24px;display:flex;justify-content:space-between;font-weight:600;font-size:14px;color:var(--muted)}
+.est{font-family:var(--display);font-size:46px;line-height:1}
+.toggle{display:flex;align-items:center;gap:12px;font-weight:600;margin:6px 0 16px;cursor:pointer}
+.toggle input{appearance:none;width:50px;height:28px;border-radius:14px;background:var(--line);position:relative;transition:.25s;cursor:pointer}
+.toggle input::after{content:"";position:absolute;left:3px;top:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:.25s}
+.toggle input:checked{background:var(--accent)}
+.toggle input:checked::after{left:25px}
+.tiers{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.tiers button{width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);font-size:22px;background:var(--card)}
+.tiers b{font-family:var(--display);font-size:34px;min-width:40px;text-align:center}
+@media(max-width:900px){.builder{grid-template-columns:1fr}.stage{height:400px}}
+.masonry{columns:3 260px;column-gap:16px}
+.masonry figure{break-inside:avoid;margin-bottom:16px;border-radius:var(--ir,18px);overflow:hidden;position:relative}
+.masonry img{width:100%;transition:transform 1s}
+.masonry figure:hover img{transform:scale(1.05)}
+.masonry figcaption{position:absolute;left:12px;bottom:12px;background:var(--bg);color:var(--ink);padding:6px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal,.card,.hero h1 .w{opacity:1!important;transform:none!important}}
+
+</style>
+</head>
+<body>
+<div class="cstrip">Concept preview made for <b>@whitebuttons.ng</b> by Temi Fusika · product names and prices are samples</div>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#">white buttons<small>RTW</small></a>
+  <nav class="links" id="nav"></nav>
+  <button class="bagbtn" id="bagBtn" type="button"></button>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap">
+  <div><div class="logo" style="font-size:22px">white buttons<small>RTW</small></div><div class="fine" id="footAddr"></div></div>
+  <div style="text-align:right"><div><a href="https://www.instagram.com/whitebuttons.ng/" target="_blank" rel="noopener">Instagram @whitebuttons.ng</a></div><div class="fine">Concept website prepared by Temi Fusika</div></div>
+</div></footer>
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Bag"></aside>
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="box" id="mbox"></div></div>
+<div class="toast" id="toast"></div>
+<canvas class="confetti" id="confetti"></canvas>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Store", "name": "White Buttons", "description": "Modest, elegant, effortlessly put together. Women's ready-to-wear made in Nigeria in sizes 6 to 24, shipped worldwide.", "sameAs": ["https://www.instagram.com/whitebuttons.ng/"], "image": "img/1.jpg"}</script>
+<script>
+const D={"handle": "whitebuttons.ng", "name": "White Buttons", "logo": "white buttons<small>RTW</small>", "cur": "NGN", "mode": "shop", "nav": [["New in", "shop"], ["Size guide", "story"], ["Delivery", "visit"]], "hero": {"eyebrow": "Made in Nigeria · Sizes 6–24", "title": "Modest. Elegant. *Effortless.*", "lede": "Ready-to-wear for women who like to look put together without trying too hard. Every style, every size from 6 to 24.", "cta": ["Shop new in", "shop"], "cta2": ["Find your size", "story"], "badges": ["<b>139K</b> women follow us", "Ships worldwide", "Sizes 6 to 24"], "pics": [1, 0, 4, 6], "stamp": ["6–24", "every style, every size"]}, "ticker": ["New drops every week", "Sizes 6 to 24", "Made in Nigeria", "Ships worldwide", "Modest · Elegant · Effortless"], "shopTitle": "Pieces you'll live in", "products": [{"name": "Ivory Lace Boubou", "cat": "Kaftans", "img": 1, "price": 85000, "tag": "Bestseller", "hot": true, "desc": "Flowing ivory lace with a soft lining. Throw it on for a wedding, a dinner or Sunday service."}, {"name": "Rosa Print Kaftan Set", "cat": "Sets", "img": 0, "price": 68000, "tag": "New", "desc": "Bold rose print on black, cape-sleeve top and matching trousers."}, {"name": "Midnight Wide-Leg Jumpsuit", "cat": "Jumpsuits", "img": 2, "price": 59000, "desc": "Navy wide-leg jumpsuit with a cinched waist. Office to dinner in one piece."}, {"name": "Monochrome Robe Set", "cat": "Sets", "img": 3, "price": 72000, "desc": "Graphic black-and-white print in an easy robe and trouser pairing."}, {"name": "Sunburst Ankara Dress", "cat": "Dresses", "img": 4, "price": 64000, "tag": "New", "desc": "A golden ankara maxi with a relaxed fit and deep pockets."}, {"name": "Heritage Print Kaftan", "cat": "Kaftans", "img": 6, "price": 70000, "desc": "Earthy prints in a breezy kaftan cut that flatters every shape."}], "defaultOpts": [["Size", ["6", "8", "10", "12", "14", "16", "18", "20", "22", "24"]], ["Length", ["Regular", "Tall (+2\")"]]], "quickNote": "Not sure of your size? Message us your measurements and we'll pick it for you.", "story": {"pics": [4, 2], "eyebrow": "Size guide", "title": "Made for every body, 6 to 24", "body": ["Every White Buttons style is cut in ten sizes, from 6 to 24, so nobody has to settle for \"the closest fit\".", "Pick your usual UK size. If you're between sizes, go up for kaftans and down for jumpsuits."], "facts": [["10", "sizes per style"], ["139K", "women on Instagram"], ["🇳🇬", "made in Nigeria"]]}, "infoTitle": "Delivery & returns", "info": [["🚚", "Lagos in 24–48 hours", "Island, mainland and Lekki, tracked to your door."], ["🌍", "Worldwide shipping", "UK, US, Canada and beyond, with tracking all the way."], ["📏", "Free size swap", "Wrong size? Swap it within 3 days of delivery."], ["💳", "Pay in naira", "Card, transfer or USSD with Paystack."]], "insta": [0, 1, 2, 3, 4, 6], "followers": "139K", "instaTitle": "Styled by you", "cta": ["New drops every week", "Your wardrobe, sorted.", "Shop new in", "shop"], "sections": ["hero", "shop", "story", "info", "insta", "bigcta"], "delivery": [["Lagos Mainland (24–48 hrs)", 3500], ["Lagos Island & Lekki (24–48 hrs)", 5000], ["Nationwide (2–5 days)", 9000], ["International (DHL, 5–7 days)", 45000]], "pay": ["Card, bank transfer or USSD (Paystack)", "Pay with Flutterwave", "Pay on delivery (Lagos only)"], "payNote": "Secure payment by Paystack.", "orderPrefix": "WB", "doneNote": "Your order is being packed. We'll WhatsApp you the tracking link.", "wa": "https://wa.me/+2349016811123", "footer": "Women's ready-to-wear · Made in Nigeria · Ships worldwide", "shopEyebrow": "Shop online", "closedDays": [], "hours": [9, 18], "minDays": 1, "headerCta": ["Shop", "shop"],"serves":t=>0,"priceFn":()=>0};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const money=n=>D.cur==='NGN'?'₦'+Math.round(n).toLocaleString('en-NG'):'£'+(n%1?n.toFixed(2):n.toLocaleString('en-GB'));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const img=i=>'img/'+i+'.jpg';
+let bag=[],cat='All',wish={};
+function words(t){return t.split(' ').map((w,i)=>'<span class="w" style="animation-delay:'+(0.08*i+0.1)+'s">'+w+'</span>').join(' ')}
+
+/* ---------- sections ---------- */
+function hero(){const h=D.hero;return `<section class="hero"><div class="glow" style="width:420px;height:420px;background:var(--accent);left:-120px;top:-100px"></div><div class="glow" style="width:360px;height:360px;background:var(--accent2);right:-80px;bottom:-120px"></div>
+<div class="wrap"><div><div class="eyebrow">${h.eyebrow}</div><h1 class="disp">${words(h.title).replace(/\*([^*]+)\*/g,'<em>$1</em>')}</h1><p class="lede">${h.lede}</p>
+<div class="ctas"><a class="btn pri" href="#${h.cta[1]}">${h.cta[0]} →</a><a class="btn sec" href="#${h.cta2[1]}">${h.cta2[0]}</a></div>
+<div class="badges">${h.badges.map(b=>'<span>'+b+'</span>').join('')}</div></div>
+<div class="collage">${h.pics.map((p,i)=>'<figure class="c'+(i+1)+'"><img src="'+img(p)+'" alt="" '+(i?'loading="lazy"':'')+'></figure>').join('')}${h.stamp?'<div class="stamp"><div><b>'+h.stamp[0]+'</b>'+h.stamp[1]+'</div></div>':''}</div></div></section>
+<div class="ticker" aria-hidden="true"><div class="t">${(D.ticker.concat(D.ticker)).map(t=>'<span>'+t+'</span>').join('')}</div></div>`}
+
+function shop(){const cats=['All',...new Set(D.products.map(p=>p.cat))];return `<section class="s" id="shop"><div class="wrap"><div class="sh"><div><div class="eyebrow">${D.shopEyebrow||'Shop the collection'}</div><h2 class="disp">${D.shopTitle}</h2></div>
+<div class="chips" id="cats">${cats.map(c=>'<button type="button" aria-pressed="'+(c===cat)+'" data-cat="'+c+'">'+c+'</button>').join('')}</div></div><div class="grid" id="grid"></div></div></section>`}
+function renderGrid(){const g=$('#grid');if(!g)return;g.innerHTML=D.products.filter(p=>cat==='All'||p.cat===cat).map(p=>{const i=D.products.indexOf(p);return `<article class="card" data-p="${i}" tabindex="0"><div class="ph"><img src="${img(p.img)}" alt="${esc(p.name)}" loading="lazy">${p.tag?'<span class="tag'+(p.hot?' hot':'')+'">'+p.tag+'</span>':''}<button class="heart${wish[i]?' on':''}" data-wish="${i}" aria-label="Save">${wish[i]?'♥':'♡'}</button><button class="quick" data-p="${i}">${D.quickLabel||'Quick view'}</button></div><h3>${esc(p.name)}</h3><div class="meta"><span>${esc(p.sub||p.cat)}</span><b>${p.from?'from ':''}${money(p.price)}${p.was?'<span class="was">'+money(p.was)+'</span>':''}</b></div></article>`}).join('');observe()}
+
+function story(){const s=D.story;return `<section class="s story" id="story"><div class="wrap"><div class="pics reveal">${s.pics.map(p=>'<img src="'+img(p)+'" alt="" loading="lazy">').join('')}</div><div class="reveal"><div class="eyebrow">${s.eyebrow}</div><h2 class="disp">${s.title}</h2>${s.body.map(p=>'<p>'+p+'</p>').join('')}<div class="facts">${s.facts.map(f=>'<div><b>'+f[0]+'</b><span>'+f[1]+'</span></div>').join('')}</div></div></div></section>`}
+function info(){return `<section class="s" id="visit"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">${D.infoEyebrow||'Good to know'}</div><h2 class="disp">${D.infoTitle}</h2></div></div><div class="info reveal">${D.info.map(x=>'<div><div class="ic">'+x[0]+'</div><h3>'+x[1]+'</h3><p>'+x[2]+'</p></div>').join('')}</div></div></section>`}
+function insta(){return `<section class="s" style="padding-top:0"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">${D.followers} on Instagram</div><h2 class="disp">${D.instaTitle||'Join the community'}</h2></div><a class="btn sec" href="https://www.instagram.com/${D.handle}/" target="_blank" rel="noopener">Follow @${D.handle}</a></div><div class="insta reveal">${D.insta.map(p=>'<a href="https://www.instagram.com/'+D.handle+'/" target="_blank" rel="noopener"><img src="'+img(p)+'" alt="" loading="lazy"></a>').join('')}</div></div></section>`}
+function bigcta(){const c=D.cta;return `<section class="big-cta"><div class="glow" style="width:500px;height:500px;background:var(--accent);left:50%;top:-200px;transform:translateX(-50%)"></div><div class="wrap" style="position:relative"><div class="eyebrow">${c[0]}</div><h2 class="disp">${c[1]}</h2><a class="btn pri" href="#${c[3]}">${c[2]} →</a></div></section>`}
+
+/* ---------- booking ---------- */
+let bk={svc:null,day:null,time:null};
+function booking(){return `<section class="s" id="book"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">Book online, any time</div><h2 class="disp">${D.bookTitle}</h2></div></div>
+<div class="bookpanel"><div><h3 style="margin-bottom:14px">1. Choose your treatment</h3><div class="svc">${D.services.map((s,i)=>`<button type="button" data-svc="${i}" aria-pressed="false"><h3>${s.name}</h3><span style="color:var(--muted);font-size:14.5px">${s.desc}</span><span class="p"><span>${s.mins} mins</span><b>${money(s.price)}</b></span></button>`).join('')}</div>
+<h3 style="margin:30px 0 14px">2. Pick a day and time</h3><div class="days" id="days"></div><div class="times" id="times"></div></div>
+<aside class="summary" id="bsum"></aside></div></div></section>`}
+function renderDays(){const d=$('#days');if(!d)return;const out=[];const now=new Date();for(let k=0;k<14;k++){const x=new Date(now);x.setDate(now.getDate()+k);const closed=D.closedDays.includes(x.getDay());out.push(`<button type="button" data-day="${k}" ${closed?'disabled':''} aria-pressed="${bk.day===k}"><small>${x.toLocaleDateString('en-GB',{weekday:'short'})}</small><b>${x.getDate()}</b><small>${x.toLocaleDateString('en-GB',{month:'short'})}</small></button>`)}d.innerHTML=out.join('');renderTimes();renderSum()}
+function renderTimes(){const t=$('#times');if(bk.day===null){t.innerHTML='<p style="color:var(--muted);grid-column:1/-1">Choose a day to see free slots.</p>';return}const sl=[];for(let h=D.hours[0];h<D.hours[1];h++)for(const m of[0,30]){const lab=String(h).padStart(2,'0')+':'+(m?'30':'00');const busy=((h*7+m+bk.day*3)%5)===0;sl.push(`<button type="button" data-time="${lab}" ${busy?'disabled':''} aria-pressed="${bk.time===lab}">${lab}</button>`)}t.innerHTML=sl.join('')}
+function renderSum(){const s=$('#bsum');if(!s)return;const sv=bk.svc!==null?D.services[bk.svc]:null;let day='';if(bk.day!==null){const x=new Date();x.setDate(x.getDate()+bk.day);day=x.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long'})}
+s.innerHTML=`<h3>Your booking</h3><div class="row"><span>Treatment</span><span>${sv?sv.name:'–'}</span></div><div class="row"><span>When</span><span>${day?day+(bk.time?', '+bk.time:''):'–'}</span></div><div class="row"><span>Price</span><span>${sv?money(sv.price):'–'}</span></div><div class="row tot"><span>Deposit today</span><span>${money(D.deposit)}</span></div><button class="btn pri" id="bookGo" ${sv&&bk.time?'':'disabled style="opacity:.5"'}>Confirm booking</button><p style="font-size:12.5px;opacity:.7;margin-top:12px">${D.depositNote}</p>`}
+
+/* ---------- cake builder ---------- */
+let ck={occ:0,tiers:3,flav:0,eggless:true,date:''};
+function cakeB(){return `<section class="s" id="design" style="background:var(--soft)"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">Design your cake</div><h2 class="disp">${D.cakeTitle}</h2></div></div>
+<div class="builder"><div class="stage"><div class="lbl"><span id="serves"></span><span id="occl"></span></div><div class="cake" id="cake"></div><div class="plate"></div></div>
+<div><div class="opt"><label>Occasion</label><div class="chips" id="occ">${D.occasions.map((o,i)=>'<button type="button" data-occ="'+i+'" aria-pressed="'+(i===ck.occ)+'">'+o[0]+'</button>').join('')}</div></div>
+<div class="opt"><label>Tiers</label><div class="tiers"><button type="button" data-t="-1" aria-label="Fewer tiers">−</button><b id="tn"></b><button type="button" data-t="1" aria-label="More tiers">+</button></div></div>
+<div class="opt"><label>Flavour</label><div class="chips" id="flav">${D.flavours.map((f,i)=>'<button type="button" data-flav="'+i+'" aria-pressed="'+(i===ck.flav)+'">'+f[0]+'</button>').join('')}</div></div>
+<label class="toggle"><input type="checkbox" id="egg" ${ck.eggless?'checked':''}> Eggless</label>
+<label class="field"><span>Date of your event</span><input type="date" id="cdate"></label>
+<div style="display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:8px"><div><div style="font-size:13px;color:var(--muted);font-weight:600">Estimated from</div><div class="est" id="est"></div></div><button class="btn pri" id="cakeGo">Request this cake →</button></div>
+<p style="font-size:13px;color:var(--muted);margin-top:12px">${D.cakeNote}</p></div></div></div></section>`}
+function renderCake(){const c=$('#cake');if(!c)return;const f=D.flavours[ck.flav];document.documentElement.style.setProperty('--frost',f[1]);document.documentElement.style.setProperty('--drip',f[2]);let h='';for(let i=0;i<ck.tiers;i++){h+='<div class="tier" style="width:'+(250-i*38)+'px;height:'+(ck.tiers>4?48:62)+'px"></div>'}c.innerHTML=h+'<div class="topper">'+D.occasions[ck.occ][1]+'</div>';$('#tn').textContent=ck.tiers;const serves=D.serves(ck.tiers);$('#serves').textContent='Serves about '+serves;$('#occl').textContent=D.occasions[ck.occ][0]+' · '+f[0];$('#est').textContent=money(D.priceFn(ck.tiers,ck.occ))}
+
+/* ---------- bag + checkout ---------- */
+function bagCount(){return bag.reduce((a,b)=>a+b.q,0)}
+function bagTotal(){return bag.reduce((a,b)=>a+b.q*b.price,0)}
+function setBagBtn(){const b=$('#bagBtn');if(D.mode==='shop'){b.innerHTML='Bag <span class="n" id="bn">'+bagCount()+'</span>';b.onclick=()=>openDrawer('bag')}else{b.innerHTML=D.headerCta[0];b.onclick=()=>location.hash=D.headerCta[1]}}
+function openDrawer(step){$('#drawer').classList.add('on');$('#scrim').classList.add('on');drawer(step)}
+function closeAll(){$('#drawer').classList.remove('on');$('#modal').classList.remove('on');$('#scrim').classList.remove('on')}
+let co={};
+function drawer(step){const d=$('#drawer');const st=['bag','details','pay'].indexOf(step);const stepsBar=st>=0?'<div class="steps">'+[0,1,2].map(k=>'<i class="'+(k<=st?'on':'')+'"></i>').join('')+'</div>':'';
+if(step==='bag'){d.innerHTML=`<div class="dh"><h3>Your bag</h3><button class="x" data-close>✕</button></div><div class="db">${stepsBar}${bag.length?bag.map((b,i)=>`<div class="li"><img src="${img(b.img)}" alt=""><div><h4>${esc(b.name)}</h4><small>${esc(b.opts)}</small><div class="qty"><button data-q="${i}" data-d="-1">−</button><span style="min-width:22px;text-align:center">${b.q}</span><button data-q="${i}" data-d="1">+</button></div></div><b>${money(b.q*b.price)}</b></div>`).join(''):'<div class="empty"><div>🛍️</div>Your bag is empty.<br>Find something you love.</div>'}</div>${bag.length?`<div class="df"><div class="row"><span>Subtotal</span><b>${money(bagTotal())}</b></div><p style="font-size:13px;color:var(--muted);margin:6px 0 12px">Delivery calculated at the next step.</p><button class="btn pri" style="width:100%" data-step="details">Checkout securely →</button>${D.wa?'<a class="btn sec" style="width:100%;margin-top:10px" href="'+waLink()+'" target="_blank" rel="noopener">Or send this order on WhatsApp</a>':''}</div>`:''}`}
+if(step==='details'){d.innerHTML=`<div class="dh"><h3>Delivery</h3><button class="x" data-step="bag">←</button></div><div class="db">${stepsBar}<label class="field"><span>Full name</span><input id="cn" autocomplete="name" value="${esc(co.n||'')}"></label><label class="field"><span>Phone</span><input id="cp" type="tel" autocomplete="tel" value="${esc(co.p||'')}"></label><label class="field"><span>Delivery address</span><textarea id="ca" rows="2">${esc(co.a||'')}</textarea></label><div class="opt"><label>Delivery option</label><div class="pick">${D.delivery.map((z,i)=>`<label><input type="radio" name="dz" value="${i}" ${(co.z||0)==i?'checked':''}> ${z[0]}<b>${z[1]?money(z[1]):'Free'}</b></label>`).join('')}</div></div></div><div class="df"><button class="btn pri" style="width:100%" data-step="pay">Continue to payment →</button></div>`}
+if(step==='pay'){const z=D.delivery[co.z||0];d.innerHTML=`<div class="dh"><h3>Payment</h3><button class="x" data-step="details">←</button></div><div class="db">${stepsBar}<div class="pick">${D.pay.map((p,i)=>`<label><input type="radio" name="pm" ${i?'':'checked'}> ${p}</label>`).join('')}</div><div class="row"><span>Items</span><span>${money(bagTotal())}</span></div><div class="row"><span>${z[0]}</span><span>${z[1]?money(z[1]):'Free'}</span></div><div class="row tot"><span>Total</span><span>${money(bagTotal()+z[1])}</span></div><p style="font-size:13px;color:var(--muted);margin-top:10px">${D.payNote}</p></div><div class="df"><button class="btn pri" style="width:100%" data-step="done">Pay ${money(bagTotal()+z[1])}</button></div>`}
+if(step==='done'){const no=D.orderPrefix+'-'+(1000+Math.floor(Math.random()*8999));d.innerHTML=`<div class="dh"><h3>Thank you</h3><button class="x" data-close>✕</button></div><div class="db"><div class="done"><div class="tick">✓</div><h4>Order ${no} confirmed</h4><p style="color:var(--muted)">${D.doneNote}</p><p style="font-size:13px;color:var(--muted);margin-top:18px">This is a demo, so no payment was taken.</p></div></div>`;bag=[];setBagBtn();confetti()}}
+function waLink(){const lines=bag.map(b=>'• '+b.q+' × '+b.name+' ('+b.opts+') '+money(b.q*b.price));return D.wa+(D.wa.includes('?')?'&':'?')+'text='+encodeURIComponent('Hi '+D.name+'! I\'d like to order:\n'+lines.join('\n')+'\nTotal: '+money(bagTotal()))}
+function quick(i){const p=D.products[i];const sel={};(p.opts||D.defaultOpts||[]).forEach(o=>sel[o[0]]=0);const box=$('#mbox');
+box.style.gridTemplateColumns='';const draw=()=>{const opts=(p.opts||D.defaultOpts||[]);const extra=opts.reduce((a,o)=>a+(o[2]?o[2][sel[o[0]]]||0:0),0);box.innerHTML=`<div class="mi"><img src="${img(p.img)}" alt="${esc(p.name)}"></div><div class="mc"><button class="x" data-close>✕</button><div class="eyebrow">${esc(p.cat)}</div><h3>${esc(p.name)}</h3><div class="price">${money(p.price+extra)}</div><p class="desc">${p.desc}</p>${opts.map(o=>`<div class="opt"><label>${o[0]}</label><div class="chips">${o[1].map((v,k)=>`<button type="button" data-o="${o[0]}" data-v="${k}" aria-pressed="${sel[o[0]]===k}">${v}${o[2]&&o[2][k]?' <span style="opacity:.6">+'+money(o[2][k])+'</span>':''}</button>`).join('')}</div></div>`).join('')}<button class="btn pri" style="width:100%;margin-top:6px" id="addBtn">Add to bag · ${money(p.price+extra)}</button><p class="note">${D.quickNote}</p></div>`;
+box.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{sel[b.dataset.o]=+b.dataset.v;draw()});
+$('#addBtn').onclick=()=>{const optsTxt=opts.map(o=>o[1][sel[o[0]]]).join(' · ')||'One size';const ex=bag.find(b=>b.name===p.name&&b.opts===optsTxt);if(ex)ex.q++;else bag.push({name:p.name,img:p.img,price:p.price+extra,opts:optsTxt,q:1});closeAll();setBagBtn();const n=$('#bn');n.classList.add('pop');setTimeout(()=>n.classList.remove('pop'),300);toast('Added to your bag ✓ <u style="cursor:pointer" id="vb">View bag</u>')}};
+draw();$('#modal').classList.add('on');$('#scrim').classList.add('on')}
+function toast(h){const t=$('#toast');t.innerHTML=h;t.classList.add('on');const v=$('#vb');if(v)v.onclick=()=>openDrawer('bag');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('on'),2600)}
+function confetti(){const c=$('#confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const cols=[getComputedStyle(document.documentElement).getPropertyValue('--accent'),getComputedStyle(document.documentElement).getPropertyValue('--accent2'),'#fff'];const P=[...Array(140)].map(()=>({x:innerWidth/2,y:innerHeight/2,vx:(Math.random()-.5)*16,vy:Math.random()*-16-4,r:Math.random()*6+3,c:cols[Math.floor(Math.random()*3)],a:Math.random()*6}));let f=0;(function tick(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.45;p.a+=.2;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r,-p.r/2,p.r*2,p.r);x.restore()});if(++f<120)requestAnimationFrame(tick);else x.clearRect(0,0,c.width,c.height)})()}
+function bookingModal(title,html){const box=$('#mbox');box.style.gridTemplateColumns='1fr';box.innerHTML=`<div class="mc" style="max-width:560px;margin:0 auto;width:100%"><button class="x" data-close>✕</button>${html}</div>`;$('#modal').classList.add('on');$('#scrim').classList.add('on')}
+
+/* ---------- observe ---------- */
+let io;function observe(){io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});$$('.card:not(.in),.reveal:not(.in)').forEach((el,i)=>{el.style.transitionDelay=(el.classList.contains('card')?(i%4)*0.08:0)+'s';io.observe(el)})}
+
+/* ---------- build ---------- */
+const S={hero,shop,story,info,insta,bigcta,booking,cake:cakeB,awards:()=>`<section class="s" id="awards" style="padding-top:0"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">${D.awards[0]}</div><h2 class="disp">${D.awards[1]}</h2></div></div><div class="awards reveal">${D.awards[2].map(p=>'<img src="'+img(p)+'" alt="" loading="lazy">').join('')}</div></div></section>`,gallery:()=>`<section class="s" id="gallery"><div class="wrap"><div class="sh reveal"><div><div class="eyebrow">${D.gallery[0]}</div><h2 class="disp">${D.gallery[1]}</h2></div></div><div class="masonry reveal">${D.gallery[2].map(g=>'<figure><img src="'+img(g[0])+'" alt="'+esc(g[1])+'" loading="lazy"><figcaption>'+g[1]+'</figcaption></figure>').join('')}</div></div></section>`,banner:()=>`<section style="padding:0"><div class="wrap"><a href="#${D.banner[3]}" style="display:grid;grid-template-columns:1fr 1.4fr;gap:0;border-radius:24px;overflow:hidden;text-decoration:none;background:var(--accent);color:var(--on-accent);margin-top:20px" class="reveal"><img src="${img(D.banner[0])}" alt="" style="width:100%;height:100%;max-height:340px;object-fit:cover"><div style="padding:34px;display:flex;flex-direction:column;justify-content:center"><div class="eyebrow" style="color:inherit;opacity:.8">${D.banner[1]}</div><div class="disp" style="font-size:clamp(30px,4vw,54px);margin:10px 0 16px">${D.banner[2]}</div><span style="font-weight:700">${D.banner[4]} →</span></div></a></div></section>`};
+$('#app').innerHTML=D.sections.map(k=>S[k]()).join('');
+$('#nav').innerHTML=D.nav.map(n=>'<a href="#'+n[1]+'">'+n[0]+'</a>').join('');
+$('#footAddr').innerHTML=D.footer;
+setBagBtn();renderGrid();renderDays();renderCake();observe();
+if(D.wa){const a=document.createElement('a');a.className='wa';a.href=D.wa;a.target='_blank';a.rel='noopener';a.setAttribute('aria-label','Chat on WhatsApp');a.innerHTML='<svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>';document.body.appendChild(a)}
+document.addEventListener('click',e=>{const t=e.target.closest('button,[data-close],a');if(!t)return;
+if(t.dataset.close!==undefined||t===$('#scrim')){closeAll();return}
+if(t.dataset.cat){cat=t.dataset.cat;$$('#cats button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===cat));renderGrid();return}
+if(t.dataset.wish){e.stopPropagation();const i=t.dataset.wish;wish[i]=!wish[i];t.classList.toggle('on',wish[i]);t.textContent=wish[i]?'♥':'♡';toast(wish[i]?'Saved to your wishlist ♥':'Removed from wishlist');return}
+if(t.dataset.p!==undefined&&t.classList.contains('quick')){quick(+t.dataset.p);return}
+if(t.dataset.q!==undefined){const b=bag[+t.dataset.q];b.q+=+t.dataset.d;if(b.q<1)bag.splice(+t.dataset.q,1);setBagBtn();drawer('bag');return}
+if(t.dataset.step){if(t.dataset.step==='pay'){co.n=$('#cn').value;co.p=$('#cp').value;co.a=$('#ca').value;const r=document.querySelector('input[name=dz]:checked');co.z=r?+r.value:0}drawer(t.dataset.step);return}
+if(t.dataset.svc!==undefined){bk.svc=+t.dataset.svc;$$('[data-svc]').forEach(b=>b.setAttribute('aria-pressed',b===t));renderSum();if(bk.day===null){document.getElementById('days').scrollIntoView({behavior:'smooth',block:'center'})}return}
+if(t.dataset.day!==undefined){bk.day=+t.dataset.day;bk.time=null;$$('[data-day]').forEach(b=>b.setAttribute('aria-pressed',b===t));renderTimes();renderSum();return}
+if(t.dataset.time){bk.time=t.dataset.time;$$('[data-time]').forEach(b=>b.setAttribute('aria-pressed',b===t));renderSum();return}
+if(t.id==='bookGo'){const sv=D.services[bk.svc];bookingModal('',`<div class="done"><div class="tick">✓</div><h4>You're booked in</h4><p style="color:var(--muted)">${sv.name}, ${$$('#bsum .row')[1].lastElementChild.textContent}. A confirmation and reminder would go to your phone.</p><p style="font-size:13px;color:var(--muted);margin-top:18px">This is a demo, so no deposit was taken.</p></div>`);confetti();return}
+if(t.dataset.occ!==undefined){ck.occ=+t.dataset.occ;$$('[data-occ]').forEach(b=>b.setAttribute('aria-pressed',b===t));renderCake();return}
+if(t.dataset.flav!==undefined){ck.flav=+t.dataset.flav;$$('[data-flav]').forEach(b=>b.setAttribute('aria-pressed',b===t));renderCake();return}
+if(t.dataset.t){ck.tiers=Math.max(1,Math.min(D.maxTiers,ck.tiers+(+t.dataset.t)));renderCake();return}
+if(t.id==='cakeGo'){bookingModal('',`<div class="eyebrow">Almost there</div><h3>Tell us about your ${D.occasions[ck.occ][0].toLowerCase()}</h3><p class="desc">${ck.tiers}-tier ${D.flavours[ck.flav][0].toLowerCase()}${$('#egg').checked?', eggless':''}, estimated from ${money(D.priceFn(ck.tiers,ck.occ))}.</p><label class="field"><span>Your name</span><input></label><label class="field"><span>Phone or WhatsApp</span><input type="tel"></label><label class="field"><span>Ideas, colours or a theme</span><textarea rows="3" placeholder="e.g. ivory and gold, fresh flowers, a gold topper"></textarea></label><button class="btn pri" style="width:100%" id="cakeSend">Send my request</button>`);return}
+if(t.id==='cakeSend'){$('#mbox .mc').innerHTML='<button class="x" data-close>✕</button><div class="done"><div class="tick">✓</div><h4>Request sent</h4><p style="color:var(--muted)">'+D.cakeDone+'</p><p style="font-size:13px;color:var(--muted);margin-top:18px">This is a demo, so nothing was sent.</p></div>';confetti();return}
+});
+$('#scrim').onclick=closeAll;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll()});
+$('#grid')&&$('#grid').addEventListener('click',e=>{const c=e.target.closest('.card');if(c&&!e.target.closest('button'))quick(+c.dataset.p)});
+$('#grid')&&$('#grid').addEventListener('keydown',e=>{const c=e.target.closest('.card');if(c&&e.key==='Enter')quick(+c.dataset.p)});
+const egg=$('#egg');if(egg)egg.onchange=renderCake;
+const cd=$('#cdate');if(cd){const m=new Date();m.setDate(m.getDate()+D.minDays);cd.min=m.toISOString().slice(0,10)}
+</script>
+</body>
+</html>
