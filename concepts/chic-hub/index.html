@@ -19,8 +19,8 @@
 <style>
 /* Layout: boutique storefront. Split hero, category tabs, product grid, product sheet, bag drawer with checkout, visit + policies. */
 :root{
-  --blush:#F8ECEE;--paper:#FFFFFF;--ink:#1E1418;--muted:#6E5C63;--line:#EBD9DE;
-  --magenta:#C2186F;--magenta-ink:#FFFFFF;--gold:#A57A2C;--night:#1C1620;
+  --blush:#FFF0F5;--paper:#FFFFFF;--ink:#1E1418;--muted:#6E5C63;--line:#F3D3DF;
+  --magenta:#E0107A;--magenta-ink:#FFFFFF;--gold:#D9A441;--night:#2A0E22;--plum:#3A0F2E;--rose:#FF5FA8;
   --display:'Prata',Didot,Georgia,serif;--script:'Pinyon Script',cursive;--body:'Manrope',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -50,7 +50,7 @@ header{position:sticky;top:0;z-index:30;background:rgba(248,236,238,.95);backdro
 .bagbtn .count{background:var(--magenta);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
 .icon{width:18px;height:18px;flex:none}
 
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(32px,5vw,64px) 0}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center;padding-top:clamp(32px,5vw,64px);padding-bottom:clamp(32px,5vw,64px)}
 .hero .script{font-family:var(--script);font-size:clamp(34px,4vw,46px);color:var(--magenta);line-height:1}
 .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,5.6vw,72px);line-height:1.04;margin:10px 0 18px;text-wrap:balance}
 .hero p{font-size:18px;color:var(--muted);max-width:46ch;margin-bottom:26px}
@@ -168,12 +168,80 @@ footer .logo b{color:#fff}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600;z-index:70;transition:transform .25s ease}
 .toast.on{transform:translateX(-50%)}
 
+/* vibrancy */
+.marquee{background:linear-gradient(90deg,var(--magenta),#B5108F,var(--magenta));color:#fff;overflow:hidden;white-space:nowrap;font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:9px 0}
+.marquee .track{display:inline-flex;gap:38px;animation:mq 28s linear infinite;padding-left:38px}
+.marquee span::before{content:"✦";color:var(--gold);margin-right:38px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.herox{background:radial-gradient(1200px 600px at 85% 20%,rgba(224,16,122,.55),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(255,95,168,.25),transparent 60%),var(--plum);color:#fff;overflow:hidden}
+.herox .hero{padding-top:clamp(36px,6vw,80px);padding-bottom:clamp(36px,6vw,80px)}
+.herox .script{color:#FF8CC4}
+.herox h1{color:#fff}
+.herox h1 em{font-style:normal;background:linear-gradient(90deg,#FF7BBE,#FFC46B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.herox p{color:#F3D6E4}
+.herox .btn-line{box-shadow:inset 0 0 0 1.5px #fff;color:#fff}
+.herox .perks{color:#fff}
+.herox .perks i{background:var(--gold)}
+.collage{position:relative;min-height:540px}
+.collage img{position:absolute;object-fit:cover;box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.collage .c1{width:62%;aspect-ratio:4/5.4;right:0;top:0;border-radius:180px 180px 18px 18px;object-position:50% 25%}
+.collage .c2{width:42%;aspect-ratio:4/5;left:0;top:18%;border-radius:18px;transform:rotate(-5deg);border:6px solid #fff}
+.collage .c3{width:36%;aspect-ratio:1/1;left:22%;bottom:0;border-radius:50%;border:6px solid #fff;object-position:50% 20%}
+.sticker{position:absolute;right:-6px;bottom:8%;width:132px;height:132px;border-radius:50%;background:var(--gold);color:var(--plum);display:grid;place-items:center;text-align:center;font-weight:800;font-size:14px;line-height:1.15;transform:rotate(12deg);box-shadow:0 12px 28px rgba(0,0,0,.3);animation:bob 4s ease-in-out infinite}
+.sticker b{display:block;font-family:var(--display);font-weight:400;font-size:26px}
+@keyframes bob{50%{transform:rotate(8deg) translateY(-6px)}}
+.cats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat{position:relative;border:0;padding:0;border-radius:20px;overflow:hidden;cursor:pointer;aspect-ratio:3/4;background:#000;text-align:left}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;opacity:.92}
+.cat:hover img{transform:scale(1.06)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(42,14,34,.85))}
+.cat span{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff}
+.cat b{display:block;font-family:var(--display);font-weight:400;font-size:28px;line-height:1.05}
+.cat small{font-size:13.5px;color:#FFD3E7;font-weight:600}
+.campaign{background:linear-gradient(120deg,var(--magenta) 0%,#B5108F 55%,#7A0E6B 100%);color:#fff;border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.campaign::before{content:"";position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(255,196,107,.45),transparent 70%);right:-80px;top:-120px}
+.campaign h2{font-family:var(--display);font-weight:400;font-size:clamp(40px,6vw,76px);line-height:1;position:relative}
+.campaign h2 span{color:#FFD27A}
+.campaign p{font-size:17px;color:#FFE1EF;margin:14px 0 22px;max-width:44ch;position:relative}
+.campaign .btn{background:#fff;color:var(--magenta);position:relative}
+.campaign .pics{display:flex;gap:12px;justify-content:flex-end;position:relative}
+.campaign .pics img{width:46%;aspect-ratio:3/4;object-fit:cover;border-radius:16px;border:4px solid rgba(255,255,255,.85)}
+.campaign .pics img:last-child{transform:translateY(26px) rotate(3deg)}
+.campaign .pics img:first-child{transform:rotate(-3deg)}
+.heart{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;border:0;cursor:pointer;z-index:2;transition:transform .15s}
+.heart svg{width:18px;height:18px;stroke:var(--ink);fill:none}
+.heart[aria-pressed="true"] svg{fill:var(--magenta);stroke:var(--magenta)}
+.heart[aria-pressed="true"]{animation:pop .35s ease}
+@keyframes pop{50%{transform:scale(1.3)}}
+.mood{font-size:12.5px;font-weight:700;color:var(--magenta);letter-spacing:.02em}
+.card .ph{background:linear-gradient(135deg,#FFD6E8,#FFE9C9)}
+.quick{position:absolute;left:10px;right:10px;bottom:10px;background:var(--ink);color:#fff;border-radius:999px;text-align:center;padding:9px;font-weight:700;font-size:13px;opacity:0;transform:translateY(8px);transition:all .25s ease}
+.card:hover .quick,.card:focus-visible .quick{opacity:1;transform:none}
+.dolls{background:var(--plum);color:#fff;text-align:center}
+.dolls h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,58px);line-height:1.05}
+.dolls h2 span{font-family:var(--script);color:#FF8CC4;font-size:1.15em}
+.dolls p{color:#F3D6E4;margin:10px auto 30px;max-width:52ch}
+.dgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.dgrid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:16px}
+.dgrid img:nth-child(even){transform:translateY(22px)}
+.why{background:linear-gradient(180deg,#FFE3EF,#FFF0F5);color:var(--ink)}
+.why h3{color:var(--magenta)}
+.why p{color:var(--muted)}
+.why .ic{width:46px;height:46px;border-radius:14px;background:var(--magenta);color:#fff;display:grid;place-items:center;margin-bottom:12px;font-size:22px}
 @media (max-width:1000px){
+  .cats{grid-template-columns:1fr 1fr}
+  .dgrid{grid-template-columns:repeat(3,1fr)}
+  .dgrid img:nth-child(n+4){display:none}
   .nav{display:none}
   .grid{grid-template-columns:repeat(3,1fr)}
   .why .wrap{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
+  .collage{min-height:420px}
+  .sticker{width:104px;height:104px;font-size:12px}.sticker b{font-size:20px}
+  .campaign{grid-template-columns:1fr}
+  .campaign .pics{justify-content:center}
+  .dgrid{grid-template-columns:1fr 1fr}.dgrid img:nth-child(n+3){display:none}.dgrid img:nth-child(even){transform:none}
   .search{display:none}
   .hero{grid-template-columns:1fr}
   .hero-img{order:-1}
@@ -188,12 +256,12 @@ footer .logo b{color:#fff}
 }
 .msearch{display:none;margin-bottom:16px}
 .msearch .search{display:flex;width:100%}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <div class="concept"><b>Concept preview.</b> A proposed online shop for Chic Hub, made by Temi Fusika. Not their live site.</div>
-<div class="promo">Same-day delivery within Lagos · Pay by card, transfer or USSD</div>
+<div class="marquee" aria-label="Announcements"><div class="track"><span>New arrivals every week</span><span>Same-day delivery across Lagos</span><span>Pay by card, transfer or USSD</span><span>Buy 3, get 1 free on walk-in days</span><span>Exchange within 24–48 hours</span><span>New arrivals every week</span><span>Same-day delivery across Lagos</span><span>Pay by card, transfer or USSD</span><span>Buy 3, get 1 free on walk-in days</span><span>Exchange within 24–48 hours</span></div></div>
 <header><div class="wrap bar">
   <a class="logo" href="#top" aria-label="Chic Hub home"><span class="moon" aria-hidden="true"></span><b>Chic Hub</b><small>Lagos</small></a>
   <nav class="nav" aria-label="Main"><a href="#shop">Shop</a><a href="#shop" data-jump="Bags">Bags</a><a href="#shop" data-jump="Dresses">Dresses</a><a href="#shop" data-jump="Combos">Combos</a><a href="#visit">Visit us</a></nav>
@@ -202,19 +270,31 @@ footer .logo b{color:#fff}
 </div></header>
 
 <main id="top">
-<div class="wrap hero">
+<div class="herox"><div class="wrap hero">
   <div>
     <p class="script">For royalties only</p>
-    <h1>Luxury bags, shoes and outfits, delivered across Lagos today.</h1>
-    <p>Shop Chic Hub's latest pieces online, pay securely, and get them the same day. Or visit the boutique in Ebute Metta, Yaba.</p>
+    <h1>Walk in a girl. <em>Walk out royalty.</em></h1>
+    <p>Statement bags, heels and outfits you'll be stopped and asked about. Shop Chic Hub online, pay in seconds, and wear it tonight anywhere in Lagos.</p>
     <div class="ctas"><a class="btn btn-pink" href="#shop">Shop new arrivals</a><a class="btn btn-line" href="#visit">Visit the boutique</a></div>
-    <div class="perks"><span><i></i>Same-day Lagos delivery</span><span><i></i>Exchange within 24–48 hours</span><span><i></i>Open Mon–Sat, 9am–7pm</span></div>
+    <div class="perks"><span><i></i>88.5K Chic Hub dolls on Instagram</span><span><i></i>Same-day Lagos delivery</span><span><i></i>Open Mon–Sat, 9am–7pm</span></div>
   </div>
-  <div class="hero-img">
-    <img src="img/hero.jpg" alt="Chic Hub boutique shelves of bags and shoes, with a model in a red dress">
-    <div class="tag"><b>88.5K</b>shoppers follow us on Instagram</div>
+  <div class="collage" aria-hidden="true">
+    <img class="c1" src="img/hero.jpg" alt="">
+    <img class="c2" src="img/crescent-bag.jpg" alt="">
+    <img class="c3" src="img/lemon-maxi.jpg" alt="">
+    <div class="sticker"><span><b>Today</b>delivered across Lagos</span></div>
   </div>
-</div>
+</div></div>
+
+<section style="padding-bottom:10px"><div class="wrap">
+  <div class="head"><div><h2>What are you shopping for?</h2><p>Start with a mood, end with a look.</p></div></div>
+  <div class="cats">
+    <button class="cat" type="button" data-jump="Bags" data-scroll><img src="img/quilted-bag.jpg" alt=""><span><b>Bags</b><small>Arm candy for every outfit</small></span></button>
+    <button class="cat" type="button" data-jump="Dresses" data-scroll><img src="img/white-dress.jpg" alt=""><span><b>Dresses</b><small>Main-character energy</small></span></button>
+    <button class="cat" type="button" data-jump="Combos" data-scroll><img src="img/wine-combo.jpg" alt=""><span><b>Combos</b><small>Bag and shoe, perfectly paired</small></span></button>
+    <button class="cat" type="button" data-jump="Sets" data-scroll><img src="img/lemon-set.jpg" alt=""><span><b>Sets</b><small>Book the trip, we have the outfit</small></span></button>
+  </div>
+</div></section>
 
 <section id="shop" style="padding-top:20px"><div class="wrap">
   <div class="head"><div><h2>Shop the boutique</h2><p>Every piece with full details, sizes and prices.</p></div>
@@ -225,11 +305,26 @@ footer .logo b{color:#fff}
   <div class="grid" id="grid"></div>
 </div></section>
 
+<section style="padding-top:10px"><div class="wrap"><div class="campaign">
+  <div>
+    <h2>Buy 3, <span style="white-space:nowrap">get 1 free.</span></h2>
+    <p>Our walk-in sale days are legendary. Grab your girls, pick your three favourites and the fourth one is on us. Watch our Instagram for the next date.</p>
+    <a class="btn" href="#visit">Plan your visit</a>
+  </div>
+  <div class="pics"><img src="img/floral-dress.jpg" alt="Floral satin midi dress"><img src="img/red-dress.jpg" alt="Red ribbed bodycon dress"></div>
+</div></div></section>
+
+<section class="dolls"><div class="wrap">
+  <h2>Join the <span>#chdolls</span></h2>
+  <p>Thousands of Lagos women shop Chic Hub. Tag #chdolls on Instagram wearing your pieces and you could be featured here.</p>
+  <div class="dgrid"><img src="img/white-dress.jpg" alt="" loading="lazy"><img src="img/lemon-set.jpg" alt="" loading="lazy"><img src="img/red-dress.jpg" alt="" loading="lazy"><img src="img/lemon-maxi.jpg" alt="" loading="lazy"><img src="img/floral-dress.jpg" alt="" loading="lazy"></div>
+</div></section>
+
 <section class="why"><div class="wrap">
-  <div><h3>Same-day delivery</h3><p>Order in the morning and wear it tonight, anywhere in Lagos. Nationwide delivery in 2–4 days.</p></div>
-  <div><h3>Pay your way</h3><p>Card, bank transfer or USSD through Paystack, or pay when you pick up at the boutique.</p></div>
-  <div><h3>Easy exchange</h3><p>Not quite right? Exchange within 24–48 hours of delivery. Terms apply.</p></div>
-  <div><h3>Order on WhatsApp</h3><p>Prefer to chat? Every item has a WhatsApp button that sends us the exact product.</p></div>
+  <div><div class="ic">⚡</div><h3>Same-day delivery</h3><p>Order in the morning and wear it tonight, anywhere in Lagos. Nationwide delivery in 2–4 days.</p></div>
+  <div><div class="ic">₦</div><h3>Pay your way</h3><p>Card, bank transfer or USSD through Paystack, or pay when you pick up at the boutique.</p></div>
+  <div><div class="ic">↺</div><h3>Easy exchange</h3><p>Not quite right? Exchange within 24–48 hours of delivery. Terms apply.</p></div>
+  <div><div class="ic">✆</div><h3>Order on WhatsApp</h3><p>Prefer to chat? Every item has a WhatsApp button that sends us the exact product.</p></div>
 </div></section>
 
 <section id="visit"><div class="wrap visit">
@@ -259,7 +354,7 @@ footer .logo b{color:#fff}
   <div><a class="logo" href="#top"><span class="moon" aria-hidden="true"></span><b>Chic Hub</b></a><p style="margin-top:10px;max-width:36ch">Luxury, exquisite female items. Bags, shoes, dresses and matching combos from Lagos mainland.</p></div>
   <div><h4>Shop</h4><p>New arrivals</p><p>Bags</p><p>Dresses & sets</p><p>Combos</p></div>
   <div><h4>Contact</h4><p>hello@chichub.ng</p><p>149 Herbert Macaulay Way, Yaba</p><p>Mon–Sat, 9am–7pm</p></div>
-  <p class="fine">Concept website prepared by Temi Fusika · temifusika.com. Prices marked "example price", product details, stock levels, delivery fees and the 2pm cut-off are examples to confirm with Chic Hub. hello@chichub.ng is a proposed address. Payments in this preview are not processed.</p>
+  <p class="fine">Concept website prepared by Temi Fusika. Prices marked "example price", product details, stock levels, delivery fees and the 2pm cut-off are examples to confirm with Chic Hub. hello@chichub.ng is a proposed address. Payments in this preview are not processed.</p>
 </div></footer>
 
 <div class="scrim" id="scrim"></div>
@@ -274,21 +369,21 @@ footer .logo b{color:#fff}
 <script>
 (function(){
 var P=[
- {id:'crescent',cat:'Bags',name:'Floral crescent shoulder bag',img:'crescent-bag',price:30000,was:55000,desc:'A cream half-moon shoulder bag with a delicate floral print, tan trim and a gold chain strap woven with a printed silk scarf. Zip closure.',opts:{Colour:['Cream floral']},specs:{Style:'Shoulder / underarm',Hardware:'Gold-tone chain',Closure:'Zip',Strap:'Chain with scarf'},stock:'Only 3 left',isNew:true},
- {id:'quilted',cat:'Bags',name:'Quilted top-handle bag',img:'quilted-bag',price:30000,was:48500,desc:'Structured quilted bag in soft ivory with a sculpted gold-and-white top handle and statement gold clasp. Fits phone, cards and essentials.',opts:{Colour:['Ivory']},specs:{Style:'Top handle',Hardware:'Gold-tone',Closure:'Flap with clasp',Size:'Mini'},stock:'In stock',isNew:true},
- {id:'olive',cat:'Bags',name:'Olive structured work tote',img:'olive-bag',price:45000,ex:true,desc:'A clean, structured tote in olive green with gold padlock detail, strap trims and a luggage-tag charm. Roomy enough for the office.',opts:{Colour:['Olive','Black','Tan']},specs:{Style:'Tote',Hardware:'Gold-tone padlock',Closure:'Open top',Size:'Medium'},stock:'In stock'},
- {id:'wine',cat:'Combos',name:'Wine vanity bag & pointed heels set',img:'wine-combo',price:68000,ex:true,desc:'Matching wine-red vanity case bag with silver hardware, paired with pointed open-toe mules. Comes boxed.',opts:{Size:['37','38','39','40','41','42']},specs:{Includes:'Bag + heels',Colour:'Wine red',Heel:'Stiletto',Packaging:'Boxed'},stock:'Only 2 left'},
- {id:'gold',cat:'Combos',name:'Gold vanity bag & horsebit slides set',img:'gold-combo',price:62000,ex:true,desc:'Metallic gold vanity case bag with zip top and handle, paired with flat slides with gold horsebit detail. Boxed.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock'},
- {id:'creamset',cat:'Combos',name:'Cream vanity bag & crystal slides set',img:'cream-combo',price:65000,ex:true,desc:'Cream vanity case bag with gold padlock charm, paired with flat slides covered in sparkling crystals.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Cream / gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock',isNew:true},
- {id:'floral',cat:'Dresses',name:'Floral satin belted midi dress',img:'floral-dress',price:55000,was:74500,desc:'Flowing satin dress in an emerald and peach floral print, with a buttoned neckline, puff sleeves and a tie waist.',opts:{Size:['S','M','L','XL','XXL']},specs:{Fit:'Relaxed, belted',Length:'Midi',Sleeve:'Three-quarter',Fabric:'Satin feel'},stock:'In stock'},
- {id:'red',cat:'Dresses',name:'Red ribbed zip bodycon dress',img:'red-dress',price:28000,ex:true,desc:'Figure-hugging ribbed knee-length dress in bold red with a front zip. Dress it up with heels or down with sneakers.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Bodycon',Length:'Knee',Sleeve:'Sleeveless',Fabric:'Ribbed stretch knit'},stock:'Only 4 left'},
- {id:'maxi',cat:'Dresses',name:'Lemon one-shoulder maxi dress',img:'lemon-maxi',price:42000,ex:true,desc:'Soft lemon maxi dress with a draped one-shoulder neckline, ruched bodice and a full flowing skirt.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted bodice, full skirt',Length:'Maxi',Sleeve:'One shoulder',Fabric:'Soft jersey'},stock:'In stock',isNew:true},
- {id:'white',cat:'Dresses',name:'White knit flare mini dress',img:'white-dress',price:35000,ex:true,desc:'Pointelle-knit mini dress in white with jewelled buttons, ruffle collar and flared sleeves.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted, flared skirt',Length:'Mini',Sleeve:'Long, flared cuff',Fabric:'Knit'},stock:'In stock'},
- {id:'lemonset',cat:'Sets',name:'Lemon zip jacket & wide-leg trouser set',img:'lemon-set',price:38000,ex:true,desc:'Two-piece travel set: cropped zip jacket and relaxed wide-leg drawstring trousers in pale lemon. Book the trip, we have the outfit.',opts:{Size:['S','M','L','XL','XXL']},specs:{Includes:'Jacket + trousers',Fit:'Relaxed',Fabric:'Soft fleece-back jersey',Colour:'Lemon'},stock:'In stock',isNew:true}
+ {id:'crescent',mood:'Brunch-ready',cat:'Bags',name:'Floral crescent shoulder bag',img:'crescent-bag',price:30000,was:55000,desc:'A cream half-moon shoulder bag with a delicate floral print, tan trim and a gold chain strap woven with a printed silk scarf. Zip closure.',opts:{Colour:['Cream floral']},specs:{Style:'Shoulder / underarm',Hardware:'Gold-tone chain',Closure:'Zip',Strap:'Chain with scarf'},stock:'Only 3 left',isNew:true},
+ {id:'quilted',mood:'Small bag, big statement',cat:'Bags',name:'Quilted top-handle bag',img:'quilted-bag',price:30000,was:48500,desc:'Structured quilted bag in soft ivory with a sculpted gold-and-white top handle and statement gold clasp. Fits phone, cards and essentials.',opts:{Colour:['Ivory']},specs:{Style:'Top handle',Hardware:'Gold-tone',Closure:'Flap with clasp',Size:'Mini'},stock:'In stock',isNew:true},
+ {id:'olive',mood:'Boss-lady Monday',cat:'Bags',name:'Olive structured work tote',img:'olive-bag',price:45000,ex:true,desc:'A clean, structured tote in olive green with gold padlock detail, strap trims and a luggage-tag charm. Roomy enough for the office.',opts:{Colour:['Olive','Black','Tan']},specs:{Style:'Tote',Hardware:'Gold-tone padlock',Closure:'Open top',Size:'Medium'},stock:'In stock'},
+ {id:'wine',mood:'Date-night pairing',cat:'Combos',name:'Wine vanity bag & pointed heels set',img:'wine-combo',price:68000,ex:true,desc:'Matching wine-red vanity case bag with silver hardware, paired with pointed open-toe mules. Comes boxed.',opts:{Size:['37','38','39','40','41','42']},specs:{Includes:'Bag + heels',Colour:'Wine red',Heel:'Stiletto',Packaging:'Boxed'},stock:'Only 2 left'},
+ {id:'gold',mood:'Golden-hour glow',cat:'Combos',name:'Gold vanity bag & horsebit slides set',img:'gold-combo',price:62000,ex:true,desc:'Metallic gold vanity case bag with zip top and handle, paired with flat slides with gold horsebit detail. Boxed.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock'},
+ {id:'creamset',mood:'Soft-life sparkle',cat:'Combos',name:'Cream vanity bag & crystal slides set',img:'cream-combo',price:65000,ex:true,desc:'Cream vanity case bag with gold padlock charm, paired with flat slides covered in sparkling crystals.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Cream / gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock',isNew:true},
+ {id:'floral',mood:'Owambe-approved',cat:'Dresses',name:'Floral satin belted midi dress',img:'floral-dress',price:55000,was:74500,desc:'Flowing satin dress in an emerald and peach floral print, with a buttoned neckline, puff sleeves and a tie waist.',opts:{Size:['S','M','L','XL','XXL']},specs:{Fit:'Relaxed, belted',Length:'Midi',Sleeve:'Three-quarter',Fabric:'Satin feel'},stock:'In stock'},
+ {id:'red',mood:'Turn every head',cat:'Dresses',name:'Red ribbed zip bodycon dress',img:'red-dress',price:28000,ex:true,desc:'Figure-hugging ribbed knee-length dress in bold red with a front zip. Dress it up with heels or down with sneakers.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Bodycon',Length:'Knee',Sleeve:'Sleeveless',Fabric:'Ribbed stretch knit'},stock:'Only 4 left'},
+ {id:'maxi',mood:'Sunday-best glow',cat:'Dresses',name:'Lemon one-shoulder maxi dress',img:'lemon-maxi',price:42000,ex:true,desc:'Soft lemon maxi dress with a draped one-shoulder neckline, ruched bodice and a full flowing skirt.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted bodice, full skirt',Length:'Maxi',Sleeve:'One shoulder',Fabric:'Soft jersey'},stock:'In stock',isNew:true},
+ {id:'white',mood:'Effortlessly sweet',cat:'Dresses',name:'White knit flare mini dress',img:'white-dress',price:35000,ex:true,desc:'Pointelle-knit mini dress in white with jewelled buttons, ruffle collar and flared sleeves.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted, flared skirt',Length:'Mini',Sleeve:'Long, flared cuff',Fabric:'Knit'},stock:'In stock'},
+ {id:'lemonset',mood:'Airport-ready',cat:'Sets',name:'Lemon zip jacket & wide-leg trouser set',img:'lemon-set',price:38000,ex:true,desc:'Two-piece travel set: cropped zip jacket and relaxed wide-leg drawstring trousers in pale lemon. Book the trip, we have the outfit.',opts:{Size:['S','M','L','XL','XXL']},specs:{Includes:'Jacket + trousers',Fit:'Relaxed',Fabric:'Soft fleece-back jersey',Colour:'Lemon'},stock:'In stock',isNew:true}
 ];
 var DEL=[{id:'main',label:'Lagos Mainland, same day',fee:3000},{id:'island',label:'Lagos Island & Lekki, same day',fee:4500},{id:'nation',label:'Outside Lagos, 2–4 days',fee:7500},{id:'pick',label:'Pick up at the boutique (Yaba)',fee:0}];
 var WA='https://wa.me/message/EA5RUTBKFHHPG1';
-var cat='All',q='',sort='new',bag=[],stage='bag',orderNo=null;
+var cat='All',q='',sort='new',bag=[],stage='bag',orderNo=null,wish={};
 var $=function(i){return document.getElementById(i)};
 var N=function(n){return '₦'+n.toLocaleString('en-NG')};
 var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
@@ -301,7 +396,7 @@ function list(){
 function priceHTML(p){return '<div class="price"><b>'+N(p.price)+'</b>'+(p.was?'<s>'+N(p.was)+'</s>':'')+(p.ex?'<em>example price</em>':'')+'</div>'}
 function drawGrid(){var L=list();
   $('grid').innerHTML=L.length?L.map(function(p){var off=p.was?Math.round((1-p.price/p.was)*100):0;
-    return '<button type="button" class="card" data-p="'+p.id+'"><div class="ph"><img src="img/'+p.img+'.jpg" alt="'+esc(p.name)+'" loading="lazy">'+(off?'<span class="badge">'+off+'% off</span>':(/left/.test(p.stock)?'<span class="badge low">'+p.stock+'</span>':''))+'</div><span class="nm">'+esc(p.name)+'</span>'+priceHTML(p)+'</button>'}).join(''):'<p class="empty">No items match "'+esc(q)+'". Try "bag", "dress" or "set".</p>'}
+    return '<div class="card" role="button" tabindex="0" data-p="'+p.id+'"><div class="ph"><img src="img/'+p.img+'.jpg" alt="'+esc(p.name)+'" loading="lazy">'+(off?'<span class="badge">'+off+'% off</span>':(/left/.test(p.stock)?'<span class="badge low">'+p.stock+'</span>':''))+'<button type="button" class="heart" data-heart="'+p.id+'" aria-pressed="'+(!!wish[p.id])+'" aria-label="Save '+esc(p.name)+'"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></svg></button><span class="quick">View & add to bag</span></div><span class="mood">'+esc(p.mood||'')+'</span><span class="nm">'+esc(p.name)+'</span>'+priceHTML(p)+'</div>'}).join(''):'<p class="empty">No items match "'+esc(q)+'". Try "bag", "dress" or "set".</p>'}
 var sel={};
 function openSheet(id){var p=P.find(function(x){return x.id===id});sel={id:id,qty:1};Object.keys(p.opts).forEach(function(k){sel[k]=p.opts[k].length===1?p.opts[k][0]:null});
   drawSheet(p);$('sheet').classList.add('on');$('scrim').classList.add('on');setTimeout(function(){$('sheet').querySelector('.close').focus()},30)}
@@ -347,14 +442,15 @@ function openBag(){stage=stage==='done'?'bag':stage;drawBag();$('drawer').classL
 document.addEventListener('click',function(e){
   var t=e.target;
   var c=t.closest('[data-c]');if(c){cat=c.dataset.c;drawTabs();drawGrid();return}
-  var j=t.closest('[data-jump]');if(j){cat=j.dataset.jump;drawTabs();drawGrid()}
+  var h=t.closest('[data-heart]');if(h){var id=h.dataset.heart;wish[id]=!wish[id];h.setAttribute('aria-pressed',!!wish[id]);toast(wish[id]?'Saved to your wishlist ♥':'Removed from wishlist');return}
+  var j=t.closest('[data-jump]');if(j){cat=j.dataset.jump;drawTabs();drawGrid();if(j.hasAttribute('data-scroll'))document.getElementById('shop').scrollIntoView({behavior:'smooth'})}
   var card=t.closest('[data-p]');if(card){openSheet(card.dataset.p);return}
   if(t.closest('[data-close]')||t===$('scrim')){if(stage==='done'){bag=[];count();stage='bag'}closeAll();return}
   var o=t.closest('[data-opt]');if(o){sel[o.dataset.opt]=o.dataset.v;drawSheet(P.find(function(x){return x.id===sel.id}));return}
   var qq=t.closest('[data-q]');if(qq){sel.qty=Math.max(1,Math.min(9,sel.qty+ +qq.dataset.q));drawSheet(P.find(function(x){return x.id===sel.id}));return}
   if(t.closest('[data-add]')){var p=P.find(function(x){return x.id===sel.id});if(Object.keys(p.opts).some(function(k){return !sel[k]})){toast('Please choose a '+Object.keys(p.opts).filter(function(k){return !sel[k]})[0].toLowerCase());return}
     var opt=Object.keys(p.opts).map(function(k){return k+': '+sel[k]}).join(', ');var ex=bag.find(function(l){return l.p.id===p.id&&l.opt===opt});if(ex)ex.qty+=sel.qty;else bag.push({p:p,qty:sel.qty,opt:opt});
-    count();$('sheet').classList.remove('on');stage='bag';openBag();return}
+    count();$('sheet').classList.remove('on');stage='bag';openBag();toast('Added to your bag ♥');return}
   var rm=t.closest('[data-rm]');if(rm){bag.splice(+rm.dataset.rm,1);count();drawBag();return}
   var go=t.closest('[data-go]');if(go){stage=go.dataset.go;drawBag();return}
   if(t.closest('[data-place]')){var n=$('cn').value.trim(),ph=$('cp').value.trim(),dz=$('dz').value,ad=$('ca')?$('ca').value.trim():'x';
@@ -365,7 +461,7 @@ document.addEventListener('change',function(e){if(e.target.id==='dz')drawBag();i
 ['q','q2'].forEach(function(i){$(i).addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();if(q){cat='All';drawTabs()}drawGrid();if(i==='q'&&q)document.getElementById('shop').scrollIntoView({block:'start'})})});
 $('openBag').addEventListener('click',openBag);
 $('closeBag').addEventListener('click',closeAll);
-document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();var c=e.target.closest&&e.target.closest('.card[data-p]');if(c&&e.target===c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();openSheet(c.dataset.p)}});
 drawTabs();drawGrid();count();
 })();
 </script>
