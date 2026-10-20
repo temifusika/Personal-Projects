@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en-NG">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Chic Hub | Luxury Female Fashion Boutique in Yaba, Lagos</title>
+<meta name="description" content="Shop bags, shoes, dresses and matching sets at Chic Hub, a luxury female fashion boutique in Ebute Metta, Yaba. Same-day delivery within Lagos. Pay by card, transfer or USSD.">
+<meta property="og:title" content="Chic Hub | Luxury Female Fashion Boutique, Lagos">
+<meta property="og:description" content="Bags, shoes, dresses and combos. Same-day delivery within Lagos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prata&family=Pinyon+Script&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ClothingStore","name":"Chic Hub","description":"Luxury, exquisite female fashion items: bags, shoes, dresses and matching sets.","image":"img/hero.jpg","telephone":"","address":{"@type":"PostalAddress","streetAddress":"149 Herbert Macaulay Way, opposite MRS filling station, Ebute Metta","addressLocality":"Yaba, Lagos","addressCountry":"NG"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"19:00"}],"priceRange":"₦₦","sameAs":["https://www.instagram.com/chic.hub/"]}
+</script>
+<style>
+/* Layout: boutique storefront. Split hero, category tabs, product grid, product sheet, bag drawer with checkout, visit + policies. */
+:root{
+  --blush:#F8ECEE;--paper:#FFFFFF;--ink:#1E1418;--muted:#6E5C63;--line:#EBD9DE;
+  --magenta:#C2186F;--magenta-ink:#FFFFFF;--gold:#A57A2C;--night:#1C1620;
+  --display:'Prata',Didot,Georgia,serif;--script:'Pinyon Script',cursive;--body:'Manrope',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--blush);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,36px)}
+.concept{background:var(--night);color:#EADCE2;font-size:13px;text-align:center;padding:8px 16px}
+.concept b{color:#F49AC5;font-weight:600}
+.promo{background:var(--magenta);color:#fff;text-align:center;font-size:13.5px;font-weight:600;padding:8px 16px}
+
+header{position:sticky;top:0;z-index:30;background:rgba(248,236,238,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:baseline;gap:6px;text-decoration:none;margin-right:auto}
+.logo .moon{width:20px;height:20px;border-radius:50%;box-shadow:inset -6px 1px 0 0 var(--magenta);transform:rotate(-20deg);align-self:center}
+.logo b{font-family:var(--script);font-weight:400;font-size:34px;line-height:1}
+.logo small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:22px;font-size:14.5px;font-weight:600}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.search{display:flex;align-items:center;gap:8px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:0 14px;height:40px;width:220px}
+.search input{border:0;outline:0;font:inherit;font-size:14.5px;width:100%;background:transparent;color:var(--ink)}
+.bagbtn{position:relative;display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;border:0;border-radius:999px;height:40px;padding:0 16px;cursor:pointer;font-weight:600;font-size:14.5px}
+.bagbtn .count{background:var(--magenta);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px}
+.icon{width:18px;height:18px;flex:none}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:center;padding:clamp(32px,5vw,64px) 0}
+.hero .script{font-family:var(--script);font-size:clamp(34px,4vw,46px);color:var(--magenta);line-height:1}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,5.6vw,72px);line-height:1.04;margin:10px 0 18px;text-wrap:balance}
+.hero p{font-size:18px;color:var(--muted);max-width:46ch;margin-bottom:26px}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:14px 24px;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none}
+.btn-pink{background:var(--magenta);color:var(--magenta-ink)}
+.btn-pink:hover{filter:brightness(1.08)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-line{background:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.perks{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:28px;font-size:14px;font-weight:600}
+.perks span{display:flex;align-items:center;gap:8px}
+.perks i{width:8px;height:8px;border-radius:50%;background:var(--magenta)}
+.hero-img{position:relative}
+.hero-img img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:200px 200px 16px 16px}
+.hero-img .tag{position:absolute;left:-14px;bottom:28px;background:var(--paper);border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px rgba(30,20,24,.15);font-size:13.5px}
+.hero-img .tag b{display:block;font-family:var(--display);font-weight:400;font-size:20px}
+
+section{padding:clamp(48px,7vw,84px) 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.head h2{font-family:var(--display);font-weight:400;font-size:clamp(32px,4vw,46px);line-height:1.1}
+.head p{color:var(--muted)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tabs button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.sort{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.sort select{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px}
+.card{background:transparent;border:0;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:10px}
+.card .ph{position:relative;border-radius:14px;overflow:hidden;background:#EED9DF}
+.card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .5s ease}
+.card:hover img{transform:scale(1.04)}
+.badge{position:absolute;top:10px;left:10px;background:var(--magenta);color:#fff;font-size:12px;font-weight:700;padding:4px 9px;border-radius:999px}
+.badge.low{background:var(--ink)}
+.card .nm{font-weight:600;font-size:15px;line-height:1.35}
+.price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.price b{font-size:17px;font-variant-numeric:tabular-nums}
+.price s{color:var(--muted);font-size:14px}
+.price em{font-style:normal;font-size:12px;color:var(--muted)}
+.empty{grid-column:1/-1;color:var(--muted);padding:30px 0}
+
+.why{background:var(--night);color:#F2E6EB}
+.why .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.why h3{font-family:var(--display);font-weight:400;font-size:22px;margin-bottom:6px;color:#fff}
+.why p{font-size:14.5px;color:#CDB9C2}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.card2{background:var(--paper);border-radius:18px;padding:clamp(22px,3vw,34px)}
+.card2 h2{font-family:var(--display);font-weight:400;font-size:32px;margin-bottom:14px}
+.card2 dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;font-size:15px}
+.card2 dt{color:var(--muted)}
+.card2 dd{font-weight:600}
+.card2 ul{list-style:none;display:grid;gap:10px;font-size:15px}
+.card2 li{display:flex;gap:10px}
+.card2 li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--magenta);margin-top:8px;flex:none}
+.maplink{display:inline-block;margin-top:16px;font-weight:700;color:var(--magenta);text-decoration:none}
+
+footer{background:var(--night);color:#CDB9C2;padding:40px 0 30px;font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+footer h4{color:#fff;font-size:14px;margin-bottom:10px}
+footer p+p{margin-top:6px}
+footer .logo b{color:#fff}
+.fine{grid-column:1/-1;border-top:1px solid #3A2E37;padding-top:18px;font-size:12.5px;color:#9F8B95}
+
+/* product sheet + drawer */
+.scrim{position:fixed;inset:0;background:rgba(20,12,16,.5);z-index:50;display:none}
+.scrim.on{display:block}
+.sheet{position:fixed;z-index:60;inset:50% auto auto 50%;transform:translate(-50%,-50%);width:min(960px,94vw);max-height:92vh;overflow:auto;background:var(--paper);border-radius:20px;display:none}
+.sheet.on{display:grid;grid-template-columns:1fr 1fr}
+.sheet img{width:100%;height:100%;object-fit:cover;min-height:420px;border-radius:20px 0 0 20px}
+.sheet .in{padding:clamp(20px,3vw,34px);display:flex;flex-direction:column;gap:14px}
+.sheet h3{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.15}
+.sheet .price b{font-size:24px}
+.sheet .desc{color:var(--muted);font-size:15px}
+.opts label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{border:1.5px solid var(--line);background:var(--paper);border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer;min-width:44px}
+.chips button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:#fff}
+.qty{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:8px}
+.qty button{border:0;background:transparent;width:38px;height:38px;cursor:pointer;font-size:18px}
+.qty span{min-width:30px;text-align:center;font-weight:700}
+.specs{font-size:14px;border-top:1px solid var(--line);padding-top:12px;display:grid;gap:6px}
+.specs div{display:flex;gap:10px}
+.specs dt{color:var(--muted);min-width:100px}
+.close{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:0;background:var(--paper);box-shadow:0 2px 10px rgba(0,0,0,.15);cursor:pointer;font-size:20px;line-height:1;z-index:2}
+.wa{background:#1F9D55;color:#fff}
+
+.drawer{position:fixed;z-index:60;top:0;right:0;bottom:0;width:min(460px,100vw);background:var(--paper);transform:translateX(100%);transition:transform .3s ease;display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.drawer header{position:static;background:var(--paper);display:flex;justify-content:space-between;align-items:center;padding:18px 20px}
+.drawer h3{font-family:var(--display);font-weight:400;font-size:26px}
+.drawer .body{flex:1;overflow:auto;padding:0 20px 20px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line img{width:64px;height:80px;object-fit:cover;border-radius:8px}
+.line .nm{font-weight:600;font-size:14.5px}
+.line small{color:var(--muted);display:block;font-size:13px}
+.line .rm{border:0;background:none;color:var(--muted);text-decoration:underline;cursor:pointer;font-size:13px}
+.totals{display:grid;gap:6px;font-size:15px;padding:14px 0}
+.totals div{display:flex;justify-content:space-between}
+.totals .grand{font-size:19px;font-weight:700;border-top:1px solid var(--line);padding-top:10px}
+.form{display:grid;gap:12px}
+.form label{font-size:13px;font-weight:700;display:block;margin-bottom:5px}
+.form input,.form select,.form textarea{width:100%;font:inherit;font-size:15px;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#FFFBFC;color:var(--ink)}
+.form textarea{min-height:64px}
+.pay{display:grid;gap:8px}
+.pay label{display:flex;gap:10px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px;cursor:pointer;font-weight:600;font-size:14.5px;margin:0}
+.pay label small{display:block;font-weight:500;color:var(--muted);font-size:13px}
+.pay input{width:auto;margin-top:3px;accent-color:var(--magenta)}
+.pay label:has(input:checked){border-color:var(--magenta);background:#FDF2F7}
+.drawer .foot{padding:16px 20px;border-top:1px solid var(--line);display:grid;gap:10px}
+.secure{font-size:12.5px;color:var(--muted);text-align:center}
+.done{text-align:center;padding:30px 10px;display:grid;gap:12px;justify-items:center}
+.done .tick{width:64px;height:64px;border-radius:50%;background:#E6F5EC;color:#1F9D55;display:grid;place-items:center;font-size:30px}
+.done h4{font-family:var(--display);font-weight:400;font-size:26px}
+.done p{color:var(--muted);font-size:14.5px;max-width:34ch}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:600;z-index:70;transition:transform .25s ease}
+.toast.on{transform:translateX(-50%)}
+
+@media (max-width:1000px){
+  .nav{display:none}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .why .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .search{display:none}
+  .hero{grid-template-columns:1fr}
+  .hero-img{order:-1}
+  .hero-img img{aspect-ratio:4/4.2;border-radius:160px 160px 16px 16px}
+  .hero-img .tag{left:10px}
+  .grid{grid-template-columns:1fr 1fr;gap:18px 12px}
+  .visit,footer .wrap{grid-template-columns:1fr}
+  .sheet.on{grid-template-columns:1fr;top:auto;bottom:0;left:0;transform:none;width:100%;max-height:92vh;border-radius:20px 20px 0 0}
+  .sheet img{border-radius:20px 20px 0 0;min-height:0;aspect-ratio:4/4;height:auto}
+  .why .wrap{grid-template-columns:1fr}
+  .msearch{display:flex !important}
+}
+.msearch{display:none;margin-bottom:16px}
+.msearch .search{display:flex;width:100%}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="concept"><b>Concept preview.</b> A proposed online shop for Chic Hub, made by Temi Fusika. Not their live site.</div>
+<div class="promo">Same-day delivery within Lagos · Pay by card, transfer or USSD</div>
+<header><div class="wrap bar">
+  <a class="logo" href="#top" aria-label="Chic Hub home"><span class="moon" aria-hidden="true"></span><b>Chic Hub</b><small>Lagos</small></a>
+  <nav class="nav" aria-label="Main"><a href="#shop">Shop</a><a href="#shop" data-jump="Bags">Bags</a><a href="#shop" data-jump="Dresses">Dresses</a><a href="#shop" data-jump="Combos">Combos</a><a href="#visit">Visit us</a></nav>
+  <label class="search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q" type="search" placeholder="Search bags, dresses…" aria-label="Search products"></label>
+  <button class="bagbtn" id="openBag" type="button" aria-label="Open bag"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Bag <span class="count" id="count">0</span></button>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <p class="script">For royalties only</p>
+    <h1>Luxury bags, shoes and outfits, delivered across Lagos today.</h1>
+    <p>Shop Chic Hub's latest pieces online, pay securely, and get them the same day. Or visit the boutique in Ebute Metta, Yaba.</p>
+    <div class="ctas"><a class="btn btn-pink" href="#shop">Shop new arrivals</a><a class="btn btn-line" href="#visit">Visit the boutique</a></div>
+    <div class="perks"><span><i></i>Same-day Lagos delivery</span><span><i></i>Exchange within 24–48 hours</span><span><i></i>Open Mon–Sat, 9am–7pm</span></div>
+  </div>
+  <div class="hero-img">
+    <img src="img/hero.jpg" alt="Chic Hub boutique shelves of bags and shoes, with a model in a red dress">
+    <div class="tag"><b>88.5K</b>shoppers follow us on Instagram</div>
+  </div>
+</div>
+
+<section id="shop" style="padding-top:20px"><div class="wrap">
+  <div class="head"><div><h2>Shop the boutique</h2><p>Every piece with full details, sizes and prices.</p></div>
+    <label class="sort">Sort<select id="sort"><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="sale">On sale first</option></select></label>
+  </div>
+  <div class="msearch"><label class="search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="q2" type="search" placeholder="Search bags, dresses…" aria-label="Search products"></label></div>
+  <div class="tabs" id="tabs" role="group" aria-label="Categories"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section class="why"><div class="wrap">
+  <div><h3>Same-day delivery</h3><p>Order in the morning and wear it tonight, anywhere in Lagos. Nationwide delivery in 2–4 days.</p></div>
+  <div><h3>Pay your way</h3><p>Card, bank transfer or USSD through Paystack, or pay when you pick up at the boutique.</p></div>
+  <div><h3>Easy exchange</h3><p>Not quite right? Exchange within 24–48 hours of delivery. Terms apply.</p></div>
+  <div><h3>Order on WhatsApp</h3><p>Prefer to chat? Every item has a WhatsApp button that sends us the exact product.</p></div>
+</div></section>
+
+<section id="visit"><div class="wrap visit">
+  <div class="card2">
+    <h2>Visit the boutique</h2>
+    <dl>
+      <dt>Address</dt><dd>149 Herbert Macaulay Way, opposite MRS filling station, Ebute Metta, Yaba, Lagos</dd>
+      <dt>Open</dt><dd>Monday to Saturday, 9am to 7pm</dd>
+      <dt>Closed</dt><dd>Sunday</dd>
+      <dt>Instagram</dt><dd>@chic.hub</dd>
+    </dl>
+    <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=149+Herbert+Macaulay+Way+Ebute+Metta+Yaba+Lagos" target="_blank" rel="noopener">Get directions</a>
+  </div>
+  <div class="card2">
+    <h2>Delivery and exchange</h2>
+    <ul>
+      <li>Same-day delivery within Lagos for orders placed before 2pm, Monday to Saturday.</li>
+      <li>Delivery fee is shown at checkout before you pay. Free pick-up at the boutique.</li>
+      <li>Exchanges within 24–48 hours of delivery, with tags on and the item unworn.</li>
+      <li>Every order gets a confirmation by email and WhatsApp.</li>
+    </ul>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><a class="logo" href="#top"><span class="moon" aria-hidden="true"></span><b>Chic Hub</b></a><p style="margin-top:10px;max-width:36ch">Luxury, exquisite female items. Bags, shoes, dresses and matching combos from Lagos mainland.</p></div>
+  <div><h4>Shop</h4><p>New arrivals</p><p>Bags</p><p>Dresses & sets</p><p>Combos</p></div>
+  <div><h4>Contact</h4><p>hello@chichub.ng</p><p>149 Herbert Macaulay Way, Yaba</p><p>Mon–Sat, 9am–7pm</p></div>
+  <p class="fine">Concept website prepared by Temi Fusika · temifusika.com. Prices marked "example price", product details, stock levels, delivery fees and the 2pm cut-off are examples to confirm with Chic Hub. hello@chichub.ng is a proposed address. Payments in this preview are not processed.</p>
+</div></footer>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sTitle"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping bag">
+  <header><h3 id="dTitle">Your bag</h3><button class="close" style="position:static;box-shadow:none" id="closeBag" type="button" aria-label="Close bag">×</button></header>
+  <div class="body" id="dBody"></div>
+  <div class="foot" id="dFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+var P=[
+ {id:'crescent',cat:'Bags',name:'Floral crescent shoulder bag',img:'crescent-bag',price:30000,was:55000,desc:'A cream half-moon shoulder bag with a delicate floral print, tan trim and a gold chain strap woven with a printed silk scarf. Zip closure.',opts:{Colour:['Cream floral']},specs:{Style:'Shoulder / underarm',Hardware:'Gold-tone chain',Closure:'Zip',Strap:'Chain with scarf'},stock:'Only 3 left',isNew:true},
+ {id:'quilted',cat:'Bags',name:'Quilted top-handle bag',img:'quilted-bag',price:30000,was:48500,desc:'Structured quilted bag in soft ivory with a sculpted gold-and-white top handle and statement gold clasp. Fits phone, cards and essentials.',opts:{Colour:['Ivory']},specs:{Style:'Top handle',Hardware:'Gold-tone',Closure:'Flap with clasp',Size:'Mini'},stock:'In stock',isNew:true},
+ {id:'olive',cat:'Bags',name:'Olive structured work tote',img:'olive-bag',price:45000,ex:true,desc:'A clean, structured tote in olive green with gold padlock detail, strap trims and a luggage-tag charm. Roomy enough for the office.',opts:{Colour:['Olive','Black','Tan']},specs:{Style:'Tote',Hardware:'Gold-tone padlock',Closure:'Open top',Size:'Medium'},stock:'In stock'},
+ {id:'wine',cat:'Combos',name:'Wine vanity bag & pointed heels set',img:'wine-combo',price:68000,ex:true,desc:'Matching wine-red vanity case bag with silver hardware, paired with pointed open-toe mules. Comes boxed.',opts:{Size:['37','38','39','40','41','42']},specs:{Includes:'Bag + heels',Colour:'Wine red',Heel:'Stiletto',Packaging:'Boxed'},stock:'Only 2 left'},
+ {id:'gold',cat:'Combos',name:'Gold vanity bag & horsebit slides set',img:'gold-combo',price:62000,ex:true,desc:'Metallic gold vanity case bag with zip top and handle, paired with flat slides with gold horsebit detail. Boxed.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock'},
+ {id:'creamset',cat:'Combos',name:'Cream vanity bag & crystal slides set',img:'cream-combo',price:65000,ex:true,desc:'Cream vanity case bag with gold padlock charm, paired with flat slides covered in sparkling crystals.',opts:{Size:['37','38','39','40','41']},specs:{Includes:'Bag + slides',Colour:'Cream / gold',Heel:'Flat',Packaging:'Boxed'},stock:'In stock',isNew:true},
+ {id:'floral',cat:'Dresses',name:'Floral satin belted midi dress',img:'floral-dress',price:55000,was:74500,desc:'Flowing satin dress in an emerald and peach floral print, with a buttoned neckline, puff sleeves and a tie waist.',opts:{Size:['S','M','L','XL','XXL']},specs:{Fit:'Relaxed, belted',Length:'Midi',Sleeve:'Three-quarter',Fabric:'Satin feel'},stock:'In stock'},
+ {id:'red',cat:'Dresses',name:'Red ribbed zip bodycon dress',img:'red-dress',price:28000,ex:true,desc:'Figure-hugging ribbed knee-length dress in bold red with a front zip. Dress it up with heels or down with sneakers.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Bodycon',Length:'Knee',Sleeve:'Sleeveless',Fabric:'Ribbed stretch knit'},stock:'Only 4 left'},
+ {id:'maxi',cat:'Dresses',name:'Lemon one-shoulder maxi dress',img:'lemon-maxi',price:42000,ex:true,desc:'Soft lemon maxi dress with a draped one-shoulder neckline, ruched bodice and a full flowing skirt.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted bodice, full skirt',Length:'Maxi',Sleeve:'One shoulder',Fabric:'Soft jersey'},stock:'In stock',isNew:true},
+ {id:'white',cat:'Dresses',name:'White knit flare mini dress',img:'white-dress',price:35000,ex:true,desc:'Pointelle-knit mini dress in white with jewelled buttons, ruffle collar and flared sleeves.',opts:{Size:['S','M','L','XL']},specs:{Fit:'Fitted, flared skirt',Length:'Mini',Sleeve:'Long, flared cuff',Fabric:'Knit'},stock:'In stock'},
+ {id:'lemonset',cat:'Sets',name:'Lemon zip jacket & wide-leg trouser set',img:'lemon-set',price:38000,ex:true,desc:'Two-piece travel set: cropped zip jacket and relaxed wide-leg drawstring trousers in pale lemon. Book the trip, we have the outfit.',opts:{Size:['S','M','L','XL','XXL']},specs:{Includes:'Jacket + trousers',Fit:'Relaxed',Fabric:'Soft fleece-back jersey',Colour:'Lemon'},stock:'In stock',isNew:true}
+];
+var DEL=[{id:'main',label:'Lagos Mainland, same day',fee:3000},{id:'island',label:'Lagos Island & Lekki, same day',fee:4500},{id:'nation',label:'Outside Lagos, 2–4 days',fee:7500},{id:'pick',label:'Pick up at the boutique (Yaba)',fee:0}];
+var WA='https://wa.me/message/EA5RUTBKFHHPG1';
+var cat='All',q='',sort='new',bag=[],stage='bag',orderNo=null;
+var $=function(i){return document.getElementById(i)};
+var N=function(n){return '₦'+n.toLocaleString('en-NG')};
+var esc=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
+function cats(){var c=['All','New in'];P.forEach(function(p){if(c.indexOf(p.cat)<0)c.push(p.cat)});c.push('Sale');return c}
+function drawTabs(){$('tabs').innerHTML=cats().map(function(c){return '<button type="button" data-c="'+c+'" aria-pressed="'+(c===cat)+'">'+c+'</button>'}).join('')}
+function list(){
+  var L=P.filter(function(p){return (cat==='All'||p.cat===cat||(cat==='Sale'&&p.was)||(cat==='New in'&&p.isNew))&&(!q||(p.name+' '+p.cat+' '+p.desc).toLowerCase().indexOf(q)>-1)});
+  if(sort==='low')L.sort(function(a,b){return a.price-b.price});if(sort==='high')L.sort(function(a,b){return b.price-a.price});if(sort==='sale')L.sort(function(a,b){return (b.was?1:0)-(a.was?1:0)});
+  return L}
+function priceHTML(p){return '<div class="price"><b>'+N(p.price)+'</b>'+(p.was?'<s>'+N(p.was)+'</s>':'')+(p.ex?'<em>example price</em>':'')+'</div>'}
+function drawGrid(){var L=list();
+  $('grid').innerHTML=L.length?L.map(function(p){var off=p.was?Math.round((1-p.price/p.was)*100):0;
+    return '<button type="button" class="card" data-p="'+p.id+'"><div class="ph"><img src="img/'+p.img+'.jpg" alt="'+esc(p.name)+'" loading="lazy">'+(off?'<span class="badge">'+off+'% off</span>':(/left/.test(p.stock)?'<span class="badge low">'+p.stock+'</span>':''))+'</div><span class="nm">'+esc(p.name)+'</span>'+priceHTML(p)+'</button>'}).join(''):'<p class="empty">No items match "'+esc(q)+'". Try "bag", "dress" or "set".</p>'}
+var sel={};
+function openSheet(id){var p=P.find(function(x){return x.id===id});sel={id:id,qty:1};Object.keys(p.opts).forEach(function(k){sel[k]=p.opts[k].length===1?p.opts[k][0]:null});
+  drawSheet(p);$('sheet').classList.add('on');$('scrim').classList.add('on');setTimeout(function(){$('sheet').querySelector('.close').focus()},30)}
+function drawSheet(p){var need=Object.keys(p.opts).filter(function(k){return !sel[k]});
+  var waText=encodeURIComponent('Hi Chic Hub, I\'d like to order: '+p.name+' ('+N(p.price)+')'+Object.keys(p.opts).map(function(k){return sel[k]?', '+k+': '+sel[k]:''}).join(''));
+  $('sheet').innerHTML='<button class="close" type="button" data-close aria-label="Close">×</button><img src="img/'+p.img+'.jpg" alt="'+esc(p.name)+'"><div class="in">'+
+   '<span style="font-size:13px;font-weight:700;color:var(--magenta)">'+p.cat+' · '+p.stock+'</span><h3 id="sTitle">'+esc(p.name)+'</h3>'+priceHTML(p)+'<p class="desc">'+esc(p.desc)+'</p>'+
+   Object.keys(p.opts).map(function(k){return '<div class="opts"><label>'+k+(sel[k]?': '+sel[k]:'')+'</label><div class="chips">'+p.opts[k].map(function(v){return '<button type="button" data-opt="'+k+'" data-v="'+v+'" aria-pressed="'+(sel[k]===v)+'">'+v+'</button>'}).join('')+'</div></div>'}).join('')+
+   '<div class="opts"><label>Quantity</label><span class="qty"><button type="button" data-q="-1" aria-label="Fewer">−</button><span>'+sel.qty+'</span><button type="button" data-q="1" aria-label="More">+</button></span></div>'+
+   '<button class="btn btn-pink" type="button" data-add'+(need.length?' aria-disabled="true" style="opacity:.55"':'')+'>'+(need.length?'Choose a '+need[0].toLowerCase():'Add to bag · '+N(p.price*sel.qty))+'</button>'+
+   '<a class="btn wa" href="'+WA+'?text='+waText+'" target="_blank" rel="noopener">Order on WhatsApp</a>'+
+   '<dl class="specs">'+Object.keys(p.specs).map(function(k){return '<div><dt>'+k+'</dt><dd>'+esc(p.specs[k])+'</dd></div>'}).join('')+'<div><dt>Delivery</dt><dd>Same day within Lagos</dd></div><div><dt>Exchange</dt><dd>Within 24–48 hours</dd></div></dl></div>'}
+function closeAll(){$('sheet').classList.remove('on');$('drawer').classList.remove('on');$('scrim').classList.remove('on')}
+function toast(t){$('toast').textContent=t;$('toast').classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){$('toast').classList.remove('on')},2200)}
+function count(){$('count').textContent=bag.reduce(function(s,l){return s+l.qty},0)}
+function sub(){return bag.reduce(function(s,l){return s+l.p.price*l.qty},0)}
+function drawBag(){
+  var b=$('dBody'),f=$('dFoot');
+  if(stage==='done'){$('dTitle').textContent='Order placed';b.innerHTML='<div class="done"><div class="tick">✓</div><h4>Thank you!</h4><p>Order '+orderNo+' is confirmed. On the live site you\'d now be taken to Paystack to pay securely, then get a receipt by email and a WhatsApp update when your rider is on the way.</p><p style="font-size:12.5px">Concept preview: no payment was taken.</p></div>';f.innerHTML='<button class="btn btn-dark" type="button" data-close>Continue shopping</button>';return}
+  if(!bag.length){$('dTitle').textContent='Your bag';b.innerHTML='<div class="done"><h4>Your bag is empty</h4><p>Add a bag, a dress or a matching set to get started.</p></div>';f.innerHTML='<button class="btn btn-pink" type="button" data-close>Start shopping</button>';return}
+  var lines=bag.map(function(l,i){return '<div class="line"><img src="img/'+l.p.img+'.jpg" alt=""><div><span class="nm">'+esc(l.p.name)+'</span><small>'+esc(l.opt||'')+' · Qty '+l.qty+'</small><button class="rm" type="button" data-rm="'+i+'">Remove</button></div><b>'+N(l.p.price*l.qty)+'</b></div>'}).join('');
+  if(stage==='bag'){$('dTitle').textContent='Your bag';
+    b.innerHTML=lines+'<div class="totals"><div><span>Subtotal</span><b>'+N(sub())+'</b></div><div><span>Delivery</span><span>Calculated at checkout</span></div></div>';
+    f.innerHTML='<button class="btn btn-pink" type="button" data-go="checkout">Checkout · '+N(sub())+'</button><a class="btn wa" href="'+WA+'" target="_blank" rel="noopener">Order this bag on WhatsApp</a>';return}
+  var d=DEL.find(function(x){return x.id===($('dz')?$('dz').value:'main')})||DEL[0];
+  $('dTitle').textContent='Checkout';
+  b.innerHTML='<form class="form" id="co" novalidate>'+
+   '<div><label for="cn">Full name</label><input id="cn" autocomplete="name" required></div>'+
+   '<div><label for="cp">Phone (WhatsApp)</label><input id="cp" type="tel" autocomplete="tel" placeholder="080…" required></div>'+
+   '<div><label for="ce">Email for your receipt</label><input id="ce" type="email" autocomplete="email"></div>'+
+   '<div><label for="dz">Delivery</label><select id="dz">'+DEL.map(function(x){return '<option value="'+x.id+'"'+(x.id===d.id?' selected':'')+'>'+x.label+(x.fee?' · '+N(x.fee):' · Free')+'</option>'}).join('')+'</select></div>'+
+   (d.id==='pick'?'':'<div><label for="ca">Delivery address</label><textarea id="ca" autocomplete="street-address" placeholder="House number, street, area, landmark"></textarea></div>')+
+   '<div><label>Payment</label><div class="pay">'+
+     '<label><input type="radio" name="pm" value="paystack" checked><span>Pay now with Paystack<small>Card, bank transfer or USSD. Secure checkout.</small></span></label>'+
+     '<label><input type="radio" name="pm" value="transfer"><span>Direct bank transfer<small>We\'ll send account details by WhatsApp and email.</small></span></label>'+
+     (d.id==='pick'?'<label><input type="radio" name="pm" value="store"><span>Pay at the boutique<small>Pay when you pick up in Yaba.</small></span></label>':'')+
+   '</div></div>'+
+   '<div class="totals"><div><span>Subtotal</span><b>'+N(sub())+'</b></div><div><span>Delivery</span><b>'+(d.fee?N(d.fee):'Free')+'</b></div><div class="grand"><span>Total</span><span>'+N(sub()+d.fee)+'</span></div></div>'+
+   '<p id="err" style="color:#B0213B;font-size:14px" role="alert"></p></form>';
+  f.innerHTML='<button class="btn btn-pink" type="button" data-place>Place order · '+N(sub()+d.fee)+'</button><button class="btn btn-line" type="button" data-go="bag">Back to bag</button><p class="secure">Payments are processed securely by Paystack. Chic Hub never sees your card details.</p>';
+}
+function openBag(){stage=stage==='done'?'bag':stage;drawBag();$('drawer').classList.add('on');$('scrim').classList.add('on')}
+document.addEventListener('click',function(e){
+  var t=e.target;
+  var c=t.closest('[data-c]');if(c){cat=c.dataset.c;drawTabs();drawGrid();return}
+  var j=t.closest('[data-jump]');if(j){cat=j.dataset.jump;drawTabs();drawGrid()}
+  var card=t.closest('[data-p]');if(card){openSheet(card.dataset.p);return}
+  if(t.closest('[data-close]')||t===$('scrim')){if(stage==='done'){bag=[];count();stage='bag'}closeAll();return}
+  var o=t.closest('[data-opt]');if(o){sel[o.dataset.opt]=o.dataset.v;drawSheet(P.find(function(x){return x.id===sel.id}));return}
+  var qq=t.closest('[data-q]');if(qq){sel.qty=Math.max(1,Math.min(9,sel.qty+ +qq.dataset.q));drawSheet(P.find(function(x){return x.id===sel.id}));return}
+  if(t.closest('[data-add]')){var p=P.find(function(x){return x.id===sel.id});if(Object.keys(p.opts).some(function(k){return !sel[k]})){toast('Please choose a '+Object.keys(p.opts).filter(function(k){return !sel[k]})[0].toLowerCase());return}
+    var opt=Object.keys(p.opts).map(function(k){return k+': '+sel[k]}).join(', ');var ex=bag.find(function(l){return l.p.id===p.id&&l.opt===opt});if(ex)ex.qty+=sel.qty;else bag.push({p:p,qty:sel.qty,opt:opt});
+    count();$('sheet').classList.remove('on');stage='bag';openBag();return}
+  var rm=t.closest('[data-rm]');if(rm){bag.splice(+rm.dataset.rm,1);count();drawBag();return}
+  var go=t.closest('[data-go]');if(go){stage=go.dataset.go;drawBag();return}
+  if(t.closest('[data-place]')){var n=$('cn').value.trim(),ph=$('cp').value.trim(),dz=$('dz').value,ad=$('ca')?$('ca').value.trim():'x';
+    if(!n||!ph||!ad){$('err').textContent='Please add your name, phone number'+(dz==='pick'?'':' and delivery address')+'.';return}
+    orderNo='CH-'+(1000+Math.floor(Math.random()*9000));stage='done';drawBag();return}
+});
+document.addEventListener('change',function(e){if(e.target.id==='dz')drawBag();if(e.target.id==='sort'){sort=e.target.value;drawGrid()}});
+['q','q2'].forEach(function(i){$(i).addEventListener('input',function(e){q=e.target.value.trim().toLowerCase();if(q){cat='All';drawTabs()}drawGrid();if(i==='q'&&q)document.getElementById('shop').scrollIntoView({block:'start'})})});
+$('openBag').addEventListener('click',openBag);
+$('closeBag').addEventListener('click',closeAll);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+drawTabs();drawGrid();count();
+})();
+</script>
+</body>
+</html>
