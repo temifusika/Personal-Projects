@@ -97,7 +97,7 @@ nav.top ul a:hover::after { right: 0; }
 .h-tag { position: absolute; z-index: 4; top: 120px; color: var(--dim); }
 .h-tag.l { left: var(--pad); } .h-tag.r { right: var(--pad); text-align: right; }
 .h-tag b { display: block; color: var(--ivory); font-weight: 400; letter-spacing: .2em; }
-@media (max-width: 760px) { .h-fig { height: 66svh; margin-top: 30svh; } .h-name { top: 30%; font-size: 21vw; } .h-tag { top: 92px; } .h-tag.r { display: none; } .h-meta .scroll { display: none; } .rw-hud > span:first-child { white-space: nowrap; } .f-media::after { background: linear-gradient(180deg, rgba(10,9,8,.2), rgba(10,9,8,.35) 35%, rgba(10,9,8,.95) 75%); } .f-copy h2 { font-size: 15vw; } .f-copy p { font-size: 14.5px; } .stats { gap: 12px; } .stats b { font-size: 19px; white-space: nowrap; } }
+@media (max-width: 760px) { .h-fig { height: 66svh; margin-top: 30svh; } .h-name { top: 30%; font-size: 21vw; } .h-tag { top: 92px; } .h-tag.r { display: none; } .h-meta .scroll { display: none; } .rw-hud > span:first-child { white-space: nowrap; } .f-media::after { background: linear-gradient(180deg, rgba(10,9,8,.2), rgba(10,9,8,.35) 35%, rgba(10,9,8,.95) 75%); } .f-copy h2 { font-size: 15vw; } .f-copy p { font-size: 14.5px; } .stats { gap: 10px; grid-template-columns: repeat(3, minmax(0, 1fr)); } .stats b { font-size: 17px; line-height: 1.2; } .stats span { font-size: 11px; line-height: 1.4; display: block; } .bg2 > * { min-width: 0; } }
 
 /* ================= MANIFESTO ================= */
 #words { padding: clamp(110px, 16vw, 230px) 0; }
@@ -164,10 +164,22 @@ nav.top ul a:hover::after { right: 0; }
 .lk-row { position: absolute; left: 50%; top: 54%; transform-style: preserve-3d; }
 .lk { position: absolute; left: 0; top: 0; width: min(30vw, 400px); aspect-ratio: 3/4; margin: calc(min(30vw, 400px) * -0.667) 0 0 calc(min(30vw, 400px) * -0.5); border-radius: 6px; overflow: hidden; box-shadow: 0 60px 100px -40px rgba(0,0,0,.9); }
 .lk img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+.lk i { position: absolute; inset: 0; background: #0a0908; opacity: 0; pointer-events: none; }
 .lk span { position: absolute; left: 16px; bottom: 14px; font-family: var(--serif); font-style: italic; font-size: 24px; text-shadow: 0 4px 20px rgba(0,0,0,.6); }
 .lk-count { position: absolute; left: 50%; bottom: 6vh; transform: translateX(-50%); font-family: var(--serif); font-size: 22px; color: var(--dim); z-index: 3; font-variant-numeric: tabular-nums; }
 .lk-count b { color: var(--gold); font-weight: 400; }
-@media (max-width: 760px) { .lk { width: 62vw; margin: -41vw 0 0 -31vw; } }
+/* phones: a native swipe carousel, no pinning, no 3D */
+@media (max-width: 760px) {
+  #looks { height: auto; padding: 100px 0 70px; }
+  .lk-pin { position: relative; height: auto; overflow: visible; perspective: none; }
+  .lk-head { position: relative; top: auto; left: auto; right: auto; padding: 0 var(--pad); margin-bottom: 30px; align-items: flex-end; }
+  .lk-head .cap { font-size: 10px; }
+  .lk-row { position: relative; left: auto; top: auto; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 10px 19vw 30px; scrollbar-width: none; overscroll-behavior-x: contain; transform-style: flat; }
+  .lk-row::-webkit-scrollbar { display: none; }
+  .lk { position: relative; flex: 0 0 62vw; width: 62vw; margin: 0; scroll-snap-align: center; transition: transform .5s var(--out), opacity .5s; transform: scale(.9); opacity: .55; box-shadow: 0 30px 60px -30px rgba(0,0,0,.9); }
+  .lk.on { transform: scale(1); opacity: 1; }
+  .lk-count { position: relative; left: auto; bottom: auto; transform: none; text-align: center; margin-top: 6px; }
+}
 
 /* ================= COLLAB ================= */
 #collab { padding: clamp(110px, 13vw, 190px) 0; }
@@ -221,8 +233,8 @@ form.f { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 18px; }
 
 
 /* ===== grain, cursor ===== */
-.grain { position: fixed; inset: -50%; z-index: 80; pointer-events: none; opacity: .06; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); animation: grain 1.2s steps(6) infinite; }
-@keyframes grain { 0% { transform: translate(0,0); } 20% { transform: translate(-3%,2%); } 40% { transform: translate(2%,-3%); } 60% { transform: translate(-2%,-1%); } 80% { transform: translate(3%,3%); } 100% { transform: translate(0,0); } }
+.grain { position: fixed; inset: 0; z-index: 80; pointer-events: none; opacity: .06; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0% { background-position: 0 0; } 20% { background-position: -37px 21px; } 40% { background-position: 53px -44px; } 60% { background-position: -19px 66px; } 80% { background-position: 71px 13px; } 100% { background-position: -48px -29px; } } 20% { transform: translate(-3%,2%); } 40% { transform: translate(2%,-3%); } 60% { transform: translate(-2%,-1%); } 80% { transform: translate(3%,3%); } 100% { transform: translate(0,0); } }
 .cur { position: fixed; left: 0; top: 0; z-index: 95; pointer-events: none; mix-blend-mode: difference; }
 .cur .dot { position: absolute; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: #fff; }
 .cur .ring { position: absolute; width: 40px; height: 40px; margin: -20px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: width .5s var(--out), height .5s var(--out), margin .5s var(--out), background .4s; }
@@ -277,6 +289,12 @@ footer { padding: 90px 0 40px; overflow: hidden; }
 .ft-row a:hover { color: var(--gold2); }
 .concept { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 45; padding: 8px 15px; border-radius: 999px; background: rgba(18,16,14,.8); backdrop-filter: blur(10px); border: 1px solid var(--line); font-size: 12px; color: var(--dim); white-space: nowrap; }
 .concept b { color: var(--ivory); font-weight: 500; }
+html, body { overflow-x: clip; }
+.mob { display: none; } @media (max-width: 760px) { .dsk { display: none; } .mob { display: inline; } }
+@media (max-width: 760px) {
+  .grain { display: none; }
+  .concept { font-size: 10.5px; padding: 7px 12px; max-width: calc(100vw - 24px); overflow: hidden; text-overflow: ellipsis; }
+}
 .rv { opacity: 0; transform: translateY(40px); }
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
 </style>
@@ -376,7 +394,7 @@ footer { padding: 90px 0 40px; overflow: hidden; }
         <span class="num">01</span>
         <div class="txt"><p class="cap">Campaign film</p><h3>Charles <em class="it">Greig</em></h3><p>"A house sigil, the diligent honey bee immortalised in yellow gold and diamond." A jewellery film for one of Cape Town's oldest houses, with Djemime in sand-toned tailoring.</p>
           <div class="cred"><b>Client</b><span>Charles Greig Jewellers</span><b>Format</b><span>Campaign film & stills</span></div></div>
-        <div class="media"><div class="m1"><video src="media/charles-greig.mp4" poster="media/charles-greig-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/cg-profile-sm.jpg" alt="Charles Greig campaign, profile" loading="lazy"></div><div class="m3"><img src="img/hd/cg-bee-sm.jpg" alt="Charles Greig honey bee earring" loading="lazy"></div></div>
+        <div class="media"><div class="m1"><video src="media/charles-greig.mp4" poster="media/charles-greig-poster.jpg" muted loop playsinline preload="metadata" data-auto></video></div><div class="m2"><img src="img/hd/cg-profile-sm.jpg" alt="Charles Greig campaign, profile" loading="lazy"></div><div class="m3"><img src="img/hd/cg-bee-sm.jpg" alt="Charles Greig honey bee earring" loading="lazy"></div></div>
       </article>
       <article class="chap">
         <span class="num">02</span>
@@ -394,13 +412,13 @@ footer { padding: 90px 0 40px; overflow: hidden; }
         <span class="num">04</span>
         <div class="txt"><p class="cap">Beauty</p><h3>Chanel <em class="it">Beauty</em></h3><p>On the floor at a Chanel Beauty boutique: the walk in, the counter, the camera. Clean skin, slicked-back hair, a red lip and all-black tailoring.</p>
           <div class="cred"><b>Brand</b><span>@chanel.beauty</span><b>With</b><span>@welovecoco</span><b>Makeup</b><span>@reneedewitmakeupartist</span></div></div>
-        <div class="media"><div class="m1"><video src="media/chanel-beauty.mp4" poster="media/chanel-beauty-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/chanel-portrait-sm.jpg" alt="Djemime Chochi at Chanel Beauty" loading="lazy"></div><div class="m3"><img src="img/hd/chanel-smile-sm.jpg" alt="Djemime Chochi smiling at the Chanel counter" loading="lazy"></div></div>
+        <div class="media"><div class="m1"><video src="media/chanel-beauty.mp4" poster="media/chanel-beauty-poster.jpg" muted loop playsinline preload="metadata" data-auto></video></div><div class="m2"><img src="img/hd/chanel-portrait-sm.jpg" alt="Djemime Chochi at Chanel Beauty" loading="lazy"></div><div class="m3"><img src="img/hd/chanel-smile-sm.jpg" alt="Djemime Chochi smiling at the Chanel counter" loading="lazy"></div></div>
       </article>
       <article class="chap">
         <span class="num">05</span>
         <div class="txt"><p class="cap">Campaign · behind the scenes</p><h3>Beauty <em class="it">campaign</em></h3><p>Patent leather, a diamond line and a sculpted bun, then a black halter and a red lip. Flash after flash, frame after frame, on set.</p>
           <div class="cred"><b>Format</b><span>Beauty campaign</span><b>Footage</b><span>Behind the scenes</span></div></div>
-        <div class="media"><div class="m1"><video src="media/beauty-bts.mp4" poster="media/beauty-bts-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/bts-halter-sm.jpg" alt="Beauty campaign behind the scenes, black halter" loading="lazy"></div><div class="m3"><img src="img/hd/bts-arms-sm.jpg" alt="Beauty campaign behind the scenes, arms raised" loading="lazy"></div></div>
+        <div class="media"><div class="m1"><video src="media/beauty-bts.mp4" poster="media/beauty-bts-poster.jpg" muted loop playsinline preload="metadata" data-auto></video></div><div class="m2"><img src="img/hd/bts-halter-sm.jpg" alt="Beauty campaign behind the scenes, black halter" loading="lazy"></div><div class="m3"><img src="img/hd/bts-arms-sm.jpg" alt="Beauty campaign behind the scenes, arms raised" loading="lazy"></div></div>
       </article>
     </div>
     <div class="cp-prog"><i id="cpp"></i></div>
@@ -422,7 +440,7 @@ footer { padding: 90px 0 40px; overflow: hidden; }
 <!-- ============ COVERFLOW LOOKS ============ -->
 <section id="looks">
   <div class="lk-pin">
-    <div class="lk-head"><h2>Every <em class="it gold">look,</em><br>one walk.</h2><span class="cap">Scroll to turn</span></div>
+    <div class="lk-head"><h2>Every <em class="it gold">look,</em><br>one walk.</h2><span class="cap"><span class="dsk">Scroll to turn</span><span class="mob">Swipe</span></span></div>
     <div class="lk-row" id="lkrow"></div>
     <div class="lk-count"><b id="lkn">01</b> / <span id="lkt">10</span></div>
   </div>
@@ -641,17 +659,31 @@ function scrolly() {
     .to({}, { duration: 0.6 });
   // coverflow
   const looks = [WORK[1], WORK[4], WORK[3], WORK[6], WORK[8], WORK[19], WORK[18], WORK[5], WORK[11], WORK[15], WORK[22], WORK[21]];
-  $("#lkrow").innerHTML = looks.map((w) => `<div class="lk"><img src="${w.src}" alt="${w.t}" loading="lazy"><span>${w.t}</span></div>`).join("");
+  $("#lkrow").innerHTML = looks.map((w) => `<div class="lk"><img src="${w.src}" alt="${w.t}" loading="lazy" decoding="async"><i></i><span>${w.t}</span></div>`).join("");
   $("#lkt").textContent = String(looks.length).padStart(2, "0");
-  const cards = $$(".lk"); const gap = mobile ? 0.62 : 0.34;
-  const place = (p) => {
-    const cur = p * (cards.length - 1);
-    cards.forEach((c, i) => { const d = i - cur, ad = Math.abs(d);
-      gsap.set(c, { x: d * innerWidth * gap, z: -ad * 260, rotationY: -Math.max(-1, Math.min(1, d)) * 42, opacity: ad > 3.2 ? 0 : 1 - ad * 0.12, zIndex: 100 - Math.round(ad * 10), filter: `brightness(${1 - Math.min(ad, 2) * 0.28})` }); });
-    $("#lkn").textContent = String(Math.round(cur) + 1).padStart(2, "0");
-  };
-  place(0);
-  ScrollTrigger.create({ trigger: "#looks", start: "top top", end: "bottom bottom", scrub: true, onUpdate: (s) => place(s.progress) });
+  const cards = $$(".lk");
+  if (mobile) {
+    // swipe carousel: highlight the card in the centre
+    const row = $("#lkrow"); let raf = 0;
+    const mark = () => { raf = 0; const mid = row.scrollLeft + row.clientWidth / 2; let best = 0, bd = 1e9;
+      cards.forEach((c, i) => { const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid); if (d < bd) { bd = d; best = i; } });
+      cards.forEach((c, i) => c.classList.toggle("on", i === best)); $("#lkn").textContent = String(best + 1).padStart(2, "0"); };
+    row.addEventListener("scroll", () => { if (!raf) raf = requestAnimationFrame(mark); }, { passive: true });
+    mark();
+  } else {
+    const shades = cards.map((c) => c.querySelector("i"));
+    let lastN = -1;
+    const place = (p) => {
+      const cur = p * (cards.length - 1);
+      cards.forEach((c, i) => { const d = i - cur, ad = Math.abs(d), vis = ad < 3.4;
+        c.style.visibility = vis ? "visible" : "hidden"; if (!vis) return;
+        gsap.set(c, { x: d * innerWidth * 0.34, z: -ad * 260, rotationY: -Math.max(-1, Math.min(1, d)) * 42, opacity: 1 - ad * 0.12, zIndex: 100 - Math.round(ad * 10), force3D: true });
+        shades[i].style.opacity = Math.min(ad, 2) * 0.28; });
+      const n = Math.round(cur) + 1; if (n !== lastN) { lastN = n; $("#lkn").textContent = String(n).padStart(2, "0"); }
+    };
+    place(0);
+    ScrollTrigger.create({ trigger: "#looks", start: "top top", end: "bottom bottom", scrub: true, onUpdate: (s) => place(s.progress) });
+  }
   // cities marquee
   const tr = $("#cities"); tr.innerHTML += tr.innerHTML; let x = 0;
   gsap.ticker.add(() => { x -= 0.6; const w = tr.scrollWidth / 2; if (-x > w) x += w; tr.style.transform = `translate3d(${x}px,0,0)`; });
@@ -693,6 +725,12 @@ if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
   document.addEventListener("mouseover", (e) => { const t = e.target.closest("[data-cursor], .lk, #cl li"); cur.classList.toggle("big", !!t); if (t) $("#curT").textContent = t.dataset.cursor || (t.classList.contains("lk") ? "Scroll" : "Preview"); });
   $$(".book-btn, .send, .skip").forEach((b) => { b.addEventListener("mousemove", (e) => { const r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width / 2) * 0.3, y: (e.clientY - r.top - r.height / 2) * 0.4, duration: 0.4 }); }); b.addEventListener("mouseleave", () => gsap.to(b, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1,.4)" })); });
 }
+
+/* ---------- campaign videos play only while on screen ---------- */
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) { const p = v.play(); p && p.catch && p.catch(() => {}); } else v.pause(); }), { rootMargin: "0px 200px" });
+  $$("video[data-auto]").forEach((v) => io.observe(v));
+} else $$("video[data-auto]").forEach((v) => (v.autoplay = true));
 
 /* ---------- go ---------- */
 const start = () => { scrolly(); runway(); };
