@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ultimate Kombo — Let's Talk Football</title>
+<meta name="description" content="Concept website for Ultimate Kombo (Obi Kevin Nduka): football analysis, tour dates, predictions and partners in one home." />
+<meta name="theme-color" content="#05070a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #05070a; --bg2: #0b0f14; --card: #10151c; --line: rgba(255,255,255,.09);
+  --ink: #f2f5ee; --dim: #9aa39a; --volt: #c8ff2e; --volt2: #9be000; --garnet: #b0103f; --blue: #2b5bff;
+  --display: "Anton", Impact, sans-serif; --serif: "Instrument Serif", Georgia, serif; --sans: "Inter Tight", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace;
+  --pad: clamp(18px, 4vw, 64px); --ease: cubic-bezier(.7,0,.2,1); --out: cubic-bezier(.2,.8,.2,1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { background: var(--bg); }
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+::selection { background: var(--volt); color: #000; }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 0 var(--pad); position: relative; }
+.mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; }
+.it { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0; text-transform: none; }
+.volt { color: var(--volt); }
+.disp { font-family: var(--display); font-weight: 400; text-transform: uppercase; line-height: .9; letter-spacing: -.005em; }
+.kick { display: inline-flex; align-items: center; gap: 12px; color: var(--dim); }
+.kick b { color: var(--volt); font-weight: 500; }
+.kick::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--volt); box-shadow: 0 0 12px var(--volt); }
+.btn { display: inline-flex; align-items: center; gap: 12px; height: 54px; padding: 0 26px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: transform .4s var(--out), background .3s, color .3s, box-shadow .3s; white-space: nowrap; }
+.btn.v { background: var(--volt); color: #000; box-shadow: 0 10px 40px -10px rgba(200,255,46,.6); }
+.btn.vc:hover { transform: translateY(-3px); box-shadow: 0 18px 50px -12px rgba(200,255,46,.8); }
+.btn.o { border: 1px solid rgba(255,255,255,.25); }
+.btn.o:hover { background: #fff; color: #000; }
+.btn .arr { width: 26px; height: 26px; border-radius: 50%; background: #000; color: var(--volt); display: grid; place-items: center; font-size: 13px; }
+.line { display: block; overflow: hidden; padding-bottom: .04em; }
+.line > span { display: inline-block; }
+section { position: relative; }
+
+/* concept ribbon */
+.concept { position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 70; display: flex; gap: 10px; align-items: center; padding: 9px 16px; border-radius: 999px; background: rgba(16,21,28,.85); border: 1px solid var(--line); backdrop-filter: blur(12px); font-size: 12.5px; color: var(--dim); white-space: nowrap; }
+.concept b { color: var(--ink); font-weight: 600; }
+.concept i { width: 7px; height: 7px; border-radius: 50%; background: var(--volt); }
+
+/* preloader */
+#pre { position: fixed; inset: 0; z-index: 200; background: #000; display: grid; place-items: center; overflow: hidden; }
+#pre .clock { font-family: var(--display); font-size: clamp(120px, 26vw, 360px); line-height: .8; color: var(--ink); font-variant-numeric: tabular-nums; }
+#pre .clock sup { font-size: .32em; color: var(--volt); vertical-align: top; }
+#pre .bar { position: absolute; left: var(--pad); right: var(--pad); bottom: 60px; height: 2px; background: rgba(255,255,255,.1); }
+#pre .bar i { position: absolute; inset: 0; background: var(--volt); transform-origin: left; transform: scaleX(0); box-shadow: 0 0 20px var(--volt); }
+#pre .lbl { position: absolute; left: var(--pad); right: var(--pad); bottom: 80px; display: flex; justify-content: space-between; color: var(--dim); }
+#pre .ko { position: absolute; inset: 0; display: grid; place-items: center; background: var(--volt); color: #000; font-family: var(--display); font-size: clamp(80px, 18vw, 260px); clip-path: inset(50% 0 50% 0); }
+
+/* nav */
+nav.top { position: fixed; top: 0; left: 0; right: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; padding: 18px var(--pad); transition: background .4s, padding .4s; }
+nav.top.s { background: rgba(5,7,10,.78); backdrop-filter: blur(14px); padding-top: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 24px; letter-spacing: .02em; }
+.logo .ball { width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff 0 30%, #cfd6cc 60%, #7d857c 100%); position: relative; box-shadow: 0 0 0 2px #000, 0 0 18px rgba(200,255,46,.5); }
+.logo .ball::after { content: ""; position: absolute; inset: 8px; background: #000; clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); }
+.logo span { color: var(--volt); }
+nav.top ul { display: flex; gap: 30px; list-style: none; font-size: 14px; color: #c9cfc6; }
+nav.top ul a { position: relative; }
+nav.top ul a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1.5px; background: var(--volt); transition: right .4s var(--out); }
+nav.top ul a:hover::after { right: 0; }
+.tg { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 18px; border-radius: 999px; background: #fff; color: #000; font-weight: 600; font-size: 14px; }
+.tg svg { width: 18px; height: 18px; }
+@media (max-width: 960px) { nav.top ul { display: none; } .tg .long { display: none; } }
+@media (max-width: 520px) { .logo { font-size: 19px; gap: 8px; } .logo .ball { width: 22px; height: 22px; } .tg { height: 40px; padding: 0 14px; font-size: 13px; } .tg .lbl2 { display: none; } .kick { flex-wrap: wrap; row-gap: 4px; } }
+
+/* hero */
+#hero { height: 100svh; min-height: 680px; overflow: hidden; background: radial-gradient(60% 55% at 72% 42%, rgba(200,255,46,.10), transparent 60%), radial-gradient(50% 60% at 15% 100%, rgba(176,16,63,.22), transparent 70%), var(--bg); }
+#hero .beam { position: absolute; top: -10%; width: 40vw; height: 130%; background: conic-gradient(from 180deg at 50% 0%, transparent 0deg, rgba(255,255,240,.10) 8deg, transparent 16deg); filter: blur(6px); pointer-events: none; transform-origin: 50% 0; }
+#hero .b1 { left: 40%; transform: rotate(18deg); } #hero .b2 { left: 62%; transform: rotate(-14deg); } #hero .b3 { left: 78%; transform: rotate(-28deg); opacity: .6; }
+#ballc { position: absolute; inset: 0; width: 100%; height: 100%; }
+#hero .pitch { position: absolute; left: -10%; right: -10%; bottom: -30%; height: 60%; background: repeating-linear-gradient(90deg, rgba(200,255,46,.035) 0 6%, transparent 6% 12%); transform: perspective(600px) rotateX(62deg); mask: linear-gradient(to top, #000 30%, transparent); -webkit-mask: linear-gradient(to top, #000 30%, transparent); }
+#hero .pitch::after { content: ""; position: absolute; left: 50%; top: 10%; width: 40%; aspect-ratio: 1; border: 2px solid rgba(200,255,46,.12); border-radius: 50%; transform: translateX(-50%); }
+.h-copy { position: absolute; left: var(--pad); bottom: 17vh; z-index: 3; max-width: 760px; }
+.h-copy .kick { margin-bottom: 24px; }
+.h-title { font-size: clamp(64px, min(10vw, 17vh), 190px); }
+.h-title .it { font-size: .78em; color: var(--volt); display: inline-block; margin-left: .06em; }
+.h-sub { max-width: 46ch; color: #c9cfc6; font-size: clamp(16px, 1.25vw, 19px); margin: 26px 0 30px; }
+.h-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+.h-side { position: absolute; right: var(--pad); bottom: 17vh; z-index: 3; text-align: right; }
+.h-side .num { font-family: var(--display); font-size: clamp(54px, 6vw, 96px); line-height: .9; }
+.h-side .num small { font-size: .5em; color: var(--volt); }
+.h-side p { color: var(--dim); }
+.h-scroll { position: absolute; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 3; width: 1px; height: 54px; background: rgba(255,255,255,.18); overflow: hidden; }
+.h-scroll::after { content: ""; position: absolute; left: 0; right: 0; height: 40%; background: var(--volt); animation: drop 1.8s var(--ease) infinite; }
+@keyframes drop { from { transform: translateY(-100%); } to { transform: translateY(260%); } }
+@media (max-width: 760px) { .h-side { display: none; } .h-copy { bottom: 15vh; } .h-scroll { display: none; } }
+
+/* ticker */
+.ticker { position: relative; z-index: 4; background: var(--volt); color: #000; overflow: hidden; white-space: nowrap; border-top: 1px solid #000; }
+.ticker .tr { display: inline-flex; padding: 14px 0; will-change: transform; }
+.ticker span { display: inline-flex; align-items: center; gap: 14px; padding-right: 44px; font-weight: 700; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; }
+.ticker span b { font-family: var(--mono); font-size: 11px; background: #000; color: var(--volt); padding: 4px 8px; border-radius: 4px; letter-spacing: .1em; }
+.ticker span em { font-style: normal; font-family: var(--display); font-size: 22px; font-weight: 400; }
+
+/* stats */
+#stats { padding: clamp(90px, 12vw, 170px) 0 clamp(70px, 9vw, 120px); }
+.st-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 24px 6vw; align-items: end; margin-bottom: 70px; }
+.st-head h2 { font-size: clamp(48px, 6.4vw, 110px); }
+.st-head p { color: var(--dim); font-size: 17px; }
+.st-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.st { padding: 34px 26px 30px 0; border-right: 1px solid var(--line); position: relative; }
+.st + .st { padding-left: 26px; }
+.st:last-child { border-right: 0; }
+.st .n { font-family: var(--display); font-size: clamp(56px, 6vw, 104px); line-height: .9; }
+.st .n i { font-style: normal; color: var(--volt); }
+.st p { color: var(--dim); margin-top: 10px; font-size: 14.5px; }
+.st .tag { position: absolute; top: 14px; right: 18px; color: #6c7469; }
+.st-note { margin-top: 30px; display: flex; gap: 14px; align-items: center; color: #c9cfc6; font-size: 15px; }
+.st-note b { white-space: nowrap; color: #000; background: var(--volt); padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+@media (max-width: 900px) { .st-head { grid-template-columns: 1fr; } .st-grid { grid-template-columns: 1fr 1fr; } .st:nth-child(2) { border-right: 0; } .st:nth-child(3) { padding-left: 0; } .st:nth-child(-n+2) { border-bottom: 1px solid var(--line); } }
+
+/* takes (horizontal) */
+#takes { background: var(--bg2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tk-pin { height: 100svh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 90px 0 40px; }
+.tk-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 0 var(--pad); margin-bottom: 4vh; flex-wrap: wrap; }
+.tk-head h2 { font-size: clamp(48px, 6vw, 100px); }
+.tk-track { display: flex; gap: 22px; padding: 0 var(--pad); width: max-content; will-change: transform; }
+.take { width: clamp(270px, 24vw, 360px); flex: 0 0 auto; border-radius: 22px; overflow: hidden; background: var(--card); border: 1px solid var(--line); transition: transform .5s var(--out), border-color .3s; display: flex; flex-direction: column; }
+.take:hover { transform: translateY(-8px) rotate(-.6deg); border-color: rgba(200,255,46,.4); }
+.take .ph { position: relative; aspect-ratio: 1 / .94; overflow: hidden; }
+.take .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--out); }
+.take:hover .ph img { transform: scale(1.06); }
+.take .ph::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(5,7,10,.9)); }
+.take .play { position: absolute; left: 18px; bottom: 16px; z-index: 2; display: flex; gap: 10px; align-items: center; font-weight: 600; font-size: 14px; }
+.take .play i { width: 38px; height: 38px; border-radius: 50%; background: var(--volt); color: #000; display: grid; place-items: center; font-style: normal; font-size: 13px; }
+.take .views { position: absolute; right: 16px; top: 16px; z-index: 2; background: rgba(0,0,0,.6); backdrop-filter: blur(6px); padding: 6px 10px; border-radius: 999px; }
+.take .tx { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.take .tx q { font-family: var(--serif); font-size: 23px; line-height: 1.15; quotes: "“" "”"; }
+.take .tx .mono { color: var(--dim); margin-top: auto; }
+.tk-foot { display: flex; align-items: center; gap: 18px; padding: 0 var(--pad); margin-top: 4vh; color: var(--dim); }
+.tk-prog { flex: 1; height: 2px; background: var(--line); position: relative; }
+.tk-prog i { position: absolute; inset: 0; background: var(--volt); transform-origin: left; transform: scaleX(0); }
+@media (max-width: 900px) { .tk-pin { height: auto; padding: 100px 0 60px; } .tk-track { overflow-x: auto; width: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; scrollbar-width: none; } .take { scroll-snap-align: start; width: 78vw; } }
+
+/* access story */
+#access { padding: clamp(100px, 13vw, 190px) 0; overflow: hidden; }
+.ac-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: center; }
+.ac-photos { position: relative; height: min(84vh, 820px); }
+.ac-photos figure { position: absolute; overflow: hidden; border-radius: 26px; box-shadow: 0 50px 100px -40px rgba(0,0,0,.9); }
+.ac-photos img { width: 100%; height: 100%; object-fit: cover; }
+.ac-photos .p1 { left: 0; top: 0; width: 64%; height: 86%; }
+.ac-photos .p2 { right: 0; bottom: 0; width: 50%; height: 62%; border: 6px solid var(--bg); }
+.ac-photos .badge { position: absolute; left: 52%; top: 8%; z-index: 3; width: 150px; height: 150px; border-radius: 50%; background: var(--volt); color: #000; display: grid; place-items: center; text-align: center; font-family: var(--display); font-size: 22px; line-height: 1; transform: rotate(12deg); }
+.ac-photos .badge small { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; margin-top: 6px; }
+.ac-copy h2 { font-size: clamp(52px, 6.6vw, 112px); margin: 22px 0 26px; }
+.ac-copy blockquote { font-family: var(--serif); font-size: clamp(24px, 2.2vw, 34px); line-height: 1.25; color: #e8ece4; border-left: 2px solid var(--volt); padding-left: 22px; margin-bottom: 26px; }
+.ac-copy p { color: var(--dim); max-width: 50ch; }
+.ac-copy .pill { display: inline-flex; margin-top: 26px; gap: 10px; align-items: center; padding: 10px 16px; border-radius: 999px; border: 1px dashed rgba(200,255,46,.5); color: var(--volt); font-size: 14px; }
+@media (max-width: 900px) { .ac-grid { grid-template-columns: 1fr; } .ac-photos { height: 120vw; } }
+
+/* tour */
+#tour { padding: clamp(100px, 12vw, 170px) 0; background: radial-gradient(60% 60% at 30% 50%, rgba(43,91,255,.16), transparent 70%), var(--bg); overflow: hidden; }
+.tour-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 4vw; align-items: center; }
+.globe-wrap { position: relative; aspect-ratio: 1; max-height: 86vh; }
+#globec { width: 100%; height: 100%; display: block; cursor: grab; }
+.globe-wrap .hint { position: absolute; left: 50%; bottom: 2%; transform: translateX(-50%); color: var(--dim); }
+.tour-copy h2 { font-size: clamp(54px, 6.6vw, 112px); margin: 20px 0 18px; }
+.tour-copy > p { color: var(--dim); max-width: 46ch; margin-bottom: 30px; }
+.ev { display: grid; grid-template-columns: 74px 1fr auto; gap: 18px; align-items: center; padding: 20px 0; border-top: 1px solid var(--line); cursor: pointer; transition: padding .4s var(--out); }
+.ev:last-of-type { border-bottom: 1px solid var(--line); }
+.ev:hover, .ev.on { padding-left: 12px; }
+.ev .d { font-family: var(--display); font-size: 40px; line-height: .9; text-align: center; }
+.ev .d small { display: block; font-family: var(--mono); font-size: 11px; color: var(--volt); letter-spacing: .14em; margin-top: 4px; }
+.ev h3 { font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
+.ev .meta { color: var(--dim); font-size: 14px; }
+.ev .meta b { color: var(--volt); font-weight: 600; }
+.ev .go { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; transition: background .3s, color .3s, transform .4s var(--out); }
+.ev:hover .go, .ev.on .go { background: var(--volt); color: #000; transform: rotate(-45deg); }
+.countdown { display: flex; gap: 10px; margin-top: 28px; align-items: center; flex-wrap: wrap; }
+.countdown .u { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; min-width: 74px; text-align: center; }
+.countdown .u b { display: block; font-family: var(--display); font-size: 34px; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; }
+.countdown .u span { color: var(--dim); font-size: 10.5px; }
+.countdown .lbl { color: var(--dim); margin-right: 6px; }
+.sample { display: inline-block; margin-top: 18px; color: #6c7469; }
+@media (max-width: 900px) { .tour-grid { grid-template-columns: 1fr; } .globe-wrap { max-width: 520px; width: 100%; margin: 0 auto; } }
+
+/* predictions */
+#tips { padding: clamp(90px, 11vw, 160px) 0; border-top: 1px solid var(--line); }
+.tips-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 5vw; align-items: center; }
+.tips-copy h2 { font-size: clamp(54px, 6.4vw, 108px); margin: 20px 0 20px; }
+.tips-copy p { color: var(--dim); max-width: 46ch; }
+.tg-card { margin-top: 30px; display: flex; gap: 18px; align-items: center; padding: 18px; border-radius: 20px; background: linear-gradient(135deg, rgba(43,91,255,.25), rgba(43,91,255,.05)); border: 1px solid rgba(43,91,255,.4); max-width: 460px; }
+.tg-card .ic { width: 56px; height: 56px; border-radius: 50%; background: #2aabee; display: grid; place-items: center; flex: 0 0 auto; }
+.tg-card b { font-size: 22px; display: block; }
+.tg-card span { color: var(--dim); font-size: 14px; }
+.match { position: relative; border-radius: 28px; padding: clamp(24px, 3vw, 40px); background: linear-gradient(160deg, #121a14, #0b0f14 60%); border: 1px solid var(--line); overflow: hidden; transform-style: preserve-3d; }
+.match::before { content: ""; position: absolute; inset: -40% -20% auto auto; width: 70%; aspect-ratio: 1; background: radial-gradient(circle, rgba(200,255,46,.18), transparent 65%); }
+.m-top { display: flex; justify-content: space-between; color: var(--dim); margin-bottom: 26px; position: relative; }
+.m-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; text-align: center; position: relative; }
+.crest { width: 84px; height: 96px; margin: 0 auto 12px; clip-path: polygon(50% 0, 100% 14%, 100% 60%, 50% 100%, 0 60%, 0 14%); display: grid; place-items: center; font-family: var(--display); font-size: 28px; }
+.crest.a { background: linear-gradient(160deg, #1b2a6b, #0e1640); } .crest.b { background: linear-gradient(160deg, #8a0f33, #4e081d); }
+.m-teams h4 { font-size: 18px; }
+.m-vs { font-family: var(--display); font-size: 54px; color: var(--volt); }
+.bars { margin-top: 30px; display: grid; gap: 14px; position: relative; }
+.bar-row { display: grid; grid-template-columns: 110px 1fr 46px; gap: 14px; align-items: center; font-size: 14px; }
+.bar-row .t { height: 10px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; }
+.bar-row .t i { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, var(--volt2), var(--volt)); transform-origin: left; }
+.bar-row b { text-align: right; font-family: var(--mono); font-weight: 500; }
+.m-pick { margin-top: 26px; display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 16px; background: rgba(200,255,46,.08); border: 1px solid rgba(200,255,46,.3); position: relative; flex-wrap: wrap; }
+.m-pick strong { font-family: var(--display); font-weight: 400; font-size: 26px; }
+.lock { display: inline-flex; gap: 8px; align-items: center; padding: 8px 14px; border-radius: 999px; background: #000; color: var(--volt); font-size: 13px; font-weight: 600; }
+@media (max-width: 900px) { .tips-grid { grid-template-columns: 1fr; } }
+
+/* partners */
+#partners { padding: clamp(100px, 12vw, 170px) 0; background: linear-gradient(180deg, var(--bg), #0a0d0a); overflow: hidden; }
+.pt-head { display: grid; grid-template-columns: 1fr minmax(0, 460px); gap: 24px 6vw; align-items: end; margin-bottom: 60px; }
+.pt-head h2 { font-size: clamp(54px, 6.6vw, 112px); }
+.pt-head p { color: var(--dim); }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; perspective: 1400px; }
+.tier { position: relative; border-radius: 26px; padding: 30px; min-height: 420px; display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); transform-style: preserve-3d; transition: transform .25s ease-out, border-color .3s; overflow: hidden; }
+.tier::after { content: ""; position: absolute; inset: 0; background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 0%), rgba(200,255,46,.14), transparent 60%); pointer-events: none; }
+.tier:hover { border-color: rgba(200,255,46,.45); }
+.tier .lvl { color: var(--volt); }
+.tier h3 { font-family: var(--display); font-weight: 400; font-size: 44px; line-height: .95; text-transform: uppercase; margin: 16px 0 14px; transform: translateZ(40px); }
+.tier ul { list-style: none; color: #c9cfc6; font-size: 14.5px; display: grid; gap: 10px; transform: translateZ(20px); }
+.tier li::before { content: "↳ "; color: var(--volt); }
+.tier .slot { margin-top: auto; height: 96px; border-radius: 16px; border: 1.5px dashed rgba(255,255,255,.2); display: grid; place-items: center; color: var(--dim); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; transform: translateZ(50px); }
+.tier.hl { background: linear-gradient(160deg, #1d2a0b, #10151c 55%); border-color: rgba(200,255,46,.35); }
+.tier.hl .slot { border-color: rgba(200,255,46,.6); color: var(--volt); }
+.calc { margin-top: 26px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; border-radius: 26px; padding: clamp(24px, 3vw, 40px); background: var(--card); border: 1px solid var(--line); }
+.calc h3 { font-size: 22px; margin-bottom: 18px; }
+.rng { margin-bottom: 18px; }
+.rng label { display: flex; justify-content: space-between; font-size: 14px; color: #c9cfc6; margin-bottom: 8px; }
+.rng label b { color: var(--volt); font-family: var(--mono); font-weight: 500; }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px; background: rgba(255,255,255,.1); outline: none; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: var(--volt); box-shadow: 0 0 0 6px rgba(200,255,46,.18); cursor: pointer; }
+input[type=range]::-moz-range-thumb { width: 22px; height: 22px; border: 0; border-radius: 50%; background: var(--volt); cursor: pointer; }
+.calc .out { text-align: center; padding: 26px; border-radius: 20px; background: #000; border: 1px solid rgba(200,255,46,.3); }
+.calc .out .big { font-family: var(--display); font-size: clamp(54px, 5.4vw, 88px); line-height: 1; color: var(--volt); font-variant-numeric: tabular-nums; }
+.calc .out p { color: var(--dim); font-size: 13.5px; margin-top: 10px; }
+@media (max-width: 960px) { .pt-head, .calc { grid-template-columns: 1fr; } .tiers { grid-template-columns: 1fr; } .tier { min-height: 0; } .tier .slot { margin-top: 24px; } }
+
+/* why */
+#why { padding: clamp(100px, 12vw, 180px) 0; background: #f2f5ee; color: #0a0d0a; overflow: hidden; }
+#why .kick { color: #556052; } #why .kick b { color: #0a0d0a; } #why .kick::before { background: #0a0d0a; box-shadow: none; }
+.why-head h2 { font-size: clamp(56px, 8vw, 150px); margin: 22px 0 26px; }
+.why-head h2 .it { color: #3b4a00; }
+.why-head p { max-width: 60ch; font-size: 19px; color: #3d453b; }
+.vgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 70px; }
+.vc { position: relative; border-radius: 24px; padding: 30px; background: #fff; border: 1px solid rgba(0,0,0,.08); min-height: 300px; display: flex; flex-direction: column; transition: transform .5s var(--out), box-shadow .5s; overflow: hidden; }
+.vc:hover { transform: translateY(-8px); box-shadow: 0 40px 70px -40px rgba(0,0,0,.35); }
+.vc .no { font-family: var(--mono); font-size: 12px; color: #6a7366; }
+.vc .ico { width: 64px; height: 64px; border-radius: 18px; background: #0a0d0a; color: var(--volt); display: grid; place-items: center; margin: 18px 0 22px; }
+.vc .ico svg { width: 30px; height: 30px; }
+.vc h3 { font-size: 26px; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 12px; }
+.vc p { color: #4b5449; font-size: 15.5px; }
+.vc.dark { background: #0a0d0a; color: #f2f5ee; } .vc.dark p { color: #a9b2a6; } .vc.dark .ico { background: var(--volt); color: #000; }
+.vs { margin-top: 70px; border-radius: 28px; overflow: hidden; border: 1px solid rgba(0,0,0,.1); background: #fff; }
+.vs-row { display: grid; grid-template-columns: .7fr 1fr 1fr; border-top: 1px solid rgba(0,0,0,.08); }
+.vs-row:first-child { border-top: 0; background: #0a0d0a; color: #fff; }
+.vs-row > div { padding: 20px 24px; font-size: 15.5px; }
+.vs-row > div:first-child { font-weight: 700; }
+.vs-row > div:nth-child(2) { color: #737b70; }
+.vs-row > div:nth-child(3) { background: rgba(200,255,46,.16); font-weight: 600; }
+.vs-row:first-child > div:nth-child(2) { color: #9aa39a; }
+.vs-row:first-child > div:nth-child(3) { background: var(--volt); color: #000; }
+@media (max-width: 960px) { .vgrid { grid-template-columns: 1fr; } .vs-row { grid-template-columns: 1fr; } .vs-row > div { padding: 12px 18px; } .vs-row > div:first-child { padding-top: 18px; } }
+
+/* cta */
+#cta { padding: clamp(110px, 14vw, 200px) 0 60px; text-align: center; overflow: hidden; background: radial-gradient(50% 50% at 50% 40%, rgba(200,255,46,.12), transparent 70%), var(--bg); }
+#ctac { width: min(380px, 70vw); aspect-ratio: 1; margin: 0 auto -40px; display: block; }
+#cta h2 { font-size: clamp(64px, 11vw, 200px); }
+#cta p { color: var(--dim); max-width: 52ch; margin: 22px auto 34px; font-size: 18px; }
+.circ { position: relative; display: inline-grid; place-items: center; width: 190px; height: 190px; border-radius: 50%; background: var(--volt); color: #000; font-weight: 700; font-size: 17px; transition: transform .5s var(--out); }
+.circ:hover { transform: scale(1.08) rotate(-6deg); }
+.circ svg { position: absolute; inset: -18px; width: calc(100% + 36px); height: calc(100% + 36px); animation: spin 14s linear infinite; }
+.circ text { font-family: var(--mono); font-size: 10.5px; letter-spacing: 3.4px; fill: var(--volt); text-transform: uppercase; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.contact { margin-top: 50px; color: var(--dim); }
+.contact a { color: var(--ink); border-bottom: 1px solid var(--volt); }
+footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hidden; }
+.f-big { font-family: var(--display); font-size: 25vw; line-height: .78; text-align: center; color: transparent; -webkit-text-stroke: 1.5px rgba(200,255,46,.4); letter-spacing: -.01em; user-select: none; }
+.f-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; color: var(--dim); font-size: 14px; }
+.f-row a:hover { color: var(--volt); }
+
+/* reveal helper */
+.rv { opacity: 0; transform: translateY(40px); }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<div id="pre" aria-hidden="true">
+  <div class="clock"><span id="mins">00</span><sup>'</sup></div>
+  <div class="lbl mono"><span>Ultimate Kombo · Matchday loading</span><span id="pct">0%</span></div>
+  <div class="bar"><i id="pbar"></i></div>
+  <div class="ko">Kick-off</div>
+</div>
+
+<div class="concept"><i></i><span><b>Concept preview</b> for @ultimatekombo · by @_revisual</span></div>
+
+<nav class="top" id="nav">
+  <a class="logo" href="#hero"><span class="ball"></span>Ultimate<span>·</span>Kombo</a>
+  <ul>
+    <li><a href="#takes">Takes</a></li>
+    <li><a href="#access">Access</a></li>
+    <li><a href="#tour">On tour</a></li>
+    <li><a href="#tips">Predictions</a></li>
+    <li><a href="#partners">Partners</a></li>
+  </ul>
+  <a class="tg" href="https://t.me/komboanalysisandprediction" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="#2aabee"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg>
+    <span>Join<span class="lbl2"> <span class="long">224K on </span>Telegram</span></span>
+  </a>
+</nav>
+
+<main>
+<!-- HERO -->
+<section id="hero">
+  <div class="pitch"></div>
+  <i class="beam b1"></i><i class="beam b2"></i><i class="beam b3"></i>
+  <canvas id="ballc"></canvas>
+  <div class="h-copy">
+    <p class="kick mono h-fade">Football analyst · <b>Lagos → the world</b></p>
+    <h1 class="h-title disp"><span class="line"><span>Let's talk</span></span><span class="line"><span class="it">football.</span></span></h1>
+    <p class="h-sub h-fade">Match reactions, honest analysis and predictions from Obi Kevin Nduka — now with a home of its own. Every take, every trip, every partner, in one place.</p>
+    <div class="h-cta h-fade">
+      <a class="btn v" href="#takes">Watch the latest takes <span class="arr">↓</span></a>
+      <a class="btn o" href="#tour">Where I'm going next</a>
+    </div>
+  </div>
+  <div class="h-side h-fade">
+    <div class="num">852<small>K</small></div>
+    <p class="mono">Instagram family</p>
+  </div>
+  <div class="h-scroll"></div>
+</section>
+
+<div class="ticker" aria-label="Recent results covered">
+  <div class="tr" id="tick">
+    <span><b>FT</b>PSG <em>4–2</em> Barcelona</span><span><b>FT</b>Liverpool <em>4–3</em> Villarreal</span><span><b>FT</b>Man City <em>5–1</em> AEK</span><span><b>FT</b>Stuttgart <em>1–1</em> Atlético</span><span><b>HT</b>PSG <em>1–0</em> Barcelona</span><span><b>NEXT</b>El Clásico · <em>Sunday</em></span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="st-head rv">
+      <h2 class="disp">A stadium-sized<br><span class="it volt">audience.</span></h2>
+      <p>Hundreds of thousands of fans already follow every word. Today they're spread across three apps you don't own. This site brings them home.</p>
+    </div>
+    <div class="st-grid">
+      <div class="st rv"><span class="tag mono">IG</span><div class="n"><span class="cnt" data-to="852">0</span><i>K</i></div><p>Instagram followers</p></div>
+      <div class="st rv"><span class="tag mono">TG</span><div class="n"><span class="cnt" data-to="224">0</span><i>K</i></div><p>Telegram subscribers</p></div>
+      <div class="st rv"><span class="tag mono">Reel</span><div class="n"><span class="cnt" data-to="783">0</span><i>K</i></div><p>Views on one Lamine Yamal clip</p></div>
+      <div class="st rv"><span class="tag mono">Posts</span><div class="n"><span class="cnt" data-to="7485">0</span></div><p>Takes published, and counting</p></div>
+    </div>
+    <p class="st-note rv"><b>The gap</b> None of these numbers live anywhere you control, and none of them show up when a brand searches your name.</p>
+  </div>
+</section>
+
+<!-- TAKES -->
+<section id="takes">
+  <div class="tk-pin">
+    <div class="tk-head">
+      <div><p class="kick mono">Latest takes</p><h2 class="disp">Straight from<br>the <span class="it volt">touchline.</span></h2></div>
+      <p class="mono" style="color:var(--dim)">Auto-synced from Instagram & YouTube</p>
+    </div>
+    <div class="tk-track" id="track">
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/DeuxRN5Irn3/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-08.jpg" alt="Kombo reacting to PSG 4-2 Barcelona" loading="lazy"><span class="views mono">157K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>PSG are simply just the best team in the world.</q><span class="mono">UCL · PSG 4–2 Barça</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/Deu2G3gInig/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-06.jpg" alt="Kombo on Luis Enrique" loading="lazy"><span class="views mono">150K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>PSG can play in different ways. Luis Enrique is a genius of a manager.</q><span class="mono">Tactics · PSG</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/DeupbhxI8BE/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-09.jpg" alt="Kombo at half time" loading="lazy"><span class="views mono">131K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>So are you telling me we cannot win one game against PSG?</q><span class="mono">Live · Half time</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/Deu-eqcoN1H/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-03.jpg" alt="Kombo on the Champions League night" loading="lazy"><span class="views mono">123K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>Barcelona lost to the best team in the world, so it's not that big a deal.</q><span class="mono">UCL · Matchday</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/Deu5wNAIfYH/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-05.jpg" alt="Kombo previews El Clasico" loading="lazy"><span class="views mono">97K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>The real battle is on Sunday against Real Madrid.</q><span class="mono">Preview · El Clásico</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/Deu0DWQo-QJ/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-07.jpg" alt="Kombo on Xavi Espart" loading="lazy"><span class="views mono">76K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>Xavi Espart showed tonight we can rely on him in big games.</q><span class="mono">Players · Barça</span></div></a>
+      <a class="take" href="https://www.instagram.com/ultimatekombo/reel/DevBjW1ojQu/" target="_blank" rel="noopener"><div class="ph"><img src="img/take-02.jpg" alt="Kombo on injuries" loading="lazy"><span class="views mono">59K views</span><span class="play"><i>▶</i>Watch</span></div><div class="tx"><q>Pedri was our only midfielder tonight.</q><span class="mono">Analysis · Barça</span></div></a>
+    </div>
+    <div class="tk-foot mono"><span>Drag the season</span><span class="tk-prog"><i id="tkp"></i></span><span>Archive: 7,485 takes, searchable by club & player</span></div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section id="access">
+  <div class="wrap ac-grid">
+    <div class="ac-photos">
+      <figure class="p1 par" data-speed="-6"><img src="img/yamal-tunnel.jpg" alt="Kombo with Lamine Yamal in the tunnel" loading="lazy"></figure>
+      <figure class="p2 par" data-speed="8"><img src="img/yamal-selfie.jpg" alt="Kombo and Lamine Yamal selfie" loading="lazy"></figure>
+      <div class="badge">Pitch-side<small>Access story</small></div>
+    </div>
+    <div class="ac-copy">
+      <p class="kick mono rv">Access · <b>Up close</b></p>
+      <h2 class="disp rv">From the screen<br>to the <span class="it volt">tunnel.</span></h2>
+      <blockquote class="rv">"Watching my favourite youngster and my favourite striker play against each other live was a dream come true."</blockquote>
+      <p class="rv">Moments like meeting Lamine Yamal deserve more than a 24-hour story. On your site they become permanent features: photo stories, interviews and behind-the-scenes, the kind of access brands and clubs notice.</p>
+      <span class="pill rv">783K views on one clip, now with a permanent home →</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOUR -->
+<section id="tour">
+  <div class="wrap tour-grid">
+    <div class="globe-wrap rv"><canvas id="globec"></canvas><span class="hint mono">Drag the globe</span></div>
+    <div class="tour-copy">
+      <p class="kick mono rv">On tour · <b>Next stops</b></p>
+      <h2 class="disp rv">Kombo is<br>coming to <span class="it volt">town.</span></h2>
+      <p class="rv">Announce trips before you fly. Fans in each city RSVP to watch parties and meet-ups, and local brands sponsor the stop. Every event gets its own page, countdown and partner slot.</p>
+      <div class="evs">
+        <div class="ev on rv" data-city="0"><div class="d">08<small>Nov</small></div><div><h3>Barcelona · El Clásico watch party</h3><p class="meta">Fan meet-up + live reaction · <b>Presented by your brand</b></p></div><span class="go">→</span></div>
+        <div class="ev rv" data-city="1"><div class="d">22<small>Nov</small></div><div><h3>London · Kombo meet & greet</h3><p class="meta">Q&A, photos, live predictions · <b>Tour partner slot</b></p></div><span class="go">→</span></div>
+        <div class="ev rv" data-city="2"><div class="d">10<small>Dec</small></div><div><h3>Paris · Champions League night</h3><p class="meta">Matchday vlog + fan screening · <b>Matchday partner</b></p></div><span class="go">→</span></div>
+        <div class="ev rv" data-city="3"><div class="d">27<small>Dec</small></div><div><h3>Lagos · Homecoming fan day</h3><p class="meta">Five-a-side, live show, giveaways · <b>Headline partner</b></p></div><span class="go">→</span></div>
+      </div>
+      <div class="countdown rv"><span class="lbl mono">Next stop in</span><div class="u"><b id="cd-d">00</b><span class="mono">Days</span></div><div class="u"><b id="cd-h">00</b><span class="mono">Hrs</span></div><div class="u"><b id="cd-m">00</b><span class="mono">Min</span></div><div class="u"><b id="cd-s">00</b><span class="mono">Sec</span></div></div>
+      <span class="sample mono">Sample events for illustration</span>
+    </div>
+  </div>
+</section>
+
+<!-- PREDICTIONS -->
+<section id="tips">
+  <div class="wrap tips-grid">
+    <div class="tips-copy">
+      <p class="kick mono rv">Predictions · <b>Match of the week</b></p>
+      <h2 class="disp rv">Analysis that<br>calls the <span class="it volt">game.</span></h2>
+      <p class="rv">Your Telegram is already a predictions powerhouse. The site adds a public track record, match pages that rank on Google, and an optional members' area for deeper breakdowns.</p>
+      <a class="tg-card rv" href="https://t.me/komboanalysisandprediction" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="28" height="28" fill="#fff"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg></span><span><b>224,732 subscribers</b><span>Football Analysis & Predictions on Telegram</span></span></a>
+    </div>
+    <div class="match rv" id="match">
+      <div class="m-top mono"><span>La Liga · Sunday</span><span>Kombo's read</span></div>
+      <div class="m-teams">
+        <div><div class="crest b">FCB</div><h4>Barcelona</h4></div>
+        <div class="m-vs">VS</div>
+        <div><div class="crest a">RMA</div><h4>Real Madrid</h4></div>
+      </div>
+      <div class="bars">
+        <div class="bar-row"><span>Barcelona win</span><span class="t"><i data-w="46"></i></span><b>46%</b></div>
+        <div class="bar-row"><span>Draw</span><span class="t"><i data-w="24"></i></span><b>24%</b></div>
+        <div class="bar-row"><span>Madrid win</span><span class="t"><i data-w="30"></i></span><b>30%</b></div>
+        <div class="bar-row"><span>Both score</span><span class="t"><i data-w="71"></i></span><b>71%</b></div>
+      </div>
+      <div class="m-pick"><span><span class="mono" style="color:var(--dim)">The pick</span><br><strong>Barça · BTTS</strong></span><span class="lock">🔒 Full breakdown for members</span></div>
+      <span class="sample mono">Sample layout · numbers illustrative</span>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="wrap">
+    <div class="pt-head">
+      <div><p class="kick mono rv">Partners · <b>Advertise with Kombo</b></p><h2 class="disp rv">Your brand,<br>on the <span class="it volt">big stage.</span></h2></div>
+      <p class="rv">Sponsors get permanent, measurable placements, not a story that disappears tomorrow. Brands pick a tier, see the audience and enquire in one click.</p>
+    </div>
+    <div class="tiers">
+      <div class="tier hl rv"><span class="lvl mono">Tier 01</span><h3>Headline<br>partner</h3><ul><li>Logo across the whole site</li><li>"Presented by" on every take page</li><li>Monthly integrated video</li><li>Link + click reporting</li></ul><div class="slot">Your brand here</div></div>
+      <div class="tier rv"><span class="lvl mono">Tier 02</span><h3>Tour<br>partner</h3><ul><li>Name on a city stop</li><li>Event page + countdown branding</li><li>On-site activation at the meet-up</li><li>Local audience targeting</li></ul><div class="slot">Your brand here</div></div>
+      <div class="tier rv"><span class="lvl mono">Tier 03</span><h3>Matchday<br>partner</h3><ul><li>Prediction & match-page placement</li><li>Big-game takeovers (UCL, El Clásico)</li><li>Telegram + site bundle</li><li>Flexible weekly slots</li></ul><div class="slot">Your brand here</div></div>
+    </div>
+    <div class="calc rv">
+      <div>
+        <h3>What could the site earn? <span class="mono" style="color:var(--dim)">Play with it</span></h3>
+        <div class="rng"><label>Monthly partners <b id="v1">3</b></label><input type="range" id="r1" min="1" max="8" value="3"></div>
+        <div class="rng"><label>Fee per partner / month <b id="v2">$600</b></label><input type="range" id="r2" min="200" max="3000" step="100" value="600"></div>
+        <div class="rng"><label>Sponsored tour stops / year <b id="v3">4</b></label><input type="range" id="r3" min="0" max="12" value="4"></div>
+        <div class="rng" style="margin-bottom:0"><label>Fee per tour stop <b id="v4">$1,500</b></label><input type="range" id="r4" min="500" max="10000" step="250" value="1500"></div>
+      </div>
+      <div class="out"><span class="mono" style="color:var(--dim)">Potential per year</span><div class="big" id="tot">$0</div><p>Illustrative only. Real rates depend on audience data, which the site's analytics would finally give you.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="why-head">
+      <p class="kick mono rv">For Kevin · <b>Why a website?</b></p>
+      <h2 class="disp rv">Rent the pitch,<br>or <span class="it">own the stadium.</span></h2>
+      <p class="rv">Instagram, YouTube and Telegram built the audience. But you're playing on someone else's ground: one algorithm change and reach drops overnight. A website is the stadium you own, where fans, brands and opportunities come to you.</p>
+    </div>
+    <div class="vgrid">
+      <div class="vc dark rv"><span class="no">01</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></span><h3>Own your audience</h3><p>Email list, Telegram and site members belong to you. No algorithm can switch them off.</p></div>
+      <div class="vc rv"><span class="no">02</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Sponsors that pay properly</h3><p>Permanent placements, a media kit and click reports make you easy to buy, at a better rate than one-off story mentions.</p></div>
+      <div class="vc rv"><span class="no">03</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z"/></svg></span><h3>Tours that sell out</h3><p>Announce trips weeks ahead, collect RSVPs and sell local sponsorship for each city before you land.</p></div>
+      <div class="vc rv"><span class="no">04</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span><h3>Found on Google</h3><p>Search "Ultimate Kombo" or "El Clásico prediction" and land on you: your analysis, your contact, your brand.</p></div>
+      <div class="vc rv"><span class="no">05</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 15 8l7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1Z"/></svg></span><h3>Credibility for access</h3><p>Clubs, players and press take a polished home seriously. More tunnel moments, more interviews.</p></div>
+      <div class="vc dark rv"><span class="no">06</span><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><h3>One home for everything</h3><p>Instagram, YouTube, Telegram, tour dates and brand enquiries, one link that does it all.</p></div>
+    </div>
+    <div class="vs rv">
+      <div class="vs-row"><div>&nbsp;</div><div>Social only</div><div>ultimatekombo.com</div></div>
+      <div class="vs-row"><div>Reach</div><div>Decided by the algorithm</div><div>Yours: email, members, Telegram</div></div>
+      <div class="vs-row"><div>Sponsors</div><div>One-off story mentions</div><div>Tiers, media kit, measurable clicks</div></div>
+      <div class="vs-row"><div>Travel & events</div><div>A story that vanishes in 24h</div><div>Event pages, countdowns, RSVPs, city partners</div></div>
+      <div class="vs-row"><div>Google</div><div>Random results for your name</div><div>You, first, with your contact</div></div>
+      <div class="vs-row"><div>Archive</div><div>7,485 posts buried in a grid</div><div>Searchable by club, player and competition</div></div>
+      <div class="vs-row"><div>Brand enquiries</div><div>Lost in DMs</div><div>A form that goes straight to your inbox</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <canvas id="ctac"></canvas>
+  <div class="wrap">
+    <h2 class="disp rv">Ready for<br><span class="it volt">kick-off?</span></h2>
+    <p class="rv">This is a concept made for you. The real build includes your content, a partner enquiry form, tour pages you can edit from your phone, and analytics to show brands exactly who's watching.</p>
+    <a class="circ rv" href="https://www.instagram.com/_revisual" target="_blank" rel="noopener">
+      <svg viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text><textPath href="#cp">Let's build it · Let's build it · Let's build it ·</textPath></text></svg>
+      Let's talk ↗
+    </a>
+    <p class="contact mono rv">Brand & partnership enquiries · <a href="mailto:kelznduobi@gmail.com">kelznduobi@gmail.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="f-big">Kombo</div>
+  <div class="wrap f-row">
+    <span>© 2026 Ultimate Kombo · Obi Kevin Nduka</span>
+    <span><a href="https://www.instagram.com/ultimatekombo/" target="_blank" rel="noopener">Instagram</a> · <a href="https://t.me/komboanalysisandprediction" target="_blank" rel="noopener">Telegram</a> · <a href="#takes">YouTube</a></span>
+    <span>Concept by <a href="https://www.instagram.com/_revisual" target="_blank" rel="noopener">@_revisual</a></span>
+  </div>
+</footer>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script type="module">
+import * as THREE from "./js/three.module.min.js";
+gsap.registerPlugin(ScrollTrigger);
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mobile = matchMedia("(max-width: 900px)").matches;
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+/* ---------- smooth scroll ---------- */
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({ lerp: 0.1 });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((t) => lenis.raf(t * 1000));
+  gsap.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => { const id = a.getAttribute("href"); if (id.length > 1) { e.preventDefault(); lenis.scrollTo(id, { offset: -10 }); } }));
+}
+addEventListener("scroll", () => $("#nav").classList.toggle("s", scrollY > 30), { passive: true });
+
+/* ---------- 3D football (procedural truncated-icosahedron shader) ---------- */
+const PHI = (1 + Math.sqrt(5)) / 2;
+const centres = [];
+[[0, 1, PHI], [0, 1, -PHI], [0, -1, PHI], [0, -1, -PHI], [1, PHI, 0], [1, -PHI, 0], [-1, PHI, 0], [-1, -PHI, 0], [PHI, 0, 1], [PHI, 0, -1], [-PHI, 0, 1], [-PHI, 0, -1]].forEach((v) => centres.push(new THREE.Vector3(...v).normalize()));
+const ico = centres.slice(0, 12);
+for (let i = 0; i < 12; i++) for (let j = i + 1; j < 12; j++) for (let k = j + 1; k < 12; k++) {
+  const e = (p, q) => p.distanceTo(q) < 1.06; // unit-sphere edge length is ~1.05
+  if (e(ico[i], ico[j]) && e(ico[j], ico[k]) && e(ico[i], ico[k])) centres.push(ico[i].clone().add(ico[j]).add(ico[k]).normalize());
+}
+
+function ballMaterial() {
+  return new THREE.ShaderMaterial({
+    uniforms: { uNM: { value: new THREE.Matrix3() }, uC: { value: centres }, uLight: { value: new THREE.Vector3(-0.6, 0.9, 1.0).normalize() }, uRim: { value: new THREE.Color("#c8ff2e") }, uRim2: { value: new THREE.Color("#ff2e6a") } },
+    vertexShader: `varying vec3 vP; varying vec3 vN; varying vec3 vV;
+      void main(){ vP = normalize(position); vN = normalize(normalMatrix * normal); vec4 mv = modelViewMatrix * vec4(position,1.); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }`,
+    fragmentShader: `uniform mat3 uNM; uniform vec3 uC[32]; uniform vec3 uLight; uniform vec3 uRim; uniform vec3 uRim2;
+      varying vec3 vP; varying vec3 vN; varying vec3 vV;
+      void main(){
+        float d1 = 10., d2 = 10.; int k = 0; vec3 c1 = vec3(0.);
+        for (int i = 0; i < 32; i++) { float d = acos(clamp(dot(vP, uC[i]), -1., 1.)); if (d < d1) { d2 = d1; d1 = d; k = i; c1 = uC[i]; } else if (d < d2) { d2 = d; } }
+        float seam = smoothstep(0.012, 0.03, d2 - d1);
+        bool pent = k < 12;
+        vec3 base = pent ? vec3(0.035,0.04,0.045) : vec3(0.94,0.95,0.92);
+        // puffy panels: tilt the normal away from the panel centre near its edges
+        vec3 n = normalize(vN + (uNM * (vP - c1)) * 0.55 * (1. - seam * .4));
+        float dif = max(dot(n, uLight), 0.);
+        vec3 h = normalize(uLight + vV);
+        float spec = pow(max(dot(n, h), 0.), pent ? 60. : 40.) * (pent ? .9 : .55);
+        float fres = pow(1. - max(dot(vN, vV), 0.), 2.6);
+        vec3 col = base * (0.18 + 0.92 * dif) + spec;
+        col = mix(col * .25, col, seam);
+        col += uRim * fres * smoothstep(0., 1., -vN.x + .3) * .9 + uRim2 * fres * smoothstep(0., 1., vN.x + .2) * .55;
+        gl_FragColor = vec4(col, 1.);
+      }`,
+  });
+}
+function makeBall(canvas, { radius = 1.25, dust = true, onFrame } = {}) {
+  const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  r.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.5 : 2));
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(32, 1, 0.1, 100); cam.position.set(0, 0, 9);
+  const ball = new THREE.Mesh(new THREE.SphereGeometry(radius, 128, 96), ballMaterial());
+  ball.material.uniforms.uNM.value = ball.normalMatrix;
+  const group = new THREE.Group(); group.add(ball); scene.add(group);
+  // soft contact shadow
+  const sc = document.createElement("canvas"); sc.width = sc.height = 128; const g = sc.getContext("2d");
+  const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64); gr.addColorStop(0, "rgba(0,0,0,.75)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
+  const shadow = new THREE.Mesh(new THREE.PlaneGeometry(radius * 3, radius * 1), new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(sc), transparent: true, depthWrite: false }));
+  shadow.position.y = -radius * 1.35; scene.add(shadow);
+  let pts = null;
+  if (dust) {
+    const n = mobile ? 260 : 600, pos = new Float32Array(n * 3);
+    for (let i = 0; i < n; i++) { pos[i * 3] = (Math.random() - 0.5) * 16; pos[i * 3 + 1] = (Math.random() - 0.5) * 10; pos[i * 3 + 2] = (Math.random() - 0.5) * 8; }
+    const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xe9ffb0, size: 0.03, transparent: true, opacity: 0.7, depthWrite: false }));
+    scene.add(pts);
+  }
+  const resize = () => { const w = canvas.clientWidth, h = canvas.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  resize(); addEventListener("resize", resize);
+  const state = { spin: 0.6, mx: 0, my: 0, visible: true };
+  new IntersectionObserver(([e]) => (state.visible = e.isIntersecting)).observe(canvas);
+  let t0 = performance.now();
+  const loop = (now) => {
+    const dt = Math.min((now - t0) / 1000, 0.05); t0 = now;
+    if (state.visible) {
+      ball.rotation.y += dt * state.spin; ball.rotation.x += dt * state.spin * 0.35;
+      group.rotation.x += (state.my * 0.25 - group.rotation.x) * 0.05; group.rotation.z += (-state.mx * 0.15 - group.rotation.z) * 0.05;
+      if (pts) { pts.rotation.y += dt * 0.02; pts.position.y = Math.sin(now / 3000) * 0.2; }
+      onFrame && onFrame({ group, shadow, cam, now, dt, state });
+      r.render(scene, cam);
+    }
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+  return { state, group, shadow, cam };
+}
+
+const hero = makeBall($("#ballc"), {
+  radius: mobile ? 0.62 : 1.35,
+  onFrame: ({ group, shadow, now }) => {
+    const bob = Math.sin(now / 900) * 0.12;
+    group.position.y = (mobile ? 1.45 : 0.15) + bob + heroScroll * -2.6;
+    group.position.x = (mobile ? 0.55 : 2.0) + heroScroll * 1.4;
+    shadow.position.x = group.position.x; shadow.material.opacity = Math.max(0, 0.9 - bob - heroScroll);
+    shadow.position.y = group.position.y - (mobile ? 1.35 : 1.8) - bob * 0.5;
+    shadow.scale.setScalar(1 - bob * 0.6);
+  },
+});
+let heroScroll = 0;
+addEventListener("mousemove", (e) => { hero.state.mx = e.clientX / innerWidth - 0.5; hero.state.my = e.clientY / innerHeight - 0.5; });
+ScrollTrigger.create({ trigger: "#hero", start: "top top", end: "bottom top", onUpdate: (s) => { heroScroll = s.progress; hero.state.spin = 0.6 + s.getVelocity() / 300; } });
+
+const cta = makeBall($("#ctac"), { radius: 1.6, dust: false, onFrame: ({ group, now }) => { group.position.y = Math.sin(now / 700) * 0.15; } });
+cta.state.spin = 1.2;
+
+/* ---------- 3D dotted globe with travel arcs ---------- */
+const CITIES = [
+  { n: "Barcelona", lat: 41.39, lon: 2.17 }, { n: "London", lat: 51.51, lon: -0.13 },
+  { n: "Paris", lat: 48.86, lon: 2.35 }, { n: "Lagos", lat: 6.52, lon: 3.38 },
+];
+const HOME = { lat: 6.52, lon: 3.38 };
+const ll = (lat, lon, r = 1) => { const p = (90 - lat) * Math.PI / 180, t = (lon + 180) * Math.PI / 180; return new THREE.Vector3(-r * Math.sin(p) * Math.cos(t), r * Math.cos(p), r * Math.sin(p) * Math.sin(t)); };
+async function makeGlobe(canvas) {
+  const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  r.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene = new THREE.Scene(); const cam = new THREE.PerspectiveCamera(30, 1, 0.1, 100); cam.position.set(0, 0, 4.4);
+  const globe = new THREE.Group(); scene.add(globe);
+  globe.add(new THREE.Mesh(new THREE.SphereGeometry(0.995, 64, 48), new THREE.MeshBasicMaterial({ color: 0x0a0f1c })));
+  // atmosphere
+  const atm = new THREE.Mesh(new THREE.SphereGeometry(1.12, 64, 48), new THREE.ShaderMaterial({ transparent: true, side: THREE.BackSide, depthWrite: false,
+    vertexShader: `varying vec3 vN; void main(){ vN = normalize(normalMatrix*normal); gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.); }`,
+    fragmentShader: `varying vec3 vN; void main(){ float i = pow(max(0., 0.68 - dot(vN, vec3(0,0,1.))), 2.5); gl_FragColor = vec4(0.55,1.,0.2,1.) * i * 0.9; }` }));
+  scene.add(atm);
+  // land mask from geojson → dots
+  const land = await fetch("js/land.json").then((x) => x.json());
+  const W = 1024, H = 512, cv = document.createElement("canvas"); cv.width = W; cv.height = H; const g = cv.getContext("2d");
+  g.fillStyle = "#000"; g.fillRect(0, 0, W, H); g.fillStyle = "#fff";
+  const ring = (c) => { c.forEach(([lo, la], i) => { const x = (lo + 180) / 360 * W, y = (90 - la) / 180 * H; i ? g.lineTo(x, y) : g.moveTo(x, y); }); };
+  land.features.forEach((f) => { const polys = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates; polys.forEach((poly) => { g.beginPath(); poly.forEach(ring); g.fill("evenodd"); }); });
+  const img = g.getImageData(0, 0, W, H).data;
+  const N = mobile ? 9000 : 16000, pos = [];
+  for (let i = 0; i < N; i++) {
+    const y = 1 - (i / (N - 1)) * 2, rr = Math.sqrt(1 - y * y), th = i * Math.PI * (3 - Math.sqrt(5));
+    const v = new THREE.Vector3(Math.cos(th) * rr, y, Math.sin(th) * rr);
+    const lat = Math.asin(v.y) * 180 / Math.PI; const lon = Math.atan2(v.z, -v.x) * 180 / Math.PI - 180;
+    const lo = ((lon + 540) % 360) - 180; const px = Math.floor((lo + 180) / 360 * W), py = Math.floor((90 - lat) / 180 * H);
+    if (img[(py * W + px) * 4] > 128) pos.push(v.x, v.y, v.z);
+  }
+  const dg = new THREE.BufferGeometry(); dg.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  globe.add(new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xb9d6a8, size: mobile ? 0.026 : 0.022, transparent: true, opacity: 0.95 })));
+  // arcs + pins
+  const arcs = [], pins = [];
+  const home = ll(HOME.lat, HOME.lon, 1.0);
+  CITIES.forEach((c, i) => {
+    const p = ll(c.lat, c.lon, 1.0);
+    const pin = new THREE.Mesh(new THREE.SphereGeometry(0.022, 16, 12), new THREE.MeshBasicMaterial({ color: i === 3 ? 0xff2e6a : 0xc8ff2e }));
+    pin.position.copy(p); globe.add(pin);
+    const halo = new THREE.Mesh(new THREE.RingGeometry(0.03, 0.045, 32), new THREE.MeshBasicMaterial({ color: 0xc8ff2e, transparent: true, side: THREE.DoubleSide }));
+    halo.position.copy(p.clone().multiplyScalar(1.002)); halo.lookAt(p.clone().multiplyScalar(2)); globe.add(halo); pins.push(halo);
+    if (i === 3) return;
+    const mid = home.clone().add(p).multiplyScalar(0.5); const lift = 1 + home.distanceTo(p) * 0.55; mid.normalize().multiplyScalar(lift);
+    const curve = new THREE.QuadraticBezierCurve3(home, mid, p);
+    const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 80, 0.006, 8, false), new THREE.MeshBasicMaterial({ color: 0xc8ff2e, transparent: true, opacity: 0.95 }));
+    tube.geometry.setDrawRange(0, 0); globe.add(tube); arcs.push({ tube, total: tube.geometry.index.count, prog: 0, city: i });
+  });
+  const resize = () => { const w = canvas.clientWidth, h = canvas.clientHeight; r.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  resize(); addEventListener("resize", resize);
+  // orientation: face west Africa / Europe
+  const target = { x: 0.55, y: -1.62 };
+  globe.rotation.set(target.x, target.y, 0);
+  let drag = null, vis = true, active = 0;
+  new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(canvas);
+  canvas.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, y: e.clientY, rx: globe.rotation.x, ry: globe.rotation.y }; canvas.setPointerCapture(e.pointerId); canvas.style.cursor = "grabbing"; });
+  canvas.addEventListener("pointermove", (e) => { if (!drag) return; globe.rotation.y = drag.ry + (e.clientX - drag.x) * 0.006; globe.rotation.x = Math.max(-1, Math.min(1.2, drag.rx + (e.clientY - drag.y) * 0.004)); });
+  addEventListener("pointerup", () => { drag = null; canvas.style.cursor = "grab"; });
+  let shown = false;
+  ScrollTrigger.create({ trigger: canvas, start: "top 75%", once: true, onEnter: () => (shown = true) });
+  const loop = (now) => {
+    if (vis) {
+      if (!drag) { globe.rotation.y += (target.y + Math.sin(now / 4000) * 0.25 - globe.rotation.y) * 0.02; globe.rotation.x += (target.x - globe.rotation.x) * 0.03; }
+      arcs.forEach((a) => { const goal = shown ? 1 : 0; a.prog += (goal - a.prog) * 0.03; a.tube.material.opacity = a.city === active ? 1 : 0.35; a.tube.geometry.setDrawRange(0, Math.floor(a.total * a.prog / 3) * 3); });
+      pins.forEach((h, i) => { const s = 1 + ((now / 1000 + i * 0.4) % 1.6) * 1.4; h.scale.setScalar(s); h.material.opacity = Math.max(0, 1 - (s - 1) / 2.2); });
+      r.render(scene, cam);
+    }
+    requestAnimationFrame(loop);
+  };
+  requestAnimationFrame(loop);
+  return { setActive: (i) => { active = i; const c = CITIES[i]; target.y = -1.62 - (c.lon - 3) * Math.PI / 180 * 0.6; target.x = 0.55 + (c.lat - 30) * Math.PI / 180 * 0.4; } };
+}
+makeGlobe($("#globec")).then((globe) => {
+  $$(".ev").forEach((ev) => ev.addEventListener("mouseenter", () => { $$(".ev").forEach((e) => e.classList.remove("on")); ev.classList.add("on"); globe.setActive(+ev.dataset.city); }));
+  globe.setActive(0);
+});
+
+/* countdown to the first (sample) stop */
+const evDate = new Date("2026-11-08T21:00:00+01:00");
+const tick = () => { let d = Math.max(0, evDate - new Date()) / 1000; const D = Math.floor(d / 86400); d -= D * 86400; const H = Math.floor(d / 3600); d -= H * 3600; const M = Math.floor(d / 60); const S = Math.floor(d - M * 60);
+  $("#cd-d").textContent = String(D).padStart(2, "0"); $("#cd-h").textContent = String(H).padStart(2, "0"); $("#cd-m").textContent = String(M).padStart(2, "0"); $("#cd-s").textContent = String(S).padStart(2, "0"); };
+tick(); setInterval(tick, 1000);
+
+/* ---------- sponsor calculator ---------- */
+const fmt = (n) => "$" + Math.round(n).toLocaleString("en-US");
+const calcOut = { v: 0 };
+const calc = () => {
+  const a = +$("#r1").value, b = +$("#r2").value, c = +$("#r3").value, d = +$("#r4").value;
+  $("#v1").textContent = a; $("#v2").textContent = fmt(b); $("#v3").textContent = c; $("#v4").textContent = fmt(d);
+  gsap.to(calcOut, { v: a * b * 12 + c * d, duration: 0.6, ease: "power3.out", onUpdate: () => ($("#tot").textContent = fmt(calcOut.v)) });
+};
+$$(".calc input").forEach((i) => i.addEventListener("input", calc));
+
+/* ---------- partner tier tilt ---------- */
+$$(".tier").forEach((t) => {
+  t.addEventListener("pointermove", (e) => { const b = t.getBoundingClientRect(); const x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
+    t.style.transform = `rotateY(${(x - 0.5) * 14}deg) rotateX(${(0.5 - y) * 12}deg)`; t.style.setProperty("--mx", x * 100 + "%"); t.style.setProperty("--my", y * 100 + "%"); });
+  t.addEventListener("pointerleave", () => (t.style.transform = ""));
+});
+const match = $("#match");
+match.addEventListener("pointermove", (e) => { const b = match.getBoundingClientRect(); match.style.transform = `perspective(1200px) rotateY(${((e.clientX - b.left) / b.width - 0.5) * 10}deg) rotateX(${(0.5 - (e.clientY - b.top) / b.height) * 8}deg)`; });
+match.addEventListener("pointerleave", () => (match.style.transform = ""));
+
+/* ---------- ticker ---------- */
+const tr = $("#tick"); tr.innerHTML += tr.innerHTML;
+let tx = 0, lastY = scrollY;
+gsap.ticker.add(() => { const v = Math.min(Math.abs(scrollY - lastY), 50); lastY = scrollY; tx -= 0.8 + v * 0.25; const w = tr.scrollWidth / 2; if (-tx > w) tx += w; tr.style.transform = `translate3d(${tx}px,0,0)`; });
+
+/* ---------- intro + reveals ---------- */
+function intro() {
+  const tl = gsap.timeline();
+  if (!reduce) {
+    const o = { m: 0 };
+    tl.to(o, { m: 90, duration: 1.6, ease: "power2.inOut", onUpdate: () => { $("#mins").textContent = String(Math.round(o.m)).padStart(2, "0"); $("#pct").textContent = Math.round(o.m / 0.9) + "%"; } })
+      .to("#pbar", { scaleX: 1, duration: 1.6, ease: "power2.inOut" }, 0)
+      .to("#pre .ko", { clipPath: "inset(0% 0 0% 0)", duration: 0.5, ease: "power4.inOut" }, 1.65)
+      .to("#pre", { yPercent: -100, duration: 0.9, ease: "power4.inOut" }, 2.2);
+  } else tl.set("#pre", { display: "none" });
+  tl.from(".h-title .line > span", { yPercent: 110, duration: 1.2, stagger: 0.12, ease: "expo.out" }, reduce ? 0 : 2.45)
+    .from(".h-fade", { opacity: 0, y: 26, duration: 1, stagger: 0.08, ease: "expo.out" }, reduce ? 0 : 2.6)
+    .from("#ballc", { opacity: 0, scale: 0.6, duration: 1.4, ease: "expo.out" }, reduce ? 0 : 2.3)
+    .set("#pre", { display: "none" });
+}
+intro();
+if (!reduce) {
+  ScrollTrigger.batch(".rv", { start: "top 88%", onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out", stagger: 0.08 }) });
+  $$(".cnt").forEach((el) => { const o = { v: 0 }, to = +el.dataset.to; ScrollTrigger.create({ trigger: el, start: "top 90%", once: true, onEnter: () => gsap.to(o, { v: to, duration: 2, ease: "power3.out", onUpdate: () => (el.textContent = Math.round(o.v).toLocaleString("en-US")) }) }); });
+  $$(".bar-row i").forEach((i) => gsap.fromTo(i, { scaleX: 0 }, { scaleX: +i.dataset.w / 100, duration: 1.4, ease: "power3.out", scrollTrigger: { trigger: "#match", start: "top 75%" } }));
+  $$(".par").forEach((p) => gsap.to(p, { yPercent: +p.dataset.speed, ease: "none", scrollTrigger: { trigger: "#access", start: "top bottom", end: "bottom top", scrub: true } }));
+  gsap.from(".ac-photos .badge", { rotate: -120, scale: 0, duration: 1.2, ease: "back.out(1.6)", scrollTrigger: { trigger: "#access", start: "top 60%" } });
+  gsap.to(".f-big", { yPercent: -20, ease: "none", scrollTrigger: { trigger: "footer", start: "top bottom", end: "bottom bottom", scrub: true } });
+  gsap.utils.toArray(".beam").forEach((b, i) => gsap.to(b, { rotate: `+=${i % 2 ? -8 : 8}`, duration: 6 + i, yoyo: true, repeat: -1, ease: "sine.inOut" }));
+  // horizontal takes on desktop
+  if (!mobile) {
+    const track = $("#track");
+    const dist = () => track.scrollWidth - innerWidth + 40;
+    gsap.to(track, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: ".tk-pin", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 0.6, invalidateOnRefresh: true, onUpdate: (s) => ($("#tkp").style.transform = `scaleX(${s.progress})`) } });
+  }
+} else {
+  $$(".cnt").forEach((el) => (el.textContent = (+el.dataset.to).toLocaleString("en-US")));
+  $$(".bar-row i").forEach((i) => (i.style.transform = `scaleX(${+i.dataset.w / 100})`));
+}
+calc();
+addEventListener("load", () => ScrollTrigger.refresh());
+</script>
+</body>
+</html>
