@@ -137,7 +137,7 @@ nav.top ul a:hover::after { right: 0; }
 .grid { columns: 3; column-gap: 22px; }
 .tile { break-inside: avoid; margin-bottom: 22px; position: relative; overflow: hidden; cursor: zoom-in; border-radius: 4px; background: #1a1714; transition: opacity .5s, transform .6s var(--out); }
 .tile.hide { display: none; }
-.tile img { width: 100%; transition: transform 1.4s var(--out), filter .8s; }
+.tile img { width: 100%; height: auto; transition: transform 1.4s var(--out), filter .8s; }
 .tile:hover img { transform: scale(1.05); }
 .tile figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 60px 20px 18px; background: linear-gradient(transparent, rgba(10,9,8,.85)); display: flex; justify-content: space-between; align-items: end; transform: translateY(14px); opacity: 0; transition: all .6s var(--out); }
 .tile:hover figcaption { transform: none; opacity: 1; }
@@ -622,7 +622,8 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const mobile = matchMedia("(max-width: 760px)").matches;
 
 /* ---------- data: every look from her feed ---------- */
-const H = (n) => ({ src: `img/hd/${n}-sm.jpg`, big: `img/hd/${n}.jpg` });
+const DIMS = {"bts-hair":[619,1100],"eclipse-1":[825,1100],"white-wrap":[825,1100],"violet":[825,1100],"bena-stripe-2":[825,1100],"sport-spectacle":[880,1100],"beauty-liner":[700,1100],"cg-bee":[619,1100],"bena-stripe-1":[825,1100],"bena-stripe-5":[825,1100],"red-room":[880,1100],"bts-arms":[619,1100],"knit":[825,1100],"chanel-screen":[619,1100],"movement":[880,1100],"cg-trench":[619,1100],"chanel-smile":[619,1100],"cornrows-portrait":[619,1100],"bena-edit-2":[825,1100],"white-back":[825,1100],"chanel-portrait":[619,1100],"bts-halter":[619,1100],"eclipse-3":[828,1100],"lionking-balmain":[825,1100],"bena-edit-4":[825,1100],"edblad-bts":[619,1100],"cg-motion":[619,1100],"edblad-coast":[886,1100],"gold-paint":[825,1100],"chanel-counter":[619,1100],"cg-profile":[619,1100],"white-crouch":[825,1100],"denim":[825,1100],"eclipse-2":[828,1100],"profile-red":[1075,1100],"yellow":[825,1100],"bena-stripe-3":[825,1100],"bts-leather":[619,1100],"bena-edit-1":[825,1100],"bena-stripe-4":[825,1100],"curls":[825,1100],"bena-edit-3":[825,1100],"duo":[1100,825]};
+const H = (n) => ({ src: `img/hd/${n}-sm.jpg`, big: `img/hd/${n}.jpg`, w: (DIMS[n] || [1100, 1375])[0], h: (DIMS[n] || [1100, 1375])[1] });
 const WORK = [
   { ...H("lionking-balmain"), t: "The Lion King 30 × Balmain", c: "Feature · ABC On The Red Carpet", f: "campaign" },
   { ...H("eclipse-3"), t: "Eclipse", c: "VICTORI · campaign", f: "campaign" },
@@ -664,7 +665,7 @@ const WORK = [
   { ...H("bts-hair"), t: "Hair & makeup", c: "Behind the scenes", f: "movement" },
   { ...H("bts-arms"), t: "Frame", c: "Beauty campaign · on set", f: "movement" },
 ];
-$("#grid").innerHTML = WORK.map((w, i) => `<figure class="tile" data-f="${w.f}" data-i="${i}" data-cursor="View"><span class="clip"><img src="${w.src}" srcset="${w.src} 1100w, ${w.big} 2200w" sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw" alt="Djemime Chochi, ${w.t}" loading="lazy"></span><span class="num cap">${String(i + 1).padStart(2, "0")}</span><figcaption><b>${w.t}</b><span class="cap">${w.c}</span></figcaption></figure>`).join("");
+$("#grid").innerHTML = WORK.map((w, i) => `<figure class="tile" data-f="${w.f}" data-i="${i}" data-cursor="View"><span class="clip"><img src="${w.src}" width="${w.w}" height="${w.h}" srcset="${w.src} 1100w, ${w.big} 2200w" sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw" alt="Djemime Chochi, ${w.t}" loading="lazy"></span><span class="num cap">${String(i + 1).padStart(2, "0")}</span><figcaption><b>${w.t}</b><span class="cap">${w.c}</span></figcaption></figure>`).join("");
 
 /* ---------- smooth scroll ---------- */
 let lenis = null;
@@ -856,6 +857,13 @@ if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) { const p = v.play(); p && p.catch && p.catch(() => {}); } else v.pause(); }), { rootMargin: "0px 200px" });
   $$("video[data-auto]").forEach((v) => io.observe(v));
 } else $$("video[data-auto]").forEach((v) => (v.autoplay = true));
+
+/* ---------- keep scroll animations in sync when the page height changes (late images, fonts, filters) ---------- */
+if ("ResizeObserver" in window) {
+  let lastH = 0, rt = 0;
+  new ResizeObserver(() => { const h = document.documentElement.scrollHeight; if (Math.abs(h - lastH) < 4) return; lastH = h; clearTimeout(rt); rt = setTimeout(() => { ScrollTrigger.refresh(); lenis && lenis.resize && lenis.resize(); }, 150); }).observe(document.body);
+}
+addEventListener("load", () => ScrollTrigger.refresh());
 
 /* ---------- go ---------- */
 const start = () => { scrolly(); runway(); };
