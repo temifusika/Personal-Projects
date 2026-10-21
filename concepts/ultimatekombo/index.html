@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ultimate Kombo — Let's Talk Football</title>
-<meta name="description" content="Concept website for Ultimate Kombo (Obi Kevin Nduka): football analysis, tour dates, predictions and partners in one home." />
+<meta name="description" content="Concept website for Ultimate Kombo (Kombo): football analysis, tour dates, predictions and partners in one home." />
 <meta name="theme-color" content="#05070a" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -283,6 +283,89 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
 .f-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; color: var(--dim); font-size: 14px; }
 .f-row a:hover { color: var(--volt); }
 
+
+/* ---------- shop ---------- */
+.nav-r { display: flex; align-items: center; gap: 10px; }
+.cart-btn { position: relative; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); display: grid; place-items: center; transition: background .3s, transform .3s var(--out); }
+.cart-btn:hover { background: rgba(255,255,255,.08); }
+.cart-btn svg { width: 20px; height: 20px; }
+.cart-btn b { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--volt); color: #000; font-size: 11px; display: grid; place-items: center; transform: scale(0); transition: transform .4s var(--out); }
+.cart-btn.has b { transform: scale(1); }
+.cart-btn.bump { animation: bump .5s var(--out); }
+@keyframes bump { 40% { transform: scale(1.25) rotate(-8deg); } }
+#shop { padding: clamp(100px, 12vw, 170px) 0; background: radial-gradient(50% 50% at 25% 40%, rgba(176,16,63,.18), transparent 70%), radial-gradient(40% 40% at 85% 80%, rgba(200,255,46,.08), transparent 70%), #07090c; border-top: 1px solid var(--line); overflow: hidden; }
+.sh-head { display: grid; grid-template-columns: 1fr minmax(0, 440px); gap: 24px 6vw; align-items: end; margin-bottom: 56px; }
+.sh-head h2 { font-size: clamp(54px, 6.6vw, 112px); }
+.sh-head p { color: var(--dim); }
+.builder { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4vw; align-items: center; border-radius: 32px; padding: clamp(22px, 3vw, 46px); background: linear-gradient(160deg, #10151c, #0a0d12); border: 1px solid var(--line); position: relative; overflow: hidden; }
+.builder::before { content: "KOMBO"; position: absolute; left: -2%; bottom: -12%; font-family: var(--display); font-size: 26vw; line-height: 1; color: rgba(255,255,255,.025); pointer-events: none; }
+.stage { position: relative; aspect-ratio: 1; max-height: 640px; perspective: 1600px; display: grid; place-items: center; }
+.stage .halo { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(200,255,46,.18), transparent 62%); filter: blur(10px); }
+.stage .plinth { position: absolute; bottom: 4%; width: 62%; height: 9%; border-radius: 50%; background: radial-gradient(closest-side, rgba(0,0,0,.75), transparent); }
+.shirt3d { position: relative; width: 82%; aspect-ratio: 1; transform-style: preserve-3d; transition: transform 1s var(--out); cursor: grab; }
+.shirt3d.back { transform: rotateY(180deg); }
+.shirt3d svg { position: absolute; inset: 0; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden; filter: drop-shadow(0 40px 50px rgba(0,0,0,.6)); }
+.shirt3d svg.bk { transform: rotateY(180deg); }
+.flip { position: absolute; right: 4%; top: 4%; z-index: 3; display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid var(--line); font-size: 13px; font-weight: 600; }
+.flip:hover { background: #fff; color: #000; }
+.badge3 { position: absolute; left: 4%; top: 4%; z-index: 3; }
+.opts h3 { font-family: var(--display); font-weight: 400; font-size: clamp(38px, 3.4vw, 56px); line-height: .95; text-transform: uppercase; }
+.opts .price { font-family: var(--display); font-size: 40px; color: var(--volt); margin: 10px 0 22px; }
+.opts .price small { font-family: var(--sans); font-size: 14px; color: var(--dim); margin-left: 8px; }
+.field { margin-bottom: 18px; }
+.field > span { display: flex; justify-content: space-between; color: #c9cfc6; font-size: 13.5px; margin-bottom: 8px; }
+.field input[type=text], .field input[type=number] { width: 100%; height: 52px; border-radius: 14px; background: #05070a; border: 1px solid rgba(255,255,255,.14); color: var(--ink); padding: 0 16px; font: 600 18px var(--sans); letter-spacing: .08em; text-transform: uppercase; outline: none; transition: border-color .3s, box-shadow .3s; }
+.field input:focus { border-color: var(--volt); box-shadow: 0 0 0 4px rgba(200,255,46,.12); }
+.row2 { display: grid; grid-template-columns: 1.6fr 1fr; gap: 12px; }
+.sw { display: flex; gap: 10px; flex-wrap: wrap; }
+.sw button { width: 46px; height: 46px; border-radius: 50%; border: 2px solid transparent; position: relative; transition: transform .3s var(--out); }
+.sw button::after { content: ""; position: absolute; inset: 4px; border-radius: 50%; background: var(--c); box-shadow: inset 0 -6px 10px rgba(0,0,0,.35); }
+.sw button.on { border-color: var(--volt); transform: scale(1.08); }
+.sizes { display: flex; gap: 8px; flex-wrap: wrap; }
+.sizes button { min-width: 50px; height: 42px; padding: 0 12px; border-radius: 12px; border: 1px solid rgba(255,255,255,.16); font-weight: 600; font-size: 14px; transition: background .25s, color .25s, border-color .25s; }
+.sizes button.on { background: var(--volt); color: #000; border-color: var(--volt); }
+.add { margin-top: 8px; width: 100%; justify-content: center; height: 60px; font-size: 16px; }
+.perks { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; color: var(--dim); font-size: 13px; }
+.perks span::before { content: "✓ "; color: var(--volt); }
+.merch { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 22px; }
+.item { position: relative; border-radius: 24px; background: var(--card); border: 1px solid var(--line); padding: 18px; display: flex; flex-direction: column; transition: transform .5s var(--out), border-color .3s; overflow: hidden; }
+.item:hover { transform: translateY(-8px); border-color: rgba(200,255,46,.4); }
+.item .art { position: relative; aspect-ratio: 1; border-radius: 18px; background: radial-gradient(circle at 50% 40%, #1d2530, #0b0f14 70%); display: grid; place-items: center; overflow: hidden; margin-bottom: 16px; }
+.item .art svg { width: 78%; height: 78%; transition: transform .8s var(--out); filter: drop-shadow(0 24px 24px rgba(0,0,0,.55)); }
+.item:hover .art svg { transform: rotate(-6deg) scale(1.06); }
+.item .tag { position: absolute; left: 12px; top: 12px; z-index: 2; background: var(--volt); color: #000; padding: 4px 9px; border-radius: 999px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; }
+.item .tag.drop { background: var(--garnet); color: #fff; }
+.item h4 { font-size: 17px; font-weight: 700; }
+.item p { color: var(--dim); font-size: 13.5px; margin: 4px 0 14px; }
+.item .bt { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+.item .bt b { font-family: var(--display); font-weight: 400; font-size: 26px; }
+.qa { width: 44px; height: 44px; border-radius: 50%; background: #fff; color: #000; font-size: 22px; display: grid; place-items: center; transition: background .3s, transform .4s var(--out); }
+.qa:hover { background: var(--volt); transform: rotate(90deg); }
+.shop-note { margin-top: 20px; color: #6c7469; }
+/* drawer */
+.scrim { position: fixed; inset: 0; z-index: 120; background: rgba(0,0,0,.55); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .4s; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; z-index: 130; width: min(440px, 100vw); background: #0b0f14; border-left: 1px solid var(--line); transform: translateX(100%); transition: transform .6s var(--ease); display: flex; flex-direction: column; }
+body.bag .scrim { opacity: 1; pointer-events: auto; } body.bag .drawer { transform: none; }
+.dr-h { display: flex; justify-content: space-between; align-items: center; padding: 24px; border-bottom: 1px solid var(--line); }
+.dr-h h3 { font-family: var(--display); font-weight: 400; font-size: 34px; text-transform: uppercase; }
+.dr-x { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line); font-size: 18px; }
+.dr-list { flex: 1; overflow: auto; padding: 8px 24px; }
+.li { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); animation: liIn .5s var(--out); }
+@keyframes liIn { from { opacity: 0; transform: translateX(30px); } }
+.li .th { width: 64px; height: 64px; border-radius: 14px; background: #151c25; display: grid; place-items: center; }
+.li .th svg { width: 80%; height: 80%; }
+.li b { display: block; font-size: 15px; } .li small { color: var(--dim); font-size: 12.5px; }
+.li .pr { text-align: right; font-weight: 700; } .li .rm { display: block; color: var(--dim); font-size: 12px; margin-top: 4px; text-decoration: underline; }
+.empty { color: var(--dim); text-align: center; padding: 60px 0; }
+.dr-f { padding: 22px 24px 28px; border-top: 1px solid var(--line); }
+.dr-f .sub { display: flex; justify-content: space-between; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.dr-f .ship { color: var(--dim); font-size: 13px; margin-bottom: 16px; }
+.dr-f .btn { width: 100%; justify-content: center; }
+.toast { position: fixed; left: 50%; bottom: 70px; z-index: 140; transform: translate(-50%, 30px); opacity: 0; padding: 12px 18px; border-radius: 999px; background: var(--volt); color: #000; font-weight: 700; font-size: 14px; transition: all .5s var(--out); pointer-events: none; }
+.toast.on { transform: translate(-50%, 0); opacity: 1; }
+@media (max-width: 960px) { .sh-head, .builder { grid-template-columns: 1fr; } .merch { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .cart-btn { width: 40px; height: 40px; } }
+
 /* reveal helper */
 .rv { opacity: 0; transform: translateY(40px); }
 @media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
@@ -306,12 +389,14 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
     <li><a href="#access">Access</a></li>
     <li><a href="#tour">On tour</a></li>
     <li><a href="#tips">Predictions</a></li>
+    <li><a href="#shop">Shop</a></li>
     <li><a href="#partners">Partners</a></li>
   </ul>
+  <div class="nav-r"><button class="cart-btn" id="cartBtn" aria-label="Open bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><b id="cartCount">0</b></button>
   <a class="tg" href="https://t.me/komboanalysisandprediction" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="#2aabee"><path d="M21.9 4.3 18.7 19.5c-.2 1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.2l-4.8-1.5c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3Z"/></svg>
     <span>Join<span class="lbl2"> <span class="long">224K on </span>Telegram</span></span>
-  </a>
+  </a></div>
 </nav>
 
 <main>
@@ -323,7 +408,7 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
   <div class="h-copy">
     <p class="kick mono h-fade">Football analyst · <b>Lagos → the world</b></p>
     <h1 class="h-title disp"><span class="line"><span>Let's talk</span></span><span class="line"><span class="it">football.</span></span></h1>
-    <p class="h-sub h-fade">Match reactions, honest analysis and predictions from Obi Kevin Nduka — now with a home of its own. Every take, every trip, every partner, in one place.</p>
+    <p class="h-sub h-fade">Match reactions, honest analysis and predictions from Kombo, now with a home of its own. Every take, every trip, every partner, in one place.</p>
     <div class="h-cta h-fade">
       <a class="btn v" href="#takes">Watch the latest takes <span class="arr">↓</span></a>
       <a class="btn o" href="#tour">Where I'm going next</a>
@@ -445,6 +530,66 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
   </div>
 </section>
 
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="wrap">
+    <div class="sh-head">
+      <div><p class="kick mono rv">Kombo Store · <b>Customised merch</b></p><h2 class="disp rv">Wear the<br><span class="it volt">take.</span></h2></div>
+      <p class="rv">Fans already ask where to get the cap. Now they can buy it, and design their own Kombo kit with their name and number, printed and shipped worldwide. Every order is revenue that doesn't depend on a sponsor or an algorithm.</p>
+    </div>
+    <div class="builder rv">
+      <div class="stage" id="stage">
+        <span class="halo"></span><span class="plinth"></span>
+        <span class="badge3 mono kick"><b>Customise live</b></span>
+        <button class="flip" id="flip">↻ <span id="flipLbl">See the back</span></button>
+        <div class="shirt3d" id="shirt" style="--sc1:#0d0f12;--sc2:#c8ff2e;--sc3:#ffffff"><svg class="fr" viewBox="0 0 400 400"><defs>
+  <linearGradient id="shfr" x1="0" x2="1"><stop offset="0" stop-color="rgba(0,0,0,.35)"/><stop offset=".22" stop-color="rgba(0,0,0,0)"/><stop offset=".78" stop-color="rgba(0,0,0,0)"/><stop offset="1" stop-color="rgba(0,0,0,.35)"/></linearGradient></defs>
+  <path class="body" d="M132 42 Q200 74 268 42 L346 82 L384 168 L330 190 L316 160 L316 372 Q200 388 84 372 L84 160 L70 190 L16 168 L54 82 Z" style="fill:var(--sc1)"/>
+  <path d="M84 160 L84 372 Q200 388 316 372 L316 160" fill="none"/>
+  <path class="trim" d="M54 82 L16 168 L34 175 L70 92 Z M346 82 L384 168 L366 175 L330 92 Z" style="fill:var(--sc2)"/>
+  <path class="trim" d="M132 42 Q200 74 268 42 L258 40 Q200 66 142 40 Z" style="fill:var(--sc2)"/>
+  <rect x="84" y="200" width="232" height="14" style="fill:var(--sc2)" opacity=".85"/>
+  <path d="M132 42 Q200 74 268 42 L346 82 L384 168 L330 190 L316 160 L316 372 Q200 388 84 372 L84 160 L70 190 L16 168 L54 82 Z" fill="url(#shfr)"/>
+  <path d="M120 110 Q200 140 280 110" stroke="rgba(255,255,255,.05)" stroke-width="40" fill="none"/>
+  <text x="200" y="172" text-anchor="middle" font-family="Anton" font-size="34" style="fill:var(--sc2)" letter-spacing="2">KOMBO</text><text x="200" y="196" text-anchor="middle" font-family="JetBrains Mono" font-size="11" style="fill:var(--sc3)" letter-spacing="4">LET&apos;S TALK FOOTBALL</text><circle cx="262" cy="118" r="15" fill="none" style="stroke:var(--sc3)" stroke-width="3"/><path d="M262 106 l9 6 -3 10 h-12 l-3 -10z" style="fill:var(--sc3)"/>
+</svg><svg class="bk" viewBox="0 0 400 400"><defs>
+  <linearGradient id="shbk" x1="0" x2="1"><stop offset="0" stop-color="rgba(0,0,0,.35)"/><stop offset=".22" stop-color="rgba(0,0,0,0)"/><stop offset=".78" stop-color="rgba(0,0,0,0)"/><stop offset="1" stop-color="rgba(0,0,0,.35)"/></linearGradient></defs>
+  <path class="body" d="M132 42 Q200 74 268 42 L346 82 L384 168 L330 190 L316 160 L316 372 Q200 388 84 372 L84 160 L70 190 L16 168 L54 82 Z" style="fill:var(--sc1)"/>
+  <path d="M84 160 L84 372 Q200 388 316 372 L316 160" fill="none"/>
+  <path class="trim" d="M54 82 L16 168 L34 175 L70 92 Z M346 82 L384 168 L366 175 L330 92 Z" style="fill:var(--sc2)"/>
+  <path class="trim" d="M132 42 Q200 74 268 42 L258 40 Q200 66 142 40 Z" style="fill:var(--sc2)"/>
+  
+  <path d="M132 42 Q200 74 268 42 L346 82 L384 168 L330 190 L316 160 L316 372 Q200 388 84 372 L84 160 L70 190 L16 168 L54 82 Z" fill="url(#shbk)"/>
+  <path d="M120 110 Q200 140 280 110" stroke="rgba(255,255,255,.05)" stroke-width="40" fill="none"/>
+  <text id="shName" x="200" y="130" text-anchor="middle" font-family="Anton" font-size="40" style="fill:var(--sc2)" letter-spacing="3">YOUR NAME</text><text id="shNum" x="200" y="300" text-anchor="middle" font-family="Anton" font-size="150" style="fill:var(--sc2)">10</text><text x="200" y="350" text-anchor="middle" font-family="JetBrains Mono" font-size="11" style="fill:var(--sc3)" letter-spacing="4">ULTIMATEKOMBO.COM</text>
+</svg></div>
+      </div>
+      <div class="opts">
+        <span class="mono" style="color:var(--dim)">Signature collection</span>
+        <h3>The Kombo<br>matchday shirt</h3>
+        <div class="price">$55<small>incl. name & number</small></div>
+        <div class="row2">
+          <label class="field"><span>Name on back <b class="mono" id="nameLeft" style="color:var(--volt)">10 left</b></span><input type="text" id="inName" maxlength="10" placeholder="YOUR NAME" autocomplete="off"></label>
+          <label class="field"><span>Number</span><input type="number" id="inNum" min="0" max="99" value="10"></label>
+        </div>
+        <div class="field"><span>Colourway <b class="mono" id="cwName" style="color:var(--volt)">Night volt</b></span>
+          <div class="sw" id="sw">
+            <button class="on" style="--c:#0d0f12" data-c='["#0d0f12","#c8ff2e","#ffffff","Night volt"]' aria-label="Night volt"></button>
+            <button style="--c:#7a0f2e" data-c='["#7a0f2e","#f5c242","#ffffff","Garnet gold"]' aria-label="Garnet gold"></button>
+            <button style="--c:#f2f5ee" data-c='["#f2f5ee","#0d0f12","#b0103f","Away white"]' aria-label="Away white"></button>
+            <button style="--c:#16326e" data-c='["#16326e","#ffffff","#c8ff2e","Midnight blue"]' aria-label="Midnight blue"></button>
+          </div></div>
+        <div class="field"><span>Size</span><div class="sizes" id="sizes"><button>S</button><button class="on">M</button><button>L</button><button>XL</button><button>XXL</button></div></div>
+        <button class="btn v add" id="addShirt">Add to bag <span class="arr">+</span></button>
+        <div class="perks"><span>Printed to order</span><span>Ships worldwide</span><span>Pay by card, Paystack or PayPal</span></div>
+      </div>
+    </div>
+    <div class="merch"><div class="item rv"><span class="tag mono ">Merch</span><div class="art"><svg viewBox="0 0 200 200"><path d="M30 120 Q32 52 100 46 Q168 52 170 120 Z" fill="#7a0f2e"/><path d="M30 120 Q100 106 170 120 Q150 150 100 150 Q50 150 30 120Z" fill="#5e0b23"/><path d="M100 46 L100 120" stroke="rgba(0,0,0,.25)" stroke-width="3"/><ellipse cx="100" cy="47" rx="8" ry="4" fill="#5e0b23"/><path d="M14 128 Q100 112 186 128 Q190 150 170 150 Q100 136 30 150 Q10 150 14 128Z" fill="#4a081b"/><text x="100" y="96" text-anchor="middle" font-family="Anton" font-size="24" fill="#c8ff2e">KOMBO</text></svg></div><h4>Kombo Matchday Cap</h4><p>Embroidered, adjustable, the one from the reactions</p><div class="bt"><b>$35</b><button class="qa" data-add='{"k":"cap","n":"Kombo Matchday Cap","p":35}' aria-label="Add Kombo Matchday Cap to bag">+</button></div></div><div class="item rv"><span class="tag mono drop">Tour drop</span><div class="art"><svg viewBox="0 0 200 200"><path d="M66 22 Q100 38 134 22 L172 42 L190 84 L164 94 L158 80 L158 182 Q100 190 42 182 L42 80 L36 94 L10 84 L28 42 Z" fill="#f2f5ee"/><text x="100" y="76" text-anchor="middle" font-family="Anton" font-size="15" fill="#000">KOMBO WORLD TOUR</text><text x="100" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#b0103f" letter-spacing="1">BARCELONA · LONDON</text><text x="100" y="108" text-anchor="middle" font-family="JetBrains Mono" font-size="7.5" fill="#b0103f" letter-spacing="1">PARIS · LAGOS</text><circle cx="100" cy="140" r="18" fill="none" stroke="#000" stroke-width="2"/><path d="M82 140 h36 M100 122 v36 M88 128 q12 12 0 24 M112 128 q-12 12 0 24" stroke="#000" stroke-width="1.5" fill="none"/></svg></div><h4>World Tour Tee</h4><p>Every city on the back. Pre-order before each trip</p><div class="bt"><b>$40</b><button class="qa" data-add='{"k":"tour","n":"World Tour Tee","p":40}' aria-label="Add World Tour Tee to bag">+</button></div></div><div class="item rv"><span class="tag mono ">Merch</span><div class="art"><svg viewBox="0 0 200 200"><g transform="rotate(-18 100 100)"><rect x="20" y="78" width="160" height="44" rx="6" fill="#0d0f12"/><rect x="20" y="78" width="160" height="8" fill="#c8ff2e"/><rect x="20" y="114" width="160" height="8" fill="#c8ff2e"/><text x="100" y="108" text-anchor="middle" font-family="Anton" font-size="17" fill="#fff" letter-spacing="1">LET&apos;S TALK FOOTBALL</text><g stroke="#c8ff2e" stroke-width="3"><path d="M26 78 v-14"/><path d="M26 122 v14"/><path d="M36 78 v-14"/><path d="M36 122 v14"/><path d="M46 78 v-14"/><path d="M46 122 v14"/><path d="M56 78 v-14"/><path d="M56 122 v14"/><path d="M66 78 v-14"/><path d="M66 122 v14"/><path d="M76 78 v-14"/><path d="M76 122 v14"/><path d="M86 78 v-14"/><path d="M86 122 v14"/><path d="M96 78 v-14"/><path d="M96 122 v14"/><path d="M106 78 v-14"/><path d="M106 122 v14"/><path d="M116 78 v-14"/><path d="M116 122 v14"/><path d="M126 78 v-14"/><path d="M126 122 v14"/><path d="M136 78 v-14"/><path d="M136 122 v14"/><path d="M146 78 v-14"/><path d="M146 122 v14"/><path d="M156 78 v-14"/><path d="M156 122 v14"/><path d="M166 78 v-14"/><path d="M166 122 v14"/><path d="M176 78 v-14"/><path d="M176 122 v14"/></g></g></svg></div><h4>Let’s Talk Football Scarf</h4><p>Knitted, fringed, made for away days</p><div class="bt"><b>$28</b><button class="qa" data-add='{"k":"scarf","n":"Let’s Talk Football Scarf","p":28}' aria-label="Add Let’s Talk Football Scarf to bag">+</button></div></div><div class="item rv"><span class="tag mono ">Merch</span><div class="art"><svg viewBox="0 0 200 200"><path d="M142 78 h14 a22 22 0 0 1 0 44 h-14" fill="none" stroke="#e9ece6" stroke-width="12"/><rect x="44" y="56" width="104" height="104" rx="12" fill="#f2f5ee"/><ellipse cx="96" cy="58" rx="52" ry="8" fill="#d9ddd5"/><rect x="44" y="96" width="104" height="30" fill="#c8ff2e"/><text x="96" y="118" text-anchor="middle" font-family="Anton" font-size="20" fill="#000">90&apos; + KOMBO</text><path d="M80 40 q6 -10 0 -20 M100 40 q6 -10 0 -20" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none"/></svg></div><h4>90’ + Kombo Mug</h4><p>For the 4am Champions League kick-offs</p><div class="bt"><b>$18</b><button class="qa" data-add='{"k":"mug","n":"90’ + Kombo Mug","p":18}' aria-label="Add 90’ + Kombo Mug to bag">+</button></div></div></div>
+    <span class="shop-note mono">Concept products and prices for illustration</span>
+  </div>
+</section>
+
 <!-- PARTNERS -->
 <section id="partners">
   <div class="wrap">
@@ -474,7 +619,7 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
 <section id="why">
   <div class="wrap">
     <div class="why-head">
-      <p class="kick mono rv">For Kevin · <b>Why a website?</b></p>
+      <p class="kick mono rv">For Kombo · <b>Why a website?</b></p>
       <h2 class="disp rv">Rent the pitch,<br>or <span class="it">own the stadium.</span></h2>
       <p class="rv">Instagram, YouTube and Telegram built the audience. But you're playing on someone else's ground: one algorithm change and reach drops overnight. A website is the stadium you own, where fans, brands and opportunities come to you.</p>
     </div>
@@ -493,6 +638,7 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
       <div class="vs-row"><div>Travel & events</div><div>A story that vanishes in 24h</div><div>Event pages, countdowns, RSVPs, city partners</div></div>
       <div class="vs-row"><div>Google</div><div>Random results for your name</div><div>You, first, with your contact</div></div>
       <div class="vs-row"><div>Archive</div><div>7,485 posts buried in a grid</div><div>Searchable by club, player and competition</div></div>
+      <div class="vs-row"><div>Merch</div><div>"DM to order", paid by bank transfer</div><div>Kombo Store: customise, pay, track delivery</div></div>
       <div class="vs-row"><div>Brand enquiries</div><div>Lost in DMs</div><div>A form that goes straight to your inbox</div></div>
     </div>
   </div>
@@ -508,7 +654,7 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
       <svg viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-88,0 a88,88 0 1,1 176,0 a88,88 0 1,1 -176,0"/></defs><text><textPath href="#cp">Let's build it · Let's build it · Let's build it ·</textPath></text></svg>
       Let's talk ↗
     </a>
-    <p class="contact mono rv">Brand & partnership enquiries · <a href="mailto:kelznduobi@gmail.com">kelznduobi@gmail.com</a></p>
+    <p class="contact mono rv">Brand & partnership enquiries · <a href="mailto:obi@ultimatekombo.com">obi@ultimatekombo.com</a></p>
   </div>
 </section>
 </main>
@@ -516,11 +662,20 @@ footer { padding: 70px 0 110px; border-top: 1px solid var(--line); overflow: hid
 <footer>
   <div class="f-big">Kombo</div>
   <div class="wrap f-row">
-    <span>© 2026 Ultimate Kombo · Obi Kevin Nduka</span>
+    <span>© 2026 Ultimate Kombo · ultimatekombo.com</span>
     <span><a href="https://www.instagram.com/ultimatekombo/" target="_blank" rel="noopener">Instagram</a> · <a href="https://t.me/komboanalysisandprediction" target="_blank" rel="noopener">Telegram</a> · <a href="#takes">YouTube</a></span>
     <span>Concept by <a href="https://www.instagram.com/_revisual" target="_blank" rel="noopener">@_revisual</a></span>
   </div>
 </footer>
+
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Your bag">
+  <div class="dr-h"><h3>Your bag</h3><button class="dr-x" id="drX" aria-label="Close bag">✕</button></div>
+  <div class="dr-list" id="drList"><p class="empty">Your bag is empty. Time to suit up.</p></div>
+  <div class="dr-f"><div class="sub"><span>Subtotal</span><span id="drSub">$0</span></div><p class="ship">Worldwide shipping calculated at checkout</p><button class="btn v" id="checkout">Checkout <span class="arr">→</span></button></div>
+</aside>
+<div class="toast" id="toast">Added to bag ✓</div>
 
 <script src="js/gsap.min.js"></script>
 <script src="js/ScrollTrigger.min.js"></script>
@@ -747,6 +902,47 @@ match.addEventListener("pointerleave", () => (match.style.transform = ""));
 const tr = $("#tick"); tr.innerHTML += tr.innerHTML;
 let tx = 0, lastY = scrollY;
 gsap.ticker.add(() => { const v = Math.min(Math.abs(scrollY - lastY), 50); lastY = scrollY; tx -= 0.8 + v * 0.25; const w = tr.scrollWidth / 2; if (-tx > w) tx += w; tr.style.transform = `translate3d(${tx}px,0,0)`; });
+
+
+/* ---------- Kombo Store: live shirt builder + bag ---------- */
+const shirt = $("#shirt"), nameEl = $("#shName"), numEl = $("#shNum");
+const fitName = () => { const n = ($("#inName").value || "YOUR NAME").toUpperCase(); nameEl.textContent = n; nameEl.setAttribute("font-size", n.length > 8 ? 32 : 40); $("#nameLeft").textContent = (10 - $("#inName").value.length) + " left"; };
+$("#inName").addEventListener("input", () => { fitName(); if (!shirt.classList.contains("back")) setSide(true); });
+$("#inNum").addEventListener("input", (e) => { let v = e.target.value.replace(/\D/g, "").slice(0, 2); e.target.value = v; numEl.textContent = v || "0"; if (!shirt.classList.contains("back")) setSide(true); });
+let spinY = 0;
+const setSide = (back) => { shirt.classList.toggle("back", back); $("#flipLbl").textContent = back ? "See the front" : "See the back"; spinY = 0; shirt.style.transform = ""; };
+$("#flip").addEventListener("click", () => setSide(!shirt.classList.contains("back")));
+$("#stage").addEventListener("pointermove", (e) => { const b = e.currentTarget.getBoundingClientRect(); const x = (e.clientX - b.left) / b.width - 0.5, y = (e.clientY - b.top) / b.height - 0.5; const base = shirt.classList.contains("back") ? 180 : 0; shirt.style.transform = `rotateY(${base + x * 26}deg) rotateX(${-y * 14}deg)`; });
+$("#stage").addEventListener("pointerleave", () => (shirt.style.transform = ""));
+$$("#sw button").forEach((b) => b.addEventListener("click", () => { const [c1, c2, c3, nm] = JSON.parse(b.dataset.c); $$("#sw button").forEach((x) => x.classList.remove("on")); b.classList.add("on"); gsap.to(shirt, { "--sc1": c1, "--sc2": c2, "--sc3": c3, duration: 0.6 }); $("#cwName").textContent = nm; gsap.fromTo(shirt, { scale: 0.94 }, { scale: 1, duration: 0.7, ease: "back.out(2)" }); }));
+$$("#sizes button").forEach((b) => b.addEventListener("click", () => { $$("#sizes button").forEach((x) => x.classList.remove("on")); b.classList.add("on"); }));
+const bag = [];
+const shirtThumb = (c1, c2) => `<svg viewBox="0 0 400 400"><path d="M132 42 Q200 74 268 42 L346 82 L384 168 L330 190 L316 160 L316 372 Q200 388 84 372 L84 160 L70 190 L16 168 L54 82 Z" fill="${c1}" stroke="${c2}" stroke-width="10"/></svg>`;
+const ART = {}; $$(".item").forEach((it) => { const k = JSON.parse(it.querySelector(".qa").dataset.add).k; ART[k] = it.querySelector(".art").innerHTML; });
+const renderBag = () => {
+  const n = bag.reduce((a, i) => a + i.q, 0), sub = bag.reduce((a, i) => a + i.q * i.p, 0);
+  $("#cartCount").textContent = n; $("#cartBtn").classList.toggle("has", n > 0); $("#drSub").textContent = "$" + sub.toLocaleString("en-US");
+  $("#drList").innerHTML = bag.length ? bag.map((i, idx) => `<div class="li"><span class="th">${i.th}</span><span><b>${i.n}${i.q > 1 ? " × " + i.q : ""}</b><small>${i.d}</small></span><span class="pr">$${i.p * i.q}<a href="#" class="rm" data-i="${idx}">Remove</a></span></div>`).join("") : '<p class="empty">Your bag is empty. Time to suit up.</p>';
+  $$("#drList .rm").forEach((r) => r.addEventListener("click", (e) => { e.preventDefault(); bag.splice(+r.dataset.i, 1); renderBag(); }));
+};
+const toast = (t) => { const el = $("#toast"); el.textContent = t; el.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("on"), 1800); };
+const addItem = (item, srcEl) => {
+  const same = bag.find((b) => b.key === item.key); same ? same.q++ : bag.push({ ...item, q: 1 });
+  renderBag(); const cb = $("#cartBtn"); cb.classList.remove("bump"); void cb.offsetWidth; cb.classList.add("bump"); toast("Added to bag ✓");
+  if (srcEl && !reduce) { const a = srcEl.getBoundingClientRect(), z = cb.getBoundingClientRect(); const dot = document.createElement("i"); dot.style.cssText = `position:fixed;z-index:150;left:${a.left + a.width / 2 - 9}px;top:${a.top + a.height / 2 - 9}px;width:18px;height:18px;border-radius:50%;background:var(--volt);box-shadow:0 0 20px var(--volt);pointer-events:none`; document.body.appendChild(dot);
+    gsap.to(dot, { x: z.left - a.left - a.width / 2 + 22, y: z.top - a.top - a.height / 2 + 22, scale: 0.4, duration: 0.8, ease: "power2.in", onComplete: () => dot.remove() }); }
+};
+$("#addShirt").addEventListener("click", (e) => {
+  const nm = ($("#inName").value || "KOMBO").toUpperCase(), num = $("#inNum").value || "10", size = $(".sizes .on").textContent, cw = $("#cwName").textContent;
+  const [c1, c2] = JSON.parse($("#sw .on").dataset.c);
+  addItem({ key: `shirt-${nm}-${num}-${size}-${cw}`, n: "Matchday shirt", d: `${nm} ${num} · ${cw} · ${size}`, p: 55, th: shirtThumb(c1, c2) }, e.currentTarget);
+});
+$$(".qa").forEach((b) => b.addEventListener("click", (e) => { const d = JSON.parse(b.dataset.add); addItem({ key: d.k, n: d.n, d: "One size", p: d.p, th: ART[d.k] }, e.currentTarget); }));
+const openBag = (o) => { document.body.classList.toggle("bag", o); if (lenis) o ? lenis.stop() : lenis.start(); };
+$("#cartBtn").addEventListener("click", () => openBag(true)); $("#drX").addEventListener("click", () => openBag(false)); $("#scrim").addEventListener("click", () => openBag(false));
+addEventListener("keydown", (e) => e.key === "Escape" && openBag(false));
+$("#checkout").addEventListener("click", () => toast(bag.length ? "Checkout would open Paystack / Stripe here" : "Add something first ⚽"));
+fitName();
 
 /* ---------- intro + reveals ---------- */
 function intro() {
