@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="preload" as="image" href="img/walk.webp" />
+<link rel="preload" as="image" href="media/walk-film-poster.jpg" />
+<link rel="preload" as="image" href="img/hero-cut.webp" />
 <style>
 :root {
   --bg: #0a0908; --bg2: #12100e; --ivory: #f3ede4; --dim: #a39a8e; --gold: #c9a46a; --gold2: #e7cf9f; --line: rgba(243,237,228,.12);
@@ -34,37 +35,38 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .line > span { display: inline-block; }
 section { position: relative; }
 
-/* ================= RUNWAY INTRO ================= */
+/* ================= OPENING FILM ================= */
 #runway { position: fixed; inset: 0; z-index: 100; background: #050404; overflow: hidden; }
-#runway .wall { position: absolute; inset: 0; background: radial-gradient(40% 46% at 50% 26%, #2a221b 0%, #120e0b 45%, #050404 80%); }
-#runway .cone { position: absolute; left: 50%; top: -10%; width: 70vmax; height: 90vh; transform: translateX(-50%); background: conic-gradient(from 180deg at 50% 0%, transparent 160deg, rgba(255,240,215,.13) 172deg, rgba(255,240,215,.2) 180deg, rgba(255,240,215,.13) 188deg, transparent 200deg); filter: blur(8px); mix-blend-mode: screen; }
-#runway .sign { position: absolute; left: 50%; top: 14%; transform: translateX(-50%); font-family: var(--serif); font-weight: 300; font-size: clamp(42px, 7vw, 120px); letter-spacing: .32em; color: rgba(243,237,228,.07); white-space: nowrap; padding-left: .32em; }
-.stage { position: absolute; inset: 0; perspective: 900px; perspective-origin: 50% 36%; }
-.floor { position: absolute; left: 50%; bottom: -6vh; width: min(46vw, 640px); height: 230vh; margin-left: calc(min(46vw, 640px) / -2); transform-origin: 50% 100%; transform: rotateX(80deg); background:
-  linear-gradient(90deg, rgba(255,240,215,.0) 0%, rgba(255,240,215,.28) 1%, rgba(255,240,215,0) 2.5%, rgba(255,240,215,0) 97.5%, rgba(255,240,215,.28) 99%, rgba(255,240,215,0) 100%),
-  linear-gradient(to top, #2c2620 0%, #1a1612 40%, #0b0908 100%); box-shadow: 0 0 120px rgba(255,235,200,.08); }
-.floor::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 35%, rgba(255,245,225,.10) 50%, transparent 65%); }
-.crowd { position: absolute; bottom: 0; width: 34vw; height: 52vh; }
-.crowd.l { left: 0; } .crowd.r { right: 0; transform: scaleX(-1); }
-.crowd svg { width: 100%; height: 100%; }
-.phone { fill: #ffffff; opacity: 0; }
-.flash { position: absolute; width: 22vmin; height: 22vmin; margin: -11vmin 0 0 -11vmin; border-radius: 50%; background: radial-gradient(circle, #fff 0 6%, rgba(255,255,255,.85) 12%, rgba(255,246,230,.25) 36%, transparent 70%); opacity: 0; pointer-events: none; mix-blend-mode: screen; }
+#runway .amb { position: absolute; inset: -8%; width: 116%; height: 116%; object-fit: cover; filter: blur(46px) brightness(.32) saturate(.6); transform: scale(1.05); }
+#runway .frame { position: absolute; left: 50%; top: 50%; height: 100vh; aspect-ratio: 9 / 16; transform: translate(-50%, -50%); overflow: hidden; z-index: 2; box-shadow: 0 0 120px rgba(0,0,0,.8); clip-path: inset(50% 0 50% 0); }
+#runway .frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+#runway .frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(5,4,4,.55), transparent 30%, transparent 80%, rgba(5,4,4,.35)); }
+.rw-side { position: absolute; top: 27%; z-index: 1; font-family: var(--serif); font-weight: 300; font-size: clamp(60px, 11vw, 220px); line-height: .8; color: transparent; -webkit-text-stroke: 1px rgba(243,237,228,.22); white-space: nowrap; transform: translateY(-50%); letter-spacing: -.01em; }
+.rw-side.l { right: calc(50% + 28.125vh + 3vw); } .rw-side.r { left: calc(50% + 28.125vh + 3vw); }
+.flash { position: absolute; width: 22vmin; height: 22vmin; margin: -11vmin 0 0 -11vmin; border-radius: 50%; background: radial-gradient(circle, #fff 0 6%, rgba(255,255,255,.85) 12%, rgba(255,246,230,.25) 36%, transparent 70%); opacity: 0; pointer-events: none; mix-blend-mode: screen; z-index: 4; }
 .flash::before, .flash::after { content: ""; position: absolute; left: 50%; top: 50%; width: 260%; height: 2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,.9), transparent); transform: translate(-50%, -50%); }
 .flash::after { transform: translate(-50%, -50%) rotate(90deg); width: 120%; }
 #flood { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 5; }
-.walker { position: absolute; left: 50%; top: 0; width: min(36vh, 48vw); transform-origin: 50% 0; will-change: transform; z-index: 3; }
-.walker img { width: 100%; -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); mask-image: linear-gradient(to bottom, #000 72%, transparent 98%); }
-.walker .glow { position: absolute; left: 10%; right: 10%; bottom: 6%; height: 18%; border-radius: 50%; background: radial-gradient(closest-side, rgba(255,235,200,.22), transparent); filter: blur(10px); }
-.haze { position: absolute; left: 0; right: 0; bottom: 0; height: 34vh; background: linear-gradient(to top, #050404 10%, rgba(5,4,4,.0)); z-index: 4; pointer-events: none; }
+.rw-count { position: absolute; z-index: 6; right: var(--pad); top: 62%; transform: translateY(-50%); font-family: var(--serif); font-size: clamp(60px, 9vw, 150px); line-height: .8; color: rgba(243,237,228,.1); font-variant-numeric: tabular-nums; }
+.rw-shot { position: absolute; z-index: 6; left: var(--pad); top: 60%; transform: translateY(-50%); max-width: 22vw; color: rgba(243,237,228,.8); }
+.rw-shot b { display: block; font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(22px, 2.2vw, 34px); text-transform: none; letter-spacing: 0; color: var(--ivory); margin-top: 8px; line-height: 1.05; }
+.rw-bar { position: absolute; z-index: 6; left: 50%; bottom: 0; width: calc(56.25vh); height: 2px; transform: translateX(-50%); background: rgba(243,237,228,.15); }
+.rw-bar i { position: absolute; inset: 0; background: var(--ivory); transform-origin: 0 50%; transform: scaleX(0); }
 .rw-hud > span { white-space: nowrap; }
-.rw-hud { position: absolute; inset: 0; z-index: 6; pointer-events: none; padding: 26px var(--pad); display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; color: rgba(243,237,228,.7); }
+.rw-hud { position: absolute; inset: 0; z-index: 6; pointer-events: none; padding: 26px var(--pad); display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr auto; color: rgba(243,237,228,.75); }
 .rw-hud .tr { justify-self: end; display: flex; gap: 10px; align-items: center; font-variant-numeric: tabular-nums; }
 .rw-hud .tr i { width: 8px; height: 8px; border-radius: 50%; background: #e0453a; animation: blink 1s steps(2) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .rw-hud .bl { grid-row: 3; align-self: end; }
 .rw-hud .bl b { display: block; font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(26px, 3vw, 44px); letter-spacing: 0; text-transform: none; color: var(--ivory); margin-top: 6px; }
-.skip { grid-row: 3; grid-column: 2; justify-self: end; align-self: end; pointer-events: auto; border: 1px solid rgba(243,237,228,.35); padding: 10px 18px; border-radius: 999px; transition: background .3s, color .3s; }
+.skip { grid-row: 3; grid-column: 2; justify-self: end; align-self: end; pointer-events: auto; border: 1px solid rgba(243,237,228,.35); padding: 10px 18px; border-radius: 999px; transition: background .3s, color .3s; background: rgba(5,4,4,.35); }
 .skip:hover { background: var(--ivory); color: #000; }
+@media (max-width: 760px) {
+  #runway .frame { height: 100%; width: 100%; aspect-ratio: auto; }
+  .rw-side, .rw-count, .rw-bar { display: none; }
+  .rw-shot { top: auto; bottom: 120px; max-width: 70vw; }
+  .rw-hud .bl b { font-size: 30px; }
+}
 
 /* ================= NAV ================= */
 nav.top { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 22px var(--pad); mix-blend-mode: difference; color: #fff; }
@@ -95,7 +97,7 @@ nav.top ul a:hover::after { right: 0; }
 .h-tag { position: absolute; z-index: 4; top: 120px; color: var(--dim); }
 .h-tag.l { left: var(--pad); } .h-tag.r { right: var(--pad); text-align: right; }
 .h-tag b { display: block; color: var(--ivory); font-weight: 400; letter-spacing: .2em; }
-@media (max-width: 760px) { .h-fig { height: 66svh; margin-top: 30svh; } .h-name { top: 30%; font-size: 21vw; } .h-tag { top: 92px; } .h-tag.r { display: none; } .h-meta .scroll { display: none; } .rw-hud > span:first-child { white-space: nowrap; } .f-media::after { background: linear-gradient(180deg, rgba(10,9,8,.2), rgba(10,9,8,.35) 35%, rgba(10,9,8,.95) 75%); } .f-copy h2 { font-size: 15vw; } .f-copy p { font-size: 14.5px; } .stats b { font-size: 22px; } }
+@media (max-width: 760px) { .h-fig { height: 66svh; margin-top: 30svh; } .h-name { top: 30%; font-size: 21vw; } .h-tag { top: 92px; } .h-tag.r { display: none; } .h-meta .scroll { display: none; } .rw-hud > span:first-child { white-space: nowrap; } .f-media::after { background: linear-gradient(180deg, rgba(10,9,8,.2), rgba(10,9,8,.35) 35%, rgba(10,9,8,.95) 75%); } .f-copy h2 { font-size: 15vw; } .f-copy p { font-size: 14.5px; } .stats { gap: 12px; } .stats b { font-size: 19px; white-space: nowrap; } }
 
 /* ================= MANIFESTO ================= */
 #words { padding: clamp(110px, 16vw, 230px) 0; }
@@ -217,6 +219,57 @@ form.f { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 18px; }
 .sent { grid-column: 1 / -1; font-family: var(--serif); font-style: italic; font-size: 30px; color: #8a6a35; display: none; }
 @media (max-width: 900px) { .bg2 { grid-template-columns: 1fr; } form.f { grid-template-columns: 1fr; } }
 
+
+/* ===== grain, cursor ===== */
+.grain { position: fixed; inset: -50%; z-index: 80; pointer-events: none; opacity: .06; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); animation: grain 1.2s steps(6) infinite; }
+@keyframes grain { 0% { transform: translate(0,0); } 20% { transform: translate(-3%,2%); } 40% { transform: translate(2%,-3%); } 60% { transform: translate(-2%,-1%); } 80% { transform: translate(3%,3%); } 100% { transform: translate(0,0); } }
+.cur { position: fixed; left: 0; top: 0; z-index: 95; pointer-events: none; mix-blend-mode: difference; }
+.cur .dot { position: absolute; width: 8px; height: 8px; margin: -4px; border-radius: 50%; background: #fff; }
+.cur .ring { position: absolute; width: 40px; height: 40px; margin: -20px; border-radius: 50%; border: 1px solid rgba(255,255,255,.7); display: grid; place-items: center; transition: width .5s var(--out), height .5s var(--out), margin .5s var(--out), background .4s; }
+.cur .ring span { font-size: 10px; letter-spacing: .25em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity .3s; }
+.cur.big .ring { width: 92px; height: 92px; margin: -46px; background: #fff; border-color: #fff; }
+.cur.big .ring span { opacity: 1; }
+html:not(.fine) .cur { display: none; }
+/* ===== reveal helpers ===== */
+.split .ln { display: block; overflow: hidden; }
+.split .ln > span { display: inline-block; }
+.tile .clip { display: block; overflow: hidden; clip-path: inset(100% 0 0 0); }
+/* ===== clients ===== */
+#clients { padding: clamp(100px, 12vw, 170px) 0; border-top: 1px solid var(--line); }
+.cl-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 40px; }
+.cl-head h2 { font-family: var(--serif); font-weight: 300; font-size: clamp(54px, 7.4vw, 130px); line-height: .88; }
+.cl-head h2 em { color: var(--gold); }
+.cl { list-style: none; border-top: 1px solid var(--line); }
+.cl li { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 30px 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+.cl li::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(201,164,106,.14), transparent 70%); transform: scaleX(0); transform-origin: left; transition: transform .9s var(--out); }
+.cl li:hover::before { transform: scaleX(1); }
+.cl h3 { position: relative; font-family: var(--serif); font-weight: 300; font-size: clamp(36px, 5vw, 86px); line-height: 1; transition: transform .8s var(--out), color .4s; }
+.cl li:hover h3 { transform: translateX(26px); color: var(--gold2); font-style: italic; }
+.cl .what { position: relative; text-align: right; color: var(--dim); font-size: 14px; max-width: 34ch; }
+.cl .what b { display: block; color: var(--ivory); font-weight: 500; letter-spacing: .2em; text-transform: uppercase; font-size: 11px; margin-bottom: 4px; }
+@media (max-width: 760px) { .cl li { grid-template-columns: 1fr; } .cl .what { text-align: left; } }
+/* ===== campaign chapters (horizontal) ===== */
+#campaigns { background: #0e0c0a; }
+.cp-pin { height: 100svh; overflow: hidden; display: flex; align-items: center; }
+.cp-track { display: flex; gap: 0; height: 100%; will-change: transform; }
+.chap { flex: 0 0 auto; width: 100vw; height: 100%; display: grid; grid-template-columns: .9fr 1.1fr; gap: 5vw; align-items: center; padding: 110px var(--pad) 60px; position: relative; }
+.chap .txt .cap { color: var(--gold); }
+.chap h3 { font-family: var(--serif); font-weight: 300; font-size: clamp(50px, 6.6vw, 120px); line-height: .9; margin: 18px 0 20px; }
+.chap h3 em { color: var(--gold2); }
+.chap p { color: var(--dim); max-width: 44ch; }
+.chap .cred { margin-top: 22px; display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; font-size: 13.5px; color: var(--dim); }
+.chap .cred b { color: var(--ivory); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; font-size: 10.5px; padding-top: 3px; }
+.chap .media { position: relative; height: min(76vh, 760px); }
+.chap .media > * { position: absolute; border-radius: 6px; overflow: hidden; box-shadow: 0 50px 90px -40px rgba(0,0,0,.9); }
+.chap .media img, .chap .media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.m1 { left: 0; top: 0; width: 56%; height: 100%; }
+.m2 { right: 0; top: 6%; width: 40%; height: 46%; }
+.m3 { right: 6%; bottom: 0; width: 34%; height: 42%; }
+.chap .num { position: absolute; right: var(--pad); top: 110px; font-family: var(--serif); font-size: clamp(80px, 10vw, 180px); line-height: .8; color: rgba(243,237,228,.05); }
+.cp-prog { position: absolute; left: var(--pad); right: var(--pad); bottom: 30px; height: 1px; background: var(--line); z-index: 3; }
+.cp-prog i { position: absolute; inset: 0; background: var(--gold); transform-origin: left; transform: scaleX(0); }
+@media (max-width: 900px) { .cp-pin { height: auto; display: block; } .cp-track { flex-direction: column; height: auto; } .chap { width: auto; height: auto; grid-template-columns: 1fr; padding: 90px var(--pad) 40px; } .chap .media { height: 120vw; } .cp-prog { display: none; } }
+
 /* ================= FOOTER ================= */
 footer { padding: 90px 0 40px; overflow: hidden; }
 .ft-name { font-family: var(--serif); font-weight: 300; text-transform: uppercase; font-size: 11.4vw; line-height: .8; letter-spacing: .01em; text-align: center; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(201,164,106,.5); }
@@ -230,31 +283,31 @@ footer { padding: 90px 0 40px; overflow: hidden; }
 </head>
 <body class="lock">
 
-<!-- ============ RUNWAY OPENING ============ -->
+<!-- ============ OPENING FILM: her real walk ============ -->
 <div id="runway" aria-hidden="true">
-  <div class="wall"></div>
-  <div class="cone"></div>
-  <div class="sign">CHOCHI</div>
-  <div class="stage"><div class="floor"></div></div>
-  <div class="crowd l"><svg viewBox="0 0 400 520" preserveAspectRatio="xMinYMax slice" id="crowdL"></svg></div>
-  <div class="crowd r"><svg viewBox="0 0 400 520" preserveAspectRatio="xMinYMax slice" id="crowdR"></svg></div>
-  <div class="walker" id="walker"><span class="glow"></span><img src="img/walk.webp" alt=""></div>
-  <div class="haze"></div>
+  <video class="amb" id="amb" muted playsinline preload="auto"><source src="media/walk-film.mp4" type='video/mp4; codecs="avc1.64001f"'><source src="media/walk-film.webm" type="video/webm"></video>
+  <div class="rw-side l">Djemime</div><div class="rw-side r">Chochi</div>
+  <div class="frame" id="rwf"><video id="film" poster="media/walk-film-poster.jpg" muted playsinline preload="auto"><source src="media/walk-film.mp4" type='video/mp4; codecs="avc1.64001f"'><source src="media/walk-film.webm" type="video/webm"></video></div>
+  <div class="rw-shot cap" id="shot"><span id="shotN">Shot 01</span><b id="shotT">Chanel Beauty</b></div>
+  <div class="rw-count" id="rwc">01</div>
+  <div class="rw-bar"><i id="rwbar"></i></div>
   <div id="flashes"></div>
   <div id="flood"></div>
   <div class="rw-hud cap">
-    <span>Cape Town · Look 01</span>
-    <span class="tr"><i></i><span id="tc">00:00:00</span></span>
+    <span>The walk · Real footage</span>
+    <span class="tr"><i></i><span id="tc">00:00:00:00</span></span>
     <span class="bl">Now walking<b>Djemime Chochi</b></span>
     <button class="skip cap" id="skip">Skip intro</button>
   </div>
 </div>
 
+<div class="grain" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"><span class="dot"></span><span class="ring"><span id="curT">View</span></span></div>
 <div class="concept"><b>Concept preview</b> for @djemimechochi · by @_revisual</div>
 
 <nav class="top cap">
   <a class="mark" href="#hero">D·C</a>
-  <ul><li><a href="#book">The book</a></li><li><a href="#feature">Features</a></li><li><a href="#looks">Looks</a></li><li><a href="#collab">Collaborations</a></li></ul>
+  <ul><li><a href="#book">The book</a></li><li><a href="#clients">Clients</a></li><li><a href="#campaigns">Campaigns</a></li><li><a href="#looks">Looks</a></li><li><a href="#collab">Collaborations</a></li></ul>
   <a class="book-btn" href="#booking">Book Djemime</a>
 </nav>
 
@@ -265,7 +318,7 @@ footer { padding: 90px 0 40px; overflow: hidden; }
     <div class="back"><span class="row" data-split>Djemime</span><span class="row" data-split>Chochi</span></div>
     <div class="front" aria-hidden="true"><span class="row" data-split>Djemime</span><span class="row" data-split>Chochi</span></div>
   </div>
-  <div class="h-fig"><img src="img/hero-cut.webp" alt="Djemime Chochi in ivory tailoring"></div>
+  <div class="h-fig"><img src="img/hero-cut.webp" alt="Djemime Chochi in ivory tailoring" fetchpriority="high"></div>
   <p class="h-tag l cap hf">International model<b>Based in Cape Town</b></p>
   <p class="h-tag r cap hf">Available worldwide<b>Runway · Editorial · Campaign</b></p>
   <div class="h-meta">
@@ -290,7 +343,7 @@ footer { padding: 90px 0 40px; overflow: hidden; }
 <!-- ============ FEATURE ============ -->
 <section id="feature">
   <div class="f-pin">
-    <div class="f-media" id="fmedia"><img src="img/lionking-balmain.jpg" alt="Djemime Chochi in The Lion King 30 × Balmain"></div>
+    <div class="f-media" id="fmedia"><img src="img/hd/lionking-balmain.jpg" alt="Djemime Chochi in The Lion King 30 × Balmain"></div>
     <div class="f-top cap"><span>Featured</span><span>ABC · On The Red Carpet</span></div>
     <div class="f-copy">
       <h2 class="fx"><span class="line"><span>The Lion King 30</span></span><span class="line"><span><em class="it">× Balmain</em></span></span></h2>
@@ -299,15 +352,70 @@ footer { padding: 90px 0 40px; overflow: hidden; }
   </div>
 </section>
 
+
+<!-- ============ CLIENTS ============ -->
+<section id="clients">
+  <div class="wrap">
+    <div class="cl-head"><div><p class="cap gold rv">Selected clients & features</p><h2 class="split">Trusted by<br><em class="it">houses & brands</em></h2></div><span class="cap rv" style="color:var(--dim)">Hover to preview</span></div>
+    <ul class="cl" id="cl">
+      <li class="rv" data-img="img/hd/lionking-balmain-sm.jpg"><h3>Balmain × Disney</h3><span class="what"><b>Feature</b>The Lion King 30 · ABC On The Red Carpet</span></li>
+      <li class="rv" data-img="img/hd/chanel-portrait-sm.jpg"><h3>Chanel Beauty</h3><span class="what"><b>Beauty</b>With @welovecoco · makeup by Renee de Wit</span></li>
+      <li class="rv" data-img="img/hd/cg-profile-sm.jpg"><h3>Charles Greig</h3><span class="what"><b>Campaign film</b>Jewellers since 1899 · the honey bee</span></li>
+      <li class="rv" data-img="img/hd/bena-stripe-4-sm.jpg"><h3>Bena Woman</h3><span class="what"><b>Campaigns</b>The Everyday Edit · The Miel Stripe Shirt</span></li>
+      <li class="rv" data-img="img/hd/edblad-bts-sm.jpg"><h3>EDBLAD</h3><span class="what"><b>Campaign</b>Shot by @photobersa · styled by @vanessawerkelin</span></li>
+      <li class="rv" data-img="img/hd/beauty-liner-sm.jpg"><h3>Beauty, in print</h3><span class="what"><b>Beauty editorial</b>Photographed by @yawasiedu_ · makeup Renee de Wit</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ CAMPAIGN CHAPTERS ============ -->
+<section id="campaigns">
+  <div class="cp-pin">
+    <div class="cp-track" id="cptrack">
+      <article class="chap">
+        <span class="num">01</span>
+        <div class="txt"><p class="cap">Campaign film</p><h3>Charles <em class="it">Greig</em></h3><p>"A house sigil, the diligent honey bee immortalised in yellow gold and diamond." A jewellery film for one of Cape Town's oldest houses, with Djemime in sand-toned tailoring.</p>
+          <div class="cred"><b>Client</b><span>Charles Greig Jewellers</span><b>Format</b><span>Campaign film & stills</span></div></div>
+        <div class="media"><div class="m1"><video src="media/charles-greig.mp4" poster="media/charles-greig-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/cg-profile-sm.jpg" alt="Charles Greig campaign, profile" loading="lazy"></div><div class="m3"><img src="img/hd/cg-bee-sm.jpg" alt="Charles Greig honey bee earring" loading="lazy"></div></div>
+      </article>
+      <article class="chap">
+        <span class="num">02</span>
+        <div class="txt"><p class="cap">Campaigns</p><h3>Bena <em class="it">Woman</em></h3><p>The face of two Bena stories: <em class="it">The Everyday Edit</em>, "made to move", and <em class="it">The Miel Stripe Shirt</em>, an oversized linen and Tencel summer shirt shot on the streets.</p>
+          <div class="cred"><b>Client</b><span>Bena Woman</span><b>Stories</b><span>The Everyday Edit · The Miel Stripe Shirt</span></div></div>
+        <div class="media"><div class="m1"><img src="img/hd/bena-stripe-2-sm.jpg" alt="Bena Woman, Miel Stripe Shirt" loading="lazy"></div><div class="m2"><img src="img/hd/bena-edit-2-sm.jpg" alt="Bena Woman, Everyday Edit" loading="lazy"></div><div class="m3"><img src="img/hd/bena-stripe-4-sm.jpg" alt="Bena Woman portrait" loading="lazy"></div></div>
+      </article>
+      <article class="chap">
+        <span class="num">03</span>
+        <div class="txt"><p class="cap">Campaign</p><h3><em class="it">EDBLAD</em></h3><p>A Scandinavian jewellery campaign, here behind the scenes on set in black satin.</p>
+          <div class="cred"><b>Brand</b><span>@edbladofficial</span><b>Photographer</b><span>@photobersa</span><b>Art direction</b><span>@clpi</span><b>Stylist</b><span>@vanessawerkelin</span><b>Makeup</b><span>@alexandra_aronssonmakeup</span><b>Production</b><span>@08mediaproductions</span></div></div>
+        <div class="media"><div class="m1"><img src="img/hd/edblad-bts-sm.jpg" alt="EDBLAD campaign behind the scenes" loading="lazy"></div><div class="m2"><img src="img/hd/profile-red-sm.jpg" alt="Djemime Chochi portrait" loading="lazy"></div><div class="m3"><img src="img/hd/violet-sm.jpg" alt="Djemime Chochi beauty" loading="lazy"></div></div>
+      </article>
+      <article class="chap">
+        <span class="num">04</span>
+        <div class="txt"><p class="cap">Beauty</p><h3>Chanel <em class="it">Beauty</em></h3><p>On the floor at a Chanel Beauty boutique: the walk in, the counter, the camera. Clean skin, slicked-back hair, a red lip and all-black tailoring.</p>
+          <div class="cred"><b>Brand</b><span>@chanel.beauty</span><b>With</b><span>@welovecoco</span><b>Makeup</b><span>@reneedewitmakeupartist</span></div></div>
+        <div class="media"><div class="m1"><video src="media/chanel-beauty.mp4" poster="media/chanel-beauty-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/chanel-portrait-sm.jpg" alt="Djemime Chochi at Chanel Beauty" loading="lazy"></div><div class="m3"><img src="img/hd/chanel-smile-sm.jpg" alt="Djemime Chochi smiling at the Chanel counter" loading="lazy"></div></div>
+      </article>
+      <article class="chap">
+        <span class="num">05</span>
+        <div class="txt"><p class="cap">Campaign · behind the scenes</p><h3>Beauty <em class="it">campaign</em></h3><p>Patent leather, a diamond line and a sculpted bun, then a black halter and a red lip. Flash after flash, frame after frame, on set.</p>
+          <div class="cred"><b>Format</b><span>Beauty campaign</span><b>Footage</b><span>Behind the scenes</span></div></div>
+        <div class="media"><div class="m1"><video src="media/beauty-bts.mp4" poster="media/beauty-bts-poster.jpg" muted loop playsinline autoplay></video></div><div class="m2"><img src="img/hd/bts-halter-sm.jpg" alt="Beauty campaign behind the scenes, black halter" loading="lazy"></div><div class="m3"><img src="img/hd/bts-arms-sm.jpg" alt="Beauty campaign behind the scenes, arms raised" loading="lazy"></div></div>
+      </article>
+    </div>
+    <div class="cp-prog"><i id="cpp"></i></div>
+  </div>
+</section>
+
 <!-- ============ THE BOOK ============ -->
 <section id="book">
   <div class="wrap">
     <div class="bk-head">
-      <div><p class="cap gold rv">Portfolio</p><h2 class="rv">The <em class="it">book</em></h2></div>
-      <div class="filters rv" id="filters"><button class="on" data-f="all">All work</button><button data-f="editorial">Editorial</button><button data-f="beauty">Beauty</button><button data-f="movement">Movement</button><button data-f="campaign">Campaign</button></div>
+      <div><p class="cap gold rv">Portfolio</p><h2 class="split">The <em class="it">book</em></h2></div>
+      <div class="filters rv" id="filters"><button class="on" data-f="all">All work</button><button data-f="campaign">Campaigns</button><button data-f="editorial">Editorial</button><button data-f="beauty">Beauty</button><button data-f="movement">Movement</button></div>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="bk-note cap">Photographer, stylist and client credits to be added with Djemime</p>
+    <p class="bk-note cap">Further photographer and stylist credits to be added with Djemime</p>
   </div>
 </section>
 
@@ -325,16 +433,16 @@ footer { padding: 90px 0 40px; overflow: hidden; }
   <div class="wrap">
     <div class="c-head">
       <p class="cap gold rv">Open to international collaborations</p>
-      <h2 class="rv">From Cape Town<br>to <em class="it">anywhere.</em></h2>
+      <h2 class="split">From Cape Town<br>to <em class="it">anywhere.</em></h2>
       <p class="rv">Djemime works with designers, photographers, agencies and brands around the world. Whether it's a runway season, an editorial, a campaign or a creative project, she brings presence, movement and personality to every frame.</p>
     </div>
     <ul class="disc" id="disc">
-      <li class="rv" data-img="img/knit.jpg"><span class="n cap">01</span><h3>Runway</h3><span class="d">Fashion weeks, presentations and live shows</span></li>
-      <li class="rv" data-img="img/gold-paint.jpg"><span class="n cap">02</span><h3>Editorial</h3><span class="d">Magazines, lookbooks and fashion stories</span></li>
-      <li class="rv" data-img="img/lionking-balmain.jpg"><span class="n cap">03</span><h3>Campaign</h3><span class="d">Brand, fashion and beauty campaigns</span></li>
-      <li class="rv" data-img="img/violet.jpg"><span class="n cap">04</span><h3>Beauty</h3><span class="d">Skincare, makeup and hair</span></li>
-      <li class="rv" data-img="img/movement.jpg"><span class="n cap">05</span><h3>Movement & film</h3><span class="d">Dance, music videos and motion</span></li>
-      <li class="rv" data-img="img/white-wrap.jpg"><span class="n cap">06</span><h3>Ambassador</h3><span class="d">Long-term brand partnerships</span></li>
+      <li class="rv" data-img="img/hd/bena-edit-3-sm.jpg"><span class="n cap">01</span><h3>Runway</h3><span class="d">Fashion weeks, presentations and live shows</span></li>
+      <li class="rv" data-img="img/hd/gold-paint-sm.jpg"><span class="n cap">02</span><h3>Editorial</h3><span class="d">Magazines, lookbooks and fashion stories</span></li>
+      <li class="rv" data-img="img/hd/cg-trench-sm.jpg"><span class="n cap">03</span><h3>Campaign</h3><span class="d">Brand, fashion and beauty campaigns</span></li>
+      <li class="rv" data-img="img/hd/violet-sm.jpg"><span class="n cap">04</span><h3>Beauty</h3><span class="d">Skincare, makeup and hair</span></li>
+      <li class="rv" data-img="img/hd/bena-edit-2-sm.jpg"><span class="n cap">05</span><h3>Movement & film</h3><span class="d">Dance, music videos and motion</span></li>
+      <li class="rv" data-img="img/hd/white-wrap-sm.jpg"><span class="n cap">06</span><h3>Ambassador</h3><span class="d">Long-term brand partnerships</span></li>
     </ul>
     <div class="cities"><div class="tr" id="cities"><span>Cape Town</span><span>Paris</span><span>Milan</span><span>London</span><span>New York</span><span>Lagos</span><span>Dubai</span><span>Johannesburg</span></div></div>
   </div>
@@ -346,7 +454,7 @@ footer { padding: 90px 0 40px; overflow: hidden; }
   <div class="wrap bg2">
     <div class="bk2">
       <p class="cap rv">Bookings & collaborations</p>
-      <h2 class="rv">Let's create<br>something <em class="it">timeless.</em></h2>
+      <h2 class="split">Let's create<br>something <em class="it">timeless.</em></h2>
       <p class="rv">Tell us about your project, dates and location. Djemime and her team will come back to you with availability, rates and a digital comp card.</p>
       <div class="stats rv"><div><b>Cape Town</b><span>Home base</span></div><div><b>Worldwide</b><span>Available to travel</span></div><div><b>On request</b><span>Measurements & digitals</span></div></div>
     </div>
@@ -384,22 +492,41 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const mobile = matchMedia("(max-width: 760px)").matches;
 
 /* ---------- data: every look from her feed ---------- */
+const H = (n) => ({ src: `img/hd/${n}-sm.jpg`, big: `img/hd/${n}.jpg` });
 const WORK = [
-  { src: "img/white-wrap.jpg", t: "Ivory, untied", c: "Studio editorial", f: "editorial" },
-  { src: "img/lionking-balmain.jpg", t: "The Lion King 30 × Balmain", c: "Campaign feature", f: "campaign" },
-  { src: "img/gold-paint.jpg", t: "Gold line", c: "Beauty editorial", f: "beauty" },
-  { src: "img/movement.jpg", t: "Bend", c: "Movement study", f: "movement" },
-  { src: "img/profile-red.jpg", t: "Profile in red", c: "Beauty portrait", f: "beauty" },
-  { src: "img/knit.jpg", t: "Open knit", c: "Fashion editorial", f: "editorial" },
-  { src: "img/white-crouch.jpg", t: "Tailored stance", c: "Studio editorial", f: "editorial" },
-  { src: "img/curls.jpg", t: "Golden hour curls", c: "Portrait", f: "beauty" },
-  { src: "img/duo.jpg", t: "Mirror", c: "Movement, duo", f: "movement" },
-  { src: "img/denim.jpg", t: "Raw denim", c: "Fashion editorial", f: "editorial" },
-  { src: "img/violet.jpg", t: "Violet hour", c: "Beauty editorial", f: "beauty" },
-  { src: "img/yellow.jpg", t: "Primary", c: "Fashion editorial", f: "editorial" },
-  { src: "img/white-back.jpg", t: "Line of the back", c: "Studio editorial", f: "editorial" },
+  { ...H("lionking-balmain"), t: "The Lion King 30 × Balmain", c: "Feature · ABC On The Red Carpet", f: "campaign" },
+  { ...H("beauty-liner"), t: "Electric liner", c: "Photo @yawasiedu_ · makeup @reneedewitmakeupartist", f: "beauty" },
+  { ...H("chanel-portrait"), t: "Chanel, red lip", c: "Chanel Beauty", f: "beauty" },
+  { ...H("white-wrap"), t: "Ivory, untied", c: "Studio editorial", f: "editorial" },
+  { ...H("cg-trench"), t: "Sand tailoring", c: "Charles Greig · campaign film", f: "campaign" },
+  { ...H("gold-paint"), t: "Gold line", c: "Beauty editorial", f: "beauty" },
+  { ...H("bena-edit-2"), t: "Made to move", c: "Bena Woman · The Everyday Edit", f: "campaign" },
+  { ...H("profile-red"), t: "Profile in red", c: "Beauty portrait", f: "beauty" },
+  { ...H("bena-stripe-2"), t: "The Miel Stripe", c: "Bena Woman · campaign", f: "campaign" },
+  { ...H("movement"), t: "Bend", c: "Movement study", f: "movement" },
+  { ...H("knit"), t: "Open knit", c: "Fashion editorial", f: "editorial" },
+  { ...H("cg-profile"), t: "The honey bee", c: "Charles Greig · campaign", f: "campaign" },
+  { ...H("white-crouch"), t: "Tailored stance", c: "Studio editorial", f: "editorial" },
+  { ...H("bena-stripe-4"), t: "Golden hour", c: "Bena Woman · campaign", f: "campaign" },
+  { ...H("bts-leather"), t: "Patent & pearls", c: "Beauty campaign · on set", f: "campaign" },
+  { ...H("chanel-counter"), t: "At the counter", c: "Chanel Beauty", f: "beauty" },
+  { ...H("curls"), t: "Golden curls", c: "Portrait", f: "beauty" },
+  { ...H("duo"), t: "Mirror", c: "Movement, duo", f: "movement" },
+  { ...H("bena-edit-1"), t: "The Everyday Edit", c: "Bena Woman · campaign", f: "campaign" },
+  { ...H("denim"), t: "Raw denim", c: "Fashion editorial", f: "editorial" },
+  { ...H("violet"), t: "Violet hour", c: "Beauty editorial", f: "beauty" },
+  { ...H("bena-stripe-1"), t: "Linen & light", c: "Bena Woman · campaign", f: "campaign" },
+  { ...H("yellow"), t: "Primary", c: "Fashion editorial", f: "editorial" },
+  { ...H("cg-motion"), t: "Movement in sand", c: "Charles Greig · campaign film", f: "movement" },
+  { ...H("bena-stripe-3"), t: "Easy linen", c: "Bena Woman · campaign", f: "campaign" },
+  { ...H("white-back"), t: "Line of the back", c: "Studio editorial", f: "editorial" },
+  { ...H("bena-edit-3"), t: "Effortless, always", c: "Bena Woman · The Everyday Edit", f: "campaign" },
+  { ...H("edblad-bts"), t: "On set", c: "EDBLAD · behind the scenes", f: "campaign" },
+  { ...H("bts-halter"), t: "Halter, red lip", c: "Beauty campaign · on set", f: "campaign" },
+  { ...H("chanel-screen"), t: "In the light", c: "Chanel Beauty", f: "beauty" },
+  { ...H("bts-arms"), t: "Frame", c: "Beauty campaign · on set", f: "movement" },
 ];
-$("#grid").innerHTML = WORK.map((w, i) => `<figure class="tile rv" data-f="${w.f}" data-i="${i}"><img src="${w.src}" alt="Djemime Chochi, ${w.t}" loading="lazy"><span class="num cap">${String(i + 1).padStart(2, "0")}</span><figcaption><b>${w.t}</b><span class="cap">${w.c}</span></figcaption></figure>`).join("");
+$("#grid").innerHTML = WORK.map((w, i) => `<figure class="tile" data-f="${w.f}" data-i="${i}" data-cursor="View"><span class="clip"><img src="${w.src}" srcset="${w.src} 1100w, ${w.big} 2200w" sizes="(max-width: 560px) 100vw, (max-width: 1000px) 50vw, 33vw" alt="Djemime Chochi, ${w.t}" loading="lazy"></span><span class="num cap">${String(i + 1).padStart(2, "0")}</span><figcaption><b>${w.t}</b><span class="cap">${w.c}</span></figcaption></figure>`).join("");
 
 /* ---------- smooth scroll ---------- */
 let lenis = null;
@@ -414,26 +541,11 @@ if (!reduce && window.Lenis) {
 /* ---------- split helpers ---------- */
 $$("[data-split]").forEach((el) => { el.innerHTML = [...el.textContent].map((c) => `<span class="ch">${c}</span>`).join(""); });
 
-/* ---------- crowd silhouettes ---------- */
-const crowd = (svg, seed) => {
-  let h = "", r = seed;
-  const rnd = () => ((r = (r * 9301 + 49297) % 233280) / 233280);
-  for (let row = 0; row < 4; row++) {
-    const y = 250 + row * 78, s = 0.8 + row * 0.25, shade = 14 + row * 6;
-    for (let x = 10 + row * 20; x < 420; x += 58 * s + rnd() * 20) {
-      const hx = x + rnd() * 10, hy = y - rnd() * 10;
-      h += `<g fill="rgb(${shade},${shade - 3},${shade - 5})"><ellipse cx="${hx}" cy="${hy}" rx="${15 * s}" ry="${19 * s}"/><path d="M${hx - 34 * s} ${hy + 90 * s} Q${hx - 32 * s} ${hy + 22 * s} ${hx} ${hy + 20 * s} Q${hx + 32 * s} ${hy + 22 * s} ${hx + 34 * s} ${hy + 90 * s} Z"/></g>`;
-      if (rnd() > 0.55) h += `<rect class="phone" x="${hx + 8 * s}" y="${hy - 6 * s}" width="${9 * s}" height="${15 * s}" rx="${2 * s}"/>`;
-    }
-  }
-  svg.innerHTML = h;
-};
-crowd($("#crowdL"), 7); crowd($("#crowdR"), 19);
-
-/* ---------- RUNWAY OPENING ---------- */
+/* ---------- OPENING FILM ---------- */
 let introDone = false;
 function finishIntro(fast) {
   if (introDone) return; introDone = true;
+  const v = $("#film"); 
   const out = gsap.timeline({ onComplete: () => { $("#runway").remove(); document.body.classList.remove("lock"); lenis && lenis.start(); ScrollTrigger.refresh(); } });
   if (fast) out.to("#runway", { opacity: 0, duration: 0.6 });
   else out.to("#flood", { opacity: 1, duration: 0.12 }).to("#runway", { opacity: 0, duration: 1.0, ease: "power2.inOut" }, 0.25);
@@ -441,36 +553,49 @@ function finishIntro(fast) {
 }
 function runway() {
   if (reduce) { $("#runway").remove(); document.body.classList.remove("lock"); heroIn(0); return; }
-  const W = $("#walker"), H = innerHeight;
-  const startTop = H * 0.30, endTop = H * 0.06;
-  gsap.set(W, { xPercent: -50, y: startTop, scale: mobile ? 0.28 : 0.22, opacity: 0 });
-  const tl = gsap.timeline({ onComplete: () => finishIntro(false) });
-  tl.to(W, { opacity: 1, duration: 0.8 }, 0.2)
-    .to(W, { y: endTop, scale: mobile ? 1.55 : 1.9, duration: 5.2, ease: "power1.in" }, 0.3)
-    .to(".cone", { opacity: 1.2, duration: 5 }, 0)
-    .fromTo(".floor", { filter: "brightness(.7)" }, { filter: "brightness(1.2)", duration: 5 }, 0);
-  // the walk: hip sway + head bob, one step every ~0.48s
-  const step = 0.48, steps = Math.floor(5.2 / step);
-  for (let i = 0; i < steps; i++) {
-    const t = 0.3 + i * step, d = i % 2 ? 1 : -1;
-    tl.to(W, { x: d * (mobile ? 5 : 9), rotation: d * 1.4, duration: step / 2, ease: "sine.out" }, t)
-      .to(W, { x: 0, rotation: 0, duration: step / 2, ease: "sine.in" }, t + step / 2)
-      .to(W.querySelector("img"), { y: -6, duration: step / 2, ease: "sine.out", yoyo: true, repeat: 1 }, t);
-  }
-  // paparazzi flashes, getting busier as she gets closer
-  const box = $("#flashes"); const n = mobile ? 34 : 54;
-  for (let i = 0; i < n; i++) {
-    const p = Math.pow(i / n, 0.6); const at = 0.6 + p * 4.9;
-    const side = Math.random() < 0.5 ? Math.random() * 30 : 70 + Math.random() * 30;
-    const f = document.createElement("i"); f.className = "flash";
-    f.style.left = side + "vw"; f.style.top = 55 + Math.random() * 40 + "vh"; f.style.transform = `scale(${0.5 + Math.random() * 0.9})`;
-    box.appendChild(f);
-    tl.to(f, { opacity: 1, duration: 0.04 }, at).to(f, { opacity: 0, duration: 0.28, ease: "power2.out" }, at + 0.05);
-    if (i % 5 === 0) tl.to("#flood", { opacity: 0.12 + p * 0.18, duration: 0.03 }, at).to("#flood", { opacity: 0, duration: 0.2 }, at + 0.04);
-  }
-  $$(".phone").forEach((ph) => tl.to(ph, { opacity: 0.85, duration: 0.3, yoyo: true, repeat: 3 }, 0.8 + Math.random() * 4));
-  const tc = { v: 0 }; tl.to(tc, { v: 5.6, duration: 5.6, ease: "none", onUpdate: () => { const s = tc.v; $("#tc").textContent = `00:00:${String(Math.floor(s)).padStart(2, "0")}:${String(Math.floor((s % 1) * 24)).padStart(2, "0")}`; } }, 0);
-  $("#skip").addEventListener("click", () => { tl.kill(); finishIntro(true); });
+  const v = $("#film"), amb = $("#amb"), LEN = 8.9;
+  const SHOTS = [[0, "Shot 01", "Chanel Beauty"], [4.1, "Shot 02", "Beauty campaign · on set"], [6.9, "Shot 03", "Beauty campaign · on set"]];
+  const tl = gsap.timeline({ paused: true });
+  const box = $("#flashes");
+  const flash = (at, x, y, big) => {
+    const f = document.createElement("i"); f.className = "flash"; f.style.left = x + "vw"; f.style.top = y + "vh"; f.style.transform = `scale(${big ? 1.3 : 0.5 + Math.random() * 0.7})`; box.appendChild(f);
+    tl.to(f, { opacity: 1, duration: 0.03 }, at).to(f, { opacity: 0, duration: 0.3, ease: "power2.out" }, at + 0.04);
+    if (big) tl.to("#flood", { opacity: 0.6, duration: 0.03 }, at).to("#flood", { opacity: 0, duration: 0.4, ease: "power2.out" }, at + 0.04);
+  };
+  const side = () => (Math.random() < 0.5 ? 4 + Math.random() * 26 : 70 + Math.random() * 26);
+  // the frame opens like a shutter, the names drift
+  tl.to("#rwf", { clipPath: "inset(0% 0 0% 0)", duration: 0.9, ease: "expo.inOut" }, 0)
+    .from(".rw-side.l", { xPercent: 30, opacity: 0, duration: 2.2, ease: "expo.out" }, 0.3)
+    .from(".rw-side.r", { xPercent: -30, opacity: 0, duration: 2.2, ease: "expo.out" }, 0.3)
+    .to(".rw-side.l", { xPercent: -8, duration: LEN, ease: "none" }, 0.3)
+    .to(".rw-side.r", { xPercent: 8, duration: LEN, ease: "none" }, 0.3)
+    .to("#rwbar", { scaleX: 1, duration: LEN, ease: "none" }, 0);
+  // cameras fire with her footsteps, then cut on a flash
+  [0.9, 1.45, 2.0, 2.55, 3.1, 3.6].forEach((t, k) => { flash(t, side(), 30 + Math.random() * 55, k % 3 === 2); flash(t + 0.05, side(), 30 + Math.random() * 55, false); });
+  SHOTS.forEach(([at, n, t], i) => {
+    if (i) { flash(at - 0.02, side(), 50, true); flash(at, side(), 40, true); tl.fromTo("#rwf", { scale: 1.06 }, { scale: 1, duration: 0.6, ease: "expo.out" }, at); }
+    tl.set("#shotN", { textContent: n }, at).set("#shotT", { textContent: t }, at).set("#rwc", { textContent: "0" + (i + 1) }, at)
+      .fromTo("#shot", { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, at + 0.05);
+  });
+  [4.5, 4.95, 5.6, 6.2, 7.3, 7.9, 8.4].forEach((t) => flash(t, side(), 30 + Math.random() * 50, true));
+  tl.set({}, {}, LEN);
+  const tc = $("#tc");
+  let started = false, last = -1;
+  const go = () => { if (started) return; started = true; amb.play().catch(() => {}); loop(); };
+  const loop = () => {
+    if (introDone) return;
+    const t = Math.min(v.currentTime, LEN);
+    tl.time(t);
+    if (Math.abs(amb.currentTime - t) > 0.25) amb.currentTime = t;
+    const f = Math.floor(t * 24); if (f !== last) { last = f; tc.textContent = `00:00:${String(Math.floor(t)).padStart(2, "0")}:${String(f % 24).padStart(2, "0")}`; }
+    if (v.ended || t >= LEN - 0.05) return finishIntro(false);
+    requestAnimationFrame(loop);
+  };
+  v.addEventListener("playing", go);
+  v.querySelector("source:last-child").addEventListener("error", () => finishIntro(true));
+  const p = v.play(); if (p && p.catch) p.catch(() => setTimeout(() => finishIntro(true), 900));
+  setTimeout(() => { if (!started) finishIntro(true); }, 6000);   // slow network: don't hold the site hostage
+  $("#skip").addEventListener("click", () => { v.pause(); finishIntro(true); });
 }
 
 /* ---------- hero entrance ---------- */
@@ -486,6 +611,19 @@ function heroIn(delay) {
 function scrolly() {
   if (reduce) { $$(".rv").forEach((e) => (e.style.opacity = 1)); return; }
   ScrollTrigger.batch(".rv", { start: "top 90%", onEnter: (els) => gsap.to(els, { opacity: 1, y: 0, duration: 1.3, stagger: 0.08, ease: "expo.out" }) });
+  // headings rise line by line
+  $$(".split").forEach((h) => { h.innerHTML = h.innerHTML.split(/<br\s*\/?>/i).map((l) => `<span class="ln"><span>${l}</span></span>`).join("");
+    gsap.from(h.querySelectorAll(".ln > span"), { yPercent: 115, rotate: 3, duration: 1.4, stagger: 0.12, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 85%" } }); });
+  // book tiles: curtain-up reveal + image settle + gentle parallax
+  ScrollTrigger.batch(".tile .clip", { start: "top 92%", onEnter: (els) => { gsap.to(els, { clipPath: "inset(0% 0 0 0)", duration: 1.5, stagger: 0.09, ease: "expo.inOut" }); els.forEach((e) => gsap.fromTo(e.querySelector("img"), { scale: 1.3 }, { scale: 1, duration: 2, ease: "expo.out" })); } });
+  // campaign chapters scroll sideways on desktop
+  if (!mobile) {
+    const trk = $("#cptrack");
+    const dist = () => trk.scrollWidth - innerWidth;
+    const hz = gsap.to(trk, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: ".cp-pin", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 0.7, invalidateOnRefresh: true, onUpdate: (st) => ($("#cpp").style.transform = `scaleX(${st.progress})`) } });
+    $$(".chap").forEach((c) => { gsap.from(c.querySelectorAll(".media > *"), { yPercent: 18, opacity: 0, rotate: 2, stagger: 0.12, ease: "power2.out", scrollTrigger: { trigger: c, containerAnimation: hz, start: "left 85%", end: "left 30%", scrub: true } });
+      gsap.from(c.querySelectorAll(".txt > *"), { x: 80, opacity: 0, stagger: 0.08, ease: "power2.out", scrollTrigger: { trigger: c, containerAnimation: hz, start: "left 80%", end: "left 35%", scrub: true } }); });
+  }
   // hero: name parts drift apart, figure rises
   gsap.to(".h-name .back .row:first-child, .h-name .front .row:first-child", { xPercent: -8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".h-name .back .row:last-child, .h-name .front .row:last-child", { xPercent: 8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
@@ -502,7 +640,7 @@ function scrolly() {
     .from(".f-copy .line > span", { yPercent: 110, stagger: 0.1, duration: 0.5 }, 0.7)
     .to({}, { duration: 0.6 });
   // coverflow
-  const looks = [WORK[0], WORK[5], WORK[2], WORK[11], WORK[3], WORK[9], WORK[4], WORK[10], WORK[7], WORK[12]];
+  const looks = [WORK[1], WORK[4], WORK[3], WORK[6], WORK[8], WORK[19], WORK[18], WORK[5], WORK[11], WORK[15], WORK[22], WORK[21]];
   $("#lkrow").innerHTML = looks.map((w) => `<div class="lk"><img src="${w.src}" alt="${w.t}" loading="lazy"><span>${w.t}</span></div>`).join("");
   $("#lkt").textContent = String(looks.length).padStart(2, "0");
   const cards = $$(".lk"); const gap = mobile ? 0.62 : 0.34;
@@ -529,7 +667,7 @@ $$("#filters button").forEach((b) => b.addEventListener("click", () => {
 }));
 let li = 0;
 const visible = () => $$(".tile:not(.hide)").map((t) => +t.dataset.i);
-const show = (i) => { li = i; const w = WORK[i], v = visible(); $("#lbimg").src = w.src; $("#lbimg").alt = w.t; $("#lbt").textContent = w.t; $("#lbc").textContent = `${w.c} · ${String(v.indexOf(i) + 1).padStart(2, "0")} / ${String(v.length).padStart(2, "0")}`; gsap.fromTo("#lbimg", { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }); };
+const show = (i) => { li = i; const w = WORK[i], v = visible(); $("#lbimg").src = w.big; $("#lbimg").alt = w.t; $("#lbt").textContent = w.t; $("#lbc").textContent = `${w.c} · ${String(v.indexOf(i) + 1).padStart(2, "0")} / ${String(v.length).padStart(2, "0")}`; gsap.fromTo("#lbimg", { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: 0.6, ease: "expo.out" }); };
 const step = (d) => { const v = visible(); show(v[(v.indexOf(li) + d + v.length) % v.length]); };
 $$(".tile").forEach((t) => t.addEventListener("click", () => { show(+t.dataset.i); $("#lb").classList.add("on"); lenis && lenis.stop(); }));
 const close = () => { $("#lb").classList.remove("on"); lenis && lenis.start(); };
@@ -538,7 +676,7 @@ addEventListener("keydown", (e) => { if (!$("#lb").classList.contains("on")) ret
 
 /* ---------- discipline hover peek ---------- */
 const peek = $("#peek");
-$$("#disc li").forEach((l) => { const im = document.createElement("img"); im.src = l.dataset.img; im.alt = ""; peek.appendChild(im); l._im = im;
+$$("#disc li, #cl li").forEach((l) => { const im = document.createElement("img"); im.src = l.dataset.img; im.alt = ""; peek.appendChild(im); l._im = im;
   l.addEventListener("mouseenter", () => { $$("#peek img").forEach((x) => x.classList.remove("on")); im.classList.add("on"); peek.classList.add("on"); });
   l.addEventListener("mouseleave", () => peek.classList.remove("on")); });
 const px = gsap.quickTo(peek, "x", { duration: 0.6, ease: "power3" }), py = gsap.quickTo(peek, "y", { duration: 0.6, ease: "power3" });
@@ -547,10 +685,18 @@ addEventListener("mousemove", (e) => { px(e.clientX + 30); py(e.clientY - 160); 
 /* ---------- booking form ---------- */
 $("#form").addEventListener("submit", () => { gsap.to("#send", { opacity: 0, y: -10, duration: 0.4 }); $("#sent").style.display = "block"; gsap.from("#sent", { opacity: 0, y: 20, duration: 0.8, ease: "expo.out" }); });
 
+/* ---------- cursor & magnetic buttons ---------- */
+if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+  document.documentElement.classList.add("fine");
+  const cur = $("#cur"), cx = gsap.quickTo(cur, "x", { duration: 0.18 }), cy = gsap.quickTo(cur, "y", { duration: 0.18 });
+  addEventListener("mousemove", (e) => { cx(e.clientX); cy(e.clientY); });
+  document.addEventListener("mouseover", (e) => { const t = e.target.closest("[data-cursor], .lk, #cl li"); cur.classList.toggle("big", !!t); if (t) $("#curT").textContent = t.dataset.cursor || (t.classList.contains("lk") ? "Scroll" : "Preview"); });
+  $$(".book-btn, .send, .skip").forEach((b) => { b.addEventListener("mousemove", (e) => { const r = b.getBoundingClientRect(); gsap.to(b, { x: (e.clientX - r.left - r.width / 2) * 0.3, y: (e.clientY - r.top - r.height / 2) * 0.4, duration: 0.4 }); }); b.addEventListener("mouseleave", () => gsap.to(b, { x: 0, y: 0, duration: 0.7, ease: "elastic.out(1,.4)" })); });
+}
+
 /* ---------- go ---------- */
 const start = () => { scrolly(); runway(); };
-const img = new Image(); img.src = "img/walk.webp";
-(img.decode ? img.decode() : Promise.resolve()).catch(() => {}).then(() => (document.fonts ? document.fonts.ready : Promise.resolve())).then(start);
+Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]).then(start);
 </script>
 </body>
 </html>
