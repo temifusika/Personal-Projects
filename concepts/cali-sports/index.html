@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Cali Sports · Calister Ojonugwa Enejele</title>
+<meta name="description" content="Calister Ojonugwa Enejele, Cali Sports. Sports journalist and freelance reporter. Interviews, match previews, watch parties and meet & greets around the world." />
+<meta name="theme-color" content="#f6f4ef" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preload" as="image" href="media/onair-poster.jpg" />
+<style>
+:root {
+  --paper: #f6f4ef; --paper2: #ece8df; --ink: #0d0d12; --dim: #5d5a55; --line: rgba(13,13,18,.12);
+  --red: #ff2340; --violet: #5b3dff; --pink: #ff5fa2; --lime: #d7ff3a; --night: #0b0b12;
+  --display: "Anton", Impact, sans-serif; --sans: "Inter Tight", system-ui, sans-serif; --serif: "Instrument Serif", Georgia, serif;
+  --pad: clamp(18px, 4vw, 64px); --out: cubic-bezier(.16,1,.3,1);
+  --fly: linear-gradient(110deg, var(--violet), var(--pink) 55%, var(--red));
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: var(--paper); overflow-x: clip; }
+html.lenis, html.lenis body { height: auto; }
+body { color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body.lock { overflow: hidden; }
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+::selection { background: var(--lime); color: var(--ink); }
+.wrap { max-width: 1440px; margin: 0 auto; padding: 0 var(--pad); position: relative; }
+.k { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; }
+.it { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; }
+.fly { background: var(--fly); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(56px, 9vw, 160px); line-height: .86; letter-spacing: .005em; }
+.h2 .it { font-size: .78em; }
+.lead { font-size: clamp(17px, 1.4vw, 20px); color: var(--dim); max-width: 52ch; }
+section { position: relative; }
+.rv { opacity: 0; transform: translateY(36px); }
+.mob { display: none; } @media (max-width: 760px) { .dsk { display: none; } .mob { display: inline; } }
+
+/* ============ ON AIR OPENING ============ */
+#onair { position: fixed; inset: 0; z-index: 100; background: radial-gradient(70% 60% at 50% 40%, #1c1a2e 0%, var(--night) 70%); color: #fff; overflow: hidden; }
+#onair .grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent); -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000, transparent); }
+.oa-light { position: absolute; top: 24px; left: 50%; transform: translateX(-50%); z-index: 6; display: flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 6px; background: #2a0d12; color: #ff8a98; border: 1px solid #5a1520; font-weight: 800; letter-spacing: .3em; font-size: 12px; }
+.oa-light.on { background: var(--red); color: #fff; border-color: var(--red); box-shadow: 0 0 40px rgba(255,35,64,.7), 0 0 120px rgba(255,35,64,.35); }
+.oa-light i { width: 9px; height: 9px; border-radius: 50%; background: currentColor; }
+.oa-count { position: absolute; left: 50%; top: 50%; width: min(46vmin, 360px); aspect-ratio: 1; transform: translate(-50%, -50%); z-index: 5; display: grid; place-items: center; }
+.oa-count svg { position: absolute; inset: 0; }
+.oa-count b { font-family: var(--display); font-weight: 400; font-size: min(26vmin, 210px); line-height: 1; }
+.mons { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 3vw; padding: 80px var(--pad) 90px; z-index: 3; }
+.mon { position: relative; border-radius: 10px; overflow: hidden; background: #000; border: 2px solid #26243a; box-shadow: 0 40px 90px -30px rgba(0,0,0,.8); }
+.mon .tag { position: absolute; left: 10px; top: 10px; z-index: 3; font-size: 10px; font-weight: 800; letter-spacing: .2em; padding: 4px 8px; border-radius: 4px; background: rgba(0,0,0,.6); }
+.mon .tag.live { background: var(--red); }
+.mon::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 3px); }
+.pgm { height: min(calc(100svh - 190px), 860px); aspect-ratio: 9 / 16; border-color: var(--red); box-shadow: 0 0 0 4px rgba(255,35,64,.25), 0 50px 120px -30px rgba(255,35,64,.35); }
+.pgm video { width: 100%; height: 100%; object-fit: cover; }
+.side { display: grid; gap: 18px; align-content: center; }
+.side.l { justify-items: end; } .side.r { justify-items: start; }
+.pvw { width: min(15vw, 230px); aspect-ratio: 9 / 16; }
+.pvw img { width: 100%; height: 100%; object-fit: cover; opacity: .75; }
+.gfx { width: min(19vw, 290px); padding: 20px; background: #12111f; }
+.gfx .num { font-family: var(--display); font-size: clamp(40px, 4.4vw, 72px); line-height: 1; color: var(--lime); }
+.gfx p { color: #b9b6cc; font-size: 13px; margin-top: 6px; }
+.gfx hr { border: 0; border-top: 1px solid #2a2840; margin: 14px 0; }
+.l3 { position: absolute; left: 0; right: 0; bottom: 8%; z-index: 4; padding: 0 12px; }
+.l3 .bar { display: inline-flex; flex-direction: column; background: #fff; color: var(--ink); padding: 8px 14px 9px; border-left: 6px solid var(--red); border-radius: 2px 6px 6px 2px; box-shadow: 0 14px 30px -10px rgba(0,0,0,.5); max-width: 100%; }
+.l3 .bar small { font-size: 10px; font-weight: 800; letter-spacing: .18em; color: var(--red); text-transform: uppercase; }
+.l3 .bar b { font-family: var(--display); font-weight: 400; font-size: clamp(16px, 1.6vw, 24px); text-transform: uppercase; line-height: 1.05; }
+.oa-crawl { position: absolute; left: 0; right: 0; bottom: 0; height: 44px; z-index: 6; display: flex; align-items: center; background: #fff; color: var(--ink); overflow: hidden; }
+.oa-crawl .lab { flex: 0 0 auto; height: 100%; display: grid; place-items: center; padding: 0 16px; background: var(--red); color: #fff; font-weight: 800; letter-spacing: .2em; font-size: 12px; z-index: 2; }
+.oa-crawl .tr { display: inline-flex; gap: 40px; white-space: nowrap; font-weight: 700; font-size: 14px; padding-left: 30px; }
+.oa-crawl .tr span::after { content: "🦋"; margin-left: 40px; }
+.oa-skip { position: absolute; right: var(--pad); top: 22px; z-index: 7; padding: 9px 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,.35); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; background: rgba(0,0,0,.3); }
+.oa-skip:hover { background: #fff; color: var(--ink); }
+.oa-tc { position: absolute; left: var(--pad); top: 28px; z-index: 6; font-size: 12px; font-weight: 700; letter-spacing: .18em; color: #b9b6cc; font-variant-numeric: tabular-nums; }
+#oaflash { position: absolute; inset: 0; background: #fff; opacity: 0; z-index: 9; pointer-events: none; }
+@media (max-width: 900px) {
+  .mons { grid-template-columns: 1fr; padding: 0; }
+  .side { display: none; }
+  .pgm { height: 100svh; width: 100vw; aspect-ratio: auto; border: 0; border-radius: 0; }
+  .oa-light { top: 16px; }
+  .oa-tc { display: none; }
+  .oa-skip { top: auto; bottom: 58px; }
+  .l3 { bottom: 120px; }
+}
+
+/* ============ NAV ============ */
+nav.top { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 16px var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 20px; transition: background .4s, box-shadow .4s, padding .4s; }
+nav.top.solid { background: rgba(246,244,239,.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); padding-top: 10px; padding-bottom: 10px; }
+.logo { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 22px; letter-spacing: .03em; text-transform: uppercase; }
+.logo svg { width: 34px; height: 28px; }
+nav.top ul { display: flex; gap: 26px; list-style: none; font-size: 13px; font-weight: 600; }
+nav.top ul a { position: relative; }
+nav.top ul a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: var(--red); transition: right .5s var(--out); }
+nav.top ul a:hover::after { right: 0; }
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 700; font-size: 14px; transition: transform .4s var(--out), background .3s; }
+.btn:hover { transform: translateY(-2px); background: var(--red); }
+.btn.red { background: var(--red); } .btn.red:hover { background: var(--ink); }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: #fff; }
+@media (max-width: 1000px) { nav.top ul { display: none; } }
+
+/* ============ HERO ============ */
+#hero { min-height: 100svh; padding: 110px 0 0; overflow: hidden; background: radial-gradient(40% 50% at 50% 55%, rgba(255,95,162,.28), transparent 70%), radial-gradient(30% 40% at 85% 25%, rgba(91,61,255,.18), transparent 70%), radial-gradient(28% 36% at 12% 70%, rgba(215,255,58,.35), transparent 70%), var(--paper); display: flex; flex-direction: column; }
+.hx { position: relative; flex: 1; display: grid; grid-template-columns: 1fr minmax(320px, 40vw) 1fr; align-items: end; gap: 2vw; padding: 0 var(--pad); }
+.h-word { position: absolute; left: 0; right: 0; top: 17%; text-align: center; font-family: var(--display); text-transform: uppercase; line-height: .8; pointer-events: none; z-index: 0; font-size: 19.2vw; letter-spacing: .005em; white-space: nowrap; }
+.h-word.front { z-index: 3; color: transparent; -webkit-text-stroke: 1.5px rgba(13,13,18,.55); }
+.h-word .ch { display: inline-block; }
+.h-word .sp { display: inline-block; width: .18em; }
+.h-fig { position: relative; z-index: 2; align-self: end; justify-self: center; width: 100%; max-width: 560px; }
+.h-fig img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 88%, transparent); mask-image: linear-gradient(#000 88%, transparent); }
+.h-l, .h-r { position: relative; z-index: 3; padding-bottom: 12vh; }
+.h-l h1 { font-size: clamp(15px, 1.25vw, 18px); font-weight: 600; line-height: 1.45; max-width: 30ch; }
+.h-l h1 .it { font-size: 1.5em; display: block; line-height: 1.05; margin-bottom: 10px; }
+.h-l .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.live-card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 30px 60px -30px rgba(13,13,18,.35); max-width: 300px; margin-left: auto; }
+.live-card .top { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 800; letter-spacing: .16em; }
+.live-card .top span:first-child { display: inline-flex; align-items: center; gap: 7px; color: var(--red); }
+.live-card .top span:first-child::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.2s infinite; }
+@keyframes pulse { 50% { opacity: .2; } }
+.live-card img { border-radius: 10px; margin: 12px 0 10px; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 62%; width: 100%; height: auto; }
+.live-card b { font-family: var(--display); font-weight: 400; font-size: 24px; text-transform: uppercase; line-height: 1; display: block; }
+.live-card p { font-size: 13px; color: var(--dim); margin-top: 4px; }
+.stats { display: flex; gap: 22px; margin-top: 16px; justify-content: flex-end; }
+.stats div { text-align: right; }
+.stats b { display: block; font-family: var(--display); font-size: 38px; line-height: 1; font-weight: 400; }
+.stats span { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.ticker { position: relative; z-index: 4; display: flex; align-items: center; background: var(--ink); color: #fff; height: 54px; overflow: hidden; }
+.ticker .lab { flex: 0 0 auto; height: 100%; display: grid; place-items: center; padding: 0 20px; background: var(--red); font-weight: 800; letter-spacing: .2em; font-size: 12px; }
+.ticker .tr { display: inline-flex; gap: 46px; white-space: nowrap; padding-left: 30px; font-weight: 600; font-size: 15px; will-change: transform; }
+.ticker .tr span b { color: var(--lime); font-weight: 800; margin-right: 10px; }
+@media (max-width: 900px) {
+  #hero { padding-top: 84px; }
+  .hx { grid-template-columns: 1fr; align-items: start; }
+  .h-word { top: 3%; font-size: 30vw; white-space: normal; line-height: .82; } .h-word .sp { display: block; height: 0; }
+  .h-l { order: 2; padding: 0 0 26px; text-align: center; } .h-l h1 { margin: 0 auto; } .h-l .btns { justify-content: center; }
+  .h-fig { order: 1; max-width: 78vw; margin-top: 36vw; }
+  .h-r { order: 3; padding: 0 0 28px; } .live-card { margin: 0 auto; } .stats { justify-content: center; } .stats div { text-align: center; }
+}
+
+/* ============ BUTTERFLY ============ */
+.bfly { position: absolute; z-index: 20; width: 64px; height: 52px; pointer-events: none; left: 0; top: 0; will-change: transform; }
+.bfly .wl, .bfly .wr { transform-box: fill-box; }
+.bfly .wl { transform-origin: 100% 50%; animation: flapL .26s ease-in-out infinite alternate; }
+.bfly .wr { transform-origin: 0% 50%; animation: flapR .26s ease-in-out infinite alternate; }
+@keyframes flapL { to { transform: scaleX(.25); } } @keyframes flapR { to { transform: scaleX(.25); } }
+
+/* ============ MOMENTS ============ */
+#moments { background: var(--night); color: #fff; }
+.mo-pin { height: 100svh; overflow: hidden; display: flex; flex-direction: column; }
+.mo-head { padding: 96px var(--pad) 0; display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; }
+.mo-head .h2 { font-size: clamp(48px, 7vw, 120px); }
+.mo-head .lead { color: #b9b6cc; max-width: 40ch; }
+.mo-track { flex: 1; display: flex; gap: 3vw; align-items: center; padding: 30px var(--pad) 50px; will-change: transform; }
+.mcard { flex: 0 0 auto; width: min(66vw, 940px); height: min(62vh, 600px); display: grid; grid-template-columns: min(30vh, 300px) 1fr; gap: 34px; background: #14131f; border: 1px solid #23213a; border-radius: 22px; padding: 22px; position: relative; }
+.mcard .vid { position: relative; height: 100%; width: 100%; border-radius: 14px; overflow: hidden; background: #000; }
+.mcard .vid video, .mcard .vid img { width: 100%; height: 100%; object-fit: cover; }
+.mcard .vid .tag { position: absolute; left: 10px; top: 10px; background: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .2em; padding: 4px 8px; border-radius: 4px; z-index: 2; }
+.mcard .txt { display: flex; flex-direction: column; justify-content: space-between; padding: 8px 8px 8px 0; min-width: 0; }
+.mcard .k { color: var(--lime); }
+.mcard h3 { font-family: var(--display); font-weight: 400; font-size: clamp(34px, 3.6vw, 64px); line-height: .92; text-transform: uppercase; margin: 14px 0 16px; }
+.mcard p { color: #c9c6da; font-size: 16px; max-width: 46ch; }
+.mcard .meta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #1f1d31; font-size: 12px; font-weight: 700; color: #e4e2f0; }
+.chip.lime { background: var(--lime); color: var(--ink); }
+.mcard .num { position: absolute; right: 26px; top: 18px; font-family: var(--display); font-size: 90px; line-height: 1; color: rgba(255,255,255,.05); }
+.mcard.stamps { grid-template-columns: 1fr !important; background: linear-gradient(135deg, #5b3dff, #ff5fa2 60%, #ff2340); border: 0; }
+.stamp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 20px; }
+.stamp { border: 2px dashed rgba(255,255,255,.7); border-radius: 14px; padding: 16px; transform: rotate(var(--r, 0deg)); background: rgba(255,255,255,.08); }
+.stamp b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(22px, 2vw, 32px); text-transform: uppercase; line-height: 1; }
+.stamp span { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+.mo-prog { height: 3px; background: #23213a; margin: 0 var(--pad) 30px; }
+.mo-prog i { display: block; height: 100%; width: 100%; background: var(--fly); transform-origin: left; transform: scaleX(0); }
+@media (max-width: 900px) {
+  .mo-pin { height: auto; display: block; padding-bottom: 50px; }
+  .mo-head { padding-top: 90px; }
+  .mo-track { flex-direction: column; padding-top: 30px; }
+  .mcard { width: 100%; height: auto; grid-template-columns: 1fr; gap: 18px; }
+  .mcard .vid { height: auto; width: 100%; aspect-ratio: 4 / 5; }
+  .stamp-grid { grid-template-columns: 1fr 1fr; }
+  .mo-prog { display: none; }
+}
+
+/* ============ ON THE ROAD ============ */
+#road { padding: clamp(100px, 12vw, 170px) 0 clamp(70px, 8vw, 120px); }
+.road-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: end; margin-bottom: 40px; }
+.map { position: relative; width: 100%; aspect-ratio: 1900 / 780; }
+.map img { width: 100%; height: 100%; }
+.map svg.arcs { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.arcs path { fill: none; stroke: url(#arcg); stroke-width: 2.4; stroke-linecap: round; }
+.pin { position: absolute; transform: translate(-50%, -50%); z-index: 2; }
+.pin i { display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--red); box-shadow: 0 0 0 5px rgba(255,35,64,.2); position: relative; }
+.pin i::after { content: ""; position: absolute; inset: -10px; border-radius: 50%; border: 2px solid var(--red); opacity: 0; animation: ping 2.4s infinite; animation-delay: var(--d, 0s); }
+@keyframes ping { 0% { transform: scale(.4); opacity: .9; } 100% { transform: scale(1.8); opacity: 0; } }
+.pin.home i { background: var(--violet); box-shadow: 0 0 0 6px rgba(91,61,255,.22); width: 18px; height: 18px; }
+.pin.home i::after { border-color: var(--violet); }
+.pin span { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); white-space: nowrap; background: var(--ink); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 6px; }
+.pin span small { color: var(--lime); font-weight: 800; margin-left: 6px; }
+.pin.b span { bottom: auto; top: 20px; }
+.passes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 46px; }
+.pass { position: relative; background: #fff; border-radius: 16px; padding: 18px 18px 16px; box-shadow: 0 20px 40px -26px rgba(13,13,18,.35); overflow: hidden; }
+.pass::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--c, var(--red)); }
+.pass .k { color: var(--dim); }
+.pass .rt { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-size: 34px; line-height: 1; margin: 10px 0 6px; }
+.pass .rt i { flex: 1; height: 2px; background: repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 11px); position: relative; }
+.pass .rt i::after { content: "✈"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%); font-size: 16px; background: #fff; padding: 0 4px; font-family: var(--sans); }
+.pass p { font-size: 13px; color: var(--dim); }
+@media (max-width: 1000px) { .road-head { grid-template-columns: 1fr; } .passes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .passes { grid-template-columns: 1fr; } .pin span { font-size: 10px; padding: 3px 7px; bottom: 14px; } .pin.b span { top: 14px; } .pin i { width: 10px; height: 10px; } .pin.home i { width: 13px; height: 13px; } }
+
+/* ============ MEET CALI ============ */
+#meet { padding: clamp(100px, 12vw, 170px) 0; background: linear-gradient(160deg, #ff2340 0%, #ff5fa2 55%, #5b3dff 100%); color: #fff; overflow: hidden; }
+#meet .lead { color: rgba(255,255,255,.9); }
+.meet-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 4vw; margin-top: 50px; align-items: start; }
+.event { background: #fff; color: var(--ink); border-radius: 22px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.1fr; box-shadow: 0 40px 80px -40px rgba(30,0,40,.55); }
+.event .ph { position: relative; background: #ffd6e4; }
+.event .ph img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.event .ph .tag { position: absolute; left: 12px; top: 12px; background: var(--ink); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .18em; padding: 5px 9px; border-radius: 5px; }
+.event .bd { padding: 24px; display: flex; flex-direction: column; gap: 12px; }
+.event h3 { font-family: var(--display); font-weight: 400; font-size: clamp(30px, 2.8vw, 46px); line-height: .95; text-transform: uppercase; }
+.event .row { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 14px; }
+.event .row b { font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); padding-top: 4px; }
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+.tier { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35); border-radius: 16px; padding: 16px; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.tier b { font-family: var(--display); font-weight: 400; font-size: 24px; text-transform: uppercase; display: block; line-height: 1; }
+.tier p { font-size: 13px; opacity: .9; margin-top: 6px; }
+.vote { background: #fff; color: var(--ink); border-radius: 22px; padding: 26px; box-shadow: 0 40px 80px -40px rgba(30,0,40,.55); }
+.vote h3 { font-family: var(--display); font-weight: 400; font-size: 34px; text-transform: uppercase; line-height: 1; }
+.vote > p { color: var(--dim); font-size: 14px; margin: 6px 0 16px; }
+.cities { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.city { position: relative; display: flex; justify-content: space-between; align-items: center; padding: 13px 14px; border-radius: 12px; border: 1.5px solid var(--line); font-weight: 700; font-size: 15px; overflow: hidden; transition: border-color .3s, transform .3s var(--out); text-align: left; }
+.city::before { content: ""; position: absolute; inset: 0; background: var(--lime); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--out); z-index: 0; }
+.city > * { position: relative; z-index: 1; }
+.city:hover { transform: translateY(-2px); border-color: var(--ink); }
+.city.on { border-color: var(--ink); } .city.on::before { transform: scaleX(1); }
+.city em { font-style: normal; font-size: 12px; color: var(--dim); }
+.city.on em { color: var(--ink); }
+.rsvp { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+.rsvp input, .rsvp select { width: 100%; padding: 14px; border-radius: 12px; border: 1.5px solid var(--line); background: #faf9f6; outline: none; }
+.rsvp input:focus, .rsvp select:focus { border-color: var(--violet); }
+.rsvp .full { grid-column: 1 / -1; }
+.rsvp .btn { justify-content: center; }
+.okmsg { display: none; grid-column: 1 / -1; font-weight: 700; color: var(--violet); }
+.route { font-size: 12px; color: var(--dim); grid-column: 1 / -1; }
+.route b { color: var(--ink); }
+@media (max-width: 1000px) { .meet-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .event { grid-template-columns: 1fr; } .event .ph { aspect-ratio: 4 / 3; } .tiers { grid-template-columns: 1fr; } .cities { grid-template-columns: 1fr 1fr; } .rsvp { grid-template-columns: 1fr; } }
+
+/* ============ TAKES ============ */
+#takes { padding: clamp(100px, 12vw, 170px) 0 clamp(60px, 7vw, 100px); }
+.takes-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; }
+.takes-row { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 40px var(--pad) 30px; scrollbar-width: none; overscroll-behavior-x: contain; }
+.takes-row::-webkit-scrollbar { display: none; }
+.phone { flex: 0 0 auto; width: clamp(220px, 21vw, 290px); scroll-snap-align: start; }
+.phone .scr { position: relative; aspect-ratio: 9 / 16; border-radius: 26px; overflow: hidden; border: 6px solid var(--ink); background: #000; box-shadow: 0 30px 60px -30px rgba(13,13,18,.5); transition: transform .6s var(--out); }
+.phone:hover .scr { transform: translateY(-8px) rotate(-1.5deg); }
+.phone .scr img { width: 100%; height: 100%; object-fit: cover; }
+.phone .scr::after { content: "▶"; position: absolute; right: 12px; bottom: 12px; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #fff; color: var(--ink); font-size: 13px; }
+.phone .cap { margin-top: 12px; }
+.phone .cap b { display: block; font-family: var(--display); font-weight: 400; font-size: 22px; text-transform: uppercase; line-height: 1.05; }
+.phone .cap span { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+
+/* ============ PARTNERS ============ */
+#partners { padding: clamp(80px, 10vw, 150px) 0; background: var(--paper2); }
+.marq { overflow: hidden; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); padding: 22px 0; margin: 46px 0 60px; }
+.marq .tr { display: inline-flex; gap: 60px; white-space: nowrap; align-items: center; will-change: transform; }
+.marq span { font-family: var(--display); font-size: clamp(36px, 5vw, 78px); text-transform: uppercase; line-height: 1; display: inline-flex; align-items: center; gap: 60px; }
+.marq span::after { content: "🦋"; font-size: .5em; }
+.marq span.o { color: transparent; -webkit-text-stroke: 1.5px var(--ink); }
+.pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pk { position: relative; background: #fff; border-radius: 20px; padding: 26px; overflow: hidden; transition: transform .6s var(--out), box-shadow .6s; }
+.pk:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -30px rgba(13,13,18,.35); }
+.pk .ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: var(--c, var(--red)); color: #fff; font-size: 24px; }
+.pk h3 { font-family: var(--display); font-weight: 400; font-size: 30px; text-transform: uppercase; line-height: 1; margin: 18px 0 10px; }
+.pk p { color: var(--dim); font-size: 15px; }
+.pk ul { list-style: none; margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
+.pk li { font-size: 12px; font-weight: 700; padding: 6px 10px; border-radius: 999px; background: var(--paper2); }
+.pk.big { grid-column: span 1; background: var(--ink); color: #fff; }
+.pk.big p { color: #c9c6da; }
+.pk.big .n { font-family: var(--display); font-size: 84px; line-height: .9; color: var(--lime); }
+.pk.big li { background: #1f1d31; }
+@media (max-width: 1000px) { .pk-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .pk-grid { grid-template-columns: 1fr; } }
+
+/* ============ CONTACT ============ */
+#contact { padding: clamp(100px, 12vw, 170px) 0; }
+.inbox { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 46px 0 50px; }
+.mail { position: relative; border-radius: 18px; padding: 20px; background: #fff; border: 1.5px solid var(--line); cursor: pointer; text-align: left; transition: transform .5s var(--out), border-color .3s, background .3s; }
+.mail:hover { transform: translateY(-4px); border-color: var(--ink); }
+.mail .k { color: var(--c, var(--red)); }
+.mail b { display: block; font-size: clamp(15px, 1.25vw, 18px); font-weight: 800; margin: 12px 0 4px; word-break: break-all; }
+.mail p { font-size: 13px; color: var(--dim); }
+.mail .cp { position: absolute; right: 14px; top: 14px; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.mail.copied { background: var(--lime); border-color: var(--ink); }
+.ct-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 4vw; align-items: start; }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form input, .form select, .form textarea { width: 100%; padding: 15px 16px; border-radius: 14px; border: 1.5px solid var(--line); background: #fff; outline: none; transition: border-color .3s; }
+.form input:focus, .form select:focus, .form textarea:focus { border-color: var(--violet); }
+.form textarea { min-height: 130px; resize: vertical; grid-column: 1 / -1; }
+.form .full { grid-column: 1 / -1; }
+.news { margin-top: 30px; background: var(--ink); color: #fff; border-radius: 22px; padding: 26px; }
+.news h3 { font-family: var(--display); font-weight: 400; font-size: 34px; text-transform: uppercase; line-height: 1; }
+.news h3 .it { color: var(--lime); }
+.news p { color: #c9c6da; font-size: 14px; margin: 8px 0 16px; }
+.news form { display: flex; gap: 8px; }
+.news input { flex: 1; min-width: 0; padding: 14px 16px; border-radius: 999px; border: 0; background: #1f1d31; color: #fff; outline: none; }
+.news .btn { background: var(--lime); color: var(--ink); }
+@media (max-width: 1000px) { .inbox { grid-template-columns: 1fr 1fr; } .ct-grid { grid-template-columns: 1fr; } }
+.ct-grid > *, .meet-grid > *, .road-head > *, .hx > * { min-width: 0; }
+@media (max-width: 560px) { .news form { flex-wrap: wrap; } .news .btn { width: 100%; justify-content: center; } .pin.us2 span { display: none; } .pin.us1 span small::before { content: "USA · "; } }
+@media (max-width: 560px) { .inbox { grid-template-columns: 1fr; } .form { grid-template-columns: 1fr; } }
+
+/* ============ FOOTER ============ */
+footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: hidden; position: relative; }
+.ft-big { font-family: var(--display); text-transform: uppercase; text-align: center; font-size: 17.5vw; line-height: .8; letter-spacing: .01em; white-space: nowrap; }
+.ft-big .fly { -webkit-background-clip: text; background-clip: text; }
+.ft-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 40px; font-size: 14px; color: #b9b6cc; }
+.ft-row a:hover { color: var(--lime); }
+.concept { position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 45; padding: 8px 15px; border-radius: 999px; background: rgba(13,13,18,.86); color: #c9c6da; font-size: 12px; white-space: nowrap; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+.concept b { color: #fff; }
+@media (max-width: 760px) { .concept { font-size: 10.5px; padding: 7px 12px; max-width: calc(100vw - 24px); overflow: hidden; text-overflow: ellipsis; } }
+@media (prefers-reduced-motion: reduce) { .rv { opacity: 1; transform: none; } }
+</style>
+</head>
+<body class="lock">
+
+<!-- ============ ON AIR OPENING ============ -->
+<div id="onair" aria-hidden="true">
+  <div class="grid"></div>
+  <div class="oa-light" id="oalight"><i></i>ON AIR</div>
+  <div class="oa-tc" id="oatc">CAM 1 · 00:00:00:00</div>
+  <button class="oa-skip" id="oaskip">Skip intro</button>
+  <div class="oa-count" id="oacount"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/><circle id="oaring" cx="50" cy="50" r="46" fill="none" stroke="#ff2340" stroke-width="3" stroke-dasharray="289" stroke-dashoffset="289" transform="rotate(-90 50 50)"/><line x1="50" y1="0" x2="50" y2="100" stroke="rgba(255,255,255,.12)"/><line x1="0" y1="50" x2="100" y2="50" stroke="rgba(255,255,255,.12)"/></svg><b id="oanum">3</b></div>
+  <div class="mons" id="mons">
+    <div class="side l">
+      <div class="mon pvw"><span class="tag">PVW</span><img id="pvwimg" src="img/m-caf.jpg" alt=""></div>
+      <div class="mon pvw"><span class="tag">CAM 2</span><img src="img/t-bayern-arsenal.jpg" alt=""></div>
+    </div>
+    <div class="mon pgm" id="pgm"><span class="tag live">● PGM · LIVE</span><video id="oavid" muted playsinline preload="auto" poster="media/onair-poster.jpg"></video>
+      <div class="l3"><div class="bar" id="l3"><small id="l3a">FIFA World Cup 2026 · Dallas</small><b id="l3b">Question for Lamine Yamal</b></div></div>
+    </div>
+    <div class="side r">
+      <div class="mon gfx"><span class="tag">GFX</span><br><div class="num" id="gfx1">0K</div><p>Followers on Instagram</p><hr><div class="num" id="gfx2" style="color:#fff">0</div><p>Posts, previews & interviews</p></div>
+    </div>
+  </div>
+  <div class="oa-crawl"><span class="lab">LIVE</span><div class="tr" id="oacrawl"><span>Cali Sports is on air</span><span>World Cup · AFCON · Champions League · Premier League</span><span>Interviews from the tunnel to the red carpet</span><span>Meet Cali on tour</span></div></div>
+  <div id="oaflash"></div>
+</div>
+
+<!-- ============ NAV ============ -->
+<nav class="top" id="nav">
+  <a class="logo" href="#hero" aria-label="Cali Sports home"><svg viewBox="0 0 68 56" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" x2="1"><stop offset="0" stop-color="#5b3dff"/><stop offset=".6" stop-color="#ff5fa2"/><stop offset="1" stop-color="#ff2340"/></linearGradient></defs><path d="M33 28 C 18 0, 0 6, 4 22 C 7 32, 22 32, 33 28 Z M33 30 C 20 34, 8 44, 16 52 C 24 58, 30 44, 33 30 Z" fill="url(#lg1)"/><path d="M35 28 C 50 0, 68 6, 64 22 C 61 32, 46 32, 35 28 Z M35 30 C 48 34, 60 44, 52 52 C 44 58, 38 44, 35 30 Z" fill="url(#lg1)"/><rect x="32.5" y="18" width="3" height="24" rx="1.5" fill="#0d0d12"/></svg>Cali Sports</a>
+  <ul><li><a href="#moments">Moments</a></li><li><a href="#road">On the road</a></li><li><a href="#meet">Meet Cali</a></li><li><a href="#takes">Takes</a></li><li><a href="#partners">Partners</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a class="btn red" href="#contact">Work with Cali</a>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="hx">
+    <div class="h-word" aria-hidden="true"><span data-split>Cali</span><span class="sp"></span><span data-split>Sports</span></div>
+    <div class="h-word front" aria-hidden="true"><span data-split>Cali</span><span class="sp"></span><span data-split>Sports</span></div>
+    <div class="h-l">
+      <h1><span class="it">Calister Ojonugwa Enejele</span>Sports journalist and freelance reporter. From the tunnel to the red carpet, from Lagos to the World Cup.</h1>
+      <div class="btns"><a class="btn" href="#meet">Meet Cali on tour</a><a class="btn ghost" href="#partners">Partner with Cali</a></div>
+    </div>
+    <div class="h-fig"><img src="img/cali-cut.webp" width="1417" height="2200" alt="Calister Ojonugwa Enejele smiling in a pink and red striped jumper" fetchpriority="high"></div>
+    <div class="h-r">
+      <div class="live-card"><div class="top"><span>Latest take</span><span>UCL</span></div><img src="img/t-bayern-arsenal.jpg" width="900" height="1600" alt="Cali's UCL preview: Bayern v Arsenal"><b>Bayern v Arsenal</b><p>Champions League preview, straight to camera.</p></div>
+      <div class="stats"><div><b data-count="291" data-suf="K">291K</b><span>Instagram</span></div><div><b data-count="1108" data-sep>1,108</b><span>Posts</span></div></div>
+    </div>
+  </div>
+  <div class="ticker"><span class="lab">LATEST</span><div class="tr" id="tick"><span><b>UCL</b>Preview: Bayern v Arsenal</span><span><b>UCL</b>Como v Manchester United preview</span><span><b>UCL</b>Man of the Match: Osimhen vs Lille</span><span><b>UCL</b>Foden hat-trick</span><span><b>UCL</b>Hakimi's performance is unmatched</span><span><b>SUPER EAGLES</b>Ilenikhena and Lookman shine</span><span><b>WATCH PARTY</b>SuperSport × Coca-Cola · Man City v Arsenal · Lagos</span></div></div>
+</section>
+
+<!-- ============ BIG MOMENTS ============ -->
+<section id="moments">
+  <div class="mo-pin">
+    <div class="mo-head">
+      <div><p class="k" style="color:var(--lime)">The big moments</p><h2 class="h2">Mic in hand, <span class="it fly">always there</span></h2></div>
+      <p class="lead">The questions, the tunnels and the red carpets. Where football's biggest stories happen, Cali is in the room.</p>
+    </div>
+    <div class="mo-track" id="motrack">
+      <article class="mcard"><span class="num">01</span>
+        <div class="vid"><span class="tag">FIFA WORLD CUP 2026</span><video src="media/m-worldcup.mp4" poster="img/m-worldcup.jpg" muted loop playsinline preload="none" data-auto></video></div>
+        <div class="txt"><div><p class="k">Dallas, USA · Press conference</p><h3>A question for Lamine Yamal</h3><p>"Cali Sports from Nigeria…" At the World Cup press conference in Dallas, Cali put her question straight to Spain's Lamine Yamal about his performances at the tournament.</p></div>
+          <div class="meta"><span class="chip lime">2,800+ comments</span><span class="chip">@iamcalisports</span><span class="chip">#Yamal</span></div></div>
+      </article>
+      <article class="mcard"><span class="num">02</span>
+        <div class="vid"><span class="tag">VIRAL · @433</span><video src="media/m-tunnel.mp4" poster="img/m-tunnel.jpg" muted loop playsinline preload="none" data-auto></video></div>
+        <div class="txt"><div><p class="k">Istanbul · Champions League tunnel</p><h3>Osimhen on camera duty</h3><p>Cali wanted a photo with Lamine Yamal, so Victor Osimhen went to get him and took the picture himself. 433 shared the moment with the world.</p></div>
+          <div class="meta"><span class="chip lime">Shared by @433</span><span class="chip">2,300+ comments</span><span class="chip">Osimhen × Yamal</span></div></div>
+      </article>
+      <article class="mcard"><span class="num">03</span>
+        <div class="vid"><span class="tag">CAF AWARDS 2024</span><video src="media/m-caf.mp4" poster="img/m-caf.jpg" muted loop playsinline preload="none" data-auto></video></div>
+        <div class="txt"><div><p class="k">Marrakech · Red carpet</p><h3>Lookman, moments after the crown</h3><p>Ademola Lookman, trophy in hand, straight after being named African Player of the Year, talking to Cali about the World Cup qualifiers, the fans and the journey.</p></div>
+          <div class="meta"><span class="chip lime">Shared by @livescore</span><span class="chip">#CAFAwards2024</span><span class="chip">Super Eagles</span></div></div>
+      </article>
+      <article class="mcard stamps"><span class="num">04</span>
+        <div><p class="k" style="color:#fff">From her highlights</p><h3>The passport is full</h3>
+          <div class="stamp-grid">
+            <div class="stamp" style="--r:-2deg"><b>Messi</b><span>The handshake</span></div>
+            <div class="stamp" style="--r:1.5deg"><b>FIFA President</b><span>One-on-one</span></div>
+            <div class="stamp" style="--r:-1deg"><b>AFCON 2025</b><span>Morocco</span></div>
+            <div class="stamp" style="--r:2deg"><b>Chicago</b><span>World Cup trail</span></div>
+            <div class="stamp" style="--r:-1.5deg"><b>Atlanta</b><span>World Cup trail</span></div>
+            <div class="stamp" style="--r:1deg"><b>SuperSport</b><span>On air</span></div>
+          </div></div>
+      </article>
+    </div>
+    <div class="mo-prog"><i id="moprog"></i></div>
+  </div>
+</section>
+
+<!-- ============ ON THE ROAD ============ -->
+<section id="road">
+  <div class="wrap">
+    <div class="road-head">
+      <div><p class="k" style="color:var(--red)">On the road</p><h2 class="h2">Lagos to <span class="it fly">everywhere</span></h2></div>
+      <p class="lead rv">Cali travels where the football is. Every trip becomes a stop on the map, a story for the fans and a moment for partners to be part of.</p>
+    </div>
+    <div class="map rv" id="map">
+      <img src="img/world-dots.svg" alt="World map showing Cali's travels" width="1900" height="780">
+      <svg class="arcs" id="arcs" viewBox="0 0 1900 780" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="arcg" x1="0" x2="1"><stop offset="0" stop-color="#5b3dff"/><stop offset=".6" stop-color="#ff5fa2"/><stop offset="1" stop-color="#ff2340"/></linearGradient></defs></svg>
+      <div class="pin home" style="left:69.15%;top:68.56%"><i></i><span>Lagos <small>HOME</small></span></div>
+      <div class="pin us1" style="left:16.42%;top:34.9%;--d:.3s"><i></i><span>Dallas <small>WC 26</small></span></div>
+      <div class="pin us2" style="left:21.25%;top:23.23%;--d:.6s"><i></i><span>Chicago <small>WC 26</small></span></div>
+      <div class="pin b us2" style="left:22.95%;top:33.65%;--d:.9s"><i></i><span>Atlanta <small>WC 26</small></span></div>
+      <div class="pin" style="left:82.62%;top:24.35%;--d:1.2s"><i></i><span>Istanbul <small>UCL</small></span></div>
+      <div class="pin b" style="left:63.16%;top:36.37%;--d:1.5s"><i></i><span>Morocco <small>CAF · AFCON</small></span></div>
+    </div>
+    <div class="passes">
+      <div class="pass rv" style="--c:var(--violet)"><p class="k">FIFA World Cup 2026</p><div class="rt">LOS<i></i>DFW</div><p>Dallas, Chicago and Atlanta: press conferences and match days.</p></div>
+      <div class="pass rv" style="--c:var(--red)"><p class="k">Champions League</p><div class="rt">LOS<i></i>IST</div><p>Istanbul: the tunnel moment with Osimhen and Lamine Yamal.</p></div>
+      <div class="pass rv" style="--c:var(--pink)"><p class="k">CAF Awards · AFCON</p><div class="rt">LOS<i></i>RAK</div><p>Morocco: the red carpet in Marrakech and AFCON 2025.</p></div>
+      <div class="pass rv" style="--c:#1c9b5a"><p class="k">Watch parties</p><div class="rt">LOS<i></i>LOS</div><p>Lagos: SuperSport × Coca-Cola watch party, Man City v Arsenal.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MEET CALI ============ -->
+<section id="meet">
+  <div class="wrap">
+    <p class="k">Meet & greets · Watch parties · Fan days</p>
+    <h2 class="h2">Meet <span class="it">Cali</span> in your city</h2>
+    <p class="lead" style="margin-top:18px">Wherever the football takes her, the fans come too. Watch parties, meet & greets and fan days, announced here first.</p>
+    <div class="meet-grid">
+      <div>
+        <div class="event rv">
+          <div class="ph"><span class="tag">LAST EVENT</span><img src="img/cali-cut.webp" alt="Cali at the SuperSport × Coca-Cola watch party" loading="lazy"></div>
+          <div class="bd"><p class="k" style="color:var(--red)">SuperSport × Coca-Cola</p><h3>Watch party: Man City v Arsenal</h3>
+            <div class="row"><b>Where</b><span>Balmoral VI, Lagos</span><b>When</b><span>Sunday, 19 April · 2pm</span><b>With</b><span>DStv · GOtv Nigeria · Premier League</span></div>
+            <a class="btn" href="#rsvp">Get the next date first →</a></div>
+        </div>
+        <div class="tiers">
+          <div class="tier rv"><b>Watch party</b><p>Big screen, big match, Cali hosting live. Free RSVP, limited spots.</p></div>
+          <div class="tier rv"><b>Meet & greet</b><p>Photos, signed moments and a quick chat after the event.</p></div>
+          <div class="tier rv"><b>Fan day VIP</b><p>Pitch-side Q&A and a seat at the post-match analysis.</p></div>
+        </div>
+      </div>
+      <div class="vote rv" id="rsvp">
+        <h3>Bring Cali to your city</h3>
+        <p>Tap your city. The most-requested cities shape the next tour stops.</p>
+        <div class="cities" id="cities">
+          <button class="city" type="button"><span>Lagos</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Abuja</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Port Harcourt</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Accra</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Nairobi</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Johannesburg</span><em>Vote</em></button>
+          <button class="city" type="button"><span>London</span><em>Vote</em></button>
+          <button class="city" type="button"><span>Dallas</span><em>Vote</em></button>
+        </div>
+        <form class="rsvp" id="rsvpf" onsubmit="return false">
+          <input required placeholder="Your name"><input required type="email" placeholder="Email">
+          <select class="full" id="rsvpcity"><option>Pick a city to get notified</option><option>Lagos</option><option>Abuja</option><option>Port Harcourt</option><option>Accra</option><option>Nairobi</option><option>Johannesburg</option><option>London</option><option>Dallas</option></select>
+          <button class="btn full" type="submit">Notify me when Cali's coming →</button>
+          <p class="route">Goes to <b>fans@iamcalisports.com</b> · dates land in your inbox first</p>
+          <p class="okmsg" id="rsvpok">You're on the list 🦋 We'll tell you first when Cali is coming.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAKES ============ -->
+<section id="takes">
+  <div class="wrap takes-head">
+    <div><p class="k" style="color:var(--violet)">Cali's takes</p><h2 class="h2">Every matchday, <span class="it fly">her call</span></h2></div>
+    <a class="btn ghost" href="https://www.instagram.com/iamcalisports/" target="_blank" rel="noopener">Follow on Instagram →</a>
+  </div>
+  <div class="takes-row" id="takesrow">
+    <a class="phone" href="https://www.instagram.com/reel/DewC3w2t2Jy/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-bayern-arsenal.jpg" alt="UCL preview Bayern v Arsenal" loading="lazy"></div><div class="cap"><span>UCL preview</span><b>Bayern v Arsenal</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/DewC_e6tM3v/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-como-united.jpg" alt="Como v Manchester United preview" loading="lazy"></div><div class="cap"><span>UCL preview</span><b>Como v Man United</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/DexPjWGNBuv/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-united.jpg" alt="What's Manchester United's problem?" loading="lazy"></div><div class="cap"><span>Hot take</span><b>What's United's problem?</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/Deu7Cf0tQVR/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-ilenikhena.jpg" alt="Ilenikhena and Lookman reaction" loading="lazy"></div><div class="cap"><span>Super Eagles</span><b>Ilenikhena & Lookman</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/DawF73LNytY/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-yamal.jpg" alt="Lamine Yamal at the World Cup" loading="lazy"></div><div class="cap"><span>World Cup</span><b>Yamal on his tournament</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/DDp5NbjILPW/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-lookman.jpg" alt="Lookman interview at the CAF Awards" loading="lazy"></div><div class="cap"><span>CAF Awards</span><b>Lookman, Player of the Year</b></div></a>
+    <a class="phone" href="https://www.instagram.com/reel/DeyLsoYoMDD/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-kombo.jpg" alt="Football game with Ultimate Kombo" loading="lazy"></div><div class="cap"><span>Collab</span><b>Game night with Kombo</b></div></a>
+  </div>
+</section>
+
+<!-- ============ PARTNERS ============ -->
+<section id="partners">
+  <div class="wrap">
+    <p class="k" style="color:var(--red)">Partners & platforms</p>
+    <h2 class="h2">Brands play <span class="it fly">better with Cali</span></h2>
+  </div>
+  <div class="marq"><div class="tr" id="marq"><span>SuperSport</span><span class="o">Coca-Cola</span><span>DStv</span><span class="o">GOtv</span><span>Premier League watch parties</span><span class="o">433</span><span>LiveScore</span><span class="o">Ultimate Kombo</span></div></div>
+  <div class="wrap">
+    <div class="pk-grid">
+      <div class="pk big rv"><div class="n">291K</div><h3>An audience that shows up</h3><p>Football fans across Nigeria, Africa and the diaspora, following Cali from previews to the final whistle.</p><ul><li>Instagram</li><li>YouTube</li><li>Live events</li></ul></div>
+      <div class="pk rv" style="--c:var(--red)"><div class="ic">📺</div><h3>Watch-party hosting</h3><p>Big matches, branded venues, Cali on the mic. Proven with SuperSport × Coca-Cola.</p><ul><li>MC & hosting</li><li>RSVP drive</li><li>Live content</li></ul></div>
+      <div class="pk rv" style="--c:var(--violet)"><div class="ic">🎤</div><h3>Pitch-side interviews</h3><p>Tunnel, mixed zone and red carpet access, with your brand on the mic flag.</p><ul><li>Player interviews</li><li>Mic branding</li><li>Exclusives</li></ul></div>
+      <div class="pk rv" style="--c:var(--pink)"><div class="ic">⚡</div><h3>Branded match previews</h3><p>"Brought to you by" previews and reactions every matchday.</p><ul><li>UCL</li><li>Premier League</li><li>Super Eagles</li></ul></div>
+      <div class="pk rv" style="--c:#1c9b5a"><div class="ic">✈️</div><h3>Tour sponsor</h3><p>Put your name on the meet & greet tour: every city, every fan photo, every recap.</p><ul><li>City takeovers</li><li>Fan days</li><li>Recap films</li></ul></div>
+      <div class="pk rv" style="--c:var(--ink)"><div class="ic">🦋</div><h3>Media kit</h3><p>Audience, rates and case studies in one deck, sent on request.</p><ul><li>PDF deck</li><li>Rate card</li><li>Case studies</li></ul><a class="btn" style="margin-top:16px" href="#contact">Request the media kit →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact">
+  <div class="wrap">
+    <p class="k" style="color:var(--violet)">Dedicated inboxes</p>
+    <h2 class="h2">The right desk, <span class="it fly">every time</span></h2>
+    <div class="inbox">
+      <button class="mail" type="button" data-mail="partners@iamcalisports.com" style="--c:var(--red)"><span class="cp">Copy</span><p class="k">Brands & sponsors</p><b>partners@iamcalisports.com</b><p>Campaigns, watch parties and the tour.</p></button>
+      <button class="mail" type="button" data-mail="bookings@iamcalisports.com" style="--c:var(--violet)"><span class="cp">Copy</span><p class="k">Hosting & events</p><b>bookings@iamcalisports.com</b><p>MC, panels, interviews and appearances.</p></button>
+      <button class="mail" type="button" data-mail="press@iamcalisports.com" style="--c:var(--pink)"><span class="cp">Copy</span><p class="k">Press & media</p><b>press@iamcalisports.com</b><p>Features, broadcast and collaborations.</p></button>
+      <button class="mail" type="button" data-mail="fans@iamcalisports.com" style="--c:#1c9b5a"><span class="cp">Copy</span><p class="k">Fans & meet-ups</p><b>fans@iamcalisports.com</b><p>Meet & greets, shout-outs and fan days.</p></button>
+    </div>
+    <div class="ct-grid">
+      <div>
+        <p class="lead">Tell Cali's team what you're planning. Every enquiry is routed to the right inbox automatically, so nothing gets lost in the DMs.</p>
+        <div class="news rv"><h3>The <span class="it">Cali</span> Sheet</h3><p>Matchday notes, tour dates and behind-the-scenes, once a week.</p><form onsubmit="this.querySelector('button').textContent='Subscribed ✓';return false"><input type="email" required placeholder="Your email"><button class="btn" type="submit">Subscribe</button></form></div>
+      </div>
+      <form class="form rv" id="ctform" onsubmit="return false">
+        <input required placeholder="Your name"><input required placeholder="Company / brand">
+        <input required type="email" placeholder="Email"><select id="cttype"><option value="partners@iamcalisports.com">Brand partnership</option><option value="bookings@iamcalisports.com">Hosting or event booking</option><option value="press@iamcalisports.com">Press or media</option><option value="fans@iamcalisports.com">Fan meet-up</option></select>
+        <textarea placeholder="Match, city, dates and what you have in mind"></textarea>
+        <p class="route full">This goes to <b id="ctto">partners@iamcalisports.com</b></p>
+        <button class="btn red full" type="submit" id="ctsend" style="justify-content:center">Send to Cali's team →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-big"><span>Cali</span> <span class="fly">Sports</span></div>
+  <div class="wrap ft-row"><span>© 2026 Calister Ojonugwa Enejele · Sports journalist · Freelance reporter</span><span><a href="https://www.instagram.com/iamcalisports/" target="_blank" rel="noopener">Instagram</a> · <a href="https://youtu.be/eyEW4Tz9jYk" target="_blank" rel="noopener">YouTube</a></span><span>Concept by <a href="https://www.instagram.com/_revisual" target="_blank" rel="noopener">@_revisual</a></span></div>
+</footer>
+
+<div class="concept"><b>Concept preview</b> for @iamcalisports · by @_revisual</div>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const mobile = matchMedia("(max-width: 900px)").matches;
+$$("[data-split]").forEach((el) => { el.innerHTML = [...el.textContent].map((c) => `<span class="ch">${c}</span>`).join(""); });
+
+/* ---------- smooth scroll ---------- */
+let lenis = null;
+if (!reduce && window.Lenis) {
+  lenis = new Lenis({ lerp: 0.09 });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((t) => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+  lenis.stop();
+  $$('a[href^="#"]').forEach((a) => a.addEventListener("click", (e) => { const id = a.getAttribute("href"); if (id.length > 1 && $(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -60 }); } }));
+}
+
+/* ---------- crawl / ticker / marquee loops ---------- */
+const loop = (el, speed) => { el.innerHTML += el.innerHTML; let x = 0; gsap.ticker.add(() => { x -= speed; const w = el.scrollWidth / 2; if (-x > w) x += w; el.style.transform = `translate3d(${x}px,0,0)`; }); };
+loop($("#oacrawl"), 1.4); loop($("#tick"), 1.1); loop($("#marq"), 0.9);
+
+/* ---------- ON AIR opening ---------- */
+let introDone = false;
+function finishIntro(fast) {
+  if (introDone) return; introDone = true;
+  const v = $("#oavid"); v.pause();
+  const out = gsap.timeline({ onComplete: () => { $("#onair").remove(); document.body.classList.remove("lock"); lenis && lenis.start(); ScrollTrigger.refresh(); } });
+  if (fast) out.to("#onair", { opacity: 0, duration: 0.5 });
+  else out.to("#oaflash", { opacity: 1, duration: 0.18 }).to("#onair", { opacity: 0, duration: 0.8, ease: "power2.out" }, 0.3);
+  heroIn(fast ? 0.15 : 0.45);
+}
+function onair() {
+  if (reduce) { $("#onair").remove(); document.body.classList.remove("lock"); heroIn(0); return; }
+  const v = $("#oavid");
+  v.src = "media/onair." + (v.canPlayType('video/mp4; codecs="avc1.64001f"') ? "mp4" : "webm");
+  v.playbackRate = 1.12;
+  gsap.set("#mons", { opacity: 0, scale: 0.94 });
+  const L3 = [[0, "FIFA World Cup 2026 · Dallas", "A question for Lamine Yamal"], [3.0, "CAF Awards 2024 · Marrakech", "Ademola Lookman, Player of the Year"], [5.8, "Champions League · Istanbul", "Osimhen gets Yamal, takes the photo"], [9.4, "Cali Sports · Matchday", "UCL preview: Bayern v Arsenal"]];
+  const PVW = ["img/m-caf.jpg", "img/m-tunnel.jpg", "img/t-bayern-arsenal.jpg", "img/m-worldcup.jpg"];
+  const LEN = 11.0;
+  const tl = gsap.timeline({ paused: true });
+  L3.forEach(([at, a, b], i) => {
+    tl.call(() => { $("#l3a").textContent = a; $("#l3b").textContent = b; $("#pvwimg").src = PVW[i]; }, null, at + 0.001)
+      .fromTo("#l3", { xPercent: -110, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, at + 0.15)
+      .fromTo("#pgm", { boxShadow: "0 0 0 10px rgba(255,35,64,.6), 0 50px 120px -30px rgba(255,35,64,.35)" }, { boxShadow: "0 0 0 4px rgba(255,35,64,.25), 0 50px 120px -30px rgba(255,35,64,.35)", duration: 0.6 }, at);
+  });
+  const g1 = { v: 0 }, g2 = { v: 0 };
+  tl.to(g1, { v: 291, duration: 2.5, ease: "power2.out", onUpdate: () => ($("#gfx1").textContent = Math.round(g1.v) + "K") }, 0.4)
+    .to(g2, { v: 1108, duration: 2.5, ease: "power2.out", onUpdate: () => ($("#gfx2").textContent = Math.round(g2.v).toLocaleString("en-GB")) }, 0.6)
+    .set({}, {}, LEN);
+  let started = false, last = -1;
+  const run = () => {
+    if (introDone) return;
+    const t = Math.min(v.currentTime, LEN); tl.time(t);
+    const f = Math.floor(t * 25); if (f !== last) { last = f; $("#oatc").textContent = `CAM 1 · 00:00:${String(Math.floor(t)).padStart(2, "0")}:${String(f % 25).padStart(2, "0")}`; }
+    if (v.ended || t >= LEN - 0.08) return finishIntro(false);
+    requestAnimationFrame(run);
+  };
+  // countdown 3·2·1, then the light goes red and we're live
+  const cd = gsap.timeline({ onComplete: () => {
+    $("#oalight").classList.add("on");
+    gsap.to("#oacount", { opacity: 0, scale: 1.4, duration: 0.35, ease: "power2.in" });
+    gsap.to("#mons", { opacity: 1, scale: 1, duration: 0.7, ease: "expo.out", delay: 0.1 });
+    const p = v.play(); if (p && p.catch) p.catch(() => setTimeout(() => finishIntro(true), 800));
+  } });
+  [3, 2, 1].forEach((n, i) => cd.call(() => ($("#oanum").textContent = n), null, i * 0.55).fromTo("#oaring", { strokeDashoffset: 289 }, { strokeDashoffset: 0, duration: 0.55, ease: "none" }, i * 0.55).fromTo("#oanum", { scale: 1.25, opacity: 0.3 }, { scale: 1, opacity: 1, duration: 0.4, ease: "expo.out" }, i * 0.55));
+  cd.to({}, { duration: 0.05 });
+  v.addEventListener("playing", () => { if (!started) { started = true; run(); } });
+  v.addEventListener("error", () => finishIntro(true));
+  setTimeout(() => { if (!started) finishIntro(true); }, 8000);
+  $("#oaskip").addEventListener("click", () => { cd.kill(); finishIntro(true); });
+}
+
+/* ---------- hero ---------- */
+function heroIn(delay) {
+  const tl = gsap.timeline({ delay });
+  tl.from(".h-word .ch", { yPercent: 110, opacity: 0, duration: 1.2, stagger: 0.04, ease: "expo.out" }, 0)
+    .from(".h-fig", { y: 140, opacity: 0, duration: 1.4, ease: "expo.out" }, 0.15)
+    .from(".h-l > *, .h-r > *", { y: 30, opacity: 0, duration: 1, stagger: 0.08, ease: "expo.out" }, 0.45)
+    .from("nav.top", { y: -30, opacity: 0, duration: 0.9 }, 0.5)
+    .from(".ticker", { yPercent: 100, duration: 0.8, ease: "expo.out" }, 0.6)
+    .add(flyButterfly, 0.8);
+}
+
+/* ---------- the butterfly (her 🦋) ---------- */
+function makeFly() {
+  const d = document.createElement("div"); d.className = "bfly"; d.setAttribute("aria-hidden", "true");
+  d.innerHTML = `<svg viewBox="0 0 68 56" width="100%" height="100%"><defs><linearGradient id="bf${Math.random().toString(36).slice(2, 6)}" x1="0" x2="1"><stop offset="0" stop-color="#5b3dff"/><stop offset=".6" stop-color="#ff5fa2"/><stop offset="1" stop-color="#ff2340"/></linearGradient></defs><g class="wl"><path d="M33 28 C 18 0, 0 6, 4 22 C 7 32, 22 32, 33 28 Z M33 30 C 20 34, 8 44, 16 52 C 24 58, 30 44, 33 30 Z"/></g><g class="wr"><path d="M35 28 C 50 0, 68 6, 64 22 C 61 32, 46 32, 35 28 Z M35 30 C 48 34, 60 44, 52 52 C 44 58, 38 44, 35 30 Z"/></g><rect x="32.5" y="18" width="3" height="24" rx="1.5" fill="#0d0d12"/></svg>`;
+  const id = d.querySelector("linearGradient").id; d.querySelectorAll("path").forEach((p) => p.setAttribute("fill", `url(#${id})`));
+  return d;
+}
+function flyButterfly() {
+  if (reduce) return;
+  const hero = $("#hero"), b = makeFly(); hero.appendChild(b);
+  const W = hero.clientWidth, H = hero.clientHeight;
+  const P = [[-80, H * 0.75], [W * 0.18, H * 0.35], [W * 0.42, H * 0.12], [W * 0.62, H * 0.3], [W * 0.78, H * 0.18], [W * 0.9, H * 0.42]];
+  const st = { t: 0 };
+  const at = (t) => { const n = P.length - 1, s = Math.min(n - 1e-4, t * n), i = Math.floor(s), u = s - i; const p0 = P[Math.max(0, i - 1)], p1 = P[i], p2 = P[i + 1], p3 = P[Math.min(n, i + 2)];
+    const c = (a, b2, c2, d2) => 0.5 * ((2 * b2) + (-a + c2) * u + (2 * a - 5 * b2 + 4 * c2 - d2) * u * u + (-a + 3 * b2 - 3 * c2 + d2) * u * u * u); return [c(p0[0], p1[0], p2[0], p3[0]), c(p0[1], p1[1], p2[1], p3[1])]; };
+  let px = P[0][0], py = P[0][1];
+  gsap.to(st, { t: 1, duration: mobile ? 5 : 6.5, ease: "sine.inOut", onUpdate: () => { const [x, y] = at(st.t); const ang = Math.atan2(y - py, x - px) * 57.3; px = x; py = y; gsap.set(b, { x, y, rotation: ang * 0.25 + 10 }); },
+    onComplete: () => { gsap.to(b, { y: "-=14", duration: 1.2, yoyo: true, repeat: -1, ease: "sine.inOut" }); } });
+}
+
+/* ---------- scroll stories ---------- */
+function scrolly() {
+  ScrollTrigger.create({ start: 60, onUpdate: (s) => $("#nav").classList.toggle("solid", s.scroll() > 60) });
+  $$(".rv").forEach((el) => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
+  $$(".h2").forEach((h) => gsap.from(h, { yPercent: 30, opacity: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 88%" } }));
+  gsap.to(".h-word", { yPercent: -14, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".h-fig", { yPercent: 8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
+  // moments: sideways on desktop
+  if (!mobile) {
+    const trk = $("#motrack"), dist = () => trk.scrollWidth - innerWidth;
+    const hz = gsap.to(trk, { x: () => -dist(), ease: "none", scrollTrigger: { trigger: ".mo-pin", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 0.6, invalidateOnRefresh: true, onUpdate: (st) => ($("#moprog").style.transform = `scaleX(${st.progress})`) } });
+    $$(".mcard").forEach((c) => gsap.from(c, { rotate: 3, y: 60, opacity: 0.3, ease: "power2.out", scrollTrigger: { trigger: c, containerAnimation: hz, start: "left 95%", end: "left 55%", scrub: true } }));
+  } else {
+    $$(".mcard").forEach((c) => gsap.from(c, { y: 60, opacity: 0, duration: 1, ease: "expo.out", scrollTrigger: { trigger: c, start: "top 88%" } }));
+  }
+  // map: flights out of Lagos
+  const arcs = $("#arcs"), home = [0.6915 * 1900, 0.6856 * 780];
+  const dests = [[0.1642, 0.349], [0.2125, 0.2323], [0.2295, 0.3365], [0.8262, 0.2435], [0.6316, 0.3637]];
+  const paths = dests.map(([x, y]) => { const X = x * 1900, Y = y * 780, mx = (home[0] + X) / 2, my = Math.min(home[1], Y) - Math.abs(X - home[0]) * 0.28 - 40;
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path"); p.setAttribute("d", `M${home[0]},${home[1]} Q${mx},${my} ${X},${Y}`); arcs.appendChild(p); const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; return p; });
+  gsap.to(paths, { strokeDashoffset: 0, duration: 1.6, stagger: 0.18, ease: "power2.inOut", scrollTrigger: { trigger: "#map", start: "top 75%" } });
+  gsap.from(".pin", { scale: 0, opacity: 0, duration: 0.7, stagger: 0.12, ease: "back.out(2)", scrollTrigger: { trigger: "#map", start: "top 70%" } });
+  // counters
+  $$("[data-count]").forEach((el) => { const n = +el.dataset.count, o = { v: 0 }; gsap.to(o, { v: n, duration: 1.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 95%" }, onUpdate: () => (el.textContent = (el.dataset.sep !== undefined ? Math.round(o.v).toLocaleString("en-GB") : Math.round(o.v)) + (el.dataset.suf || "")) }); });
+  // takes row: fan in
+  gsap.from(".phone", { y: 80, opacity: 0, rotate: (i) => (i % 2 ? 4 : -4), duration: 1.1, stagger: 0.07, ease: "expo.out", scrollTrigger: { trigger: "#takesrow", start: "top 85%" } });
+  // a butterfly escorts you through meet & contact
+  [["#meet", 0.12], ["#contact", 0.85]].forEach(([s, xr]) => { const sec = $(s), b = makeFly(); b.style.left = xr * 100 + "%"; b.style.top = "80px"; b.style.opacity = ".9"; sec.appendChild(b);
+    gsap.fromTo(b, { y: 0, x: -40 }, { y: () => sec.clientHeight * 0.55, x: 60, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: true } }); });
+}
+
+/* ---------- interactions ---------- */
+let voted = []; try { voted = JSON.parse(localStorage.getItem("cali-votes") || "[]"); } catch (e) {}
+$$(".city").forEach((c) => { const name = c.querySelector("span").textContent;
+  const paint = () => { const on = voted.includes(name); c.classList.toggle("on", on); c.querySelector("em").textContent = on ? "Voted ✓" : "Vote"; };
+  paint();
+  c.addEventListener("click", () => { voted = voted.includes(name) ? voted.filter((x) => x !== name) : [...voted, name]; try { localStorage.setItem("cali-votes", JSON.stringify(voted)); } catch (e) {} paint(); if (voted.includes(name)) { $("#rsvpcity").value = name; gsap.fromTo(c, { scale: 0.96 }, { scale: 1, duration: 0.6, ease: "elastic.out(1,.4)" }); } });
+});
+$("#rsvpf").addEventListener("submit", () => { $("#rsvpok").style.display = "block"; gsap.from("#rsvpok", { y: 10, opacity: 0, duration: 0.5 }); });
+$("#cttype").addEventListener("change", (e) => { $("#ctto").textContent = e.target.value; gsap.fromTo("#ctto", { color: "#ff2340" }, { color: "#0d0d12", duration: 1 }); });
+$("#ctform").addEventListener("submit", () => { $("#ctsend").textContent = "Sent to " + $("#cttype").value + " ✓"; });
+$$(".mail").forEach((m) => m.addEventListener("click", async () => { try { await navigator.clipboard.writeText(m.dataset.mail); } catch (e) {} m.classList.add("copied"); m.querySelector(".cp").textContent = "Copied ✓"; setTimeout(() => { m.classList.remove("copied"); m.querySelector(".cp").textContent = "Copy"; }, 1800); }));
+// videos play only while on screen
+if ("IntersectionObserver" in window) { const io = new IntersectionObserver((es) => es.forEach((e) => { const v = e.target; if (e.isIntersecting) { if (v.preload === "none") v.preload = "auto"; const p = v.play(); p && p.catch && p.catch(() => {}); } else v.pause(); }), { rootMargin: "0px 300px" }); $$("video[data-auto]").forEach((v) => io.observe(v)); }
+// keep scroll animations in sync if the page height changes
+if ("ResizeObserver" in window) { let lastH = 0, rt = 0; new ResizeObserver(() => { const h = document.documentElement.scrollHeight; if (Math.abs(h - lastH) < 4) return; lastH = h; clearTimeout(rt); rt = setTimeout(() => ScrollTrigger.refresh(), 150); }).observe(document.body); }
+
+/* ---------- go ---------- */
+Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]).then(() => { scrolly(); onair(); });
+</script>
+</body>
+</html>
