@@ -101,43 +101,51 @@ nav.top ul a:hover::after { right: 0; }
 .btn.ghost:hover { background: var(--ink); color: #fff; }
 @media (max-width: 1000px) { nav.top ul { display: none; } }
 
-/* ============ HERO ============ */
-#hero { min-height: 100svh; padding: 110px 0 0; overflow: hidden; background: radial-gradient(40% 50% at 50% 55%, rgba(255,95,162,.28), transparent 70%), radial-gradient(30% 40% at 85% 25%, rgba(91,61,255,.18), transparent 70%), radial-gradient(28% 36% at 12% 70%, rgba(215,255,58,.35), transparent 70%), var(--paper); display: flex; flex-direction: column; }
-.hx { position: relative; flex: 1; display: grid; grid-template-columns: 1fr minmax(320px, 40vw) 1fr; align-items: end; gap: 2vw; padding: 0 var(--pad); }
-.h-word { position: absolute; left: 0; right: 0; top: 17%; text-align: center; font-family: var(--display); text-transform: uppercase; line-height: .8; pointer-events: none; z-index: 0; font-size: 19.2vw; letter-spacing: .005em; white-space: nowrap; }
-.h-word.front { z-index: 3; color: transparent; -webkit-text-stroke: 1.5px rgba(13,13,18,.55); }
+/* ============ HERO: living colour field ============ */
+#hero { position: relative; height: 100svh; min-height: 720px; overflow: hidden; color: #fff; background: #2a0e6b; }
+#liquid { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.hgrain { position: absolute; inset: 0; pointer-events: none; opacity: .18; mix-blend-mode: overlay; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.hz { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr minmax(300px, 34vw) 1fr; padding: 130px var(--pad) 0; gap: 2vw; z-index: 3; }
+.hcol { display: flex; flex-direction: column; gap: 36px; }
+.hcol.r { align-items: flex-start; padding-left: 1vw; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; display: block; margin-bottom: 18px; }
+.clock { font-size: 17px; line-height: 1.5; text-shadow: 0 2px 20px rgba(40,0,60,.35); }
+.clock b { font-weight: 600; font-variant-numeric: tabular-nums; display: block; }
+.talk { display: flex; align-items: center; gap: 16px; }
+.talk .av { width: 74px; height: 74px; border-radius: 50%; overflow: hidden; flex: 0 0 auto; box-shadow: 0 0 0 3px rgba(255,255,255,.5); }
+.talk .av img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
+.talk p { font-size: 14px; line-height: 1.35; margin-bottom: 8px; }
+.talk a { display: inline-block; background: #fff; color: var(--ink); font-weight: 600; font-size: 14px; padding: 9px 22px; border-radius: 8px; transition: transform .4s var(--out); }
+.talk a:hover { transform: translateY(-2px); }
+.hline { font-size: clamp(20px, 1.9vw, 28px); line-height: 1.12; font-weight: 500; letter-spacing: -.01em; max-width: 22ch; text-shadow: 0 2px 24px rgba(40,0,60,.3); }
+.hstats { display: flex; gap: 34px; }
+.hstats b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(38px, 3.6vw, 58px); line-height: 1; }
+.hstats span { font-size: 14px; line-height: 1.3; display: block; margin-top: 6px; max-width: 11ch; }
+.h-fig { position: absolute; z-index: 4; left: 50%; bottom: 0; width: min(34vw, 560px); transform: translateX(-50%); }
+.h-fig img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 90%, transparent); mask-image: linear-gradient(#000 90%, transparent); }
+.h-word { position: absolute; z-index: 2; left: 0; right: 0; bottom: -1.6vw; text-align: center; font-family: var(--display); text-transform: uppercase; font-size: 17.6vw; line-height: .8; white-space: nowrap; letter-spacing: .005em; pointer-events: none;
+  background: linear-gradient(100deg, #ffd6a0 0%, #fff4c2 12%, #9ff0ff 26%, #c7b6ff 40%, #ffd1ec 54%, #b6ffd4 68%, #fff1b8 82%, #ffd6a0 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; opacity: .92; animation: irid 9s linear infinite; }
+@keyframes irid { to { background-position: 200% 0; } }
 .h-word .ch { display: inline-block; }
-.h-word .sp { display: inline-block; width: .18em; }
-.h-fig { position: relative; z-index: 2; align-self: end; justify-self: center; width: 100%; max-width: 560px; }
-.h-fig img { width: 100%; height: auto; -webkit-mask-image: linear-gradient(#000 88%, transparent); mask-image: linear-gradient(#000 88%, transparent); }
-.h-l, .h-r { position: relative; z-index: 3; padding-bottom: 12vh; }
-.h-l h1 { font-size: clamp(15px, 1.25vw, 18px); font-weight: 600; line-height: 1.45; max-width: 30ch; }
-.h-l h1 .it { font-size: 1.5em; display: block; line-height: 1.05; margin-bottom: 10px; }
-.h-l .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
-.live-card { background: #fff; border-radius: 16px; padding: 16px; box-shadow: 0 30px 60px -30px rgba(13,13,18,.35); max-width: 300px; margin-left: auto; }
-.live-card .top { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 800; letter-spacing: .16em; }
-.live-card .top span:first-child { display: inline-flex; align-items: center; gap: 7px; color: var(--red); }
-.live-card .top span:first-child::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1.2s infinite; }
-@keyframes pulse { 50% { opacity: .2; } }
-.live-card img { border-radius: 10px; margin: 12px 0 10px; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 62%; width: 100%; height: auto; }
-.live-card b { font-family: var(--display); font-weight: 400; font-size: 24px; text-transform: uppercase; line-height: 1; display: block; }
-.live-card p { font-size: 13px; color: var(--dim); margin-top: 4px; }
-.stats { display: flex; gap: 22px; margin-top: 16px; justify-content: flex-end; }
-.stats div { text-align: right; }
-.stats b { display: block; font-family: var(--display); font-size: 38px; line-height: 1; font-weight: 400; }
-.stats span { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+@media (max-width: 900px) {
+  #hero { height: auto; min-height: 100svh; padding-bottom: 0; }
+  .hz { position: relative; grid-template-columns: 1fr; padding: 96px var(--pad) 0; gap: 22px; }
+  .hcol { gap: 20px; } .hcol.r { padding-left: 0; } .hcol.r .dot, .hcol.l .dot { display: none; }
+  .hcol.l { order: 2; } .hcol.r { order: 1; }
+  .clock { display: none; }
+  .hline { font-size: 22px; max-width: 26ch; }
+  .hstats { gap: 22px; } .hstats b { font-size: 36px; } .hstats span { font-size: 12px; }
+  .h-fig { position: relative; left: auto; transform: none; width: 78vw; margin: 10px auto 0; }
+  .h-word { font-size: 22vw; bottom: -4.5vw; }
+}
+
 .ticker { position: relative; z-index: 4; display: flex; align-items: center; background: var(--ink); color: #fff; height: 54px; overflow: hidden; }
-.ticker .lab { flex: 0 0 auto; height: 100%; display: grid; place-items: center; padding: 0 20px; background: var(--red); font-weight: 800; letter-spacing: .2em; font-size: 12px; }
+.ticker .lab { flex: 0 0 auto; height: 100%; display: grid; place-items: center; padding: 0 20px; background: var(--red); font-weight: 800; letter-spacing: .2em; font-size: 12px; position: relative; z-index: 2; }
 .ticker .tr { display: inline-flex; gap: 46px; white-space: nowrap; padding-left: 30px; font-weight: 600; font-size: 15px; will-change: transform; }
 .ticker .tr span b { color: var(--lime); font-weight: 800; margin-right: 10px; }
-@media (max-width: 900px) {
-  #hero { padding-top: 84px; }
-  .hx { grid-template-columns: 1fr; align-items: start; }
-  .h-word { top: 3%; font-size: 30vw; white-space: normal; line-height: .82; } .h-word .sp { display: block; height: 0; }
-  .h-l { order: 2; padding: 0 0 26px; text-align: center; } .h-l h1 { margin: 0 auto; } .h-l .btns { justify-content: center; }
-  .h-fig { order: 1; max-width: 78vw; margin-top: 36vw; }
-  .h-r { order: 3; padding: 0 0 28px; } .live-card { margin: 0 auto; } .stats { justify-content: center; } .stats div { text-align: center; }
-}
+nav.top:not(.solid) { color: #fff; }
+nav.top:not(.solid) .btn.red { background: #fff; color: var(--ink); }
+nav.top ul a::after { background: currentColor; }
 
 /* ============ BUTTERFLY ============ */
 .bfly { position: absolute; z-index: 20; width: 64px; height: 52px; pointer-events: none; left: 0; top: 0; will-change: transform; }
@@ -181,6 +189,64 @@ nav.top ul a:hover::after { right: 0; }
   .stamp-grid { grid-template-columns: 1fr 1fr; }
   .mo-prog { display: none; }
 }
+
+/* deck of moments (3D fan) */
+.deck { position: relative; width: min(30vw, 420px); height: 210px; perspective: 1100px; flex: 0 0 auto; }
+.deck .cd { position: absolute; left: 50%; top: 50%; width: 120px; aspect-ratio: 9 / 16; margin: -107px 0 0 -60px; border-radius: 14px; overflow: hidden; box-shadow: 0 20px 40px -14px rgba(0,0,0,.7); border: 2px solid rgba(255,255,255,.15); will-change: transform; }
+.deck .cd img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 900px) { .deck { width: 100%; height: 230px; margin-top: 10px; } }
+
+/* ============ FORMATS: 3D cylinder ============ */
+#formats { background: var(--night); color: #fff; padding: clamp(90px, 10vw, 150px) 0; overflow: hidden; }
+.fm-grid { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 3vw; }
+.fm-side .k { color: var(--lime); }
+.fm-side p { color: #b9b6cc; max-width: 30ch; margin-top: 12px; }
+.fm-side.r { text-align: right; justify-self: end; }
+.fm-side.r b { display: block; font-family: var(--display); font-weight: 400; font-size: 64px; line-height: 1; color: #fff; }
+.cyl-wrap { --lh: clamp(52px, 6.6vw, 104px); height: calc(var(--lh) * 3.6); width: min(56vw, 860px); perspective: 1400px; position: relative; -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent); mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent); }
+.cyl { position: absolute; inset: 0; transform-style: preserve-3d; will-change: transform; }
+.cyl .ln { position: absolute; left: 0; right: 0; top: 50%; height: var(--lh); margin-top: calc(var(--lh) / -2); display: flex; align-items: center; gap: .3em; font-family: var(--display); font-size: calc(var(--lh) * .98); line-height: 1; text-transform: uppercase; white-space: nowrap; backface-visibility: hidden; -webkit-backface-visibility: hidden; transform: rotateX(calc(var(--i) * -36deg)) translateZ(calc(var(--lh) * 1.54)); }
+.cyl .ln img { height: calc(var(--lh) * .86); aspect-ratio: 1; width: auto; object-fit: cover; border-radius: 14px; flex: 0 0 auto; }
+.cyl .ln.red { color: var(--red); } .cyl .ln.lime { color: var(--lime); } .cyl .ln.it { font-family: var(--display); font-style: italic; }
+@media (max-width: 900px) { .fm-grid { grid-template-columns: 1fr; } .fm-side.r { text-align: left; justify-self: start; } .cyl-wrap { width: 100%; --lh: 13vw; } }
+
+/* ============ WHY A WEBSITE ============ */
+#why { background: linear-gradient(170deg, #12101f 0%, #1b1240 50%, #2a0e6b 100%); color: #fff; padding: clamp(100px, 12vw, 170px) 0; overflow: hidden; }
+#why .lead { color: #c9c6da; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 46px; }
+.wy { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 24px; transition: background .4s, transform .6s var(--out); }
+.wy:hover { background: rgba(255,255,255,.1); transform: translateY(-4px); }
+.wy .n { font-family: var(--display); font-size: 22px; color: var(--lime); }
+.wy h3 { font-family: var(--display); font-weight: 400; font-size: 28px; line-height: 1; text-transform: uppercase; margin: 10px 0 10px; }
+.wy p { color: #c9c6da; font-size: 15px; }
+.calc { margin-top: 50px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 30px; background: #fff; color: var(--ink); border-radius: 26px; padding: clamp(22px, 3vw, 40px); }
+.calc h3 { font-family: var(--display); font-weight: 400; font-size: clamp(32px, 3vw, 48px); text-transform: uppercase; line-height: 1; }
+.calc .note { font-size: 13px; color: var(--dim); margin: 6px 0 20px; }
+.sl { margin-bottom: 18px; }
+.sl label { display: flex; justify-content: space-between; font-weight: 700; font-size: 14px; margin-bottom: 8px; gap: 12px; }
+.sl label span { color: var(--violet); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.sl input[type=range] { width: 100%; accent-color: var(--red); }
+.calc .out { background: var(--night); color: #fff; border-radius: 20px; padding: 26px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+.calc .out .k { color: var(--lime); }
+.calc .tot { font-family: var(--display); font-size: clamp(48px, 5.4vw, 88px); line-height: .95; font-variant-numeric: tabular-nums; }
+.calc .rows { display: grid; gap: 8px; font-size: 14px; color: #c9c6da; }
+.calc .rows div { display: flex; justify-content: space-between; border-bottom: 1px solid #23213a; padding-bottom: 8px; gap: 12px; }
+.calc .rows b { color: #fff; font-variant-numeric: tabular-nums; }
+@media (max-width: 1000px) { .why-grid { grid-template-columns: 1fr 1fr; } .calc { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .why-grid { grid-template-columns: 1fr; } }
+
+/* takes: a curved wall on desktop */
+@media (min-width: 901px) {
+  .takes-row.ring { display: block; position: relative; height: 640px; overflow: visible; perspective: 1700px; padding: 0; scroll-snap-type: none; }
+  .takes-row.ring .rg { position: absolute; left: 50%; top: 30px; width: 0; height: 0; transform-style: preserve-3d; will-change: transform; }
+  .takes-row.ring .phone { position: absolute; left: -130px; top: 0; width: 260px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+}
+@media (max-width: 900px) { .takes-row .rg { display: contents; } }
+/* contact: tiled "let's talk" */
+#contact { overflow: hidden; }
+.tiles { position: absolute; inset: 0; z-index: 0; pointer-events: none; display: flex; flex-direction: column; justify-content: space-around; opacity: .06; }
+.tiles div { white-space: nowrap; font-family: var(--display); font-size: clamp(60px, 7vw, 120px); line-height: 1; text-transform: uppercase; will-change: transform; }
+#contact .wrap { z-index: 1; }
 
 /* ============ ON THE ROAD ============ */
 #road { padding: clamp(100px, 12vw, 170px) 0 clamp(70px, 8vw, 120px); }
@@ -350,28 +416,30 @@ footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: 
 
 <!-- ============ NAV ============ -->
 <nav class="top" id="nav">
-  <a class="logo" href="#hero" aria-label="Cali Sports home"><svg viewBox="0 0 68 56" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" x2="1"><stop offset="0" stop-color="#5b3dff"/><stop offset=".6" stop-color="#ff5fa2"/><stop offset="1" stop-color="#ff2340"/></linearGradient></defs><path d="M33 28 C 18 0, 0 6, 4 22 C 7 32, 22 32, 33 28 Z M33 30 C 20 34, 8 44, 16 52 C 24 58, 30 44, 33 30 Z" fill="url(#lg1)"/><path d="M35 28 C 50 0, 68 6, 64 22 C 61 32, 46 32, 35 28 Z M35 30 C 48 34, 60 44, 52 52 C 44 58, 38 44, 35 30 Z" fill="url(#lg1)"/><rect x="32.5" y="18" width="3" height="24" rx="1.5" fill="#0d0d12"/></svg>Cali Sports</a>
-  <ul><li><a href="#moments">Moments</a></li><li><a href="#road">On the road</a></li><li><a href="#meet">Meet Cali</a></li><li><a href="#takes">Takes</a></li><li><a href="#partners">Partners</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a class="logo" href="#hero" aria-label="Cali Sports home"><svg viewBox="0 0 68 56" aria-hidden="true"><defs><linearGradient id="lg1" x1="0" x2="1"><stop offset="0" stop-color="#5b3dff"/><stop offset=".6" stop-color="#ff5fa2"/><stop offset="1" stop-color="#ff2340"/></linearGradient></defs><path d="M33 28 C 18 0, 0 6, 4 22 C 7 32, 22 32, 33 28 Z M33 30 C 20 34, 8 44, 16 52 C 24 58, 30 44, 33 30 Z" fill="url(#lg1)"/><path d="M35 28 C 50 0, 68 6, 64 22 C 61 32, 46 32, 35 28 Z M35 30 C 48 34, 60 44, 52 52 C 44 58, 38 44, 35 30 Z" fill="url(#lg1)"/><rect x="32.5" y="18" width="3" height="24" rx="1.5" fill="currentColor"/></svg>Cali Sports</a>
+  <ul><li><a href="#moments">Moments</a></li><li><a href="#road">On the road</a></li><li><a href="#meet">Meet Cali</a></li><li><a href="#takes">Takes</a></li><li><a href="#partners">Partners</a></li><li><a href="#why">Why a site</a></li><li><a href="#contact">Contact</a></li></ul>
   <a class="btn red" href="#contact">Work with Cali</a>
 </nav>
 
 <!-- ============ HERO ============ -->
 <section id="hero">
-  <div class="hx">
-    <div class="h-word" aria-hidden="true"><span data-split>Cali</span><span class="sp"></span><span data-split>Sports</span></div>
-    <div class="h-word front" aria-hidden="true"><span data-split>Cali</span><span class="sp"></span><span data-split>Sports</span></div>
-    <div class="h-l">
-      <h1><span class="it">Calister Ojonugwa Enejele</span>Sports journalist and freelance reporter. From the tunnel to the red carpet, from Lagos to the World Cup.</h1>
-      <div class="btns"><a class="btn" href="#meet">Meet Cali on tour</a><a class="btn ghost" href="#partners">Partner with Cali</a></div>
+  <canvas id="liquid" aria-hidden="true"></canvas>
+  <div class="hgrain" aria-hidden="true"></div>
+  <div class="h-word" aria-hidden="true">Cali Sports</div>
+  <div class="hz">
+    <div class="hcol l">
+      <div class="clock"><i class="dot"></i>Lagos, Nigeria<b id="clk">--:--:-- WAT</b></div>
+      <div class="talk"><span class="av"><img src="img/t-como-united.jpg" alt=""></span><div><p>Talk with<br>Cali's team</p><a href="#contact">Book a call</a></div></div>
     </div>
-    <div class="h-fig"><img src="img/cali-cut.webp" width="1417" height="2200" alt="Calister Ojonugwa Enejele smiling in a pink and red striped jumper" fetchpriority="high"></div>
-    <div class="h-r">
-      <div class="live-card"><div class="top"><span>Latest take</span><span>UCL</span></div><img src="img/t-bayern-arsenal.jpg" width="900" height="1600" alt="Cali's UCL preview: Bayern v Arsenal"><b>Bayern v Arsenal</b><p>Champions League preview, straight to camera.</p></div>
-      <div class="stats"><div><b data-count="291" data-suf="K">291K</b><span>Instagram</span></div><div><b data-count="1108" data-sep>1,108</b><span>Posts</span></div></div>
+    <div></div>
+    <div class="hcol r">
+      <h1 class="hline"><i class="dot"></i>Calister Ojonugwa Enejele. Sports journalism, interviews and fan experiences for brands ready to reach Africa's football fans.</h1>
+      <div class="hstats"><div><b data-count="291" data-suf="K">291K</b><span>Followers on Instagram</span></div><div><b data-count="1108" data-sep>1,108</b><span>Posts and interviews</span></div><div><b data-count="4">4</b><span>Countries reported from</span></div></div>
     </div>
   </div>
-  <div class="ticker"><span class="lab">LATEST</span><div class="tr" id="tick"><span><b>UCL</b>Preview: Bayern v Arsenal</span><span><b>UCL</b>Como v Manchester United preview</span><span><b>UCL</b>Man of the Match: Osimhen vs Lille</span><span><b>UCL</b>Foden hat-trick</span><span><b>UCL</b>Hakimi's performance is unmatched</span><span><b>SUPER EAGLES</b>Ilenikhena and Lookman shine</span><span><b>WATCH PARTY</b>SuperSport × Coca-Cola · Man City v Arsenal · Lagos</span></div></div>
+  <div class="h-fig"><img src="img/cali-cut.webp" width="1417" height="2200" alt="Calister Ojonugwa Enejele smiling in a pink and red striped jumper" fetchpriority="high"></div>
 </section>
+<div class="ticker"><span class="lab">LATEST</span><div class="tr" id="tick"><span><b>UCL</b>Preview: Bayern v Arsenal</span><span><b>UCL</b>Como v Manchester United preview</span><span><b>UCL</b>Man of the Match: Osimhen vs Lille</span><span><b>UCL</b>Foden hat-trick</span><span><b>UCL</b>Hakimi's performance is unmatched</span><span><b>SUPER EAGLES</b>Ilenikhena and Lookman shine</span><span><b>WATCH PARTY</b>SuperSport × Coca-Cola · Man City v Arsenal · Lagos</span></div></div>
 
 <!-- ============ BIG MOMENTS ============ -->
 <section id="moments">
@@ -379,6 +447,7 @@ footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: 
     <div class="mo-head">
       <div><p class="k" style="color:var(--lime)">The big moments</p><h2 class="h2">Mic in hand, <span class="it fly">always there</span></h2></div>
       <p class="lead">The questions, the tunnels and the red carpets. Where football's biggest stories happen, Cali is in the room.</p>
+      <div class="deck" id="deck"><div class="cd"><img src="img/t-lookman.jpg" alt=""></div><div class="cd"><img src="img/t-yamal.jpg" alt=""></div><div class="cd"><img src="img/m-tunnel.jpg" alt=""></div><div class="cd"><img src="img/t-ilenikhena.jpg" alt=""></div><div class="cd"><img src="img/t-bayern-arsenal.jpg" alt=""></div><div class="cd"><img src="img/t-kombo.jpg" alt=""></div><div class="cd"><img src="img/m-worldcup.jpg" alt=""></div></div>
     </div>
     <div class="mo-track" id="motrack">
       <article class="mcard"><span class="num">01</span>
@@ -483,13 +552,33 @@ footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: 
   </div>
 </section>
 
+<!-- ============ FORMATS ============ -->
+<section id="formats">
+  <div class="wrap fm-grid">
+    <div class="fm-side"><p class="k">What Cali does</p><p>One journalist, every format a football brand needs. Scroll to spin.</p></div>
+    <div class="cyl-wrap"><div class="cyl" id="cyl">
+      <div class="ln" style="--i:0"><img src="img/t-lookman.jpg" alt="">Interviews</div>
+      <div class="ln red" style="--i:1"><img src="img/cali-cut.webp" alt="">Watch parties</div>
+      <div class="ln" style="--i:2"><img src="img/t-bayern-arsenal.jpg" alt="">Match previews</div>
+      <div class="ln lime" style="--i:3"><img src="img/m-caf.jpg" alt="">Red carpets</div>
+      <div class="ln" style="--i:4"><img src="img/t-kombo.jpg" alt="">Event hosting</div>
+      <div class="ln red" style="--i:5"><img src="img/m-tunnel.jpg" alt="">Meet & greets</div>
+      <div class="ln" style="--i:6"><img src="img/t-ilenikhena.jpg" alt="">Brand campaigns</div>
+      <div class="ln lime" style="--i:7"><img src="img/t-yamal.jpg" alt="">Press rooms</div>
+      <div class="ln" style="--i:8"><img src="img/t-como-united.jpg" alt="">Hot takes</div>
+      <div class="ln red" style="--i:9"><img src="img/m-worldcup.jpg" alt="">Fan days</div>
+    </div></div>
+    <div class="fm-side r"><b>10</b><p>formats, one voice</p></div>
+  </div>
+</section>
+
 <!-- ============ TAKES ============ -->
 <section id="takes">
   <div class="wrap takes-head">
     <div><p class="k" style="color:var(--violet)">Cali's takes</p><h2 class="h2">Every matchday, <span class="it fly">her call</span></h2></div>
     <a class="btn ghost" href="https://www.instagram.com/iamcalisports/" target="_blank" rel="noopener">Follow on Instagram →</a>
   </div>
-  <div class="takes-row" id="takesrow">
+  <div class="takes-row ring" id="takesrow"><div class="rg" id="rg">
     <a class="phone" href="https://www.instagram.com/reel/DewC3w2t2Jy/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-bayern-arsenal.jpg" alt="UCL preview Bayern v Arsenal" loading="lazy"></div><div class="cap"><span>UCL preview</span><b>Bayern v Arsenal</b></div></a>
     <a class="phone" href="https://www.instagram.com/reel/DewC_e6tM3v/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-como-united.jpg" alt="Como v Manchester United preview" loading="lazy"></div><div class="cap"><span>UCL preview</span><b>Como v Man United</b></div></a>
     <a class="phone" href="https://www.instagram.com/reel/DexPjWGNBuv/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-united.jpg" alt="What's Manchester United's problem?" loading="lazy"></div><div class="cap"><span>Hot take</span><b>What's United's problem?</b></div></a>
@@ -497,7 +586,7 @@ footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: 
     <a class="phone" href="https://www.instagram.com/reel/DawF73LNytY/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-yamal.jpg" alt="Lamine Yamal at the World Cup" loading="lazy"></div><div class="cap"><span>World Cup</span><b>Yamal on his tournament</b></div></a>
     <a class="phone" href="https://www.instagram.com/reel/DDp5NbjILPW/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-lookman.jpg" alt="Lookman interview at the CAF Awards" loading="lazy"></div><div class="cap"><span>CAF Awards</span><b>Lookman, Player of the Year</b></div></a>
     <a class="phone" href="https://www.instagram.com/reel/DeyLsoYoMDD/" target="_blank" rel="noopener"><div class="scr"><img src="img/t-kombo.jpg" alt="Football game with Ultimate Kombo" loading="lazy"></div><div class="cap"><span>Collab</span><b>Game night with Kombo</b></div></a>
-  </div>
+  </div></div>
 </section>
 
 <!-- ============ PARTNERS ============ -->
@@ -519,8 +608,43 @@ footer { background: var(--night); color: #fff; padding: 80px 0 90px; overflow: 
   </div>
 </section>
 
+<!-- ============ WHY ============ -->
+<section id="why">
+  <div class="wrap">
+    <p class="k" style="color:var(--lime)">Why your own website, Cali?</p>
+    <h2 class="h2">Instagram rents you a stage. <span class="it fly">This one you own.</span></h2>
+    <p class="lead" style="margin-top:18px">Your audience is already here. A home of your own turns attention into bookings, sponsors and income, and makes you easy to hire anywhere in the world.</p>
+    <div class="why-grid">
+      <div class="wy rv"><span class="n">01</span><h3>Own your audience</h3><p>The algorithm decides who sees a post. Your newsletter and fan list don't. Every tour date and partner campaign lands straight in their inbox.</p></div>
+      <div class="wy rv"><span class="n">02</span><h3>Sell sponsor slots 24/7</h3><p>Tour sponsor, "brought to you by" previews, newsletter partner: real inventory with real prices, live on the page brands already check.</p></div>
+      <div class="wy rv"><span class="n">03</span><h3>Get accredited faster</h3><p>Media accreditation and broadcaster applications ask for a portfolio. Send one link with your interviews, coverage and audience.</p></div>
+      <div class="wy rv"><span class="n">04</span><h3>Ticket your meet-ups</h3><p>RSVPs, VIP passes and waitlists for every city, with the data to prove to sponsors how many fans turned up.</p></div>
+      <div class="wy rv"><span class="n">05</span><h3>Look like a media brand</h3><p>partners@ instead of a Gmail. A media kit on request. Brands pay more when the business looks the part.</p></div>
+      <div class="wy rv"><span class="n">06</span><h3>Found on Google</h3><p>"Cali Sports", "Nigerian sports journalist", "World Cup reporter": searches that today lead nowhere start leading to you.</p></div>
+    </div>
+    <div class="calc rv" id="calc">
+      <div>
+        <h3>What could the site earn?</h3>
+        <p class="note">An illustration, not a promise. Drag the sliders to your own numbers and rates.</p>
+        <div class="sl"><label>Hosted watch parties a year <span id="v1"></span></label><input type="range" id="s1" min="0" max="24" value="6"></div>
+        <div class="sl"><label>Fee per watch party <span id="v2"></span></label><input type="range" id="s2" min="200000" max="5000000" step="100000" value="1000000"></div>
+        <div class="sl"><label>Sponsored previews a month <span id="v3"></span></label><input type="range" id="s3" min="0" max="20" value="4"></div>
+        <div class="sl"><label>Rate per sponsored preview <span id="v4"></span></label><input type="range" id="s4" min="50000" max="1500000" step="50000" value="300000"></div>
+        <div class="sl"><label>Meet & greet stops a year <span id="v5"></span></label><input type="range" id="s5" min="0" max="12" value="4"></div>
+        <div class="sl"><label>VIP passes sold per stop, at ₦25,000 <span id="v6"></span></label><input type="range" id="s6" min="0" max="300" step="10" value="60"></div>
+      </div>
+      <div class="out">
+        <div><p class="k">Potential a year</p><div class="tot" id="tot">₦0</div></div>
+        <div class="rows"><div><span>Watch parties</span><b id="r1"></b></div><div><span>Sponsored previews</span><b id="r2"></b></div><div><span>Meet & greet VIP passes</span><b id="r3"></b></div></div>
+        <a class="btn" style="background:var(--lime);color:var(--ink);justify-content:center" href="#contact">Let's build it →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CONTACT ============ -->
 <section id="contact">
+  <div class="tiles" aria-hidden="true" id="tiles"><div>Let's talk · Let's talk · Let's talk · Let's talk · Let's talk · Let's talk ·&nbsp;</div><div>Let's talk · Let's talk · Let's talk · Let's talk · Let's talk · Let's talk ·&nbsp;</div><div>Let's talk · Let's talk · Let's talk · Let's talk · Let's talk · Let's talk ·&nbsp;</div><div>Let's talk · Let's talk · Let's talk · Let's talk · Let's talk · Let's talk ·&nbsp;</div><div>Let's talk · Let's talk · Let's talk · Let's talk · Let's talk · Let's talk ·&nbsp;</div></div>
   <div class="wrap">
     <p class="k" style="color:var(--violet)">Dedicated inboxes</p>
     <h2 class="h2">The right desk, <span class="it fly">every time</span></h2>
@@ -629,12 +753,52 @@ function onair() {
   $("#oaskip").addEventListener("click", () => { cd.kill(); finishIntro(true); });
 }
 
+/* ---------- living colour field (WebGL) ---------- */
+function liquid() {
+  const cv = $("#liquid"), gl = cv.getContext("webgl", { antialias: false, premultipliedAlpha: false });
+  if (!gl) { cv.style.background = "linear-gradient(135deg,#2a0e6b,#5b3dff 30%,#ff2340 60%,#ff5fa2 80%,#d7ff3a)"; return; }
+  const vs = "attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
+  const fs = `precision mediump float;uniform vec2 r;uniform float t;uniform vec2 m;
+  float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+  float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+  float fb(vec2 p){float v=0.,a=.55;for(int i=0;i<3;i++){v+=a*n(p);p=p*1.9+vec2(1.7,9.2);a*=.45;}return v;}
+  vec3 pal(float x){return vec3(.56,.42,.56)+vec3(.46,.42,.44)*cos(6.2831*(x+vec3(.0,.3,.62)));}
+  void main(){vec2 uv=gl_FragCoord.xy/r;vec2 p=uv*vec2(r.x/r.y,1.)*.9;float tt=t*.035;
+    vec2 q=vec2(fb(p*.8+tt),fb(p*.8+vec2(3.1,1.7)-tt*.8));
+    float f=fb(p*.7+q*2.3+m*.25);
+    float bands=f*2.1+p.x*.32-p.y*.18+tt*.9;
+    vec3 col=pal(bands);
+    float sheen=pow(abs(sin(f*8.+p.y*2.4+tt*3.)),7.);
+    col=col*.8+sheen*.22;
+    col=mix(col,vec3(.17,.05,.38),.18);
+    col*=.82+.22*uv.y;
+    gl_FragColor=vec4(col,1.);}`;
+  const sh = (t, src) => { const o = gl.createShader(t); gl.shaderSource(o, src); gl.compileShader(o); return o; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr); gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, "p"); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const uR = gl.getUniformLocation(pr, "r"), uT = gl.getUniformLocation(pr, "t"), uM = gl.getUniformLocation(pr, "m");
+  const scale = mobile ? 0.35 : 0.5;   // render small, let CSS scale it up: soft and fast
+  const size = () => { cv.width = Math.max(2, Math.round(cv.clientWidth * scale)); cv.height = Math.max(2, Math.round(cv.clientHeight * scale)); gl.viewport(0, 0, cv.width, cv.height); };
+  size(); addEventListener("resize", size);
+  const mo = { x: 0, y: 0 }, tm = { x: 0, y: 0 };
+  addEventListener("pointermove", (e) => { tm.x = e.clientX / innerWidth - 0.5; tm.y = e.clientY / innerHeight - 0.5; });
+  let vis = true; new IntersectionObserver((es) => (vis = es[0].isIntersecting)).observe(cv);
+  const t0 = performance.now();
+  const draw = () => { requestAnimationFrame(draw); if (!vis) return; mo.x += (tm.x - mo.x) * 0.04; mo.y += (tm.y - mo.y) * 0.04;
+    gl.uniform2f(uR, cv.width, cv.height); gl.uniform1f(uT, reduce ? 20 : (performance.now() - t0) / 1000); gl.uniform2f(uM, mo.x, -mo.y); gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4); };
+  draw();
+}
+liquid();
+const clk = () => { try { $("#clk").textContent = new Intl.DateTimeFormat("en-GB", { timeZone: "Africa/Lagos", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false }).format(new Date()) + " WAT"; } catch (e) {} };
+clk(); setInterval(clk, 1000);
+
 /* ---------- hero ---------- */
 function heroIn(delay) {
   const tl = gsap.timeline({ delay });
-  tl.from(".h-word .ch", { yPercent: 110, opacity: 0, duration: 1.2, stagger: 0.04, ease: "expo.out" }, 0)
+  tl.from(".h-word", { yPercent: 70, opacity: 0, duration: 1.6, ease: "expo.out" }, 0)
     .from(".h-fig", { y: 140, opacity: 0, duration: 1.4, ease: "expo.out" }, 0.15)
-    .from(".h-l > *, .h-r > *", { y: 30, opacity: 0, duration: 1, stagger: 0.08, ease: "expo.out" }, 0.45)
+    .from(".hcol > *", { y: 30, opacity: 0, duration: 1, stagger: 0.08, ease: "expo.out" }, 0.45)
     .from("nav.top", { y: -30, opacity: 0, duration: 0.9 }, 0.5)
     .from(".ticker", { yPercent: 100, duration: 0.8, ease: "expo.out" }, 0.6)
     .add(flyButterfly, 0.8);
@@ -665,7 +829,7 @@ function scrolly() {
   ScrollTrigger.create({ start: 60, onUpdate: (s) => $("#nav").classList.toggle("solid", s.scroll() > 60) });
   $$(".rv").forEach((el) => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: "expo.out", scrollTrigger: { trigger: el, start: "top 90%" } }));
   $$(".h2").forEach((h) => gsap.from(h, { yPercent: 30, opacity: 0, duration: 1.2, ease: "expo.out", scrollTrigger: { trigger: h, start: "top 88%" } }));
-  gsap.to(".h-word", { yPercent: -14, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
+  gsap.to(".h-word", { yPercent: -30, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
   gsap.to(".h-fig", { yPercent: 8, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true } });
   // moments: sideways on desktop
   if (!mobile) {
@@ -684,12 +848,45 @@ function scrolly() {
   gsap.from(".pin", { scale: 0, opacity: 0, duration: 0.7, stagger: 0.12, ease: "back.out(2)", scrollTrigger: { trigger: "#map", start: "top 70%" } });
   // counters
   $$("[data-count]").forEach((el) => { const n = +el.dataset.count, o = { v: 0 }; gsap.to(o, { v: n, duration: 1.8, ease: "power2.out", scrollTrigger: { trigger: el, start: "top 95%" }, onUpdate: () => (el.textContent = (el.dataset.sep !== undefined ? Math.round(o.v).toLocaleString("en-GB") : Math.round(o.v)) + (el.dataset.suf || "")) }); });
-  // takes row: fan in
-  gsap.from(".phone", { y: 80, opacity: 0, rotate: (i) => (i % 2 ? 4 : -4), duration: 1.1, stagger: 0.07, ease: "expo.out", scrollTrigger: { trigger: "#takesrow", start: "top 85%" } });
+  // takes: a curved wall that turns as you scroll (desktop), a swipe row on phones
+  if (!mobile) {
+    const ph = $$("#rg .phone"), step = 21, R = 980;
+    const place = (rot) => ph.forEach((el, i) => { const a = (i - (ph.length - 1) / 2) * step + rot; gsap.set(el, { rotationY: a, z: R * Math.cos(a / 57.3) - R, x: R * Math.sin(a / 57.3), opacity: Math.abs(a) > 75 ? 0 : 1 }); });
+    const st = { r: 34 }; place(st.r);
+    gsap.to(st, { r: -34, ease: "none", onUpdate: () => place(st.r), scrollTrigger: { trigger: "#takesrow", start: "top bottom", end: "bottom top", scrub: 0.8 } });
+  } else {
+    gsap.from(".phone", { y: 80, opacity: 0, rotate: (i) => (i % 2 ? 4 : -4), duration: 1.1, stagger: 0.07, ease: "expo.out", scrollTrigger: { trigger: "#takesrow", start: "top 85%" } });
+  }
+  // formats cylinder spins with scroll, and keeps drifting
+  const cyl = { a: 0, auto: 0 };
+  gsap.to(cyl, { a: 360, ease: "none", scrollTrigger: { trigger: "#formats", start: "top bottom", end: "bottom top", scrub: 1 } });
+  gsap.ticker.add(() => { if (!reduce) cyl.auto += 0.08; $("#cyl").style.transform = `rotateX(${cyl.a + cyl.auto}deg)`; });
+  // deck of moments fans out
+  const cds = $$("#deck .cd"), n = cds.length;
+  const fan = (spread, tilt) => cds.forEach((c, i) => { const k = i - (n - 1) / 2; gsap.to(c, { x: k * 46 * spread, y: Math.abs(k) * 10 * spread, rotation: k * 7 * spread, rotationY: tilt * 18, z: -Math.abs(k) * 20, duration: 0.9, ease: "expo.out", overwrite: "auto" }); });
+  fan(0.15, 0);
+  ScrollTrigger.create({ trigger: "#moments", start: "top 70%", onEnter: () => fan(1, 0), onLeaveBack: () => fan(0.15, 0) });
+  if (!mobile) $("#deck").addEventListener("pointermove", (e) => { const r = $("#deck").getBoundingClientRect(); fan(1.25, (e.clientX - r.left) / r.width - 0.5); });
+  if (!mobile) $("#deck").addEventListener("pointerleave", () => fan(1, 0));
+  // let's talk tiles drift in alternate directions
+  $$("#tiles div").forEach((d, i) => gsap.fromTo(d, { xPercent: i % 2 ? -18 : 0 }, { xPercent: i % 2 ? 0 : -18, ease: "none", scrollTrigger: { trigger: "#contact", start: "top bottom", end: "bottom top", scrub: true } }));
   // a butterfly escorts you through meet & contact
   [["#meet", 0.12], ["#contact", 0.85]].forEach(([s, xr]) => { const sec = $(s), b = makeFly(); b.style.left = xr * 100 + "%"; b.style.top = "80px"; b.style.opacity = ".9"; sec.appendChild(b);
     gsap.fromTo(b, { y: 0, x: -40 }, { y: () => sec.clientHeight * 0.55, x: 60, ease: "none", scrollTrigger: { trigger: sec, start: "top bottom", end: "bottom top", scrub: true } }); });
 }
+
+/* ---------- value calculator ---------- */
+const naira = (v) => "₦" + Math.round(v).toLocaleString("en-NG");
+const short = (v) => v >= 1e9 ? "₦" + (v / 1e9).toFixed(2) + "bn" : v >= 1e6 ? "₦" + (v / 1e6).toFixed(1) + "m" : naira(v);
+const calc = () => {
+  const g = (id) => +$(id).value;
+  const a = g("#s1") * g("#s2"), b = g("#s3") * 12 * g("#s4"), c = g("#s5") * g("#s6") * 25000;
+  $("#v1").textContent = g("#s1"); $("#v2").textContent = naira(g("#s2")); $("#v3").textContent = g("#s3"); $("#v4").textContent = naira(g("#s4")); $("#v5").textContent = g("#s5"); $("#v6").textContent = g("#s6");
+  $("#r1").textContent = short(a); $("#r2").textContent = short(b); $("#r3").textContent = short(c);
+  const tot = a + b + c, o = { v: calc.last || 0 }; calc.last = tot;
+  gsap.to(o, { v: tot, duration: 0.6, ease: "power2.out", overwrite: true, onUpdate: () => ($("#tot").textContent = short(o.v)) });
+};
+$$("#calc input").forEach((i) => i.addEventListener("input", calc)); calc();
 
 /* ---------- interactions ---------- */
 let voted = []; try { voted = JSON.parse(localStorage.getItem("cali-votes") || "[]"); } catch (e) {}
